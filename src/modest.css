@@ -58,16 +58,8 @@
   }
 }
 
-pre,
-code {
-  font-family: Menlo, Monaco, "Courier New", monospace;
-}
 
-pre {
-  padding: .5rem;
-  line-height: 1.25;
-  overflow-x: scroll;
-}
+
 
 a,
 a:visited {
@@ -175,17 +167,15 @@ textarea {
 
 @import url(http://fonts.googleapis.com/css?family=Arimo:700,700italic);
 
-html {
-  font-size: 18px;
-  max-width: 100%;
-}
+
 
 body {
-  color: #444;
+
   font-family: 'Open Sans Condensed', sans-serif;
   font-weight: 300;
   margin: 0 auto;
-  max-width: 48rem;
+  font-size: 18px;
+
   line-height: 1.45;
   padding: .25rem;
 }
@@ -211,9 +201,4 @@ h3 {
 blockquote {
   border-left: 8px solid #fafafa;
   padding: 1rem;
-}
-
-pre,
-code {
-  background-color: #fafafa;
 }

@@ -7,22 +7,41 @@ $entry = getEntry($_GET['id']);
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-   <head>
-      <?php include('header.php'); ?>
-      <title><?php echo $entry['title'] ?></title>
-   </head>
-   <body>
-      <?php include('navbar.php'); ?>
-      <div class="container">
 
-         <h1><?php echo $entry['title']; ?></h1>
-         <h5><?php echo $entry['date']; ?></h5>
+<head>
+	<?php include('header.php'); ?>
+	<title><?php echo $entry['title'] ?></title>
+</head>
 
-        <br><br>
-         <div id="content">
-            <?php echo $entry['content']; ?>
-         </div>
+<body>
+	<?php include('navbar.php'); ?>
+	<div class="container">
 
-      </div>
-   </body>
+		<h1><?php echo $entry['title']; ?></h1>
+		<h5><?php echo $entry['date']; ?></h5>
+
+		<br><br>
+		<div id="content">
+			<?php echo $entry['content']; ?>
+		</div>
+
+
+
+
+
+
+
+
+
+
+<br><br>
+
+	</div>
+
+
+
+
+	<script src="prism.js"></script>
+</body>
+
 </html>

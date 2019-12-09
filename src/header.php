@@ -17,7 +17,12 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 
 <!-- github css -->
+<!-- https://gist.github.com/tuzz/3331384 -->
 <!-- <link rel="stylesheet" type="text/css" href="github.css"> -->
 
+<!-- modest css -->
 <!-- https://github.com/markdowncss/modest/blob/master/css/modest.css -->
 <!-- <link rel="stylesheet" type="text/css" href="modest.css"> -->
+
+
+<link href="prism.css" rel="stylesheet" />

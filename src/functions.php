@@ -19,6 +19,8 @@ function dbConnect() {
 function insertEntry($title, $content) {
 
    $pdo = dbConnect();
+
+   $content = addslashes($content);
    $sql = "INSERT INTO Entries (date, title, content) VALUES (CURRENT_DATE(), \"$title\", \"$content\")";
    $result = $pdo->exec($sql);
 
