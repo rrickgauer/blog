@@ -21,6 +21,8 @@ function insertEntry($title, $content) {
    $pdo = dbConnect();
 
    $content = addslashes($content);
+   $title = addslashes($title);
+
    $sql = "INSERT INTO Entries (date, title, content) VALUES (CURRENT_DATE(), \"$title\", \"$content\")";
    $result = $pdo->exec($sql);
 
@@ -33,6 +35,20 @@ function insertEntry($title, $content) {
    return $row['id'];
 }
 
+function updateEntry($id, $title, $content) {
+
+   $pdo = dbConnect();
+
+   $content = addslashes($content);
+   $title = addslashes($title);
+
+   $sql = "UPDATE Entries SET title=\"$title\", content=\"$content\" WHERE id=$id";
+   $result = $pdo->exec($sql);
+
+   $pdo = null;
+
+}
+
 function getEntry($id) {
 
    $pdo = dbConnect();
@@ -41,6 +57,23 @@ function getEntry($id) {
 
    return $result->fetch(PDO::FETCH_ASSOC);
 
+}
+
+function printTitleSelectOptions() {
+
+  $pdo = dbConnect();
+  $sql = 'SELECT * from Entries ORDER BY Title desc';
+  $result = $pdo->query($sql);
+
+  while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+    $id = $row['id'];
+    $date = $row['date'];
+    $title = $row['title'];
+    $content = $row['content'];
+
+    echo "<option value=\"$id\">$title</option>";
+
+  }
 }
 
 

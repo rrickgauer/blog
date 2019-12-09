@@ -3,7 +3,9 @@
 include_once('functions.php');
 
 
-$id = insertEntry($_POST['title'], $_POST['content']);
+$id = $_GET['id'];
+
+updateEntry($_GET['id'], $_POST['title'], $_POST['content']);
 
 header('Location: entry.php?id=' . $id);
 exit;
