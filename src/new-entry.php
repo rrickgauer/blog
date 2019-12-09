@@ -2,9 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-
 	<?php include('header.php'); ?>
-
 	<title>New blog entry</title>
 </head>
 
@@ -14,14 +12,15 @@
 
 		<h1>New Entry</h1>
 
-		<form class="form" method="post" action="entry.php">
+		<form class="form" method="post" action="insert-entry.php">
 
-
+         <!-- title -->
 			<div class="form-group">
 				<label for="title" class="font-weight-bold">Title:</label>
 				<input type="text" class="form-control" id="title" name="title">
 			</div>
 
+         <!-- content -->
 			<div class="form-group">
 				<label for="content" class="font-weight-bold">Content:</label>
 				<textarea  class="form-control widgEditor" rows="20" id="content" name="content"></textarea>
@@ -29,16 +28,7 @@
 
          <input type="submit" value="Submit" class="btn btn-primary">
 
-
-
-
 		</form>
-
-
-
-
-
-
 	</div>
 </body>
 
