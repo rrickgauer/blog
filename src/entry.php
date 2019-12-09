@@ -12,6 +12,7 @@ $entry = getEntry($_GET['id']);
       <title><?php echo $entry['title'] ?></title>
    </head>
    <body>
+      <?php include('navbar.php'); ?>
       <div class="container">
 
          <h1><?php echo $entry['title']; ?></h1>

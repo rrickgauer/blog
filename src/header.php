@@ -15,3 +15,9 @@
 
 <!-- custom css sheet -->
 <link rel="stylesheet" type="text/css" href="style.css">
+
+<!-- github css -->
+<!-- <link rel="stylesheet" type="text/css" href="github.css"> -->
+
+<!-- https://github.com/markdowncss/modest/blob/master/css/modest.css -->
+<!-- <link rel="stylesheet" type="text/css" href="modest.css"> -->

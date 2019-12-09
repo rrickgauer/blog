@@ -1,3 +1,8 @@
+body {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+
 .card-entry {
    border: 0 !important;
    padding: 0 !important;
@@ -7,4 +12,20 @@
 .card-entry h5, h6 {
    padding: 0 !important;
    margin: 0 !important;
+}
+
+.card {
+   background-color: inherit;
+}
+
+body {
+   background-color: white;
+}
+
+#top-navbar {
+   background-color: #6c7b95;
+}
+
+#top-navbar a {
+   color: white !important;
 }

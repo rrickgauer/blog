@@ -20,6 +20,11 @@ $results = $pdo->query($sql);
 </head>
 
 <body>
+
+   <?php include('navbar.php'); ?>
+
+
+
 	<div class="container">
 
 		<h1>Browse</h1>
@@ -32,20 +37,7 @@ $results = $pdo->query($sql);
          printEntryCard($entry['id'], $entry['title'], $entry['date_formatted']);
       }
 
-
       ?>
-
-
-
-
-
-
-
-
-
-
-
-
 
 		</div>
 </body>
