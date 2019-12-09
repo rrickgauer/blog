@@ -3,6 +3,11 @@
 
 <head>
 	<?php include('header.php'); ?>
+
+   <!-- NiceEdit -->
+   <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+   <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+
 	<title>New blog entry</title>
 </head>
 

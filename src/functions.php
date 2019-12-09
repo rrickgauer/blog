@@ -19,7 +19,7 @@ function dbConnect() {
 function insertEntry($title, $content) {
 
    $pdo = dbConnect();
-   $sql = "INSERT INTO Entries (date, title, content) VALUES (CURRENT_TIMESTAMP(), \"$title\", \"$content\")";
+   $sql = "INSERT INTO Entries (date, title, content) VALUES (CURRENT_DATE(), \"$title\", \"$content\")";
    $result = $pdo->exec($sql);
 
    $sql = 'SELECT id FROM Entries ORDER BY id desc LIMIT 1';
@@ -34,7 +34,7 @@ function insertEntry($title, $content) {
 function getEntry($id) {
 
    $pdo = dbConnect();
-   $sql = "SELECT * FROM Entries WHERE id=$id";
+   $sql = "SELECT Entries.id, Entries.title, Entries.content, DATE_FORMAT(Entries.date, \"%M %D, %Y\") as \"date\" FROM Entries WHERE id=$id";
    $result = $pdo->query($sql);
 
    return $result->fetch(PDO::FETCH_ASSOC);
