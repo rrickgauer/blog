@@ -60,27 +60,15 @@
 
 				<!-- save -->
 				<div class="float-right">
-				<input type="submit" value="Save" class="btn btn-primary">
-			</div>
+					<button type="button" class="btn btn-secondary" onclick="deleteEntry()">Delete</button>
+					<input type="submit" value="Save" class="btn btn-primary">
+				</div>
 
 
 
 			</form>
 
 		</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	</div>
 
@@ -99,6 +87,15 @@
 			$('#content').summernote();
 
 		});
+
+		function deleteEntry() {
+			if (confirm('Are you sure you want to delete this post?')) {
+				window.location.href = 'delete-entry.php?id=<?php if (isset($entry)) echo $_GET['id']; ?>'
+			}
+		}
+
+
+
 	</script>
 
 </body>

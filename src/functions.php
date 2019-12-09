@@ -51,12 +51,20 @@ function updateEntry($id, $title, $content) {
 
 function getEntry($id) {
 
-   $pdo = dbConnect();
-   $sql = "SELECT Entries.id, Entries.title, Entries.content, DATE_FORMAT(Entries.date, \"%M %D, %Y\") as \"date\" FROM Entries WHERE id=$id";
-   $result = $pdo->query($sql);
+  $pdo = dbConnect();
+  $sql = "SELECT Entries.id, Entries.title, Entries.content, DATE_FORMAT(Entries.date, \"%M %D, %Y\") as \"date\" FROM Entries WHERE id=$id";
+  $result = $pdo->query($sql);
 
-   return $result->fetch(PDO::FETCH_ASSOC);
+  return $result->fetch(PDO::FETCH_ASSOC);
 
+}
+
+function deleteEntry($id) {
+  $pdo = dbConnect();
+  $sql = "DELETE FROM Entries WHERE id=$id";
+  $result = $pdo->exec($sql);
+  $pdo = null;
+  $result = null;
 }
 
 function printTitleSelectOptions() {
