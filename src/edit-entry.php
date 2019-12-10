@@ -71,14 +71,16 @@
 
 		</div>
 
+		<button type="button" class="btn" data-toggle="modal" data-target="#fullscreen-modal" id="fullscreen-button" onclick="enableFullScreen()" data-backdrop="static" data-keyboard="false">
+			Expand
+		</button>
+
 		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#preview-modal" id="preview-button" onclick="setPreviewContent()">
 			Preview
 		</button>
 
 
-		<button type="button" class="btn" data-toggle="modal" data-target="#fullscreen-modal" id="fullscreen-button" onclick="enableFullScreen()" data-backdrop="static" data-keyboard="false">
-			Expand
-		</button>
+
 
 	</div>
 
@@ -104,7 +106,12 @@
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h3 class="modal-title">Full screen</h3>
+					<!-- <h3 class="modal-title">Full screen</h3> -->
+
+					<button type="button" class="btn btn-primary" onclick="setPreviewFromExpand()">Preview</button>
+
+
+
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="setSmallerTextareaContent()">
 						<span aria-hidden="true">&times;</span>
 					</button>
@@ -149,11 +156,8 @@
 		}
 
 		function enableFullScreen() {
-
-
 			var content = document.getElementById("content").value;
 			document.getElementById("fullscreen-edit-section").value = content;
-
 		}
 
 		function setSmallerTextareaContent() {
@@ -162,6 +166,13 @@
 			document.getElementById("content").value = content;
 		}
 
+		function setPreviewFromExpand() {
+			setSmallerTextareaContent();
+			setPreviewContent();
+
+			$('#fullscreen-modal').modal('hide');
+			$('#preview-modal').modal('show');
+		}
 
 
 
