@@ -1,8 +1,6 @@
 <?php
 include_once('functions.php');
-
 $entry = getEntry($_GET['id']);
-
 ?>
 
 <!DOCTYPE html>
@@ -31,13 +29,9 @@ $entry = getEntry($_GET['id']);
      <?php echo $entry['content']; ?>
    </div>
 
-
    <br><br>
 
  </div>
-
-
-
 
  <script src="js/prism.js"></script>
 

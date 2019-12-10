@@ -3,7 +3,6 @@
 <html lang="en" dir="ltr">
 
 <head>
-
 	<?php include('header.php'); ?>
 
 	<!-- include Select2 -->
@@ -13,41 +12,28 @@
 	<!-- select2 bootstrap css -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.css" />
 
-	<!-- widearea textarea plugin -->
-	<!-- <link rel="stylesheet" type="text/css" href="css/widearea.css" /> -->
-	<!-- <script type="text/javascript" src="js/widearea.js"></script> -->
-
 	<title>Edit entry</title>
 </head>
 
 <body>
 	<?php include('navbar.php'); ?>
-
 	<div class="container">
-
 		<h1>Edit entry</h1>
 
-
+		<!-- select entry dropdown -->
 		<select class="form-control form-control-lg col-sm-12" name="state" id="select-entry">
 			<option>Select entry</option>
 			<?php printTitleSelectOptions(); ?>
-		</select>
-
-		<br><br><br>
+		</select><br>
 
 		<?php
-
 		if (isset($_GET['id'])) {
 			$entry = getEntry($_GET['id']);
 		}
-
-
 		?>
 
-
-
+		<!-- edit entry form section -->
 		<div class="<?php if (!isset($entry)) echo  'd-none'?>">
-
 			<form class="form" method="post" action="update-entry.php?id=<?php if (isset($entry)) echo $entry['id']; ?>">
 
 				<!-- title -->
@@ -71,17 +57,13 @@
 
 		</div>
 
-		<button type="button" class="btn" data-toggle="modal" data-target="#fullscreen-modal" id="fullscreen-button" onclick="enableFullScreen()" data-backdrop="static" data-keyboard="false">
-			Expand
-		</button>
-
-		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#preview-modal" id="preview-button" onclick="setPreviewContent()">
-			Preview
-		</button>
-
-
-
-
+		<!-- expand and preview button group -->
+		<div class="btn-group" role="group" aria-label="Basic example">
+			<!-- expand textarea button -->
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fullscreen-modal" id="fullscreen-button" onclick="enableFullScreen()" data-backdrop="static" data-keyboard="false">Expand</button>
+			<!-- preview entry button -->
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#preview-modal" id="preview-button" onclick="setPreviewContent()">Preview</button>
+		</div>
 	</div>
 
 
@@ -106,12 +88,11 @@
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<!-- <h3 class="modal-title">Full screen</h3> -->
 
+					<!-- preview entry button -->
 					<button type="button" class="btn btn-primary" onclick="setPreviewFromExpand()">Preview</button>
 
-
-
+					<!-- close modal -->
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="setSmallerTextareaContent()">
 						<span aria-hidden="true">&times;</span>
 					</button>
@@ -123,13 +104,8 @@
 		</div>
 	</div>
 
-
 	<!-- adds padding to the bottom of the page for looks -->
 	<div class="padding-bottom"></div>
-
-
-
-
 
 	<script>
 		$(document).ready(function() {
@@ -140,15 +116,11 @@
 			});
 
 			// set select-entry to select2 plugin
-			$("#select-entry").select2({
-				theme: "bootstrap"
-			});
+			$("#select-entry").select2({theme: "bootstrap"});
 
-
+			// sets the navbar item to selected
 			$("#edit-entry-nav").addClass("selected");
 		});
-
-
 
 		function setPreviewContent() {
 			var content = document.getElementById("content").value;
@@ -169,18 +141,9 @@
 		function setPreviewFromExpand() {
 			setSmallerTextareaContent();
 			setPreviewContent();
-
 			$('#fullscreen-modal').modal('hide');
 			$('#preview-modal').modal('show');
 		}
-
-
-
-
-
-
-
-
 
 
 		// function deleteEntry() {

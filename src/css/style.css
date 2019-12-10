@@ -1,172 +1,133 @@
 body {
-   padding: 0 !important;
-   margin: 0 !important;
+	padding: 0 !important;
+	margin: 0 !important;
 }
 
 .card-entry {
-   border: 0 !important;
-   padding: 0 !important;
-   margin: 0 !important;
+	border: 0 !important;
+	padding: 0 !important;
+	margin: 0 !important;
 }
 
 .card-entry h5, h6 {
-   padding: 0 !important;
-   margin: 0 !important;
+	padding: 0 !important;
+	margin: 0 !important;
 }
 
 .card {
-   background-color: inherit;
+	background-color: inherit;
 }
 
 body {
-   background-color: #F5F5F5;
+	background-color: #F5F5F5;
 }
 
 #top-navbar {
-   background-color: white;
+	background-color: white;
 }
 
 #top-navbar a {
-   color: black !important;
-   font-weight: bold;
-
+	color: black !important;
+	font-weight: bold;
 }
 
 #top-navbar li {
-   color: black !important;
-   font-weight: bold;
-   /*padding-right: 20px;*/
-   margin-left: 5px;
-   margin-right: 5px;
-
-
+	color: black !important;
+	font-weight: bold;
+	/*padding-right: 20px;*/
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 #top-navbar a {
-   border-bottom-style: solid;
-   border-bottom-width: 5px;
-   border-bottom-color: white;
-   /*margin: 20px;*/
+	border-bottom-style: solid;
+	border-bottom-width: 5px;
+	border-bottom-color: white;
+	/*margin: 20px;*/
 }
 
 #navbarNav a:hover {
-   border-bottom-style: solid;
-   border-bottom-width: 5px;
-   border-bottom-color: black;
+	border-bottom-style: solid;
+	border-bottom-width: 5px;
+	border-bottom-color: black;
 }
 
 #navbarNav a.selected {
-   border-bottom-style: solid;
-   border-bottom-width: 5px;
-   border-bottom-color: black;
+	border-bottom-style: solid;
+	border-bottom-width: 5px;
+	border-bottom-color: black;
 }
 
-
-
 .entry-title {
-   text-align: center !important;
+	text-align: center !important;
 }
 
 .entry-title h1, h5 {
-   padding-top: 0;
-   margin: 0;
+	padding-top: 0;
+	margin: 0;
 }
 
 .entry-title h1 {
-   font-size: 40px;
-   padding-top: 20px;
-   font-family: 'Special Elite', cursive;
+	font-size: 40px;
+	padding-top: 20px;
+	font-family: 'Special Elite', cursive;
 }
 
 .entry-title h5 {
-   color: #898989;
+	color: #898989;
 }
-
 
 #fullscreen-modal .modal-dialog,
 #preview-modal .modal-dialog {
- width: 100% !important;
- height: 100% !important;
- margin: 10px !important;
- padding: 0 !important;
- max-width:none !important;
-
+	width: 100% !important;
+	height: 100% !important;
+	margin: 10px !important;
+	padding: 0 !important;
+	max-width: none !important;
 }
 
 #fullscreen-modal .modal-content,
 #preview-modal .modal-content {
- height: auto !important;
- min-height: 100% !important;
- border-radius: 0 !important;
-/* background-color: #ececec !important */
+	height: auto !important;
+	min-height: 100% !important;
+	border-radius: 0 !important;
+	/* background-color: #ececec !important */
 }
 
 #fullscreen-modal .modal-body,
 #preview-modal .modal-body {
-   background-color: #F5F5F5;
-   max-height: 90vh; /* max 90% of the viewport height */
-  overflow-y: auto;
+	background-color: #F5F5F5;
+	max-height: 90vh;
+	/* max 90% of the viewport height */
+	overflow-y: auto;
 }
 
 .padding-bottom {
-   padding-bottom: 40px;
+	padding-bottom: 40px;
 }
 
 #content h2 {
-   padding-top: 20px;
+	padding-top: 20px;
 }
 
 #fullscreen-edit-section {
-  padding: 10px !important;
-  padding-top: 30px !important;
-  border: none !important;
-  -webkit-box-sizing: border-box !important;
-     -moz-box-sizing: border-box !important;
-          box-sizing: border-box !important;
-  /* max-width: 90% !important; */
-  height: 85vh !important;
-  width: 95% !important;
-  outline: none !important;
-  margin: 0 auto !important;
-  display: block !important;
-  font-size: auto !important;
-  box-shadow: none !important;
-  resize: none !important;
-  line-height: 1.2em !important;
-  /* background-color: #F5F5F5; */
+	padding: 10px !important;
+	padding-top: 30px !important;
+	border: none !important;
+	-webkit-box-sizing: border-box !important;
+	-moz-box-sizing: border-box !important;
+	box-sizing: border-box !important;
+	/* max-width: 90% !important; */
+	height: 85vh !important;
+	width: 95% !important;
+	outline: none !important;
+	margin: 0 auto !important;
+	display: block !important;
+	font-size: auto !important;
+	box-shadow: none !important;
+	resize: none !important;
+	line-height: 1.2em !important;
+	/* background-color: #F5F5F5; */
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* eof */
