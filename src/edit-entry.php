@@ -14,8 +14,8 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.css" />
 
 	<!-- widearea textarea plugin -->
-	<link rel="stylesheet" type="text/css" href="css/widearea.css" />
-	<script type="text/javascript" src="js/widearea.js"></script>
+	<!-- <link rel="stylesheet" type="text/css" href="css/widearea.css" /> -->
+	<!-- <script type="text/javascript" src="js/widearea.js"></script> -->
 
 	<title>Edit entry</title>
 </head>
@@ -59,7 +59,7 @@
 				<!-- content -->
 				<div class="form-group">
 					<label for="content" class="font-weight-bold">Content:</label>
-					<textarea class="form-control widgEditor" rows="20" id="content" name="content" data-widearea="enable"><?php if (isset($entry)) echo $entry['content']; ?></textarea>
+					<textarea class="form-control widgEditor" rows="20" id="content" name="content"><?php if (isset($entry)) echo $entry['content']; ?></textarea>
 				</div>
 
 				<!-- save -->
@@ -75,41 +75,50 @@
 			Preview
 		</button>
 
+
+		<button type="button" class="btn" data-toggle="modal" data-target="#fullscreen-modal" id="fullscreen-button" onclick="enableFullScreen()" data-backdrop="static" data-keyboard="false">
+			Expand
+		</button>
+
 	</div>
 
 
 
-
+	<!-- preview content modal -->
 	<div class="modal" id="preview-modal">
 		<div class="modal-dialog" role="document">
-
 			<div class="modal-content">
-
-
-
 				<div class="modal-header">
 					<h3 class="modal-title">Preview</h3>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-
-
-				<div class="modal-body" id="preview-section">
-
-				</div>
-
-
+				<div class="modal-body" id="preview-section"></div>
 			</div>
 		</div>
 	</div>
 
+	<!-- full screen editor modal -->
+	<div class="modal" id="fullscreen-modal">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title">Full screen</h3>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="setSmallerTextareaContent()">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<textarea id="fullscreen-edit-section"></textarea>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- adds padding to the bottom of the page for looks -->
 	<div class="padding-bottom"></div>
-
-
-
-
-
 
 
 
@@ -133,25 +142,41 @@
 		});
 
 
+
 		function setPreviewContent() {
 			var content = document.getElementById("content").value;
 			document.getElementById("preview-section").innerHTML = content;
 		}
 
-		// enable the widearea plugin
-		wideArea();
+		function enableFullScreen() {
 
 
+			var content = document.getElementById("content").value;
+			document.getElementById("fullscreen-edit-section").value = content;
 
-
-
-
-
-		function deleteEntry() {
-			if (confirm('Are you sure you want to delete this post?')) {
-				window.location.href = 'delete-entry.php?id=<?php if (isset($entry)) echo $_GET['id']; ?>';
-			}
 		}
+
+		function setSmallerTextareaContent() {
+
+			var content = document.getElementById("fullscreen-edit-section").value;
+			document.getElementById("content").value = content;
+		}
+
+
+
+
+
+
+
+
+
+
+
+		// function deleteEntry() {
+		// 	if (confirm('Are you sure you want to delete this post?')) {
+		// 		window.location.href = 'delete-entry.php?id=<?php //if (isset($entry)) echo $_GET['id']; ?>';
+		// 	}
+		// }
 	</script>
 
 </body>

@@ -83,7 +83,7 @@ body {
 }
 
 
-
+#fullscreen-modal .modal-dialog,
 #preview-modal .modal-dialog {
  width: 100% !important;
  height: 100% !important;
@@ -93,6 +93,7 @@ body {
 
 }
 
+#fullscreen-modal .modal-content,
 #preview-modal .modal-content {
  height: auto !important;
  min-height: 100% !important;
@@ -100,6 +101,7 @@ body {
 /* background-color: #ececec !important */
 }
 
+#fullscreen-modal .modal-body,
 #preview-modal .modal-body {
    background-color: #F5F5F5;
    max-height: 90vh; /* max 90% of the viewport height */
@@ -114,6 +116,25 @@ body {
    padding-top: 20px;
 }
 
+#fullscreen-edit-section {
+  padding: 10px !important;
+  padding-top: 30px !important;
+  border: none !important;
+  -webkit-box-sizing: border-box !important;
+     -moz-box-sizing: border-box !important;
+          box-sizing: border-box !important;
+  /* max-width: 90% !important; */
+  height: 85vh !important;
+  width: 95% !important;
+  outline: none !important;
+  margin: 0 auto !important;
+  display: block !important;
+  font-size: auto !important;
+  box-shadow: none !important;
+  resize: none !important;
+  line-height: 1.2em !important;
+  /* background-color: #F5F5F5; */
+}
 
 
 
@@ -122,3 +143,30 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* eof */
