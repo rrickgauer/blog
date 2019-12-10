@@ -9,9 +9,14 @@
    <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script> -->
 
 	<!-- include summernote css/js -->
-<!-- 	<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet" />
+	<!-- 	<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet" />
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
  -->
+
+	<!-- widearea textarea plugin -->
+	<link rel="stylesheet" type="text/css" href="widearea.css">
+	<script type="text/javascript" src="widearea.js"></script>
+
 
 	<title>New blog entry</title>
 </head>
@@ -19,7 +24,7 @@
 <body>
 	<?php include('navbar.php'); ?>
 
-	<div class="container-fluid">
+	<div class="container">
 
 		<h1>New Entry</h1>
 
@@ -34,7 +39,7 @@
 			<!-- content -->
 			<div class="form-group">
 				<label for="content" class="font-weight-bold">Content:</label>
-				<textarea class="form-control widgEditor" rows="20" id="content" name="content"></textarea>
+				<textarea id="content" name="content" data-widearea="enable" class="form-control" rows="20"></textarea>
 			</div>
 
 			<input type="submit" value="Submit" class="btn btn-primary">
@@ -44,17 +49,23 @@
 
 
 
+
+
 	<script>
 		$(document).ready(function() {
-			$('#content').summernote();
+			$("#new-entry-nav").addClass("selected");
 		});
 	</script>
 
+
 	<script>
-         $(document).ready(function() {
-            $("#new-entry-nav").addClass("selected");
-         });
-      </script>
+		wideArea();
+	</script>
+
+
+
+
+
 </body>
 
 </html>
