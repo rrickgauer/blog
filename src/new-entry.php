@@ -9,9 +9,9 @@
    <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script> -->
 
 	<!-- include summernote css/js -->
-	<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet" />
+<!-- 	<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet" />
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
-
+ -->
 
 	<title>New blog entry</title>
 </head>
@@ -49,6 +49,12 @@
 			$('#content').summernote();
 		});
 	</script>
+
+	<script>
+         $(document).ready(function() {
+            $("#new-entry-nav").addClass("selected");
+         });
+      </script>
 </body>
 
 </html>

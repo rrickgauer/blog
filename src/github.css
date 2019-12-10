@@ -62,7 +62,7 @@ a.anchor {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 20px 0 10px;
-  padding: 0;
+  /*padding: 0;*/
   font-weight: bold;
   -webkit-font-smoothing: antialiased;
   cursor: text;
@@ -123,6 +123,7 @@ h4 {
 
 h5 {
   font-size: 14px;
+  padding-top: 10px !important;
 }
 
 h6 {
@@ -130,7 +131,7 @@ h6 {
   font-size: 14px;
 }
 
-p, blockquote, ul, ol, dl, li, table, pre {
+p, blockquote, table {
   margin: 15px 0;
 }
 
@@ -170,21 +171,7 @@ h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
   margin-top: 0;
 }
 
-li p.first {
-  display: inline-block;
-}
 
-ul, ol {
-  padding-left: 30px;
-}
-
-ul :first-child, ol :first-child {
-  margin-top: 0;
-}
-
-ul :last-child, ol :last-child {
-  margin-bottom: 0;
-}
 
 dl {
   padding: 0;
@@ -366,44 +353,4 @@ span.float-right > span {
   text-align: right;
 }
 
-code, tt {
-  margin: 0 2px;
-  padding: 0 5px;
-  white-space: nowrap;
-  border: 1px solid #eaeaea;
-  background-color: #f8f8f8;
-  border-radius: 3px;
-}
 
-pre code {
-  margin: 0;
-  padding: 0;
-  white-space: pre;
-  border: none;
-  background: transparent;
-}
-
-.highlight pre {
-  background-color: #f8f8f8;
-  border: 1px solid #cccccc;
-  font-size: 13px;
-  line-height: 19px;
-  overflow: auto;
-  padding: 6px 10px;
-  border-radius: 3px;
-}
-
-pre {
-  background-color: #f8f8f8;
-  border: 1px solid #cccccc;
-  font-size: 13px;
-  line-height: 19px;
-  overflow: auto;
-  padding: 6px 10px;
-  border-radius: 3px;
-}
-
-pre code, pre tt {
-  background-color: transparent;
-  border: none;
-}

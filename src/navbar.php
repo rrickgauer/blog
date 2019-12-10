@@ -10,8 +10,8 @@
 			<!-- Links -->
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="nav navbar-nav">
-					<li class="nav-item nav-link-hover"><a class="nav-link" href="entries.php">Posts</a></li>
-					<li class="nav-item nav-link-hover"><a class="nav-link" href="new-entry.php">New post</a></li>
+					<li class="nav-item nav-link-hover"><a class="nav-link" href="entries.php" id="entries-nav">Posts</a></li>
+					<li class="nav-item nav-link-hover"><a class="nav-link" href="new-entry.php" id="new-entry-nav">New post</a></li>
 					<li class="nav-item nav-link-hover"><a class="nav-link" href="edit-entry.php">Edit post</a></li>
 
 				</ul>
