@@ -1,6 +1,6 @@
 <?php
 
-include_once('functions.php');
+include_once('include-top.php');
 
 
 $id = insertEntry($_POST['title'], $_POST['content']);

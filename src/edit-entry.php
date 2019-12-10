@@ -1,4 +1,4 @@
-<?php include('functions.php'); ?>
+<?php include_once('include-top.php'); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 

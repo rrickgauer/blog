@@ -1,5 +1,6 @@
 <?php
-include_once('functions.php');
+include_once('include-top.php');
+
 $entry = getEntry($_GET['id']);
 ?>
 

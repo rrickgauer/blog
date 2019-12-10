@@ -1,6 +1,6 @@
 <?php
 
-include('functions.php');
+include_once('include-top.php');
 
 $pdo = dbConnect();
 $sql = "select Entries.id, Entries.title, Entries.date, DATE_FORMAT(Entries.date, \"%M %D, %Y\") as 'date_formatted' from Entries ORDER BY date desc, id desc";

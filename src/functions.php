@@ -84,6 +84,29 @@ function printTitleSelectOptions() {
   }
 }
 
+function isLoginSuccessful($username, $password) {
+  $pdo = dbConnect();
+  $sql = $pdo->prepare('SELECT Authors.password FROM Authors WHERE Authors.username=:username');
+
+  // filter variables
+  $username = filter_var($username, FILTER_SANITIZE_STRING);
+
+  // bind the parameters
+  $sql->bindParam(':username', $username, PDO::PARAM_STR);
+
+  // execute sql statement
+  $sql->execute();
+
+  // fetch the results
+  $author = $sql->fetch(PDO::FETCH_ASSOC);
+
+  // close the pdo connections
+  $pdo = null;
+  $sql = null;
+
+  return ($password == $author['password']);
+}
+
 
 
 
