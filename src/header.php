@@ -2,9 +2,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta charset="utf-8" />
 
-<!-- <script src="widgEditor/scripts/widgEditor.js"></script>
-<link rel="stylesheet" type="text/css" href="widgEditor/css/widgEditor.css"> -->
-
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -15,8 +12,6 @@
 
 <!-- ion icons -->
 <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-
-
 
 <!-- github css -->
 <!-- https://gist.github.com/tuzz/3331384 -->

@@ -1,23 +1,18 @@
 <?php
-include_once('include-top.php');
+include('functions.php');
 
+// check if user attempted to login
 if (isset($_POST['username']) && isset($_POST['password'])) {
-	// check if login is correct
+
+	// successful login
 	if (isLoginSuccessful($_POST['username'], $_POST['password'])) {
+
+		session_start();
 		$_SESSION['loggedIn'] = true;
 		header('Location: entries.php');
 		exit;
 	}
 }
-
-
-
-
-
-
-
-
-
 
 ?>
 
@@ -38,7 +33,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
 		<form class="form" method="post">
 			<input type="text" name="username" class="form-control" placeholder="Username" autofocus required><br>
-			<input type="text" name="password" class="form-control" placeholder="Password" required><br>
+			<input type="password" name="password" class="form-control" placeholder="Password" required><br>
 			<div class="float-right">
 				<input type="submit" value="Log in" class="btn btn-primary">
 			</div>

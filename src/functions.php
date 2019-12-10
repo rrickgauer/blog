@@ -104,9 +104,21 @@ function isLoginSuccessful($username, $password) {
   $pdo = null;
   $sql = null;
 
+  // return true if passwords match
+  // otherwise, return false
   return ($password == $author['password']);
 }
 
+function getAllEntries() {
+  $pdo = dbConnect();
+  $sql = "select Entries.id, Entries.title, Entries.date, DATE_FORMAT(Entries.date, \"%M %D, %Y\") as 'date_formatted' from Entries ORDER BY date desc, id desc";
+  $results = $pdo->query($sql);
+
+  $pdo = null;
+  $sql = null;
+
+  return $results;
+}
 
 
 

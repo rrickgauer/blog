@@ -1,14 +1,6 @@
 <?php
-
-include_once('include-top.php');
-
-$pdo = dbConnect();
-$sql = "select Entries.id, Entries.title, Entries.date, DATE_FORMAT(Entries.date, \"%M %D, %Y\") as 'date_formatted' from Entries ORDER BY date desc, id desc";
-$results = $pdo->query($sql);
-
-
-
-
+include('include-top.php');
+$entries = getAllEntries();
 ?>
 
 <!DOCTYPE html>
@@ -20,32 +12,26 @@ $results = $pdo->query($sql);
 </head>
 
 <body>
+	<?php include('navbar.php'); ?>
 
-   <?php include('navbar.php'); ?>
+	
+	<div class="container">
+		<h1>Browse</h1>
 
+		<h2>2019</h2>
+		<?php
+		while ($entry = $entries->fetch(PDO::FETCH_ASSOC)) {
+			printEntryCard($entry['id'], $entry['title'], $entry['date_formatted']);
+		}
 
+		?>
+	</div>
 
-   <div class="container">
-
-    <h1>Browse</h1>
-
-    <h2>2019</h2>
-
-    <?php
-
-    while ($entry = $results->fetch(PDO::FETCH_ASSOC)) {
-      printEntryCard($entry['id'], $entry['title'], $entry['date_formatted']);
-   }
-
-   ?>
-
-</div>
-
-<script>
-   $(document).ready(function() {
-      $("#entries-nav").addClass("selected");
-   });
-</script>
+	<script>
+		$(document).ready(function() {
+			$("#entries-nav").addClass("selected");
+		});
+	</script>
 </body>
 
 </html>

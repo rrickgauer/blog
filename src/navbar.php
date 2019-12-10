@@ -1,5 +1,3 @@
-<?php include_once('functions.php'); ?>
-
 <section id="top-navbar">
 	<div class="container-fluid">
 		<nav class="navbar navbar-toggleable-sm navbar-expand-sm navbar-dark">
@@ -12,14 +10,32 @@
 				<ul class="nav navbar-nav">
 					<li class="nav-item nav-link-hover"><a class="nav-link" href="entries.php" id="entries-nav">Posts</a></li>
 
-					<li class="nav-item nav-link-hover"><a class="nav-link" href="login-page.php" id="login-nav">Login</a></li>
+					<?php
+					if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
+						printNewEditNavs();
+					} else {
+						printLoginNav();
+					}
 
+					?>
 
-
-					<li class="nav-item nav-link-hover"><a class="nav-link" href="new-entry.php" id="new-entry-nav">New post</a></li>
-					<li class="nav-item nav-link-hover"><a class="nav-link" href="edit-entry.php" id="edit-entry-nav">Edit post</a></li>
 				</ul>
 			</div>
 		</nav>
 	</div>
 </section>
+
+<?php
+
+function printNewEditNavs() {
+	echo "<li class=\"nav-item nav-link-hover\"><a class=\"nav-link\" href=\"new-entry.php\" id=\"new-entry-nav\">New Post</a></li>";
+	echo "<li class=\"nav-item nav-link-hover\"><a class=\"nav-link\" href=\"edit-entry.php\" id=\"edit-entry-nav\">Edit Post</a></li>";
+}
+
+
+function printLoginNav() {
+	echo "<li class=\"nav-item nav-link-hover\"><a class=\"nav-link\" href=\"login-page.php\" id=\"login-nav\">Login</a></li>";
+}
+
+
+?>
