@@ -20,14 +20,14 @@
 
 <!-- github css -->
 <!-- https://gist.github.com/tuzz/3331384 -->
-<link rel="stylesheet" type="text/css" href="github.css">
+<link rel="stylesheet" type="text/css" href="css/github.css">
 
 <!-- modest css -->
 <!-- https://github.com/markdowncss/modest/blob/master/css/modest.css -->
-<!-- <link rel="stylesheet" type="text/css" href="modest.css"> -->
+<!-- <link rel="stylesheet" type="text/css" href="css/modest.css"> -->
 
 <!-- custom css sheet -->
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
 
 <!-- prism code highlighter -->
-<link href="prism.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="css/prism.css">

@@ -11,7 +11,7 @@ $entry = getEntry($_GET['id']);
 <head>
 	<?php include('header.php'); ?>
 
-<link href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap" rel="stylesheet" />
 
 	<title><?php echo $entry['title'] ?></title>
 </head>
@@ -39,7 +39,7 @@ $entry = getEntry($_GET['id']);
 
 
 
- <script src="prism.js"></script>
+ <script src="js/prism.js"></script>
 
 
 </body>

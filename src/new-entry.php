@@ -4,19 +4,9 @@
 <head>
 	<?php include('header.php'); ?>
 
-	<!-- NiceEdit -->
-	<!-- <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
-   <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script> -->
-
-	<!-- include summernote css/js -->
-	<!-- 	<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet" />
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
- -->
-
 	<!-- widearea textarea plugin -->
-	<link rel="stylesheet" type="text/css" href="widearea.css">
-	<script type="text/javascript" src="widearea.js"></script>
-
+	<link rel="stylesheet" type="text/css" href="css/widearea.css">
+	<script type="text/javascript" src="js/widearea.js"></script>
 
 	<title>New blog entry</title>
 </head>
