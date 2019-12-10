@@ -63,14 +63,6 @@ body {
 
 
 
-
-
-
-
-
-
-
-
 .entry-title {
    text-align: center !important;
 }
@@ -88,6 +80,38 @@ body {
 
 .entry-title h5 {
    color: #898989;
+}
+
+
+
+#preview-modal .modal-dialog {
+ width: 100% !important;
+ height: 100% !important;
+ margin: 10px !important;
+ padding: 0 !important;
+ max-width:none !important;
+
+}
+
+#preview-modal .modal-content {
+ height: auto !important;
+ min-height: 100% !important;
+ border-radius: 0 !important;
+/* background-color: #ececec !important */
+}
+
+#preview-modal .modal-body {
+   background-color: #F5F5F5;
+   max-height: 90vh; /* max 90% of the viewport height */
+  overflow-y: auto;
+}
+
+.padding-bottom {
+   padding-bottom: 40px;
+}
+
+#content h2 {
+   padding-top: 20px;
 }
 
 

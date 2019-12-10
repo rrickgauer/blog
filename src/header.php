@@ -26,8 +26,8 @@
 <!-- https://github.com/markdowncss/modest/blob/master/css/modest.css -->
 <!-- <link rel="stylesheet" type="text/css" href="modest.css"> -->
 
-<!-- prism code highlighter -->
-<link href="prism.css" rel="stylesheet" />
-
 <!-- custom css sheet -->
 <link rel="stylesheet" type="text/css" href="style.css">
+
+<!-- prism code highlighter -->
+<link href="prism.css" rel="stylesheet" />

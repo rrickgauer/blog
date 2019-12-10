@@ -3,15 +3,16 @@
 <html lang="en" dir="ltr">
 
 <head>
-	<?php include('header.php'); ?>
+	
+  <?php include('header.php'); ?>
 
 	<!-- include Select2 -->
 	<link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
 	<script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
 
-	<!-- include summernote css/js -->
-	<!-- <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet" /> -->
-	<!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script> -->
+  <!-- select2 bootstrap css -->
+  <!-- https://github.com/select2/select2-bootstrap-theme -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.css">
 
 	<title>Edit entry</title>
 </head>
@@ -24,7 +25,7 @@
 		<h1>Edit entry</h1>
 
 
-		<select class="form-control col-sm-11" name="state" id="select-entry">
+		<select class="form-control form-control-lg col-sm-12" name="state" id="select-entry">
 			<option>Select entry</option>
 			<?php printTitleSelectOptions(); ?>
 		</select>
@@ -63,40 +64,103 @@
 					<button type="button" class="btn btn-secondary" onclick="deleteEntry()">Delete</button>
 					<input type="submit" value="Save" class="btn btn-primary">
 				</div>
-
-
-
 			</form>
 
 		</div>
 
-	</div>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#preview-modal" id="preview-button" onclick="setPreviewContent()">
+      Preview
+    </button>
 
-	<script>
-		$(document).ready(function() {
+  </div>
 
-			$('select').on('change', function() {
-				var id = this.value;
-				window.location.href = 'edit-entry.php?id=' + id;
-			});
+
+
+
+  <div class="modal" id="preview-modal">
+    <div class="modal-dialog" role="document">
+
+      <div class="modal-content">
+
+
+
+        <div class="modal-header">
+          <h3 class="modal-title">Preview</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+
+        <div class="modal-body" id="preview-section">
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="padding-bottom"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+
+
+    $(document).ready(function() {
+
+      $('select').on('change', function() {
+        var id = this.value;
+        window.location.href = 'edit-entry.php?id=' + id;
+      });
 
 			// set select-entry to select2 plugin
-			$("#select-entry").select2();
+			$("#select-entry").select2({
+        theme: "bootstrap"
+      });
 
-			// set textarea plugin
-			$('#content').summernote();
+
+      $("#edit-entry-nav").addClass("selected");
+
+
+
+
+
 
 		});
 
-		function deleteEntry() {
-			if (confirm('Are you sure you want to delete this post?')) {
-				window.location.href = 'delete-entry.php?id=<?php if (isset($entry)) echo $_GET['id']; ?>'
-			}
-		}
+
+    function setPreviewContent() {
+      var content = document.getElementById("content").value;
+      document.getElementById("preview-section").innerHTML = content;
+    }
 
 
 
-	</script>
+
+
+
+    function deleteEntry() {
+     if (confirm('Are you sure you want to delete this post?')) {
+      window.location.href = 'delete-entry.php?id=<?php if (isset($entry)) echo $_GET['id']; ?>'
+    }
+  }
+
+
+</script>
 
 </body>
 
