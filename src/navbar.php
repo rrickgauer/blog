@@ -19,6 +19,9 @@
 
 					?>
 
+
+
+
 				</ul>
 			</div>
 		</nav>
@@ -30,6 +33,7 @@
 function printNewEditNavs() {
 	echo "<li class=\"nav-item nav-link-hover\"><a class=\"nav-link\" href=\"new-entry.php\" id=\"new-entry-nav\">New Post</a></li>";
 	echo "<li class=\"nav-item nav-link-hover\"><a class=\"nav-link\" href=\"edit-entry.php\" id=\"edit-entry-nav\">Edit Post</a></li>";
+	echo "<li class=\"nav-item nav-link-hover\"><a class=\"nav-link\" href=\"logout.php\" id=\"logout-nav\">Logout</a></li>";
 }
 
 
