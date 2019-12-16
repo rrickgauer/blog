@@ -17,7 +17,7 @@ $entry = getEntry($_GET['id']);
 
 <body>
 	<?php include('navbar.php'); ?>
-	<div class="container">
+	<div class="container" id="content">
 
     <!-- entry title and date -->
     <div class="entry-title">
@@ -36,6 +36,14 @@ $entry = getEntry($_GET['id']);
 
  <script src="js/prism.js"></script>
 
+ <script>
+	 $(document).ready(function() {
+		 $("#entries-nav").addClass("selected");
+	 });
+ </script>
+
+
+<?php printFooter(); ?>
 
 </body>
 

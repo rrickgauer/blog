@@ -9,7 +9,7 @@ body {
 	margin: 0 !important;
 }
 
-.card-entry h5, h6 {
+.card-entry h3, h6 {
 	padding: 0 !important;
 	margin: 0 !important;
 }
@@ -23,7 +23,10 @@ body {
 }
 
 #top-navbar {
-	background-color: white;
+	background-color: white !important;
+
+
+
 }
 
 #top-navbar a {
@@ -128,6 +131,22 @@ body {
 	resize: none !important;
 	line-height: 1.2em !important;
 	/* background-color: #F5F5F5; */
+}
+
+#footer {
+
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+}
+
+#content {
+	padding-top: 50px;
+}
+
+h1 {
+	padding-top: 30px !important;
 }
 
 /* eof */

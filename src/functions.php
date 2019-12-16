@@ -120,6 +120,12 @@ function getAllEntries() {
   return $results;
 }
 
+function printFooter() {
+    echo "<div class=\"container-fluid\" id=\"footer\">
+		<p>Made by <a href=\"https://www.ryanrickgauer.com/resume/index.html\">Ryan Rickgauer</a> &copy; 2019</p>
+	</div>";
+}
+
 
 
 

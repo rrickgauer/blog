@@ -14,18 +14,21 @@ $entries = getAllEntries();
 <body>
 	<?php include('navbar.php'); ?>
 
-	
-	<div class="container">
-		<h1>Browse</h1>
+
+	<div class="container" id="content">
+
+		<h1 class="text-center">Browse Entries</h1>
 
 		<h2>2019</h2>
 		<?php
 		while ($entry = $entries->fetch(PDO::FETCH_ASSOC)) {
 			printEntryCard($entry['id'], $entry['title'], $entry['date_formatted']);
 		}
-
 		?>
+
 	</div>
+
+	<?php printFooter(); ?>
 
 	<script>
 		$(document).ready(function() {
@@ -43,7 +46,7 @@ function printEntryCard($id, $title, $date) {
    echo
    "<div class=\"card card-entry\">
    <div class=\"card-body\">
-   <h5 class=\"card-title\"><a href=\"entry.php?id=$id\">$title</a></h5>
+   <h3 class=\"card-title\"><a href=\"entry.php?id=$id\">$title</a></h3>
    <h6 class=\"card-subtitle mb-2 text-muted\">$date</h6>
    </div>
    </div>";

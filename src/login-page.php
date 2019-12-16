@@ -27,27 +27,27 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 <body>
 	<?php include('navbar.php'); ?>
 
-	<div class="container">
+	<div class="container" id="content">
 		<h1>Login</h1>
 
 
 		<form class="form" method="post">
 			<input type="text" name="username" class="form-control" placeholder="Username" autofocus required><br>
 			<input type="password" name="password" class="form-control" placeholder="Password" required><br>
-			<div class="float-right">
-				<input type="submit" value="Log in" class="btn btn-primary">
-			</div>
+			<input type="submit" value="Log in" class="btn btn-primary ">
+
 		</form>
-
-
-
-
-
 	</div>
+
+	<?php printFooter(); ?>
+
+
 
 	<script>
 		$("#login-nav").addClass("selected");
 	</script>
+
+
 
 </body>
 

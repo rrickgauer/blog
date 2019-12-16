@@ -1,4 +1,4 @@
-<section id="top-navbar">
+<section id="top-navbar" class="fixed-top">
 	<div class="container-fluid">
 		<nav class="navbar navbar-toggleable-sm navbar-expand-sm navbar-dark">
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
