@@ -29,16 +29,8 @@ $entry = getEntry($_GET['id']);
     <br><br>
     <div id="content">
      <?php 
-
-
-     // echo $entry['content']; 
-
       $Parsedown = new Parsedown();
-
       echo $Parsedown->text($entry['content']);
-      
-
-
      ?>
    </div>
 

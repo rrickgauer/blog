@@ -4,38 +4,34 @@
 <html lang="en" dir="ltr">
 
 <head>
-	<?php include('header.php'); ?>
-	<title></title>
+  <?php include('header.php'); ?>
+  <title></title>
 </head>
 
 <body>
-	<div class="container">
+  <div class="container">
+
+
+    <?php
+
+
+    $url = '../entries/goals-for-2020.md';
+
+    // using file() function to get content
+    $lines_array=file($url);
+    
+    // turn array into one variable
+    $lines_string=implode('',$lines_array);
+
+    // output the file
+    $Parsedown = new Parsedown();
+    echo $Parsedown->text($lines_string);
+
+    ?>
 
 
 
-		<?php 
-		$Parsedown = new Parsedown();
-
-		echo $Parsedown->text('# project name
-
-## background
-this is the backround
-
-* one
-* two
-  * part 1
-  * part 2');
-
-			?>
-
-
-
-
-
-		</div>
-
-
-
+  </div>
 
 
 
@@ -45,6 +41,9 @@ this is the backround
 
 
 
-	</body>
 
-	</html>
+
+
+</body>
+
+</html>
