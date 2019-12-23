@@ -35,8 +35,8 @@ $entry = getEntry($_GET['id']);
 
       $Parsedown = new Parsedown();
 
-      echo $Parsedown->text($entry['content']); # prints: <p>Hello <em>Parsedown</em>!</p>
-
+      echo $Parsedown->text($entry['content']);
+      
 
 
      ?>
