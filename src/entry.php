@@ -1,5 +1,6 @@
 <?php
 include_once('include-top.php');
+include('Parsedown.php');
 
 $entry = getEntry($_GET['id']);
 ?>
@@ -27,7 +28,18 @@ $entry = getEntry($_GET['id']);
 
     <br><br>
     <div id="content">
-     <?php echo $entry['content']; ?>
+     <?php 
+
+
+     // echo $entry['content']; 
+
+      $Parsedown = new Parsedown();
+
+      echo $Parsedown->text($entry['content']); # prints: <p>Hello <em>Parsedown</em>!</p>
+
+
+
+     ?>
    </div>
 
    <br><br>

@@ -1,3 +1,5 @@
+<?php include('functions.php'); ?>
+<?php include('Parsedown.php'); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -7,12 +9,30 @@
 </head>
 
 <body>
-
-	<h1>Test</h1>
-	<h2>So whats up</h2>
+	<div class="container">
 
 
 
+		<?php 
+		$Parsedown = new Parsedown();
+
+		echo $Parsedown->text('# project name
+
+## background
+this is the backround
+
+* one
+* two
+  * part 1
+  * part 2');
+
+			?>
+
+
+
+
+
+		</div>
 
 
 
@@ -21,6 +41,10 @@
 
 
 
-</body>
 
-</html>
+
+
+
+	</body>
+
+	</html>
