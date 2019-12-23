@@ -9,31 +9,89 @@
 </head>
 
 <body>
-  <div class="container">
+
+  <div class="wrapper">
 
 
-    <?php
+    <!-- Sidebar -->
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <h3>Bootstrap Sidebar</h3>
+      </div>
+
+      <ul class="list-unstyled components">
+        <p>Dummy Heading</p>
+        <li>
+          <a href="#">About</a>
+        </li>
+        <li>
+          <a href="#">Portfolio</a>
+        </li>
+        <li>
+          <a href="#">Contact</a>
+        </li>
+
+        <?php
+
+        $count = 0;
+        while ($count < 100) {
+
+          echo '<li>
+          <a href="#">Contact</a>
+        </li>';
 
 
-    $url = '../entries/goals-for-2020.md';
-
-    // using file() function to get content
-    $lines_array=file($url);
-    
-    // turn array into one variable
-    $lines_string=implode('',$lines_array);
-
-    // output the file
-    $Parsedown = new Parsedown();
-    echo $Parsedown->text($lines_string);
-
-    ?>
+          $count++;
+        }
 
 
 
+
+        ?>
+
+
+      </ul>
+
+    </nav>
+    <!-- Page Content -->
+    <div id="data">
+
+      <button type="button" id="sidebarCollapse" class="btn btn-info">
+            <i class="fas fa-align-left"></i>
+            <span>Toggle Sidebar</span>
+          </button>
+
+      
+
+      <?php
+
+          $count = 0;
+
+          while ($count < 20) {
+
+            echo '<h1>Hello</h1>';
+
+            $count++;
+          }
+
+
+
+          ?>
+
+    </div>
   </div>
 
 
+<script>
+$(document).ready(function () {
+
+    $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+        $('#data').toggleClass('active');
+    });
+
+});
+</script>
 
 
 

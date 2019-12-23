@@ -26,3 +26,6 @@
 
 <!-- prism code highlighter -->
 <link rel="stylesheet" type="text/css" href="css/prism.css">
+
+<!-- sidenav style -->
+<link rel="stylesheet" type="text/css" href="css/sidenav-style.css">
