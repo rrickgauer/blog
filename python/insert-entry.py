@@ -11,9 +11,7 @@ userInput     = input('user: ')
 passwdInput   = getpass.getpass('password: ')
 databaseInput = input('database: ')
 
-sup dude
 
-ignore me
 
 
 
