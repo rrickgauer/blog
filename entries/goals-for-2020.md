@@ -29,8 +29,14 @@ From the little research I've done, I am leaning on learning react first. This i
 
 ## Java Spring
 
+[Java Spring](https://spring.io/) is a Java Framework. Once again, I have no idea what it does and why it is beneficial. My thoughts are that I know how to write alot of stuff using java, but I have no clue how one would use it to build a web application. That is why I want to learn it. 
+
 
 ## MongoDB
 
+I want to challenge myself to learn a no sql type of database. This goal comes from pure curiosity. 
+
 
 ## Electron
+
+[Electron](https://electronjs.org/) is an open source library developed by GitHub for building cross-platform desktop applications with HTML, CSS, and JavaScript. Alot of popular software is written in it suck as discord and atom. I know some people are not a fan of it, but I would like to be able to write desktop apps in a different language besides Java. 
