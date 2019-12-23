@@ -7,34 +7,34 @@ $entries = getAllEntries();
 <html lang="en" dir="ltr">
 
 <head>
-	<?php include('header.php'); ?>
-	<title>Blog Entries</title>
+  <?php include('header.php'); ?>
+  <title>Blog Entries</title>
 </head>
 
 <body>
-	<?php include('navbar.php'); ?>
+  <?php include('navbar.php'); ?>
 
 
-	<div class="container" id="content">
+  <div class="container" id="content">
 
-		<h1 class="text-center">Browse Entries</h1>
+    <h1 class="text-center">Browse Entries</h1>
 
-		<h2>2019</h2>
-		<?php
-		while ($entry = $entries->fetch(PDO::FETCH_ASSOC)) {
-			printEntryCard($entry['id'], $entry['title'], $entry['date_formatted']);
-		}
-		?>
+    <h2>2019</h2>
+    <?php
+    while ($entry = $entries->fetch(PDO::FETCH_ASSOC)) {
+      printEntryCard($entry['id'], $entry['title'], $entry['date_formatted']);
+    }
+    ?>
 
-	</div>
+  </div>
 
-	<?php printFooter(); ?>
+  <?php printFooter(); ?>
 
-	<script>
-		$(document).ready(function() {
-			$("#entries-nav").addClass("selected");
-		});
-	</script>
+  <script>
+    $(document).ready(function() {
+      $("#entries-nav").addClass("selected");
+    });
+  </script>
 </body>
 
 </html>
