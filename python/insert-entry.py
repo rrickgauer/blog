@@ -1,24 +1,33 @@
 
 import mysql.connector
+import getpass
+import sys
+
+# print(sys.argv[1])
+# print(sys.argv[2])
+
+hostInput     = input('host: ')
+userInput     = input('user: ')
+passwdInput   = getpass.getpass('password: ')
+databaseInput = input('database: ')
+
+
 
 mydb = mysql.connector.connect(
-  host="localhost",
-  user="yourusername",
-  passwd="yourpassword",
-  database="mydatabase"
+  host     = hostInput,
+  user     = str(userInput),
+  passwd   = str(passwdInput),
+  database = str(databaseInput)
 )
 
 mycursor = mydb.cursor()
 
-sql = "INSERT INTO customers (name, address) VALUES (%s, %s)"
-val = ("John", "Highway 21")
-mycursor.execute(sql, val)
+mycursor.execute("SELECT * FROM Entries")
 
-mydb.commit()
+myresult = mycursor.fetchall()
 
-print(mycursor.rowcount, "record inserted.")
-
-
+for x in myresult:
+  print(x)
 
 
 
