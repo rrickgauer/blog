@@ -1,6 +1,6 @@
 # Web Development Resources
 
-I got this idea from this [site](https://webdevresources.info/colors). This will be a growing list as time goes on. Pull requests are welcome!
+I got this idea from this [site](https://webdevresources.info/colors). I will be adding to this list as time goes on.
 
 ## Content
 
