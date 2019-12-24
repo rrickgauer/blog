@@ -18,7 +18,7 @@
 
 
   <div class="wrapper">
-    
+
     <div id="sidebar">
 
       <div class="sidebar-header">
@@ -28,17 +28,29 @@
         </div>
       </div>
 
+      <div class="sidebar-search">
+
+        <div class="input-group input-group-sm">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-sm"><i class='bx bx-search'></i></span>
+          </div>
+          <input type="text" class="form-control" id="entry-search" aria-label="Search input" placeholder="Search">
+        </div>
+
+
+      </div>
+
       <ul class="list-unstyled">
 
-      <li><h3>2019</h3></li>
+        <li><h3>2019</h3></li>
         <?php
-          $entries = getAllEntries();
-          while ($entry = $entries->fetch(PDO::FETCH_ASSOC)) {
+        $entries = getAllEntries();
+        while ($entry = $entries->fetch(PDO::FETCH_ASSOC)) {
 
-            $id = $entry['id'];
-            $title = $entry['title'];
-            echo "<li><a class=\"sidebar-link\" href=\"entries.php?entryID=$id\">$title</a></li>";
-          }
+          $id = $entry['id'];
+          $title = $entry['title'];
+          echo "<li><a class=\"sidebar-link\" href=\"entries.php?entryID=$id\">$title</a></li>";
+        }
         ?>
       </ul>
     </div>
@@ -47,54 +59,54 @@
 
     <div id="data" class="container">
 
-        <i class="bx bx-menu toggle-entries active" id="show-entries"></i>
+      <i class="bx bx-menu toggle-entries active" id="show-entries"></i>
 
-        <?php
+      <?php
 
-        if (isset($_GET['entryID'])) {
-          $entry = getEntry($_GET['entryID']);
+      if (isset($_GET['entryID'])) {
+        $entry = getEntry($_GET['entryID']);
 
-          echo '<h1 class="custom-font">' . $entry['title'] . '</h1>';
-          echo '<h6 class="text-center entry-date">' . $entry['date'] . '</h6>';
+        echo '<h1 class="custom-font">' . $entry['title'] . '</h1>';
+        echo '<h6 class="text-center entry-date">' . $entry['date'] . '</h6>';
 
-          $Parsedown = new Parsedown();
-          echo $Parsedown->text($entry['content']);
+        $Parsedown = new Parsedown();
+        echo $Parsedown->text($entry['content']);
 
-        } else {
-          include('home.php');
-        }
+      } else {
+        include('home.php');
+      }
 
-        ?>
+      ?>
 
-        <div id="home-footer">
-    <a href="https://github.com/rrickgauer/blog" target="_blank"><i class='bx bxl-github'></i></a>
-  </div>
+      <div id="home-footer">
+        <a href="https://github.com/rrickgauer/blog" target="_blank"><i class='bx bxl-github'></i></a>
+      </div>
 
     </div>
   </div>
 
-<script src="js/prism.js"></script>
+  <script src="js/prism.js"></script>
 
-<script>
+  <script>
 
-  $(document).ready(function() {
+    $(document).ready(function() {
 
-    $(".toggle-entries").on("click", function() {
-      $('#sidebar').toggleClass('active');
-      $('#data').toggleClass('active');
-      $('.toggle-entries').toggleClass('active');
+      $(".toggle-entries").on("click", function() {
+        $('#sidebar').toggleClass('active');
+        $('#data').toggleClass('active');
+        $('.toggle-entries').toggleClass('active');
+      });
+
+      $(".sidebar-link").on('click', function() {
+        $(".sidebar-link").removeClass('active');
+        $(this).addClass('active');
+      });
+
     });
 
-    $(".sidebar-link").on('click', function() {
-      $(".sidebar-link").removeClass('active');
-      $(this).addClass('active');
-    });
-
-  });
 
 
-
-</script>
+  </script>
 
 
 </body>
