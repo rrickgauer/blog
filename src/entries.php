@@ -95,6 +95,11 @@
         $('#sidebar').toggleClass('active');
         $('#data').toggleClass('active');
         $('.toggle-entries').toggleClass('active');
+
+        // clears search box and list all entries
+        $("#entry-search").val('');
+        filterEntries();
+
       });
 
       $(".sidebar-link").on('click', function() {
@@ -104,9 +109,7 @@
 
     });
 
-
     function filterEntries() {
-
       // get search query
       var filter = $("#entry-search").val().toUpperCase();
       var ul = $("#nav-list");
@@ -127,6 +130,12 @@
         }
       }
     }
+
+
+
+
+
+
   </script>
 
 
