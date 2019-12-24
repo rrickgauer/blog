@@ -31,14 +31,15 @@
       <div class="sidebar-search">
 
         <div class="input-group input-group-sm">
-          <div class="input-group-prepend">
+
+          <input type="text" class="form-control" id="entry-search" aria-label="Search input" placeholder="Search" onkeyup="filterEntries()">
+
+          <div class="input-group-append" id="entry-search-icon">
             <span class="input-group-text"><i class='bx bx-search'></i></span>
           </div>
-          <input type="text" class="form-control" id="entry-search" aria-label="Search input" placeholder="Search" onkeyup="filterEntries()">
-          
+
+
         </div>
-
-
       </div>
 
       <ul class="list-unstyled" id="nav-list">
@@ -110,11 +111,21 @@
 
     });
 
+    $("#show-entries").click(function() {
+      $("#entry-search").focus();
+    });
+
     function filterEntries() {
       // get search query
       var filter = $("#entry-search").val().toUpperCase();
       var ul = $("#nav-list");
       var li = $(".sidebar-li");
+
+      if (filter.length == 0) {
+        setSearchIcon();
+      } else {
+        setClearButton();
+      }
 
       // get list items
       var a = $(".sidebar-link");
@@ -131,6 +142,28 @@
         }
       }
     }
+
+
+
+    function setClearButton() {
+      $("#entry-search-icon").html('<button class="btn btn-outline-secondary" type="button" onclick="resetEntrySearch()"><i class="bx bx-x"></i></button>');
+    }
+
+    function setSearchIcon() {
+      $("#entry-search-icon").html('<span class="input-group-text"><i class="bx bx-search"></i></span>');
+    }
+
+    function resetEntrySearch() {
+      clearEntrySearch();
+      filterEntries();
+      $("#entry-search").focus();
+    }
+
+    function clearEntrySearch() {
+      $("#entry-search").val('');
+    }
+
+
 
 
 
