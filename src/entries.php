@@ -32,24 +32,23 @@
 
         <div class="input-group input-group-sm">
           <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-sm"><i class='bx bx-search'></i></span>
+            <span class="input-group-text"><i class='bx bx-search'></i></span>
           </div>
-          <input type="text" class="form-control" id="entry-search" aria-label="Search input" placeholder="Search">
+          <input type="text" class="form-control" id="entry-search" aria-label="Search input" placeholder="Search" onkeyup="filterEntries()">
         </div>
 
 
       </div>
 
-      <ul class="list-unstyled">
+      <ul class="list-unstyled" id="nav-list">
 
-        <li><h3>2019</h3></li>
         <?php
         $entries = getAllEntries();
         while ($entry = $entries->fetch(PDO::FETCH_ASSOC)) {
 
           $id = $entry['id'];
           $title = $entry['title'];
-          echo "<li><a class=\"sidebar-link\" href=\"entries.php?entryID=$id\">$title</a></li>";
+          echo "<li class=\"sidebar-li\"><a class=\"sidebar-link\" href=\"entries.php?entryID=$id\">$title</a></li>";
         }
         ?>
       </ul>
@@ -78,6 +77,8 @@
 
       ?>
 
+
+
       <div id="home-footer">
         <a href="https://github.com/rrickgauer/blog" target="_blank"><i class='bx bxl-github'></i></a>
       </div>
@@ -88,7 +89,6 @@
   <script src="js/prism.js"></script>
 
   <script>
-
     $(document).ready(function() {
 
       $(".toggle-entries").on("click", function() {
@@ -105,7 +105,28 @@
     });
 
 
+    function filterEntries() {
 
+      // get search query
+      var filter = $("#entry-search").val().toUpperCase();
+      var ul = $("#nav-list");
+      var li = $(".sidebar-li");
+
+      // get list items
+      var a = $(".sidebar-link");
+
+      for (var count = 0; count < li.length; count++) {
+
+        a = li[count].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          li[count].style.display = "";
+        } else {
+          li[count].style.display = "none";
+        }
+      }
+    }
   </script>
 
 
