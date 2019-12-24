@@ -19,12 +19,12 @@
 
   <div class="wrapper">
     
-    <div id="sidebar" class="active">
+    <div id="sidebar">
 
       <div class="sidebar-header">
         Entries
         <div class="float-right">
-          <i class="bx bx-x toggle-entries active" id="hide-entries"></i>
+          <i class="bx bx-x toggle-entries" id="hide-entries"></i>
         </div>
       </div>
 
@@ -45,9 +45,9 @@
 
 
 
-    <div id="data" class="container active">
+    <div id="data" class="container">
 
-        <i class="bx bx-menu toggle-entries" id="show-entries"></i>
+        <i class="bx bx-menu toggle-entries active" id="show-entries"></i>
 
         <?php
 
