@@ -10,7 +10,8 @@ I got this idea from this [site](https://webdevresources.info/colors). I will be
 4. [Icons](icons)
 5. [HTML](#html)
 6. [Articles](#articles)
-7. [Future Plans](#future-plans)
+7. [APIs](#apis)
+8. [Future Plans](#future-plans)
 
 ## Colors
 * [Granim.js](https://github.com/sarcadass/granim.js): Create fluid and interactive gradient animations with this small javascript library.
@@ -44,6 +45,9 @@ I got this idea from this [site](https://webdevresources.info/colors). I will be
 ## Articles
 * [CSS Code Guide](https://codeguide.co/): Standards for developing consistent, flexible, and sustainable HTML and CSS.
   * Written by [Mark Otto](https://mdo.fm/), the creator of Bootstrap
+
+## APIs
+* [IP Address](http://ip4.me/): what is my IP Address?
 
 ## Future plans
 * Create a website like this [site](https://webdevresources.info/colors).
