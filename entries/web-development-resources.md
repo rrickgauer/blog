@@ -4,93 +4,59 @@ I got this idea this [site](https://webdevresources.info/colors).
 
 ## Colors
 
-* Granim.js
+* [Granim.js](https://github.com/sarcadass/granim.js)
   * Create fluid and interactive gradient animations with this small javascript library.
-  * [GitHub Repo](https://github.com/sarcadass/granim.js)
-  * [Demo site](https://sarcadass.github.io/granim.js/index.html)
 
-* Color Hunt
+* [Color Hunt](https://colorhunt.co/)
   * Color Palettes for Designers and Artists
-  * [Site](https://colorhunt.co/)
 
-* Color Claim
+* [Color Claim](https://www.vanschneider.com/colors)
   * Created Tobias van Schneider with the goal to collect & combine unique colors for future projects.
-  * [Site](https://www.vanschneider.com/colors)
 
 
 ## CSS
 
-* Bootstrap Table
+* [Bootstrap Table](https://github.com/wenzhixin/bootstrap-table)
   * An extended table to integration with some of the most widely used CSS frameworks.
-  * [GitHub Repo](https://github.com/wenzhixin/bootstrap-table)
 
-
-* Animate CSS
+* [Animate CSS](https://github.com/daneden/animate.css)
   * A cross-browser library of CSS animations
-  * [GitHub Repo](https://github.com/daneden/animate.css)
 
-* Text Input Effects
+* [Text Input Effects](https://tympanus.net/Development/TextInputEffects/index.html)
   * Simple ideas for enhancing text input interactions
-  * [Site](https://tympanus.net/Development/TextInputEffects/index.html)
 
-* Hamburgers
+* [Hamburgers](https://github.com/jonsuh/hamburgers)
   * Tasty CSS-animated hamburgers
-  * [GitHub Repo](https://github.com/jonsuh/hamburgers)
 
-* CSS Effects Snippets
+* [CSS Effects Snippets](https://github.com/emilkowalski/css-effects-snippets)
   * A collection of CSS effects made with Vue.js
-  * [GitHub Repo](https://github.com/emilkowalski/css-effects-snippets)
 
-* Skeleton
+* [Skeleton](http://getskeleton.com/)
   * A dead simple, responsive boilerplate.
-  * [Site](http://getskeleton.com/)
 
 ## JavaScript
 
-* Flatpickr
+* [Flatpickr](https://github.com/flatpickr/flatpickr)
   * lightweight, powerful javascript datetimepicker with no dependencies
-  * [GitHup Repo](https://github.com/flatpickr/flatpickr)
 
-* Select2
+* [Select2](https://github.com/select2/select2)
   * The jQuery replacement for select boxes.
-  * [GitHub Repo](https://github.com/select2/select2)
 
-* Prism
+* [Prism](https://prismjs.com/)
   * front-end syntax highlighter
-  [Site](https://prismjs.com/)
-
-* Cleave.js
+  
+* [Cleave.js](https://github.com/nosir/cleave.js)
   * Format your ```<input/>``` content when you are typing.
-  * https://github.com/nosir/cleave.js
 
-* jQuery Cheat Sheet
-  * [PDF](https://websitesetup.org/wp-content/uploads/2017/01/wsu-jquery-cheat-sheet.pdf)
-
+* [jQuery Cheat Sheet](https://websitesetup.org/wp-content/uploads/2017/01/wsu-jquery-cheat-sheet.pdf)
 
 ## Icons
 
-* Boxicons
+* [Boxicons](https://github.com/atisawd/boxicons)
   * High Quality web friendly icons 
-  * [GitHubRepo](https://github.com/atisawd/boxicons)
 
-* Devicon
+* [Devicon](https://github.com/konpa/devicon/)
   * Set of icons representing programming languages, designing & development tools
-  * [GitHub Repo](https://github.com/konpa/devicon/)
 
-* Ion Icons
+* [Ion Icons](https://github.com/ionic-team/ionicons)
   * The premium icon font for Ionic Framework and web apps everywhere
-  * [GitHub Repo](https://github.com/ionic-team/ionicons)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
