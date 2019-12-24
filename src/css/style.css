@@ -53,7 +53,7 @@ body {
 .sidebar-header,
 .sidebar-header i {
   color: black;
-  font-size: 24px;
+  font-size: 30px;
   font-weight: bold;
 }
 
@@ -132,3 +132,20 @@ h1.custom-font {
   margin-top: 20px;
   animation: fadein 2s;
 }
+
+.sidebar-search {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* eof */

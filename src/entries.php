@@ -21,7 +21,7 @@
 
     <div id="sidebar">
 
-      <div class="sidebar-header">
+      <div class="sidebar-header custom-font">
         Entries
         <div class="float-right">
           <i class="bx bx-x toggle-entries" id="hide-entries"></i>
@@ -32,7 +32,7 @@
 
         <div class="input-group input-group-sm">
 
-          <input type="text" class="form-control" id="entry-search" aria-label="Search input" placeholder="Search" onkeyup="filterEntries()">
+          <input type="text" class="form-control" id="entry-search" aria-label="Search input" placeholder="Search" onkeyup="filterEntries()" autofocus>
 
           <div class="input-group-append" id="entry-search-icon">
             <span class="input-group-text"><i class='bx bx-search'></i></span>
