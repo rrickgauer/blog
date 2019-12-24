@@ -1,6 +1,6 @@
 # Web Development Resources
 
-I got this idea this [site](https://webdevresources.info/colors).
+I got this idea from this [site](https://webdevresources.info/colors). This will be a growing list as time goes on. Pull requests are welcome!
 
 ## Content
 
@@ -40,5 +40,6 @@ I got this idea this [site](https://webdevresources.info/colors).
 * [HTML character codes](https://www.rapidtables.com/web/html/html-codes.html): All HTML character codes of text fonts and symbols from &#0; to &#65535
 
 ## Future plans
-* Create a website like the one at the top of the page.
+* Create a website like this [site](https://webdevresources.info/colors).
+* Keep adding to the list
 
