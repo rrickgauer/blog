@@ -29,6 +29,7 @@ I got this idea from this [site](https://webdevresources.info/colors). This will
 * [Select2](https://github.com/select2/select2): The jQuery replacement for select boxes.
 * [Prism](https://prismjs.com/): front-end syntax highlighter 
 * [Cleave.js](https://github.com/nosir/cleave.js): Format your ```<input/>``` content when you are typing.
+* [TypeIt](https://github.com/alexmacarthur/typeit): The most versatile JavaScript animated typing utility on the planet.
 * [jQuery Cheat Sheet](https://websitesetup.org/wp-content/uploads/2017/01/wsu-jquery-cheat-sheet.pdf)
 
 ## Icons
