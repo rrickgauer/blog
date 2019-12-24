@@ -1,152 +1,134 @@
 body {
-	padding: 0 !important;
-	margin: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
-.card-entry {
-	border: 0 !important;
-	padding: 0 !important;
-	margin: 0 !important;
+.wrapper {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
 }
 
-.card-entry h3, h6 {
-	padding: 0 !important;
-	margin: 0 !important;
+#sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  background-color: #f2f2f2f2;
+  position: fixed;
+  overflow-y: auto;
+  height: 100vh;
+  border-right: 1px solid #cccccc !important;
+  transition: all 0.2s;
+  padding: 10px;
 }
 
-.card {
-	background-color: inherit;
+#sidebar.active {
+  margin-left: -250px;
 }
 
-body {
-	background-color: #F5F5F5;
+#sidebar ul {
+  width: 250px;
+  margin: 0;
+  padding: 0;
 }
 
-#top-navbar {
-	background-color: white !important;
-
-
-
+#sidebar li {
+  /*border-bottom: 1px solid #cccccc;*/
 }
 
-#top-navbar a {
-	color: black !important;
-	font-weight: bold;
+#sidebar li a {
+  /*color: black;*/
+  display: block;
+  padding: 5px;
 }
 
-#top-navbar li {
-	color: black !important;
-	font-weight: bold;
-	/*padding-right: 20px;*/
-	margin-left: 5px;
-	margin-right: 5px;
+#sidebar a:hover {
+  background-color: #e6e6e6;
+  text-decoration: none;
 }
 
-#top-navbar a {
-	border-bottom-style: solid;
-	border-bottom-width: 5px;
-	border-bottom-color: white;
-	/*margin: 20px;*/
+#sidebar a.active {
+  background-color: #e6e6e6;
 }
 
-#navbarNav a:hover {
-	border-bottom-style: solid;
-	border-bottom-width: 5px;
-	border-bottom-color: black;
+.sidebar-header,
+.sidebar-header i {
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
 }
 
-#navbarNav a.selected {
-	border-bottom-style: solid;
-	border-bottom-width: 5px;
-	border-bottom-color: black;
+#show-entries {
+  font-size: 50px;
+  font-weight: bold;
+  color: black;
+  margin-top: 25px;
+  /*margin-left: 50px;*/
+  transition: transform .2s;
 }
 
-.entry-title {
-	text-align: center !important;
+#show-entries:hover {
+  color: #ff8000;
+  transform: rotate(180deg);
 }
 
-.entry-title h1, h5 {
-	padding-top: 0;
-	margin: 0;
+.toggle-entries:hover {
+  color: #ff8000;
 }
 
-.entry-title h1 {
-	font-size: 40px;
-	padding-top: 20px;
-	font-family: 'Special Elite', cursive;
+.toggle-entries.active {
+  visibility: hidden;
 }
 
-.entry-title h5 {
-	color: #898989;
+.custom-font {
+  font-family: 'Special Elite', cursive;
 }
 
-#fullscreen-modal .modal-dialog,
-#preview-modal .modal-dialog {
-	width: 100% !important;
-	height: 100% !important;
-	margin: 10px !important;
-	padding: 0 !important;
-	max-width: none !important;
+h1.custom-font {
+  font-size: 40px;
+  text-align: center;
+  border: none;
+  margin: 0;
+  padding: 0;
 }
 
-#fullscreen-modal .modal-content,
-#preview-modal .modal-content {
-	height: auto !important;
-	min-height: 100% !important;
-	border-radius: 0 !important;
-	/* background-color: #ececec !important */
+.entry-date {
+  padding: 0;
+  margin: 0;
 }
 
-#fullscreen-modal .modal-body,
-#preview-modal .modal-body {
-	background-color: #F5F5F5;
-	max-height: 90vh;
-	/* max 90% of the viewport height */
-	overflow-y: auto;
+#data {
+  margin-left: 250px;
+  transition: all 0.2s;
 }
 
-.padding-bottom {
-	padding-bottom: 40px;
+#data.active {
+  margin-left: 0px;
 }
 
-#content h2 {
-	padding-top: 20px;
+.card-deck {
+  margin-bottom: 20px;
 }
 
-#fullscreen-edit-section {
-	padding: 10px !important;
-	padding-top: 30px !important;
-	border: none !important;
-	-webkit-box-sizing: border-box !important;
-	-moz-box-sizing: border-box !important;
-	box-sizing: border-box !important;
-	/* max-width: 90% !important; */
-	height: 85vh !important;
-	width: 95% !important;
-	outline: none !important;
-	margin: 0 auto !important;
-	display: block !important;
-	font-size: auto !important;
-	box-shadow: none !important;
-	resize: none !important;
-	line-height: 1.2em !important;
-	/* background-color: #F5F5F5; */
+.card h6 {
+  margin-bottom: 0px;
 }
 
-#footer {
-
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	text-align: center;
+.vertical-center-page {
+  min-height: 30vh;
 }
 
-#content {
-	padding-top: 50px;
+#hero {
+  font-family: 'Special Elite', cursive;
+  font-size: 64px;
+  border: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
 }
 
-h1 {
-	padding-top: 30px !important;
+#home-footer {
+  font-size: 32px;
+  text-align: center;
+  margin-top: 20px;
+  animation: fadein 2s;
 }
-
-/* eof */

@@ -1,56 +1,98 @@
-<?php
-include('include-top.php');
-$entries = getAllEntries();
-?>
-
+<?php include('functions.php'); ?>
+<?php include('Parsedown.php'); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
   <?php include('header.php'); ?>
-  <title>Blog Entries</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap" rel="stylesheet" />
+
+  <title>Ryan Rickgauer Blog</title>
 </head>
 
 <body>
-  <?php include('navbar.php'); ?>
 
 
-  <div class="container" id="content">
 
-    <h1 class="text-center">Browse Entries</h1>
+  <div class="wrapper">
+    
+    <div id="sidebar" class="active">
 
-    <h2>2019</h2>
-    <?php
-    while ($entry = $entries->fetch(PDO::FETCH_ASSOC)) {
-      printEntryCard($entry['id'], $entry['title'], $entry['date_formatted']);
-    }
-    ?>
+      <div class="sidebar-header">
+        Entries
+        <div class="float-right">
+          <i class="bx bx-x toggle-entries active" id="hide-entries"></i>
+        </div>
+      </div>
 
+      <ul class="list-unstyled">
+
+      <li><h3>2019</h3></li>
+        <?php
+          $entries = getAllEntries();
+          while ($entry = $entries->fetch(PDO::FETCH_ASSOC)) {
+
+            $id = $entry['id'];
+            $title = $entry['title'];
+            echo "<li><a class=\"sidebar-link\" href=\"entries.php?entryID=$id\">$title</a></li>";
+          }
+        ?>
+      </ul>
+    </div>
+
+
+
+    <div id="data" class="container active">
+
+        <i class="bx bx-menu toggle-entries" id="show-entries"></i>
+
+        <?php
+
+        if (isset($_GET['entryID'])) {
+          $entry = getEntry($_GET['entryID']);
+
+          echo '<h1 class="custom-font">' . $entry['title'] . '</h1>';
+          echo '<h6 class="text-center entry-date">' . $entry['date'] . '</h6>';
+
+          $Parsedown = new Parsedown();
+          echo $Parsedown->text($entry['content']);
+
+        } else {
+          include('home.php');
+        }
+
+        ?>
+
+    </div>
   </div>
 
-  <?php printFooter(); ?>
+<script src="js/prism.js"></script>
 
-  <script>
-    $(document).ready(function() {
-      $("#entries-nav").addClass("selected");
+<script>
+
+  $(document).ready(function() {
+
+    $(".toggle-entries").on("click", function() {
+      $('#sidebar').toggleClass('active');
+      $('#data').toggleClass('active');
+      $('.toggle-entries').toggleClass('active');
     });
-  </script>
+
+    $(".sidebar-link").on('click', function() {
+      $(".sidebar-link").removeClass('active');
+      $(this).addClass('active');
+    });
+
+  });
+
+
+
+</script>
+
+
 </body>
 
 </html>
-
-<?php
-
-function printEntryCard($id, $title, $date) {
-
-   echo
-   "<div class=\"card card-entry\">
-   <div class=\"card-body\">
-   <h3 class=\"card-title\"><a href=\"entry.php?id=$id\">$title</a></h3>
-   <h6 class=\"card-subtitle mb-2 text-muted\">$date</h6>
-   </div>
-   </div>";
-}
-
-
-?>

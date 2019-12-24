@@ -10,22 +10,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-<!-- ion icons -->
-<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-
 <!-- github css -->
 <!-- https://gist.github.com/tuzz/3331384 -->
 <link rel="stylesheet" type="text/css" href="css/github.css">
 
-<!-- modest css -->
-<!-- https://github.com/markdowncss/modest/blob/master/css/modest.css -->
-<!-- <link rel="stylesheet" type="text/css" href="css/modest.css"> -->
-
 <!-- custom css sheet -->
 <link rel="stylesheet" type="text/css" href="css/style.css">
+
+<!-- boxicons -->
+<!-- <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script> -->
 
 <!-- prism code highlighter -->
 <link rel="stylesheet" type="text/css" href="css/prism.css">
 
-<!-- sidenav style -->
-<link rel="stylesheet" type="text/css" href="css/sidenav-style.css">
+<!-- TypeIt -->
+<script src="https://cdn.jsdelivr.net/npm/typeit@VERSION_NUMBER/dist/typeit.min.js"></script>
