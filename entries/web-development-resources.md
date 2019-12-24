@@ -4,10 +4,12 @@ I got this idea this [site](https://webdevresources.info/colors).
 
 ## Content
 
-1. Colors
-2. CSS
-3. JavaScript
-4. Icons
+1. [Colors](#colors)
+2. [CSS](#css)
+3. [JavaScript](#javascript)
+4. [Icons](icons)
+5. [HTML](#html)
+6. [Future Plans](#future-plans)
 
 
 ## Colors
@@ -17,6 +19,8 @@ I got this idea this [site](https://webdevresources.info/colors).
 * [Color Hunt](https://colorhunt.co/): Color Palettes for Designers and Artists
 
 * [Color Claim](https://www.vanschneider.com/colors): Created Tobias van Schneider with the goal to collect & combine unique colors for future projects.
+
+
 
 
 ## CSS
@@ -47,8 +51,19 @@ I got this idea this [site](https://webdevresources.info/colors).
 
 ## Icons
 
-* [Boxicons](https://github.com/atisawd/boxicons): High Quality web friendly icons 
+* [Boxicons](https://boxicons.com/): High Quality web friendly icons 
 
 * [Devicon](https://github.com/konpa/devicon/): Set of icons representing programming languages, designing & development tools
 
 * [Ion Icons](https://github.com/ionic-team/ionicons): The premium icon font for Ionic Framework and web apps everywhere
+
+
+## HTML
+
+* [HTML character codes](https://www.rapidtables.com/web/html/html-codes.html): All HTML character codes of text fonts and symbols from &#0; to &#65535
+
+
+## Future plans
+
+* Create a website like the one at the top of the page.
+
