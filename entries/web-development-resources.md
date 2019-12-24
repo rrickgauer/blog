@@ -2,7 +2,7 @@
 
 I got this idea this [site](https://webdevresources.info/colors).
 
-# Content
+## Content
 
 1. Colors
 2. CSS
@@ -10,7 +10,7 @@ I got this idea this [site](https://webdevresources.info/colors).
 4. Icons
 
 
-# Colors
+## Colors
 
 * [Granim.js](https://github.com/sarcadass/granim.js): Create fluid and interactive gradient animations with this small javascript library.
 
@@ -19,7 +19,7 @@ I got this idea this [site](https://webdevresources.info/colors).
 * [Color Claim](https://www.vanschneider.com/colors): Created Tobias van Schneider with the goal to collect & combine unique colors for future projects.
 
 
-# CSS
+## CSS
 
 * [Bootstrap Table](https://github.com/wenzhixin/bootstrap-table): An extended table to integration with some of the most widely used CSS frameworks.
 
@@ -33,7 +33,7 @@ I got this idea this [site](https://webdevresources.info/colors).
 
 * [Skeleton](http://getskeleton.com/): A dead simple, responsive boilerplate.
 
-# JavaScript
+## JavaScript
 
 * [Flatpickr](https://github.com/flatpickr/flatpickr): lightweight, powerful javascript datetimepicker with no dependencies
 
@@ -45,7 +45,7 @@ I got this idea this [site](https://webdevresources.info/colors).
 
 * [jQuery Cheat Sheet](https://websitesetup.org/wp-content/uploads/2017/01/wsu-jquery-cheat-sheet.pdf)
 
-# Icons
+## Icons
 
 * [Boxicons](https://github.com/atisawd/boxicons): High Quality web friendly icons 
 
