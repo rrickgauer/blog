@@ -66,6 +66,10 @@
 
         ?>
 
+        <div id="home-footer">
+    <a href="https://github.com/rrickgauer/blog" target="_blank"><i class='bx bxl-github'></i></a>
+  </div>
+
     </div>
   </div>
 
