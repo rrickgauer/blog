@@ -31,9 +31,8 @@ body {
   padding: 0;
 }
 
-#sidebar li {
-  /*border-bottom: 1px solid #cccccc;*/
-}
+
+
 
 #sidebar li a {
   /*color: black;*/
@@ -105,13 +104,8 @@ h1.custom-font {
   margin-left: 0px;
 }
 
-.card-deck {
-  margin-bottom: 20px;
-}
 
-.card h6 {
-  margin-bottom: 0px;
-}
+
 
 .vertical-center-page {
   min-height: 30vh;
@@ -138,14 +132,41 @@ h1.custom-font {
   margin-bottom: 5px;
 }
 
+@media only screen and (max-width: 400px) {
+  #sidebar {
+    margin-left: -400px;
+  }
+
+  #sidebar.active {
+    min-width: 100vw;
+    max-width: 100vw;
+
+    margin-left: 0;
+  }
+
+  #sidebar ul {
+    /* width: 400px; */
+  }
+
+  #data {
+    margin-left: 0px;
+    transition: all 0.2s;
+  }
+
+  #data.active {
+    margin-left: 400px;
+  }
+
+  .toggle-entries.active {
+    visibility: visible;
+  }
+
+
+  .sidebar-search {
+    margin-top: none;
+    margin-bottom: none;
+  }
 
 
 
-
-
-
-
-
-
-
-/* eof */
+}
