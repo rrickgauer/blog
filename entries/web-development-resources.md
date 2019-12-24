@@ -9,7 +9,8 @@ I got this idea from this [site](https://webdevresources.info/colors). This will
 3. [JavaScript](#javascript)
 4. [Icons](icons)
 5. [HTML](#html)
-6. [Future Plans](#future-plans)
+6. [Articles](#articles)
+7. [Future Plans](#future-plans)
 
 ## Colors
 * [Granim.js](https://github.com/sarcadass/granim.js): Create fluid and interactive gradient animations with this small javascript library.
@@ -39,6 +40,10 @@ I got this idea from this [site](https://webdevresources.info/colors). This will
 
 ## HTML
 * [HTML character codes](https://www.rapidtables.com/web/html/html-codes.html): All HTML character codes of text fonts and symbols from &#0; to &#65535
+
+## Articles
+* [CSS Code Guide](https://codeguide.co/): Standards for developing consistent, flexible, and sustainable HTML and CSS.
+  * Written by [Mark Otto](https://mdo.fm/), the creator of Bootstrap
 
 ## Future plans
 * Create a website like this [site](https://webdevresources.info/colors).
