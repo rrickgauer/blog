@@ -35,6 +35,7 @@
             <span class="input-group-text"><i class='bx bx-search'></i></span>
           </div>
           <input type="text" class="form-control" id="entry-search" aria-label="Search input" placeholder="Search" onkeyup="filterEntries()">
+          
         </div>
 
 
@@ -86,7 +87,6 @@
     </div>
   </div>
 
-
   <script src="js/prism.js"></script>
 
   <script>
@@ -131,6 +131,11 @@
         }
       }
     }
+
+
+
+
+
 
   </script>
 
