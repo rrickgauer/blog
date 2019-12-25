@@ -15,8 +15,6 @@
 
 <body>
 
-
-
   <div class="wrapper">
 
     <div id="sidebar">
@@ -32,7 +30,7 @@
 
         <div class="input-group input-group-sm">
 
-          <input type="text" class="form-control" id="entry-search" aria-label="Search input" placeholder="Search" onkeyup="filterEntries()" autofocus>
+          <input type="text" class="form-control" id="entry-search" aria-label="Search input" placeholder="Search" onkeyup="filterEntries()">
 
           <div class="input-group-append" id="entry-search-icon">
             <span class="input-group-text"><i class='bx bx-search'></i></span>
@@ -58,7 +56,7 @@
 
 
 
-    <div id="data" class="container">
+    <div id="data" class="container-fluid">
 
       <i class="bx bx-menu toggle-entries active" id="show-entries"></i>
 
@@ -111,9 +109,7 @@
 
     });
 
-    $("#show-entries").click(function() {
-      $("#entry-search").focus();
-    });
+
 
     function filterEntries() {
       // get search query
@@ -143,8 +139,6 @@
       }
     }
 
-
-
     function setClearButton() {
       $("#entry-search-icon").html('<button class="btn btn-outline-secondary" type="button" onclick="resetEntrySearch()"><i class="bx bx-x"></i></button>');
     }
@@ -156,20 +150,11 @@
     function resetEntrySearch() {
       clearEntrySearch();
       filterEntries();
-      $("#entry-search").focus();
     }
 
     function clearEntrySearch() {
       $("#entry-search").val('');
     }
-
-
-
-
-
-
-
-
   </script>
 
 

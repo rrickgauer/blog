@@ -26,13 +26,10 @@ body {
 }
 
 #sidebar ul {
-  width: 250px;
+  /* width: 250px; */
   margin: 0;
   padding: 0;
 }
-
-
-
 
 #sidebar li a {
   /*color: black;*/
@@ -101,11 +98,8 @@ h1.custom-font {
 }
 
 #data.active {
-  margin-left: 0px;
+  margin: 0;
 }
-
-
-
 
 .vertical-center-page {
   min-height: 30vh;
@@ -138,14 +132,9 @@ h1.custom-font {
   }
 
   #sidebar.active {
-    min-width: 100vw;
-    max-width: 100vw;
-
+    min-width: 400px;
+    max-width: 400px;
     margin-left: 0;
-  }
-
-  #sidebar ul {
-    /* width: 400px; */
   }
 
   #data {
@@ -161,12 +150,8 @@ h1.custom-font {
     visibility: visible;
   }
 
-
   .sidebar-search {
     margin-top: none;
     margin-bottom: none;
   }
-
-
-
 }
