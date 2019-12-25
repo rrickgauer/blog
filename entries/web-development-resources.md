@@ -7,7 +7,7 @@ I got this idea from this [site](https://webdevresources.info/colors). I will be
 1. [Colors](#colors)
 2. [CSS](#css)
 3. [JavaScript](#javascript)
-4. [Icons](icons)
+4. [Icons](#icons)
 5. [HTML](#html)
 6. [Articles](#articles)
 7. [APIs](#apis)
