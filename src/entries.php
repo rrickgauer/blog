@@ -5,11 +5,10 @@
 
 <head>
   <?php include('header.php'); ?>
-
+  <!-- boxicons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-
+  <!-- custom font -->
   <link href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap" rel="stylesheet" />
-
   <title>Ryan Rickgauer Blog</title>
 </head>
 
@@ -17,15 +16,8 @@
 
   <div class="wrapper">
 
+    <!-- sidebar  -->
     <div id="sidebar">
-
-      <div class="sidebar-header custom-font">
-        Entries
-        <div class="float-right">
-          <i class="bx bx-x toggle-entries" id="hide-entries"></i>
-        </div>
-      </div>
-
       <div class="sidebar-search">
         <div class="input-group input-group-sm">
           <input type="text" class="form-control" id="entry-search" aria-label="Search input" placeholder="Search" onkeyup="filterEntries()">
@@ -35,12 +27,11 @@
         </div>
       </div>
 
+      <!-- entries list -->
       <ul class="list-unstyled" id="nav-list">
-
         <?php
         $entries = getAllEntries();
         while ($entry = $entries->fetch(PDO::FETCH_ASSOC)) {
-
           $id = $entry['id'];
           $title = $entry['title'];
           echo "<li class=\"sidebar-li\"><a class=\"sidebar-link\" href=\"entries.php?entryID=$id\">$title</a></li>";
@@ -52,6 +43,8 @@
 
 
     <div id="data" class="container-fluid">
+
+      <!-- hamburger button -->
       <i class="bx bx-menu toggle-entries" id="show-entries"></i>
 
       <?php
@@ -62,7 +55,9 @@
         echo '<h6 class="text-center entry-date">' . $entry['date'] . '</h6>';
         $Parsedown = new Parsedown();
         echo $Parsedown->text($entry['content']);
-      } else {
+      }
+
+      else {
         include('home.php');
       }
 
@@ -83,22 +78,14 @@
       $(".toggle-entries").on("click", function() {
         $('#sidebar').toggleClass('active');
         $('#data').toggleClass('active');
-        $('.toggle-entries').toggleClass('active');
+        // $('.toggle-entries').toggleClass('active');
 
         // clears search box and list all entries
         $("#entry-search").val('');
         filterEntries();
 
       });
-
-      $(".sidebar-link").on('click', function() {
-        $(".sidebar-link").removeClass('active');
-        $(this).addClass('active');
-      });
-
     });
-
-
 
     function filterEntries() {
       // get search query
