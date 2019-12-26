@@ -19,8 +19,8 @@
 
 <script>
 
-    $('#sidebar').toggleClass('active');
-    $('#data').toggleClass('active');
-    $('.toggle-entries').toggleClass('active');
+    // $('#sidebar').toggleClass('active');
+    // $('#data').toggleClass('active');
+    // $('.toggle-entries').toggleClass('active');
 
 </script>
