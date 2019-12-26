@@ -40,8 +40,21 @@
 
     <div id="data" class="container-fluid">
 
-      <!-- hamburger button -->
-      <i class="bx bx-menu toggle-entries" id="show-entries"></i>
+
+
+      <button id="show-entries" class="hamburger hamburger--elastic" type="button">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+
+      <script>
+        var $hamburger = $(".hamburger");
+        $hamburger.on("click", function(e) {
+          $hamburger.toggleClass("is-active");
+          // Do something else, like open/close menu
+        });
+      </script>
 
       <?php
 
@@ -71,7 +84,7 @@
   <script>
     $(document).ready(function() {
 
-      $(".toggle-entries").on("click", function() {
+      $("#show-entries").on("click", function() {
         $('#sidebar').toggleClass('active');
         $('#data').toggleClass('active');
         // $('.toggle-entries').toggleClass('active');

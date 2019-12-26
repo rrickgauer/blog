@@ -1,9 +1,9 @@
 <!-- required meta tags -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
 <meta charset="utf-8" />
 
 <!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -12,22 +12,22 @@
 
 <!-- github css -->
 <!-- https://gist.github.com/tuzz/3331384 -->
-<link rel="stylesheet" type="text/css" href="css/github.css">
-
-<!-- custom css sheet -->
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/github.css" />
 
 <!-- prism code highlighter -->
-<link rel="stylesheet" type="text/css" href="css/prism.css">
+<link rel="stylesheet" type="text/css" href="css/prism.css" />
 
 <!-- TypeIt -->
 <script src="js/typeit.min.js"></script>
 
 <!-- boxicons -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
 
 <!-- custom font -->
 <link href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap" rel="stylesheet" />
 
 <!-- hamgurger.css -->
-<link href="css/hamburgers.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet" />
+
+<!-- custom css sheet -->
+<link rel="stylesheet" type="text/css" href="css/style.css" />

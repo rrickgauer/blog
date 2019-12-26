@@ -25,7 +25,6 @@
 }
 
 #sidebar li a {
-  /*color: black;*/
   display: block;
   padding: 5px;
 }
@@ -77,22 +76,8 @@ h1.custom-font {
   animation: fadein 2s;
 }
 
-#show-entries {
-  font-size: 50px;
-  font-weight: bold;
-  color: black;
-  margin-top: 25px;
-  transition: transform .2s;
-}
-
-#show-entries:hover {
-  color: #ff8000;
-  transform: rotate(180deg);
-}
-
 .sidebar-search {
-  margin-top: 28px;
-  margin-bottom: 5px;
+  margin: 5px 0;
 }
 
 @media (max-width: 768px) {
