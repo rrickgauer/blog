@@ -80,6 +80,14 @@ h1.custom-font {
   margin: 5px 0;
 }
 
+#show-entries {
+  margin-top: 20px;
+}
+
+#show-entries:focus {
+  outline: 0;
+}
+
 @media (max-width: 768px) {
   #sidebar {
     margin-left: -250px;
