@@ -5,10 +5,6 @@
 
 <head>
   <?php include('header.php'); ?>
-  <!-- boxicons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-  <!-- custom font -->
-  <link href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap" rel="stylesheet" />
   <title>Ryan Rickgauer Blog</title>
 </head>
 

@@ -17,11 +17,17 @@
 <!-- custom css sheet -->
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
-<!-- boxicons -->
-<!-- <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script> -->
-
 <!-- prism code highlighter -->
 <link rel="stylesheet" type="text/css" href="css/prism.css">
 
 <!-- TypeIt -->
 <script src="js/typeit.min.js"></script>
+
+<!-- boxicons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+<!-- custom font -->
+<link href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap" rel="stylesheet" />
+
+<!-- hamgurger.css -->
+<link href="css/hamburgers.css" rel="stylesheet">
