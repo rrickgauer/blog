@@ -40,7 +40,7 @@
 
     <div id="data" class="container-fluid">
 
-      <button id="show-entries" class="hamburger hamburger--elastic" type="button">
+      <button id="show-entries" class="hamburger hamburger--elastic is-active" type="button">
         <span class="hamburger-box">
           <span class="hamburger-inner"></span>
         </span>
