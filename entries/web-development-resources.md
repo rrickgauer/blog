@@ -24,6 +24,7 @@ I got this idea from this [site](https://webdevresources.info/colors). I will be
 * [Hamburgers](https://github.com/jonsuh/hamburgers) &mdash;  Tasty CSS-animated hamburgers
 * [CSS Effects Snippets](https://github.com/emilkowalski/css-effects-snippets) &mdash;  A collection of CSS effects made with Vue.js
 * [Skeleton](http://getskeleton.com/) &mdash;  A dead simple, responsive boilerplate.
+* [Pretty Checkbox](https://lokesh-coder.github.io/pretty-checkbox/) &mdash;  A pure CSS library to beautify checkbox and radio buttons
 
 # JavaScript
 * [Flatpickr](https://github.com/flatpickr/flatpickr) &mdash;  lightweight, powerful javascript datetimepicker with no dependencies
