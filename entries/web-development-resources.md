@@ -16,6 +16,7 @@ I got this idea from this [site](https://webdevresources.info/colors). I will be
 * [Granim.js](https://github.com/sarcadass/granim.js) &mdash; Create fluid and interactive gradient animations with this small javascript library.
 * [Color Hunt](https://colorhunt.co/) &mdash; Color Palettes for Designers and Artists
 * [Color Claim](https://www.vanschneider.com/colors) &mdash; Created Tobias van Schneider with the goal to collect & combine unique colors for future projects.
+* [Colorsinspo](https://colorsinspo.com/) &mdash; Thousands of beautiful color palettes you can use it directly by one click.
 
 # CSS
 * [Bootstrap Table](https://github.com/wenzhixin/bootstrap-table) &mdash; An extended table to integration with some of the most widely used CSS frameworks.
