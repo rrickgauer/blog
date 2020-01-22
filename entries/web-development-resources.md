@@ -39,6 +39,7 @@ I got this idea from this [site](https://webdevresources.info/colors). I will be
 * [Boxicons](https://boxicons.com/) &mdash; High Quality web friendly icons
 * [Devicon](https://github.com/konpa/devicon/) &mdash; Set of icons representing programming languages, designing & development tools
 * [Ion Icons](https://github.com/ionic-team/ionicons) &mdash; The premium icon font for Ionic Framework and web apps everywhere
+* [Favicon](https://favicon.io/favicon-generator/) &mdash; Create a favicon in few simple clicks.
 
 # HTML
 * [HTML character codes](https://www.rapidtables.com/web/html/html-codes.html) &mdash; All HTML character codes of text fonts and symbols from &#0; to &#65535
@@ -46,6 +47,7 @@ I got this idea from this [site](https://webdevresources.info/colors). I will be
 # Articles
 * [CSS Code Guide](https://codeguide.co/) &mdash; Standards for developing consistent, flexible, and sustainable HTML and CSS.
   * Written by [Mark Otto](https://mdo.fm/), the creator of Bootstrap
+* [Design Tips](https://twitter.com/i/events/994601867987619840) &mdash; A collection of web design tips by [Steve Schoger](https://twitter.com/steveschoger)
 
 # APIs
 * [IP Address](http://ip4.me/) &mdash; what is my IP Address?
