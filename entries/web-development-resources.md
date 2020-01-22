@@ -19,11 +19,11 @@ I got this idea from this [site](https://webdevresources.info/colors). I will be
 * [Colorsinspo](https://colorsinspo.com/) &mdash; Thousands of beautiful color palettes you can use it directly by one click.
 
 # CSS
-* [Bootstrap Table](https://github.com/wenzhixin/bootstrap-table) &mdash; An extended table to integration with some of the most widely used CSS frameworks.
-* [Animate CSS](https://github.com/daneden/animate.css) &mdash; A cross-browser library of CSS animations
+* [Bootstrap Table](https://bootstrap-table.com/docs/getting-started/introduction/) &mdash; An extended table to integration with some of the most widely used CSS frameworks.
+* [Animate CSS](https://daneden.github.io/animate.css/) &mdash; A cross-browser library of CSS animations
 * [Text Input Effects](https://tympanus.net/Development/TextInputEffects/index.html) &mdash; Simple ideas for enhancing text input interactions
-* [Hamburgers](https://github.com/jonsuh/hamburgers) &mdash; Tasty CSS-animated hamburgers
-* [CSS Effects Snippets](https://github.com/emilkowalski/css-effects-snippets) &mdash; A collection of CSS effects made with Vue.js
+* [Hamburgers](https://jonsuh.com/hamburgers/) &mdash; Tasty CSS-animated hamburgers
+* [CSS Effects Snippets](https://emilkowalski.github.io/css-effects-snippets/) &mdash; A collection of CSS effects made with Vue.js
 * [Skeleton](http://getskeleton.com/) &mdash; A dead simple, responsive boilerplate.
 * [Pretty Checkbox](https://lokesh-coder.github.io/pretty-checkbox/) &mdash; A pure CSS library to beautify checkbox and radio buttons
 
