@@ -28,17 +28,17 @@ I got this idea from this [site](https://webdevresources.info/colors). I will be
 * [Pretty Checkbox](https://lokesh-coder.github.io/pretty-checkbox/) &mdash; A pure CSS library to beautify checkbox and radio buttons
 
 # JavaScript
-* [Flatpickr](https://github.com/flatpickr/flatpickr) &mdash; lightweight, powerful javascript datetimepicker with no dependencies
-* [Select2](https://github.com/select2/select2) &mdash; The jQuery replacement for select boxes.
+* [Flatpickr](https://flatpickr.js.org/) &mdash; lightweight, powerful javascript datetimepicker with no dependencies
+* [Select2](https://select2.org/) &mdash; The jQuery replacement for select boxes.
 * [Prism](https://prismjs.com/) &mdash; front-end syntax highlighter
-* [Cleave.js](https://github.com/nosir/cleave.js) &mdash; Format your ```<input/>``` content when you are typing.
-* [TypeIt](https://github.com/alexmacarthur/typeit) &mdash; The most versatile JavaScript animated typing utility on the planet.
+* [Cleave.js](https://nosir.github.io/cleave.js/) &mdash; Format your ```<input/>``` content when you are typing.
+* [TypeIt](https://typeitjs.com/) &mdash; The most versatile JavaScript animated typing utility on the planet.
 * [jQuery Cheat Sheet](https://websitesetup.org/wp-content/uploads/2017/01/wsu-jquery-cheat-sheet.pdf)
 
 # Icons
 * [Boxicons](https://boxicons.com/) &mdash; High Quality web friendly icons
-* [Devicon](https://github.com/konpa/devicon/) &mdash; Set of icons representing programming languages, designing & development tools
-* [Ion Icons](https://github.com/ionic-team/ionicons) &mdash; The premium icon font for Ionic Framework and web apps everywhere
+* [Devicon](https://konpa.github.io/devicon/) &mdash; Set of icons representing programming languages, designing & development tools
+* [Ion Icons](https://ionicons.com/) &mdash; The premium icon font for Ionic Framework and web apps everywhere
 * [Favicon](https://favicon.io/favicon-generator/) &mdash; Create a favicon in few simple clicks.
 
 # HTML
