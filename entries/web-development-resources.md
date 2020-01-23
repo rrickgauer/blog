@@ -59,4 +59,3 @@ I got this idea from this [site](https://webdevresources.info/colors). I will be
 
 # Future plans
 * Create a website like this [site](https://webdevresources.info/colors).
-* Keep adding to the list
