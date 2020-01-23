@@ -10,7 +10,7 @@ I got this idea from this [site](https://webdevresources.info/colors). I will be
 5. [HTML](#html)
 6. [Articles](#articles)
 7. [APIs](#apis)
-8. [Backgrounds](#backgrounds)
+8. [Images](#images)
 9. [Future Plans](#future-plans)
 
 # Colors
@@ -53,8 +53,9 @@ I got this idea from this [site](https://webdevresources.info/colors). I will be
 # APIs
 * [IP Address](http://ip4.me/) &mdash; what is my IP Address?
 
-# Backgrounds
+# Images
 * [Free SVG Illustrations](https://wweb.dev/resources/free-svg-illustrations) &mdash; A curated list of websites for free SVG illustrations
+* [Creative Backgrounds](https://wweb.dev/resources/creative-backgrounds) &mdash; websites for creative backgrounds
 
 # Future plans
 * Create a website like this [site](https://webdevresources.info/colors).
