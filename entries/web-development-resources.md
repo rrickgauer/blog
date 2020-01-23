@@ -10,7 +10,8 @@ I got this idea from this [site](https://webdevresources.info/colors). I will be
 5. [HTML](#html)
 6. [Articles](#articles)
 7. [APIs](#apis)
-8. [Future Plans](#future-plans)
+8. [Backgrounds](#backgrounds)
+9. [Future Plans](#future-plans)
 
 # Colors
 * [Granim.js](https://github.com/sarcadass/granim.js) &mdash; Create fluid and interactive gradient animations with this small javascript library.
@@ -51,6 +52,9 @@ I got this idea from this [site](https://webdevresources.info/colors). I will be
 
 # APIs
 * [IP Address](http://ip4.me/) &mdash; what is my IP Address?
+
+# Backgrounds
+* [Free SVG Illustrations](https://wweb.dev/resources/free-svg-illustrations) &mdash; A curated list of websites for free SVG illustrations
 
 # Future plans
 * Create a website like this [site](https://webdevresources.info/colors).
