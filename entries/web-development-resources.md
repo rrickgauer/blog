@@ -32,7 +32,7 @@ I got this idea from this [site](https://webdevresources.info/colors). I will be
 * [Flatpickr](https://flatpickr.js.org/) &mdash; lightweight, powerful javascript datetimepicker with no dependencies
 * [Select2](https://select2.org/) &mdash; The jQuery replacement for select boxes.
 * [Prism](https://prismjs.com/) &mdash; front-end syntax highlighter
-* [Cleave.js](https://nosir.github.io/cleave.js/) &mdash; Format your ```<input/>``` content when you are typing.
+* [Cleave.js](https://nosir.github.io/cleave.js/) &mdash; Format your ```<input />``` content when you are typing.
 * [TypeIt](https://typeitjs.com/) &mdash; The most versatile JavaScript animated typing utility on the planet.
 * [jQuery Cheat Sheet](https://websitesetup.org/wp-content/uploads/2017/01/wsu-jquery-cheat-sheet.pdf)
 
