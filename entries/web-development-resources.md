@@ -29,12 +29,13 @@ I got this idea from this [site](https://webdevresources.info/colors). I will be
 * [Pretty Checkbox](https://lokesh-coder.github.io/pretty-checkbox/) &mdash; A pure CSS library to beautify checkbox and radio buttons
 
 # JavaScript
-* [Flatpickr](https://flatpickr.js.org/) &mdash; lightweight, powerful javascript datetimepicker with no dependencies
+* [Flatpickr](https://flatpickr.js.org/) &mdash; lightweight, powerful JavaScript datetimepicker with no dependencies
 * [Select2](https://select2.org/) &mdash; The jQuery replacement for select boxes.
 * [Prism](https://prismjs.com/) &mdash; front-end syntax highlighter
 * [Cleave.js](https://nosir.github.io/cleave.js/) &mdash; Format your ```<input />``` content when you are typing.
 * [TypeIt](https://typeitjs.com/) &mdash; The most versatile JavaScript animated typing utility on the planet.
 * [jQuery Cheat Sheet](https://websitesetup.org/wp-content/uploads/2017/01/wsu-jquery-cheat-sheet.pdf)
+* [Chart.js](https://www.chartjs.org/docs/latest/) &mdash; Simple HTML5 Charts using the ```<canvas>``` tag
 
 # Icons
 * [Boxicons](https://boxicons.com/) &mdash; High Quality web friendly icons
