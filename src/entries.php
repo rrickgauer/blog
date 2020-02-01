@@ -13,7 +13,7 @@
   <div class="wrapper">
 
     <!-- sidebar  -->
-    <div id="sidebar">
+    <div id="sidebar" class="active">
       <div class="sidebar-search">
         <div class="input-group input-group-sm">
           <input type="text" class="form-control" id="entry-search" aria-label="Search input" placeholder="Search" onkeyup="filterEntries()">
@@ -40,7 +40,7 @@
 
     <div id="data" class="container-fluid">
 
-      <button id="show-entries" class="hamburger hamburger--elastic is-active" type="button">
+      <button id="show-entries" class="hamburger hamburger--elastic" type="button">
         <span class="hamburger-box">
           <span class="hamburger-inner"></span>
         </span>
@@ -58,7 +58,7 @@
 
       if (isset($_GET['entryID'])) {
         $entry = getEntry($_GET['entryID']);
-        echo '<h1 class="custom-font">' . $entry['title'] . '</h1>';
+        echo '<h1 class="custom-font post-title">' . $entry['title'] . '</h1>';
         echo '<h6 class="text-center entry-date">' . $entry['date'] . '</h6>';
         $Parsedown = new Parsedown();
         echo $Parsedown->text($entry['content']);

@@ -6,11 +6,12 @@
     $(document).ready(function() {
       new TypeIt('#hero', {
         speed: 90,
-        startDelay: 900
+        startDelay: 300
       })
       .options({speed: 50})
-      .type('Ryan Rickgauer')
+      .type("Ryan Rickgauer's Blog")
       .go();
+
     });
   </script>
 </div>

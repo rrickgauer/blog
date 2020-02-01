@@ -73,7 +73,6 @@ h1.custom-font {
   font-size: 32px;
   text-align: center;
   margin-top: 20px;
-  animation: fadein 2s;
 }
 
 .sidebar-search {
@@ -89,13 +88,6 @@ h1.custom-font {
 }
 
 @media (max-width: 768px) {
-  #sidebar {
-    margin-left: -250px;
-  }
-
-  #sidebar.active {
-    margin-left: 0;
-  }
 
   #sidebar ul li a {
     padding: 5px;
@@ -106,12 +98,23 @@ h1.custom-font {
     font-family: 'Special Elite', cursive;
     font-size: 48px;
     border: none;
-    /* padding: 10px; */
     margin: 0;
+  }
+
+  h1.post-title {
+    font-family: 'Special Elite', cursive;
+    font-size: 30px !important;
+    border: none;
+    margin-bottom: 5px;
+    margin-top: 30px;
     text-align: center;
   }
 
   .vertical-center-page {
     min-height: 15vh;
+  }
+
+  #show-entries .hamburger-box {
+
   }
 }
