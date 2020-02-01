@@ -3,6 +3,7 @@
 1. [Background](#background)
 2. [Connecting to Database](#connecting-to-database)
 3. [Prepared SQL Statements](#prepared-sql-statements)
+4. [Encoding JSON](#encoding-json)
 
 
 ## Background
@@ -157,4 +158,15 @@ function updateTodoListItemComplete($id, $completed) {
    $pdo = null;
    $sql = null;
 }
+```
+
+## Encoding JSON
+
+If my file is used to handle ajax requests, then the file either returns raw html or data encoded in a json format. Here is I typically return data in a json format.
+
+```php
+$studentID = $_GET['studentID'];                                  // get the student id from GET
+$student = getStudentInfo($studentID)->fetch(PDO::FETCH_ASSOC);   // call a function to return student data by id
+$response = json_encode($student);                                // encode the student data in a json format
+echo $response;                                                   // return the json data
 ```
