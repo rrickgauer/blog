@@ -31,3 +31,6 @@
 
 <!-- custom css sheet -->
 <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+<!-- Favicon -->
+<link rel="icon" href="img/icon.png" />
