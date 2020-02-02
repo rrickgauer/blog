@@ -1,11 +1,26 @@
-<?php include('functions.php'); ?>
-<?php include('Parsedown.php'); ?>
+<?php
+include('functions.php');
+include('Parsedown.php');
+
+if (isset($_GET['entryID'])) {
+  $entry = getEntry($_GET['entryID']);
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
   <?php include('header.php'); ?>
-  <title>Ryan Rickgauer Blog</title>
+  <?php
+  if (isset($_GET['entryID'])) {
+    echo '<title>' . $entry['title'] . '</title>';
+  } else {
+    echo '<title>Ryan Rickgauer Blog</title>';
+  }
+  ?>
+
 </head>
 
 <body>
