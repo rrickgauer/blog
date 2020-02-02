@@ -5,8 +5,6 @@ include('Parsedown.php');
 if (isset($_GET['entryID'])) {
   $entry = getEntry($_GET['entryID']);
 }
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -17,7 +15,7 @@ if (isset($_GET['entryID'])) {
   if (isset($_GET['entryID'])) {
     echo '<title>' . $entry['title'] . '</title>';
   } else {
-    echo '<title>Ryan Rickgauer Blog</title>';
+    echo '<title>Ryan Rickgauer&apos;s Blog</title>';
   }
   ?>
 
@@ -54,7 +52,6 @@ if (isset($_GET['entryID'])) {
 
 
     <div id="data" class="container-fluid">
-
       <button id="show-entries" class="hamburger hamburger--elastic" type="button">
         <span class="hamburger-box">
           <span class="hamburger-inner"></span>
@@ -65,7 +62,6 @@ if (isset($_GET['entryID'])) {
         var $hamburger = $(".hamburger");
         $hamburger.on("click", function(e) {
           $hamburger.toggleClass("is-active");
-          // Do something else, like open/close menu
         });
       </script>
 
@@ -110,7 +106,6 @@ if (isset($_GET['entryID'])) {
       $("#show-entries").on("click", function() {
         $('#sidebar').toggleClass('active');
         $('#data').toggleClass('active');
-        // $('.toggle-entries').toggleClass('active');
 
         // clears search box and list all entries
         $("#entry-search").val('');
