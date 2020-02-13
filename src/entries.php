@@ -102,7 +102,9 @@ if (isset($_GET['entryID'])) {
 
   <script>
     $(document).ready(function() {
-
+      // set all links to open in a new tab
+      $("#data a").attr("target", "_blank");
+      
       $("#show-entries").on("click", function() {
         $('#sidebar').toggleClass('active');
         $('#data').toggleClass('active');
@@ -110,9 +112,10 @@ if (isset($_GET['entryID'])) {
         // clears search box and list all entries
         $("#entry-search").val('');
         filterEntries();
-
       });
     });
+
+
 
     function filterEntries() {
       // get search query
