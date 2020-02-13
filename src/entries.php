@@ -103,8 +103,8 @@ if (isset($_GET['entryID'])) {
   <script>
     $(document).ready(function() {
       // set all links to open in a new tab
-      $("#data a").attr("target", "_blank");
-      
+      // $("#data a").attr("target", "_blank");
+
       $("#show-entries").on("click", function() {
         $('#sidebar').toggleClass('active');
         $('#data').toggleClass('active');
