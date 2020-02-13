@@ -4,6 +4,7 @@ This post is going to be like my [PHP Notes page](https://www.ryanrickgauer.com/
 ## Content
 1. [New Page](#new-page)
 2. [Ajax](#ajax)
+3. [New Tab Links](#new-tab-links)
 
 
 ## New page
@@ -59,4 +60,10 @@ Once the php file receives the request from the file, it may sometimes return on
 
 ```javascript
 var data = JSON.parse(response);
+```
+## New Tab Links
+
+To make links open in a new tab using JavaScript, use the following code:
+```javascript
+$("a").attr("target", "_blank");
 ```
