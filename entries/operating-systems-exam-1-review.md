@@ -1,9 +1,13 @@
 # CSCI 480 - Operating Systems - Exam 1 Review Sheet
-This is a study guide I wrote to help myself review for my first exam in my [operating systems class](http://faculty.cs.niu.edu/~hutchins/csci480/main.htm).
+This is a study guide I wrote to help myself review for my first exam in my [operating systems class](http://faculty.cs.niu.edu/~hutchins/csci480/main.htm). The majority of information used to write this guide comes from our [textbook](http://www.uobabylon.edu.iq/download/M.S%202013-2014/Operating_System_Concepts,_8th_Edition%5BA4%5D.pdf). I tried to cover all the topics listed on the [review sheet](http://faculty.cs.niu.edu/~hutchins/csci480/t1review.doc).
+
+If you feel like contributing, feel free to open a pull request to add any information or correct any errors.
 
 # Table of Content
-1. Introduction and OS Structures*
-2. [Process Management](#process-management)
+
+1. [Exam Information](#exam-information)
+2. [Introduction and OS Structures](#introduction-and-os-structures)
+3. [Process Management](#process-management)
     1. [Process Control Block](#process-control-block)
     2. [Schedulers](#schedulers)
     3. [Scheduling Queues](#scheduling-queues)
@@ -11,12 +15,29 @@ This is a study guide I wrote to help myself review for my first exam in my [ope
     5. [Interprocess Communication](#interprocess-communication)
     6. [Zombie and Orphan Processes](#zombie-and-orphan-processes)
 
+# Exam Information
+* **Date:** Monday, 2/24/2020
+* **Time:** 11:00am - 11:50am
+* **Location:** PM 253
+* Covers material over:
+  * chapters 1-7 in our [textbook](http://www.uobabylon.edu.iq/download/M.S%202013-2014/Operating_System_Concepts,_8th_Edition%5BA4%5D.pdf)
+  * Assignments 1, 2, and 3
+* Test includes a few true-false questions, short answer, and some longer written answers
+  * Does *not* include long coding questions
+
+[&uarr; Back to top](#table-of-content)
+
+# Introduction and OS Structures
+
+Check back later for notes.
+
+[&uarr; Back to top](#table-of-content)
+
 # Process Management
 * a **process** is a program in execution
 * as a process executes, it changes **state**
   * the state of a process is defined by that process' current activity
 * each process can be in one of the following states:
-
   <table>
     <tr>
       <td><b>new</b></td>
@@ -83,7 +104,7 @@ This is a study guide I wrote to help myself review for my first exam in my [ope
   * also called the cpu scheduler
 
 ### Short Term vs Long Term
-* the primary distinction between the 2 schedulers lies in frequence of execution
+* the primary distinction between the 2 schedulers lies in frequency of execution
 * the short term scheduler selects processes frequently
 * the long term scheduler select processes much less frequently
   * minutes may seperate the creation of one new process and the next
@@ -153,8 +174,7 @@ This is a study guide I wrote to help myself review for my first exam in my [ope
 * a process whose parent has finished, though remains running itself
 * parent process id is change to init which is 1
 
-
-
+[&uarr; Back to top](#table-of-content)
 
 
 
