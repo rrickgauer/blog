@@ -16,6 +16,7 @@ This is a study guide I wrote to help myself review for my first exam in my [ope
     5. [Interprocess Communication](#interprocess-communication)
     6. [Zombie and Orphan Processes](#zombie-and-orphan-processes)
 4. [Threads](#threads)
+5. [CPU Scheduling](#cpu-scheduling)
 
 # Exam Information
 * **Date:** Monday, 2/24/2020
