@@ -1,7 +1,8 @@
 # CSCI 480 - Operating Systems - Exam 1 Review Sheet
 This is a study guide I wrote to help myself review for my first exam in my [operating systems class](http://faculty.cs.niu.edu/~hutchins/csci480/main.htm). The majority of information used to write this guide comes from our [textbook](http://www.uobabylon.edu.iq/download/M.S%202013-2014/Operating_System_Concepts,_8th_Edition%5BA4%5D.pdf). I tried to cover all the topics listed on the [review sheet](http://faculty.cs.niu.edu/~hutchins/csci480/t1review.doc).
 
-If you feel like contributing, feel free to open a pull request to add any information or correct any errors.
+### Additional Readings
+* https://www2.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/
 
 # Table of Content
 
@@ -14,6 +15,7 @@ If you feel like contributing, feel free to open a pull request to add any infor
     4. [Context Switch](#context-switch)
     5. [Interprocess Communication](#interprocess-communication)
     6. [Zombie and Orphan Processes](#zombie-and-orphan-processes)
+4. [Threads](#threads)
 
 # Exam Information
 * **Date:** Monday, 2/24/2020
@@ -107,7 +109,7 @@ Check back later for notes.
 * the primary distinction between the 2 schedulers lies in frequency of execution
 * the short term scheduler selects processes frequently
 * the long term scheduler select processes much less frequently
-  * minutes may seperate the creation of one new process and the next
+  * minutes may separate the creation of one new process and the next
 
 ### Degree of Multiprogramming
 * the **degree of multiprogramming** is the number of processes in memory
@@ -177,19 +179,125 @@ Check back later for notes.
 [&uarr; Back to top](#table-of-content)
 
 
+# Threads
+* a **thread** is a basic unit of CPU utilization
+* it is comprised of:
+   * thread ID
+   * program counter
+   * register set
+   * a stack
+* if a process has multiple threads of control, it can perform more than one task at a time
 
+## Differences Between Threads And Processes
+<table>
+<thead>
+<tr><th>Process</th><th>Thread</th></tr>
+</thead>
+<tbody>
 
+<tr>
+<td>typically independent</td>
+<td>Subset of a process</td>
+</tr>
 
+<tr>
+<td>has considerably more state information than thread</td>
+<td>multiple threads within a process</td>
+</tr>
 
+<tr>
+<td>separate address spaces</td>
+<td>share their address space</td>
+</tr>
 
+<tr>
+<td>interact only through system IPC</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
+## Kernel And User Threads
+* **kernel threads** are supported and managed directly by the OS
+* **user threads** are supported by above the kernel and are managed without kernel support
 
+## Threading Models
+* a relationship must exist between user and kernel threads
+* three common ways of establishing these relationships:
+   1. Many-to-One
+   2. One-to-One
+   3. Many-to-Many
 
+### Many-to-One
+* maps many user level threads to one kernel thread
+* thread management is done by the thread library in user space
 
+![many to one model image](https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/images/Chapter4/4_05_ManyToOne.jpg)
 
+### One-to-One
+* maps each user thread to a kernel thread
+* provides more concurrency than many-to-one by allowing another thread to run when a thread makes a system blocking call
+* allows multiple threads to run in parallel on multiprocessors
 
+![one to one model image](https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/images/Chapter4/4_06_OneToOne.jpg)
 
+### Many-to-Many
+* multiplexes many user level threads to a smaller or equal number of kernel threads
+* the number of kernel threads may be specific to either a particular application or machine
 
+![many to many model image](https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/images/Chapter4/4_07_ManyToMany.jpg)
 
+[&uarr; Back to top](#table-of-content)
 
+# CPU Scheduling
+* when the CPU becomes idle, the **CPU scheduler** is tasked with selecting another process from the ready queue to run next
+* a scheduling system allows one process to use the CPU while another is waiting for I/O
+   * this makes full use of otherwise lost CPU cycles
+* the challenge is to make the overall system as efficient and fair as possible
 
+## Performance Criteria
+
+Criteria            | Description
+--------------------|------------------------------------------
+**CPU Utilization** | percentage of used cycles
+**Throughput**      | jobs completed per time unit
+**Turnaround Time** | time from submission to completion
+**Waiting Time**    | time waiting in ready queue
+**Response Time**   | time from submission until first response
+
+## Preemptive and Non-Preemptive Scheduling
+* CPU scheduling decisions take place under one of the four conditions:
+
+Non Preemptive            | Preemptive
+--------------------|------------------------------------------
+When a process switches from the running state to the waiting state, such as for an I/O request or invocation of the wait( ) system call. | When a process switches from the running state to the ready state, for example in response to an interrupt.
+When a process terminates.   | When a process switches from the waiting state to the ready state, say at completion of I/O or a return from wait( ).
+
+### Non Preemptive
+* also called cooperative
+* in these conditions, there is no choice
+* a new process must be selected
+* once a process starts, it keeps running until either voluntarily blocks or until it finishes
+
+### Preemptive
+* scheduler *has* a choice
+
+## Scheduling Algorithms
+* Six common CPU scheduling algorithms:
+   * First Come First Serve
+   * Shortest Job First
+   * Priority Based
+   * Round Robin
+   * Multi-Level Queue
+   * Multi-Level Feedback
+
+### First Come First Serve (FCFS)
+* first in first out queue
+* like customers waiting in line at the bank or the post office
+* can yield very long average wait times
+   * particularly if the first process to get there takes a long time
+* can be bad because of the **convoy effect** that results as I/O bound jobs pile up behind CPU-bound jobs
+
+### Shortest Job First Scheduling (SJF)
+* picks the quickest, fastest, little job that needs to be done, then moves on to the next quickest
+* gives the minimum *average* waiting time for
