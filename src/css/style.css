@@ -118,3 +118,9 @@ h1.custom-font {
 
   }
 }
+
+@media print {
+   .page-break {
+      page-break-after: always;
+   }
+}

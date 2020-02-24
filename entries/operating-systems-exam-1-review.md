@@ -85,6 +85,8 @@ This is a study guide I wrote to help myself review for my first exam in my [ope
    5. communications
    6. protection
 
+<div class=".page-break"></div>
+
 ## System Programs
 * provide OS functionality through separate applications, which are not part of the kernel or command interpreters
 * also known as system utilities or system applications
