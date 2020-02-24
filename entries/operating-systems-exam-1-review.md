@@ -3,6 +3,7 @@ This is a study guide I wrote to help myself review for my first exam in my [ope
 
 ### Additional Readings
 * https://www2.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/
+* [Google Doc](https://docs.google.com/document/d/1HUubUp2dN4TCJZpxeQt0L9g-ZHQPnUBCcqx6mRVtftY/edit) created by another student in my class
 
 # Table of Content
 
@@ -10,7 +11,8 @@ This is a study guide I wrote to help myself review for my first exam in my [ope
 2. [Introduction and OS Structures](#introduction-and-os-structures)
    1. [Operating System Components](#operating-system-components)
    2. [System Calls](#system-calls)
-   3. [System Programs](#system-programs)
+   3. [Linux System Calls](#linux-system-calls)
+   4. [System Programs](#system-programs)
 3. [Process Management](#process-management)
     1. [Process Control Block](#process-control-block)
     2. [Schedulers](#schedulers)
@@ -31,7 +33,7 @@ This is a study guide I wrote to help myself review for my first exam in my [ope
    2. [Critical Section Problem](#critical-section-problem)
    3. [Semaphores](#semaphores)
 7. [Deadlock](#deadlock)
-8. [Practice Questions](#practice-questions)
+8. [Additional Notes](#additional-notes)
 
 # Exam Information
 * **Date:** Monday, 2/24/2020
@@ -86,6 +88,21 @@ This is a study guide I wrote to help myself review for my first exam in my [ope
    5. communications
    6. protection
 
+## Linux System Calls
+
+### getpid() and getppid()
+* ```getpid()``` returns the process id of the calling process
+* ```getppid()``` returns the process id of the parent of the calling process
+
+### fork()
+* ```fork()``` creates a new process (a child of the calling process) by duplicating the calling process
+* the entire address space is duplicated:
+   * code
+   * variables
+   * file descriptors
+* return codes:
+   * *-1* means an error occurred
+
 ### system() vs execlp()
 * ```system()``` internally uses a fork and executes in the child process
 * ```execlp()``` replaces the executable code for what its doing
@@ -95,14 +112,42 @@ This is a study guide I wrote to help myself review for my first exam in my [ope
 * provide OS functionality through separate applications, which are not part of the kernel or command interpreters
 * also known as system utilities or system applications
 * can be provided into these categories:
-   * **file management:** programs to create, delete, copy, rename, print, list, and generally manipulate files and directories
-   * **status information:** utilities to check on the date, time, number of users, processes running, data logging, etc. System registries are used to store and recall configuration information for particular applications.
-   * **file modification:** text editors and other tools which can change file contents.
-   * **programming language support:** compilers, linkers, debuggers, profilers, assemblers, library archive management, interpreters for common languages, and support for make.
-   * **program loading and execution:** loaders, dynamic loaders, overlay loaders, etc., as well as interactive debuggers.
-   * **communications:** programs for providing connectivity between processes and users, including mail, web browsers, remote logins, file transfers, and remote command execution.
-   * **background services:** system daemons are commonly started when the system is booted, and run for as long as the system is running, handling necessary services
+   <table>
+   <tr>
+   <td><b>file management</b></td>
+   <td>programs to create, delete, copy, rename, print, list, and generally manipulate files and directories</td>
+   </tr>
 
+   <tr>
+   <td><b>status information</b></td>
+   <td>utilities to check on the date, time, number of users, processes running, data logging, etc.</td>
+   </tr>
+
+   <tr>
+   <td><b>file modification</b></td>
+   <td>text editors and other tools which can change file contents.</td>
+   </tr>
+
+   <tr>
+   <td><b>programming language support</b></td>
+   <td>compilers, linkers, debuggers, profilers, assemblers, library archive management, interpreters for common languages, and support for make.</td>
+   </tr>
+
+   <tr>
+   <td><b>program loading and execution</b></td>
+   <td>loaders, dynamic loaders, overlay loaders, etc., as well as interactive debuggers.</td>
+   </tr>
+
+   <tr>
+   <td><b>communications</b></td>
+   <td>programs for providing connectivity between processes and users, including mail, web browsers, remote logins, file transfers, and remote command execution.</td>
+   </tr>
+
+   <tr>
+   <td><b>background services</b></td>
+   <td>system daemons are commonly started when the system is booted, and run for as long as the system is running, handling necessary services</td>
+   </tr>
+   </table>
 
 [&uarr; Back to top](#table-of-content)
 
@@ -177,15 +222,16 @@ This is a study guide I wrote to help myself review for my first exam in my [ope
   * also called the cpu scheduler
 
 ### Short Term vs Long Term
-* the primary distinction between the 2 schedulers lies in frequency of execution
+* the primary distinction between the 2 schedulers lies in *frequency of execution*
 * the short term scheduler selects processes frequently
 * the long term scheduler select processes much less frequently
   * minutes may separate the creation of one new process and the next
 
 ### Degree of Multiprogramming
 * the **degree of multiprogramming** is the number of processes in memory
-* it is controlled by the long term scheduler
+* controlled by the long term scheduler
 * if the degree of multiprogramming is stable, then the average rate of process creation must be equal to the average departure rate of processes leaving the system
+   * *average process creation rate = average departure rate*
 
 ### Medium Term Scheduler
 * some OS use an additional level of scheduling called a **medium term scheduler**
@@ -205,7 +251,7 @@ This is a study guide I wrote to help myself review for my first exam in my [ope
 * pure overhead since the system does no useful work while switching
 
 ## Interprocess Communication
-* processes executing concurrently may be either independent or cooperating processes
+* processes executing concurrently may be either independent *or* cooperating
 * **independent processes** cannot affect or be affected by other processes
   * does not share data with other processes
 * **cooperating processes** can affect or be affected by other processes
@@ -378,11 +424,10 @@ When a process terminates.   | When a process switches from the waiting state to
 ### Round Robin
 * similar to FCFS scheduling, except that CPU bursts are assigned with limits called **time quantum**
 * gives everything a time slice
-* preempt it if it does not quit first
-* in cyclic order
-* with a very large time quantum pr it is the same as FCFS
-* at a very small quantum pr, look like processor-sharing
-* high overhead for context switches gobbles up available cycles
+* when a process is given to the CPU, a timer is set for whatever value has been set for a time quantum
+   * if the process finishes its burst before the time quantum expires, then it is swapped out the CPU
+   * if the timer goes off first, then the process is swapped out of the CPU and moved to the back end of the ready queue
+* maintained as a circular queue
 
 ### Multi-Level Queue
 * When processes can be readily categorized, then multiple separate queues can be established, each implementing whatever scheduling algorithm is most appropriate for that type of job, and/or with different parametric adjustments.
@@ -466,6 +511,7 @@ post(semaphore *S) {
 
 
 # Deadlock
+* a set of processes is **deadlocked** when every process in the set is waiting for a resource that is currently allocated to another process in the set
 
 There are four necessary conditions for deadlock.
 
@@ -473,7 +519,7 @@ There are four necessary conditions for deadlock.
 <tbody>
 <tr>
 <td><b>Mutual Exclusion</b></td>
-<td>At least one resource must be held in a non-sharable mode; If any other process requests this resource, then that process must wait for the resource to be released.</td>
+<td>The resources involved are non-shareable</td>
 </tr>
 <tr>
 <td><b>Hold and Wait</b></td>
@@ -481,34 +527,37 @@ There are four necessary conditions for deadlock.
 </tr>
 <tr>
 <td><b>No Preemption</b></td>
-<td>Once a process is holding a resource ( i.e. once its request has been granted ), then that resource cannot be taken away from that process until the process voluntarily releases it.</td>
+<td>Once a process is holding a resource then that resource cannot be taken away from that process until the process voluntarily releases it.</td>
 </tr>
 <tr>
 <td><b>Circular Wait</b></td>
-<td>A set of processes { P0, P1, P2, . . ., PN } must exist such that every P[ i ] is waiting for P[ ( i + 1 ) % ( N + 1 ) ].</td>
+<td>The processes in the system form a circular list or chain where each process in the list is waiting for a resource held by the next process in the list.</td>
 </tr>
 </tbody>
 </table>
 
-* we can try to prevent deadlock by making sure one of these conditions does not occur
+## Prevention
 * we can try to detect it and recover
+* deadlocks can be avoided by preventing one of the four required conditions
+* to prevent the *Hold and Wait*:
+   * require that all processes request all resources at one time
+   * require that processes holding resources must release them before requesting new resources
+* to prevent *No Preemption*:
+   * require that if a process is forced to wait when requesting a new resource, then all other resources held by this process are implicitly released
+* to prevent *Circular Wait*:
+   * number all resources, and require that processes request resources only in strictly increasing or decreasing order
+
+## Example of a Deadlock
+![example of deadlock](https://media.geeksforgeeks.org/wp-content/cdn-uploads/gq/2015/06/deadlock.png)
 
 [&uarr; Back to top](#table-of-content)
 
-# Practice Questions
+# Additional Notes
 
-**Question 1:** *Suppose I use the fork() function three times: how many processes do I now have? what code do I need to know to add to find the PID of each and how are they related?*
 
-Number of processes = 2^(number of forks)
 
-2^3 = **8 processes**
-```
-                               parent
-               /                 |            \
-             child             child2        child3
-             /   \               |
-   grandchild   grandchild2   grandchild3
-        /
-great grandchild
 
-```
+
+
+
+[&uarr; Back to top](#table-of-content)
