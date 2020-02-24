@@ -31,6 +31,7 @@ This is a study guide I wrote to help myself review for my first exam in my [ope
    2. [Critical Section Problem](#critical-section-problem)
    3. [Semaphores](#semaphores)
 7. [Deadlock](#deadlock)
+8. [Practice Questions](#practice-questions)
 
 # Exam Information
 * **Date:** Monday, 2/24/2020
@@ -85,7 +86,10 @@ This is a study guide I wrote to help myself review for my first exam in my [ope
    5. communications
    6. protection
 
-<div class=".page-break"></div>
+### system() vs execlp()
+* ```system()``` internally uses a fork and executes in the child process
+* ```execlp()``` replaces the executable code for what its doing
+   * when it terminates, the whole process terminates
 
 ## System Programs
 * provide OS functionality through separate applications, which are not part of the kernel or command interpreters
@@ -98,7 +102,6 @@ This is a study guide I wrote to help myself review for my first exam in my [ope
    * **program loading and execution:** loaders, dynamic loaders, overlay loaders, etc., as well as interactive debuggers.
    * **communications:** programs for providing connectivity between processes and users, including mail, web browsers, remote logins, file transfers, and remote command execution.
    * **background services:** system daemons are commonly started when the system is booted, and run for as long as the system is running, handling necessary services
-
 
 
 [&uarr; Back to top](#table-of-content)
@@ -262,22 +265,18 @@ This is a study guide I wrote to help myself review for my first exam in my [ope
 <tr><th>Process</th><th>Thread</th></tr>
 </thead>
 <tbody>
-
 <tr>
 <td>typically independent</td>
 <td>Subset of a process</td>
 </tr>
-
 <tr>
 <td>has considerably more state information than thread</td>
 <td>multiple threads within a process</td>
 </tr>
-
 <tr>
 <td>separate address spaces</td>
 <td>share their address space</td>
 </tr>
-
 <tr>
 <td>interact only through system IPC</td>
 <td></td>
@@ -409,7 +408,7 @@ When a process terminates.   | When a process switches from the waiting state to
 # Process Synchronization
 
 ## Race Condition
-* **race condition** is when several processes access and manipulate the same data concurrently and the outcome of the execution depends on the particular order in which the access takes place
+* **race condition** is when two or more processes run in parallel and output depends on order in which they are executed
 * to guard against the race condition, we need to ensure that only one process at a time can be manipulating shared data that is crucial to the outcome of the program
 * to do this, we use **process synchronization**
 
@@ -424,8 +423,8 @@ When a process terminates.   | When a process switches from the waiting state to
 
 ## Semaphores
 * **semaphores** are integer variables for which only two atomic operations are defined:
-   * wait
-   * post
+   * *wait* - allows the process to use a resource
+   * *post* - stops locking everything out after it's done with the resource
 * the main disadvantage of the semaphore is that it requires **busy waiting**
    * while a process is in critical section, any other process that tries to enter its critical section must loop continuously in the entry code
 
@@ -451,9 +450,9 @@ wait(semaphore *S) {
 }
 ```
 
-The ```signal()``` semaphore operation can now be defined as:
+The ```post()``` semaphore operation can now be defined as:
 ```
-signal(semaphore *S) {
+post(semaphore *S) {
    S->Value++;
 
    if (S->Value <= 0) {
@@ -495,3 +494,21 @@ There are four necessary conditions for deadlock.
 * we can try to detect it and recover
 
 [&uarr; Back to top](#table-of-content)
+
+# Practice Questions
+
+**Question 1:** *Suppose I use the fork() function three times: how many processes do I now have? what code do I need to know to add to find the PID of each and how are they related?*
+
+Number of processes = 2^(number of forks)
+
+2^3 = **8 processes**
+```
+                               parent
+               /                 |            \
+             child             child2        child3
+             /   \               |
+   grandchild   grandchild2   grandchild3
+        /
+great grandchild
+
+```
