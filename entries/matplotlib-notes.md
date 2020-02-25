@@ -15,13 +15,13 @@ y = data['y']
 
 fig, ax = plt.subplots(1, 1)  # create 2 subplots
 
-ax[0, 0].plot(xdata=x, ydata=y, title='Left Graph', color='red', marker='o')
+ax[0, 0].plot(x=x, y=y, title='Left Graph', color='red', marker='o')
 ax[0, 0].set_xlabel('X Label - Graph 1')
 ax[0, 0].set_ylabel('Y Label - Graph 1')
 ax[0, 0].set_xticks([1, 2, 3, 4, 5])
 ax[0, 0].set_yticks([10, 20, 30, 40, 50])
 
-ax[0, 1].scatter(xdata=x, ydata=y, title='Right Graph', color='blue', marker='x')
+ax[0, 1].scatter(x=x, y=y, title='Right Graph', color='blue', marker='x')
 ax[0, 1].set_xlabel('X Label - Graph 2')
 ax[0, 1].set_ylabel('Y Label - Graph 2')
 ax[0, 1].set_xticks(np.arrange(1, 5, 1.0))
@@ -33,8 +33,8 @@ plt.show()
 
 ## Graph Types
 ```python
-plt.plot(xdata, ydata)
-plt.scatter(xdata, ydata)
+plt.plot(x, y)
+plt.scatter(x, y)
 plt.bar(names, values)
 plt.hist(data, bins)
 ```
@@ -43,8 +43,8 @@ plt.hist(data, bins)
 Some common properties to include in the plot and scatter graphs function include:
 
 * [Complete list](https://matplotlib.org/api/_as_gen/matplotlib.lines.Line2D.html#matplotlib.lines.Line2D)
-* xdata
-* ydata
+* x
+* y
 * label
 * color
 * marker
@@ -57,11 +57,11 @@ fig, axs = plt.subplots(4, 4)                               # create 16 subplots
 
 x = [1, 5, 7]                                               # x data
 y = [20, 56, 3]                                             # y data
-axs[0, 1].plot(xdata=x, ydata=y, label='First Subplot')     # axs[row, column]
+axs[0, 1].plot(x=x, y=y, label='First Subplot')     # axs[row, column]
 
 x = [23, 56, 89]                                            # x data
 y = [101, 23, 67]                                           # y data
-axs[0, 2].plot(xdata=x, ydata=y, label='Second Subplot')    # axs[row, column]
+axs[0, 2].plot(x=x, y=y, label='Second Subplot')    # axs[row, column]
 ```
 
 
@@ -127,7 +127,7 @@ axs.set_xticks([45, 50, 100, 200, 300])
 If you don't have a few number of ticks that you want to use, you can use the following to arrange them:
 ```python
 yticks = np.arrange(0, 100, 2.5)                   # np.arrange(min, max, incrementor)
-xticks = np.arrange(min(xdata), max(xdata), 1.0)   # np.arrange(min, max, incrementor)
+xticks = np.arrange(min(x), max(x), 1.0)   # np.arrange(min, max, incrementor)
 
 axs.set_yticks(yticks)
 axs.set_xticks(xticks)
