@@ -1,13 +1,15 @@
 # Personal Python Library
 
-These are some python code snippets and common functions that I use regularly. I will be adding to this in the future.
+This is my personal python utilities library that I made so that I can quickly access it from anywhere if needed. This is a work in progress so I will be updating as the time comes. The repo can be found [here](https://github.com/rrickgauer/python-utilities).
 
+## Functions
 ### Space
 This function basically just prints out a specified number of new lines.
 
 ```python
-def space(numSpaces=1):
-    print('\n' * numSpaces-1)
+def space(numSpaces = 1):
+    for x in range(numSpaces):
+        print('')
 ```
 
 ### Beautiful Table
