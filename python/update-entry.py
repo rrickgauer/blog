@@ -4,6 +4,7 @@ import sys
 import requests
 from datetime import date
 import argparse
+from Utilities import Utilities as util
 
 # assign command line arguments
 parser = argparse.ArgumentParser(description='Insert a new blog entry')
@@ -43,32 +44,32 @@ if args.password == None:
 else:
   password = args.password
 
-
-
 # initialize database connection
 mydb = mysql.connector.connect(
   host     = host,
   user     = user,
   passwd   = password,
   database = database
-  )
+ )
 
 # connect to database
 mycursor = mydb.cursor()
 
-
-
 # get entry id
 if args.id == None:
-  sql = 'SELECT id, title from Entries ORDER BY title asc'
-  mycursor.execute(sql)
-  myresult = mycursor.fetchall()
 
-  print()
-  for x in myresult:
-    print(x)
+    # retrieve all entry id's and their titles
+    sql = 'SELECT id, title from Entries ORDER BY title asc'
+    mycursor.execute(sql)
+    myresult = mycursor.fetchall()
 
-  entryID = input('\nEntry ID: ')
+    # print the entries and their ids
+    table = util.getTable(myresult, ['Entry ID', 'Title'])
+    util.space(2)
+    print(table)
+
+    # get user input for id
+    entryID = input('\nEntry ID: ')
 
 else:
   entryID = args.id
@@ -81,7 +82,7 @@ if args.link == None:
 else:
   link = args.link
 
-# get title 
+# get title
 if args.title == None:
   title = input('title: ')
 else:
