@@ -54,6 +54,7 @@ I got this idea from this [site](https://webdevresources.info/colors). I will be
 # APIs
 * [IP Address](http://ip4.me/) &mdash; what is my IP Address?
 * [Lucid Index](https://lucidindex.com/) &mdash; Curated lists of awesome tech resources
+* [Free Formatter](https://www.freeformatter.com/) &mdash; Free online tools that include several formatters, validators, code minifiers, string escapers, encoders and decoders, message digesters, web resources and more.
 
 # Images
 * [Free SVG Illustrations](https://wweb.dev/resources/free-svg-illustrations) &mdash; A curated list of websites for free SVG illustrations
