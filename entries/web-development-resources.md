@@ -11,7 +11,7 @@ I got this idea from this [site](https://webdevresources.info/colors). I will be
 6. [Articles](#articles)
 7. [APIs](#apis)
 8. [Images](#images)
-9. [Future Plans](#future-plans)
+9. [Tutorials](#tutorials)
 
 # Colors
 * [Granim.js](https://github.com/sarcadass/granim.js) &mdash; Create fluid and interactive gradient animations with this small javascript library.
@@ -58,3 +58,6 @@ I got this idea from this [site](https://webdevresources.info/colors). I will be
 # Images
 * [Free SVG Illustrations](https://wweb.dev/resources/free-svg-illustrations) &mdash; A curated list of websites for free SVG illustrations
 * [Creative Backgrounds](https://wweb.dev/resources/creative-backgrounds) &mdash; websites for creative backgrounds
+
+# Tutorials
+* [Vue.js Tutorials](https://www.youtube.com/playlist?list=PL4cUxeGkcC9gQcYgjhBoeQH7wiAyZNrYa) &mdash; A playlist of Vue.js video tutorials by [The Net Ninja](https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg)
