@@ -37,6 +37,7 @@ I got this idea from this [site](https://webdevresources.info/colors). I will be
 * [jQuery Cheat Sheet](https://websitesetup.org/wp-content/uploads/2017/01/wsu-jquery-cheat-sheet.pdf)
 * [Chart.js](https://www.chartjs.org/docs/latest/) &mdash; Simple HTML5 Charts using the ```<canvas>``` tag.
 * [iText2Img](http://www.sciweavers.org/free-online-latex-equation-editor) &mdash; Convert latex equations into images to embed in websites.
+* [MathJax](https://www.mathjax.org/) &mdash; A JavaScript display engine for mathematics that works in all browsers.
 
 # Icons
 * [Boxicons](https://boxicons.com/) &mdash; High Quality web friendly icons
