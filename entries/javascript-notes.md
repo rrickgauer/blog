@@ -5,6 +5,7 @@ This post is going to be like my [PHP Notes page](https://www.ryanrickgauer.com/
 1. [New Page](#new-page)
 2. [Ajax](#ajax)
 3. [New Tab Links](#new-tab-links)
+4. [URL Parameters](#url-parameters)
 
 
 ## New page
@@ -66,4 +67,16 @@ var data = JSON.parse(response);
 To make links open in a new tab using JavaScript, use the following code:
 ```javascript
 $("a").attr("target", "_blank");
+```
+
+## URL Parameters
+When using JavaScript, one can get the values of a URL by creating a ```URLSearchParams``` object. More info can be found [here](https://www.sitepoint.com/get-url-parameters-with-javascript/).
+
+For example, suppose the url is the following: **example.com?name=ryan&age=24**. To get the values of ```name``` and ```age```, do the following:
+```javascript
+var queryString = window.location.search;
+var urlParams = new URLSearchParams(queryString);
+var name = urlParams.get('name');                   // name
+var age = urlParams.get('age');                     // age
+
 ```
