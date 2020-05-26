@@ -50,6 +50,7 @@ I got this idea from this [site](https://webdevresources.info/colors). I will be
 * [CSS Code Guide](https://codeguide.co/) &mdash; Standards for developing consistent, flexible, and sustainable HTML and CSS.
   * Written by [Mark Otto](https://mdo.fm/), the creator of Bootstrap
 * [Design Tips](https://twitter.com/i/events/994601867987619840) &mdash; A collection of web design tips by [Steve Schoger](https://twitter.com/steveschoger)
+* [JavaScript: The Right Way](https://jstherightway.org/) &mdash; A collection of articles, tips, and tricks from top JavaScript developers
 
 # APIs
 * [IP Address](http://ip4.me/) &mdash; what is my IP Address?
