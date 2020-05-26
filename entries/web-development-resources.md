@@ -35,7 +35,8 @@ I got this idea from this [site](https://webdevresources.info/colors). I will be
 * [Cleave.js](https://nosir.github.io/cleave.js/) &mdash; Format your ```<input />``` content when you are typing.
 * [TypeIt](https://typeitjs.com/) &mdash; The most versatile JavaScript animated typing utility on the planet.
 * [jQuery Cheat Sheet](https://websitesetup.org/wp-content/uploads/2017/01/wsu-jquery-cheat-sheet.pdf)
-* [Chart.js](https://www.chartjs.org/docs/latest/) &mdash; Simple HTML5 Charts using the ```<canvas>``` tag
+* [Chart.js](https://www.chartjs.org/docs/latest/) &mdash; Simple HTML5 Charts using the ```<canvas>``` tag.
+* [iText2Img](http://www.sciweavers.org/free-online-latex-equation-editor) &mdash; Convert latex equations into images to embed in websites.
 
 # Icons
 * [Boxicons](https://boxicons.com/) &mdash; High Quality web friendly icons
