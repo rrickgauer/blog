@@ -55,12 +55,27 @@ $.ajax({
 });
 ```
 
+##### .get() & .post()
+
+The ```.get()``` and ```.post()``` functions have the same parameters: ```$.get(url, data, success(response))```. Remember the data variable should be in JSON format.
+
+```javascript
+var data = {
+  id: 14,
+  name: 'Ryan',
+}
+
+$.get('example-server.php', data, function(response) {
+  console.log(JSON.parse(response));
+});
+```
+
 ### Receiving the response
 
 Once the php file receives the request from the file, it may sometimes return only data in a JSON format. If so, this is how you would parse the data returned by the php file:
 
 ```javascript
-var data = JSON.parse(response);
+var returnData = JSON.parse(response);
 ```
 ## New Tab Links
 
