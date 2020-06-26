@@ -87,9 +87,7 @@ function activateSidebar() {
 
 ## Toolbar
 
-This will create a simple toolbar such as this:
-
-![Example toolbar pic](@attachment/Clipboard_2020-06-26-10-38-56.png)
+This is a simple code snippet of a toolbar with a group of buttons on one side, and a search bar on the other. 
 
 ### HTML
 
