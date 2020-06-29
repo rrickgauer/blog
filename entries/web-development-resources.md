@@ -1,8 +1,8 @@
-# Background
+## Background
 
 I got this idea from this [site](https://webdevresources.info/colors). I will be adding to this list as time goes on.
 
-# Content
+## Content
 1. [Colors](#colors)
 2. [CSS](#css)
 3. [JavaScript](#javascript)
@@ -13,55 +13,83 @@ I got this idea from this [site](https://webdevresources.info/colors). I will be
 8. [Images](#images)
 9. [Tutorials](#tutorials)
 
-# Colors
-* [Granim.js](https://github.com/sarcadass/granim.js) &mdash; Create fluid and interactive gradient animations with this small javascript library.
-* [Color Hunt](https://colorhunt.co/) &mdash; Color Palettes for Designers and Artists
-* [Color Claim](https://www.vanschneider.com/colors) &mdash; Created Tobias van Schneider with the goal to collect & combine unique colors for future projects.
-* [Colorsinspo](https://colorsinspo.com/) &mdash; Thousands of beautiful color palettes you can use it directly by one click.
+## Colors
 
-# CSS
-* [Bootstrap Table](https://bootstrap-table.com/docs/getting-started/introduction/) &mdash; An extended table to integration with some of the most widely used CSS frameworks.
-* [Animate CSS](https://daneden.github.io/animate.css/) &mdash; A cross-browser library of CSS animations
-* [Text Input Effects](https://tympanus.net/Development/TextInputEffects/index.html) &mdash; Simple ideas for enhancing text input interactions
-* [Hamburgers](https://jonsuh.com/hamburgers/) &mdash; Tasty CSS-animated hamburgers
-* [CSS Effects Snippets](https://emilkowalski.github.io/css-effects-snippets/) &mdash; A collection of CSS effects made with Vue.js
-* [Skeleton](http://getskeleton.com/) &mdash; A dead simple, responsive boilerplate.
-* [Pretty Checkbox](https://lokesh-coder.github.io/pretty-checkbox/) &mdash; A pure CSS library to beautify checkbox and radio buttons
+Source | Description
+:--- | :---
+[Granim.js](https://github.com/sarcadass/granim.js) | Create fluid and interactive gradient animations with this small javascript library.
+[Color Hunt](https://colorhunt.co/) | Color Palettes for Designers and Artists
+[Color Claim](https://www.vanschneider.com/colors) | Created Tobias van Schneider with the goal to collect & combine unique colors for future projects.
+[Colorsinspo](https://colorsinspo.com/) | Thousands of beautiful color palettes you can use it directly by one click.
 
-# JavaScript
-* [Flatpickr](https://flatpickr.js.org/) &mdash; lightweight, powerful JavaScript datetimepicker with no dependencies
-* [Select2](https://select2.org/) &mdash; The jQuery replacement for select boxes.
-* [Prism](https://prismjs.com/) &mdash; front-end syntax highlighter
-* [Cleave.js](https://nosir.github.io/cleave.js/) &mdash; Format your ```<input />``` content when you are typing.
-* [TypeIt](https://typeitjs.com/) &mdash; The most versatile JavaScript animated typing utility on the planet.
-* [jQuery Cheat Sheet](https://websitesetup.org/wp-content/uploads/2017/01/wsu-jquery-cheat-sheet.pdf)
-* [Chart.js](https://www.chartjs.org/docs/latest/) &mdash; Simple HTML5 Charts using the ```<canvas>``` tag.
-* [iText2Img](http://www.sciweavers.org/free-online-latex-equation-editor) &mdash; Convert latex equations into images to embed in websites.
-* [MathJax](https://www.mathjax.org/) &mdash; A JavaScript display engine for mathematics that works in all browsers.
+## CSS
 
-# Icons
-* [Boxicons](https://boxicons.com/) &mdash; High Quality web friendly icons
-* [Devicon](https://konpa.github.io/devicon/) &mdash; Set of icons representing programming languages, designing & development tools
-* [Ion Icons](https://ionicons.com/) &mdash; The premium icon font for Ionic Framework and web apps everywhere
-* [Favicon](https://favicon.io/favicon-generator/) &mdash; Create a favicon in few simple clicks.
+Source | Description
+:--- | :---
+[Bootstrap Table](https://bootstrap-table.com/docs/getting-started/introduction/) | An extended table to integration with some of the most widely used CSS frameworks.
+[Animate CSS](https://daneden.github.io/animate.css/) | A cross-browser library of CSS animations
+[Text Input Effects](https://tympanus.net/Development/TextInputEffects/index.html) | Simple ideas for enhancing text input interactions
+[Hamburgers](https://jonsuh.com/hamburgers/) | Tasty CSS-animated hamburgers
+[CSS Effects Snippets](https://emilkowalski.github.io/css-effects-snippets/) | A collection of CSS effects made with Vue.js
+[Skeleton](http://getskeleton.com/) | A dead simple, responsive boilerplate.
+[Pretty Checkbox](https://lokesh-coder.github.io/pretty-checkbox/) | A pure CSS library to beautify checkbox and radio buttons
 
-# HTML
-* [HTML character codes](https://www.rapidtables.com/web/html/html-codes.html) &mdash; All HTML character codes of text fonts and symbols from &#0; to &#65535
+## JavaScript
 
-# Articles
-* [CSS Code Guide](https://codeguide.co/) &mdash; Standards for developing consistent, flexible, and sustainable HTML and CSS.
-  * Written by [Mark Otto](https://mdo.fm/), the creator of Bootstrap
-* [Design Tips](https://twitter.com/i/events/994601867987619840) &mdash; A collection of web design tips by [Steve Schoger](https://twitter.com/steveschoger)
-* [JavaScript: The Right Way](https://jstherightway.org/) &mdash; A collection of articles, tips, and tricks from top JavaScript developers
+Source | Description
+:--- | :---
+[Flatpickr](https://flatpickr.js.org/) | lightweight, powerful JavaScript datetimepicker with no dependencies
+[Select2](https://select2.org/) | The jQuery replacement for select boxes.
+[Prism](https://prismjs.com/) | front-end syntax highlighter
+[Cleave.js](https://nosir.github.io/cleave.js/) | Format your ```<input />``` content when you are typing.
+[TypeIt](https://typeitjs.com/) | The most versatile JavaScript animated typing utility on the planet.
+[jQuery Cheat Sheet](https://websitesetup.org/wp-content/uploads/2017/01/wsu-jquery-cheat-sheet.pdf) | Simple jQuery cheat-sheet
+[Chart.js](https://www.chartjs.org/docs/latest/) | Simple HTML5 Charts using the ```<canvas>``` tag.
+[iText2Img](http://www.sciweavers.org/free-online-latex-equation-editor) | Convert latex equations into images to embed in websites.
+[MathJax](https://www.mathjax.org/) | A JavaScript display engine for mathematics that works in all browsers.
+[TableSort](https://github.com/tristen/tablesort) | A small & simple sorting component for tables written in JavaScript.
+[HTML Table Search](https://github.com/niksofteng/html-table-search-js) | Simple table text search highlighter.
 
-# APIs
-* [IP Address](http://ip4.me/) &mdash; what is my IP Address?
-* [Lucid Index](https://lucidindex.com/) &mdash; Curated lists of awesome tech resources
-* [Free Formatter](https://www.freeformatter.com/) &mdash; Free online tools that include several formatters, validators, code minifiers, string escapers, encoders and decoders, message digesters, web resources and more.
+## Icons
 
-# Images
-* [Free SVG Illustrations](https://wweb.dev/resources/free-svg-illustrations) &mdash; A curated list of websites for free SVG illustrations
-* [Creative Backgrounds](https://wweb.dev/resources/creative-backgrounds) &mdash; websites for creative backgrounds
+Source | Description
+:--- | :---
+[Boxicons](https://boxicons.com/) | High Quality web friendly icons
+[Devicon](https://konpa.github.io/devicon/) | Set of icons representing programming languages, designing & development tools
+[Ion Icons](https://ionicons.com/) | The premium icon font for Ionic Framework and web apps everywhere
+[Favicon](https://favicon.io/favicon-generator/) | Create a favicon in few simple clicks.
 
-# Tutorials
-* [Vue.js Tutorials](https://www.youtube.com/playlist?list=PL4cUxeGkcC9gQcYgjhBoeQH7wiAyZNrYa) &mdash; A playlist of Vue.js video tutorials by [The Net Ninja](https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg)
+## HTML
+
+Source | Description
+:--- | :---
+[HTML character codes](https://www.rapidtables.com/web/html/html-codes.html) | All HTML character codes of text fonts and symbols from &#0; to &#65535
+
+## Articles
+
+Source | Description
+:--- | :---
+[CSS Code Guide](https://codeguide.co/) | Standards for developing consistent, flexible, and sustainable HTML and CSS by [Mark Otto](https://mdo.fm/), the creator of Bootstrap.
+[Design Tips](https://twitter.com/i/events/994601867987619840) | A collection of web design tips by [Steve Schoger](https://twitter.com/steveschoger)
+[JavaScript: The Right Way](https://jstherightway.org/) | A collection of articles, tips, and tricks from top JavaScript developers
+
+## APIs
+
+Source | Description
+:--- | :---
+[IP Address](http://ip4.me/) | what is my IP Address?
+[Lucid Index](https://lucidindex.com/) | Curated lists of awesome tech resources
+[Free Formatter](https://www.freeformatter.com/) | Free online tools that include several formatters, validators, code minifiers, string escapers, encoders and decoders, message digesters, web resources and more.
+
+## Images
+
+Source | Description
+:--- | :---
+[Free SVG Illustrations](https://wweb.dev/resources/free-svg-illustrations) | A curated list of websites for free SVG illustrations
+[Creative Backgrounds](https://wweb.dev/resources/creative-backgrounds) | websites for creative backgrounds
+
+## Tutorials
+
+Source | Description
+:--- | :---
+[Vue.js Tutorials](https://www.youtube.com/playlist?list=PL4cUxeGkcC9gQcYgjhBoeQH7wiAyZNrYa) | A playlist of Vue.js video tutorials by [The Net Ninja](https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg)
