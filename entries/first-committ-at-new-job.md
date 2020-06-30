@@ -4,7 +4,7 @@ One of my responsibilities include maintaining and improving their in-house soft
 
 <br>
 
-<img src="https://i1.wp.com/allhtaccess.info/wp-content/uploads/2018/03/programming.gif?fit=1281%2C716&ssl=1">
+<img src="https://i1.wp.com/allhtaccess.info/wp-content/uploads/2018/03/programming.gif?fit=1281%2C716&ssl=1" width="187.5" height="104.5">
 
 <br>
 
