@@ -21,6 +21,8 @@ Source | Description
 [Color Hunt](https://colorhunt.co/) | Color Palettes for Designers and Artists
 [Color Claim](https://www.vanschneider.com/colors) | Created Tobias van Schneider with the goal to collect & combine unique colors for future projects.
 [Colorsinspo](https://colorsinspo.com/) | Thousands of beautiful color palettes you can use it directly by one click.
+[Extended Color Keywords](https://drafts.csswg.org/css-color-3/#svg-color) | List of all the HTML color keywords with examples.
+
 
 ## CSS
 
