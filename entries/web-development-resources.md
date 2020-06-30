@@ -76,7 +76,7 @@ Source | Description
 [JavaScript: The Right Way](https://jstherightway.org/) | A collection of articles, tips, and tricks from top JavaScript developers
 [Common Webpage Design Mistakes](http://blog-en.tilda.cc/articles-website-design-mistakes) | 30 tips to help avoid common design mistakes.
 [UI Design Daily](https://uidesigndaily.com/) | Free weekly UI resources
-
+[Checklist Design](https://www.checklist.design/) | A collection of the best UX and UI practices.
 
 
 ## APIs
