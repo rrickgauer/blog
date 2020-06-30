@@ -3,9 +3,9 @@ I'm not sure if you're aware, but in February of this year, I accepted an offer 
 One of my responsibilities include maintaining and improving their in-house software that the consultants use to migrate their client's data. You can read more about the software [here](https://www.premier-international.com/applaud). The back-end code is written in COBOL and C++, and the front end is written in VB6 and C#. However, one of the features for next update is porting the GUI into all C# code. Very exciting.
 
 <br>
-<center>
+
 <img src="https://i1.wp.com/allhtaccess.info/wp-content/uploads/2018/03/programming.gif?fit=1281%2C716&ssl=1" width="400" height="400">
-</center>
+
 <br>
 
 I have been working here for exactly one month, and today I finally made my first code change that got committed into the working source code! It was a COBOL bug fix that took about a week to fix. And much of it I was working with a Senior Engineer. Regardless, once the bug got sorted out and working, I got to add my name and comments to the change log, and push my changes to the code-base!
