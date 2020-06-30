@@ -72,6 +72,8 @@ Source | Description
 [CSS Code Guide](https://codeguide.co/) | Standards for developing consistent, flexible, and sustainable HTML and CSS by [Mark Otto](https://mdo.fm/), the creator of Bootstrap.
 [Design Tips](https://twitter.com/i/events/994601867987619840) | A collection of web design tips by [Steve Schoger](https://twitter.com/steveschoger)
 [JavaScript: The Right Way](https://jstherightway.org/) | A collection of articles, tips, and tricks from top JavaScript developers
+[Common Webpage Design Mistakes](http://blog-en.tilda.cc/articles-website-design-mistakes) | 30 tips to help avoid common design mistakes.
+
 
 ## APIs
 
