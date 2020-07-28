@@ -1,81 +1,84 @@
+import tkinter as tk
 import mysql.connector
-import getpass
-import sys
 import requests
 from datetime import date
-import argparse
 
-# assign command line arguments
-parser = argparse.ArgumentParser(description='Insert a new blog entry')
-parser.add_argument('--title', action='store')
-parser.add_argument('--link', action='store')
-parser.add_argument('--host', action='store')
-parser.add_argument('--user', action='store')
-parser.add_argument('--password', action='store')
-parser.add_argument('--database', action='store')
+ENTRY_WIDTH = 100
+ROW_PADDING = 10
+ROW_PADDING_Y = 5
 
-# get the arguments
-args = parser.parse_args()
+def submit_entry():
+    data = getData()
 
-# get title
-if args.title == None:
-  title = input('title: ')
-else:
-  title = args.title
+    mydb = mysql.connector.connect(
+      host     = data['host'],
+      user     = data['user'],
+      passwd   = data['password'],
+      database = data['database']
+    )
 
-# get link
-if args.link == None:
-  link = input('link: ')
-else:
-  link = args.link
+    # download the content
+    content = requests.get(data['link']).text
 
-# get host
-if args.host == None:
-  host = input('host: ')
-else:
-  host = args.host
+    # connect to database
+    mycursor = mydb.cursor()
 
-# get user
-if args.user == None:
-  user = input('user: ')
-else:
-  user = args.user
+    # prepare sql statement
+    sql = "INSERT INTO Entries (date, title, content) VALUES (%s, %s, %s)"
 
-# get database
-if args.database == None:
-  database = input('database: ')
-else:
-  database = args.database
+    # bind values
+    val = (date.today(), data['title'], content)
 
-# get password
-if args.password == None:
-  password = getpass.getpass()
-else:
-  password = args.password
+    # execute insert statement
+    mycursor.execute(sql, val)
+    mydb.commit()
 
-# download the content
-content = requests.get(link).text
+    displaySubmittedWindow()
 
-# initialize database connection
-mydb = mysql.connector.connect(
-  host     = host,
-  user     = user,
-  passwd   = password,
-  database = database
-)
+    
 
-# connect to database
-mycursor = mydb.cursor()
+def getData():
+    return {
+        "title": entry_title.get(),
+        "link": entry_link.get(),
+        "host": entry_host.get(),
+        "database": entry_database.get(),
+        "user": entry_user.get(),
+        "password": entry_password.get(),
+    }
 
-# prepare sql statement
-sql = "INSERT INTO Entries (date, title, content) VALUES (%s, %s, %s)"
+def displaySubmittedWindow():
+    master.destroy()
+    newMaster = tk.Tk()
+    tk.Label(newMaster, text='Submitted').grid(row=0)
+    newMaster.mainloop()
+    
 
-# bind values
-val = (date.today(), title, content)
+# setup display window
+master = tk.Tk()
+tk.Label(master, text="Title").grid(row=0, padx=ROW_PADDING, sticky='w')
+tk.Label(master, text="Link", anchor='w').grid(row=1, padx=ROW_PADDING, sticky='w')
+tk.Label(master, text="Host").grid(row=2, padx=ROW_PADDING, sticky='w')
+tk.Label(master, text="Database").grid(row=3, padx=ROW_PADDING, sticky='w')
+tk.Label(master, text="User").grid(row=4, padx=ROW_PADDING, sticky='w')
+tk.Label(master, text="Password").grid(row=5, padx=ROW_PADDING, sticky='w')
 
-# execute insert statement
-mycursor.execute(sql, val)
-mydb.commit()
 
-# print number of inserted records
-print(mycursor.rowcount, "record inserted.")
+entry_title    = tk.Entry(master)
+entry_link     = tk.Entry(master)
+entry_host     = tk.Entry(master)
+entry_database = tk.Entry(master)
+entry_user     = tk.Entry(master)
+entry_password = tk.Entry(master, show="*")
+
+
+entry_title.grid(row=0, column=1, ipadx=ENTRY_WIDTH, pady=ROW_PADDING_Y)
+entry_link.grid(row=1, column=1, ipadx=ENTRY_WIDTH, pady=ROW_PADDING_Y)
+entry_host.grid(row=2, column=1, ipadx=ENTRY_WIDTH, pady=ROW_PADDING_Y)
+entry_database.grid(row=3, column=1, ipadx=ENTRY_WIDTH, pady=ROW_PADDING_Y)
+entry_user.grid(row=4, column=1, ipadx=ENTRY_WIDTH, pady=ROW_PADDING_Y)
+entry_password.grid(row=5, column=1, ipadx=ENTRY_WIDTH, pady=ROW_PADDING_Y)
+
+b = tk.Button(master, text="Submit", command=submit_entry).grid(row=6, column=1, sticky='e')
+
+master.mainloop()
