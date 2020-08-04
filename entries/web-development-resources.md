@@ -78,6 +78,7 @@ Source | Description
 [Common Webpage Design Mistakes](http://blog-en.tilda.cc/articles-website-design-mistakes) | 30 tips to help avoid common design mistakes.
 [UI Design Daily](https://uidesigndaily.com/) | Free weekly UI resources
 [Checklist Design](https://www.checklist.design/) | A collection of the best UX and UI practices.
+[Flexbox Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) | A Complete Guide to Flexbox.
 
 
 ## APIs
