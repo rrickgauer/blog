@@ -1,4 +1,4 @@
-# # Bootstrap Notes
+# Bootstrap Notes
 
 This is where I will be keeping some code snippets of some common bootstrap elements I use.
 
