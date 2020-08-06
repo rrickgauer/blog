@@ -1,4 +1,4 @@
-# Bootstrap Notes
+# # Bootstrap Notes
 
 This is where I will be keeping some code snippets of some common bootstrap elements I use.
 
@@ -7,6 +7,7 @@ This is where I will be keeping some code snippets of some common bootstrap elem
 1. [Navbar](#navbar)
 2. [Collapsing Sidebar](#collapsing-sidebar)
 3. [Toolbar](#toolbar)
+4. [Form Group](#form-group)
 
 
 ## Navbar
@@ -136,3 +137,22 @@ This is a simple code snippet of a toolbar with a group of buttons on one side, 
     width: 100%;
 }
 ```
+
+## Form Group
+
+This is a simple [form group](https://getbootstrap.com/docs/4.5/components/forms/#form-groups) that includes an [input group](https://getbootstrap.com/docs/4.5/components/input-group/).
+
+```html
+<div class="form-group">
+  <label for="new-email">Email address</label>
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text">@</span>
+    </div>
+    <input type="email" class="form-control" id="new-email" name="new-email">
+  </div>
+</div>
+```
+
+<img src="https://static.bookstack.cn/projects/bootstrap-v4.3-en/61d1df6f588286e2e1210165473cc5f8">
+
