@@ -1,5 +1,2 @@
 *.sql linguist-detectable=false
-# *.sql linguist-language=sql
-# sql/mock-data/* linguist-detectable=false
-
 *.php linguist-language=php
