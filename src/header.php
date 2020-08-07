@@ -35,3 +35,6 @@
 
 <!-- Favicon -->
 <link rel="icon" href="img/icon.png" />
+
+<!-- table search -->
+<script src="js/tablesearch.js"></script>

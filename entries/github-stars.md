@@ -1,8 +1,25 @@
 
-This is a list of my own github stars
+This is a list of my own [github stars](https://github.com/rrickgauer?tab=stars)
 
-<div id="stars">
-    <ul class="list-group list-group-flush"></ul>
+<div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text"><i class='bx bx-search'></i></span>
+  </div>
+  <input type="email" class="form-control" id="search-input" placeholder="Search...">
+</div>
+
+
+<div class="table-responsive">
+    <table class="table" id="stars">
+        <thead>
+            <tr>
+                <th>Repository</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
 </div>
 
 <script>
@@ -13,6 +30,10 @@ This is a list of my own github stars
 
     $(document).ready(function() {
         getStars();
+
+        $("#stars").on('click', ".link", function() {
+            gotoRepo(this);
+        });
     });
 
     function getStars() {
@@ -21,6 +42,7 @@ This is a list of my own github stars
             getLastPage(xhr.getResponseHeader("link"));
             loadLinks();
             getStarsData();
+            new TableSearch('search-input', 'stars').init();
         });
     }
 
@@ -28,13 +50,13 @@ This is a list of my own github stars
         var html = '';
 
         for (var count = 0; count < stars.length; count++) {
-            html += '<li class="list-group-item">';
-            html += '<a target="_blank" href="' + stars[count].url + '">';
-            html += '<b>' + stars[count].name + '</b> &mdash; ';
-            html += stars[count].description + '</a></li>';
+            html += '<tr>';
+            html += '<td style="color: lightskyblue;" class="link" data-url="' + stars[count].html_url + '">' + stars[count].name + '</td>';
+            html += '<td>' + stars[count].description + '</td></tr>';
         }
 
-        $("#stars .list-group").append(html);
+        $("#stars tbody").append(html);
+        new TableSearch('search-input', 'stars').init();
     }
 
     function getLastPage(link) {
@@ -58,6 +80,12 @@ This is a list of my own github stars
                 displayStars(response);
             });
         }
+    }
+
+    function gotoRepo(link) {
+
+        // $(link).attr('data-url');
+        window.location.href = $(link).attr('data-url');
     }
 
 

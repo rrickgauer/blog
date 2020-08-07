@@ -13,18 +13,32 @@
 
         <h1>Test</h1>
 
-        <div id="stars">
-            <ul class="list-group list-group-flush"></ul>
+
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class='bx bx-search'></i></span>
+          </div>
+          <input type="email" class="form-control" id="search-input" placeholder="Search...">
         </div>
 
 
-
+        <div class="table-responsive">
+            <table class="table" id="stars">
+                <thead>
+                    <tr>
+                        <th>Repository</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
 
 
     </div>
 
     <script>
-
         const API = 'https://api.github.com/users/rrickgauer/starred';
         const link = 'https://api.github.com/user/22210580/starred?page=2'
         var links = [];
@@ -32,6 +46,10 @@
 
         $(document).ready(function() {
             getStars();
+
+            $("#stars").on('click', ".link", function() {
+                gotoRepo(this);
+            });
         });
 
         function getStars() {
@@ -40,6 +58,7 @@
                 getLastPage(xhr.getResponseHeader("link"));
                 loadLinks();
                 getStarsData();
+                new TableSearch('search-input', 'stars').init();
             });
         }
 
@@ -47,13 +66,13 @@
             var html = '';
 
             for (var count = 0; count < stars.length; count++) {
-                html += '<li class="list-group-item">';
-                html += '<a target="_blank" href="' + stars[count].url + '">';
-                html += '<b>' + stars[count].name + '</b> &mdash; ';
-                html += stars[count].description + '</a></li>';
+                html += '<tr>';
+                html += '<td style="color: lightskyblue;" class="link" data-url="' + stars[count].html_url + '">' + stars[count].name + '</td>';
+                html += '<td>' + stars[count].description + '</td></tr>';
             }
 
-            $("#stars .list-group").append(html);
+            $("#stars tbody").append(html);
+            new TableSearch('search-input', 'stars').init();
         }
 
         function getLastPage(link) {
@@ -77,6 +96,12 @@
                     displayStars(response);
                 });
             }
+        }
+
+        function gotoRepo(link) {
+
+            // $(link).attr('data-url');
+            window.location.href = $(link).attr('data-url');
         }
 
 
