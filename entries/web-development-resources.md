@@ -23,6 +23,7 @@ Source | Description
 [Colorsinspo](https://colorsinspo.com/) | Thousands of beautiful color palettes you can use it directly by one click.
 [Coolors](https://coolors.co/) | Create the perfect palette or get inspired by thousands of beautiful color schemes.
 [Extended Color Keywords](https://drafts.csswg.org/css-color-3/#svg-color) | List of all the HTML color keywords with examples.
+[Hero Patterns](http://www.heropatterns.com/) | A collection of repeatable SVG background patterns for you to use on your web projects.
 
 
 ## CSS
@@ -61,6 +62,7 @@ Source | Description
 [Devicon](https://konpa.github.io/devicon/) | Set of icons representing programming languages, designing & development tools
 [Ion Icons](https://ionicons.com/) | The premium icon font for Ionic Framework and web apps everywhere
 [Favicon](https://favicon.io/favicon-generator/) | Create a favicon in few simple clicks.
+[Zondicons](http://www.zondicons.com/icons.html) | A set of free premium SVG icons for you to use on your digital products.
 
 ## HTML
 
