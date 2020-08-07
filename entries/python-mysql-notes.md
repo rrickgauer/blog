@@ -4,9 +4,9 @@ This is a short tutorial on how to connect to a MySQL database using python.
 
 In order to connect to your database, you first need to install the [MySQL Connector Python](https://github.com/mysql/mysql-connector-python) by entering in the terminal:
 
-```
-pip install mysql-connector-python
-```
+<pre class="command-line">
+    <code>pip install mysql-connector-python</code>
+</pre>
 
 At the top of your script, you need to import the mysql module via:
 
