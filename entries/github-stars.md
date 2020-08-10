@@ -15,6 +15,7 @@ This is a list of my own [github stars](https://github.com/rrickgauer?tab=stars)
             <tr>
                 <th>Repository</th>
                 <th>Description</th>
+                <th>Link</th>
             </tr>
         </thead>
         <tbody>
@@ -51,8 +52,10 @@ This is a list of my own [github stars](https://github.com/rrickgauer?tab=stars)
 
         for (var count = 0; count < stars.length; count++) {
             html += '<tr>';
-            html += '<td style="color: lightskyblue;" class="link" data-url="' + stars[count].html_url + '">' + stars[count].name + '</td>';
-            html += '<td>' + stars[count].description + '</td></tr>';
+            html += '<td>' + stars[count].name + '</td>';
+            html += '<td>' + stars[count].description + '</td>';
+            html += '<td><a href="' + stars[count].html_url + '">Visit</a></td>';
+            html += '</tr>';
         }
 
         $("#stars tbody").append(html);
