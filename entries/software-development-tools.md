@@ -1,5 +1,3 @@
-# Software Development Tools
-
 This is a list of my favorite software tools I use when developing applications.
 
 ## Text Editors & IDEs:
