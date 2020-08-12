@@ -2,9 +2,9 @@ DROP TABLE IF EXISTS
     Entries;
 
 CREATE TABLE Entries (
-    id int unsigned not null unique auto_increment,
-    `date` datetime not null,
-    title varchar(100) not null,
-    content text,
-    primary key (id)
-) ENGINE=InnoDB;
+    id     INT UNSIGNED NOT NULL UNIQUE auto_increment,
+    `date` DATETIME NOT NULL,
+    title  VARCHAR(100) NOT NULL,
+    link   VARCHAR(200) NOT NULL,
+    PRIMARY KEY (id)
+) engine=innodb; 
