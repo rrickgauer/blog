@@ -8,6 +8,7 @@ This is where I will be keeping some code snippets of some common bootstrap elem
 2. [Collapsing Sidebar](#collapsing-sidebar)
 3. [Toolbar](#toolbar)
 4. [Form Group](#form-group)
+5. [Colors](#colors)
 
 
 ## Navbar
@@ -156,3 +157,19 @@ This is a simple [form group](https://getbootstrap.com/docs/4.5/components/forms
 
 <img src="https://static.bookstack.cn/projects/bootstrap-v4.3-en/61d1df6f588286e2e1210165473cc5f8">
 
+## Colors
+
+Bootstrap offers several utility classes for colors. Here is a link to the [offical docs](https://getbootstrap.com/docs/4.5/utilities/colors/).
+
+### Color table
+
+Class Name | Hex
+:--- | :---
+<div style="background-color: #007bff; color: white; padding: 3px 5px;"><b>primary</b></div> | #007bff
+<div style="background-color: #6c757d; color: white; padding: 3px 5px;"><b>scondary</b></div> | #6c757d
+<div style="background-color: #28a745; color: white; padding: 3px 5px;"><b>success</b></div> | #28a745
+<div style="background-color: #dc3545; color: white; padding: 3px 5px;"><b>danger</b></div> | #dc3545
+<div style="background-color: #ffc107; color: white; padding: 3px 5px;"><b>warning</b></div> | #ffc107
+<div style="background-color: #17a2b8; color: white; padding: 3px 5px;"><b>info</b></div> | #17a2b8
+<div style="background-color: #f8f9fa; color: black; padding: 3px 5px;"><b>light</b></div> | #f8f9fa
+<div style="background-color: #343a40; color: white; padding: 3px 5px;"><b>dark</b></div> | #343a40
