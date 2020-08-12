@@ -2,3 +2,4 @@ db-info.php
 db-info.txt
 __pycache__
 tables/
+ignore/
