@@ -9,6 +9,7 @@ This is where I will be keeping some code snippets of some common bootstrap elem
 3. [Toolbar](#toolbar)
 4. [Form Group](#form-group)
 5. [Colors](#colors)
+6. [Dropdowns](#dropdowns)
 
 
 ## Navbar
@@ -173,3 +174,25 @@ Class Name | Hex
 <div style="background-color: #17a2b8; color: white; padding: 3px 5px;"><b>info</b></div> | #17a2b8
 <div style="background-color: #f8f9fa; color: black; padding: 3px 5px;"><b>light</b></div> | #f8f9fa
 <div style="background-color: #343a40; color: white; padding: 3px 5px;"><b>dark</b></div> | #343a40
+
+## Dropdowns
+
+For [dropdowns](https://getbootstrap.com/docs/4.5/components/dropdowns/#menu-items), I usually go with buttons in the menu over links. 
+
+```html
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
+    Dropdown
+  </button>
+  <div class="dropdown-menu">
+    <h6 class="dropdown-header">Dropdown header</h6>
+    <button class="dropdown-item" type="button">Action</button>
+    <button class="dropdown-item active" type="button">Another action</button>
+    <button class="dropdown-item" type="button">Something else here</button>
+    <div class="dropdown-divider"></div>
+    <h6 class="dropdown-header">Dropdown header</h6>
+    <button class="dropdown-item active" type="button">Another action</button>
+    <button class="dropdown-item" type="button">Something else here</button>
+  </div>
+</div>
+```
