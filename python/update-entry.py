@@ -74,8 +74,6 @@ if args.id == None:
 else:
   entryID = args.id
 
-
-
 # get link
 if args.link == None:
   link = input('link: ')
@@ -89,14 +87,10 @@ else:
   title = args.title
 
 
-# download the content
-content = requests.get(link).text
-
-
 # choose sql statement
 if len(title) == 0:
-  sql = "UPDATE Entries SET content = %s WHERE id = %s"
-  val = (content, entryID)
+  sql = "UPDATE Entries SET link = %s WHERE id = %s"
+  val = (link, entryID)
 else :
   sql = "UPDATE Entries SET title = %s, content = %s WHERE id = %s"
   val = (title, content, entryID)
