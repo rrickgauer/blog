@@ -49,14 +49,33 @@ function updateEntry($id, $title, $content) {
 
 }
 
+
+/************************************************************
+ * Returns the data for a single entry
+ * 
+ * id
+ * title
+ * link
+ * date
+**************************************************************/
 function getEntry($id) {
+  $stmt = '
+  SELECT Entries.id,
+         Entries.title,
+         Entries.link,
+         DATE_FORMAT(Entries.date, "%M %D, %Y") AS date
+  FROM   Entries
+  WHERE  id = :id
+  LIMIT  1';
 
-  $pdo = dbConnect();
-  $sql = "SELECT Entries.id, Entries.title, Entries.content, DATE_FORMAT(Entries.date, \"%M %D, %Y\") as \"date\" FROM Entries WHERE id=$id";
-  $result = $pdo->query($sql);
+  $sql = dbConnect()->prepare($stmt);
 
-  return $result->fetch(PDO::FETCH_ASSOC);
+  // filter and bind the parameters
+  $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
+  $sql->bindParam(':id', $id, PDO::PARAM_INT);
 
+  $sql->execute();
+  return $sql;
 }
 
 function deleteEntry($id) {
