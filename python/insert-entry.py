@@ -17,17 +17,14 @@ def submit_entry():
       database = data['database']
     )
 
-    # download the content
-    content = requests.get(data['link']).text
-
     # connect to database
     mycursor = mydb.cursor()
 
     # prepare sql statement
-    sql = "INSERT INTO Entries (date, title, content) VALUES (%s, %s, %s)"
+    sql = "INSERT INTO Entries (date, title, link) VALUES (%s, %s, %s)"
 
     # bind values
-    val = (date.today(), data['title'], content)
+    val = (date.today(), data['title'], data['link'])
 
     # execute insert statement
     mycursor.execute(sql, val)
