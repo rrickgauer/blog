@@ -40,7 +40,7 @@ This is a list of my own [github stars](https://github.com/rrickgauer?tab=stars)
       loadLinks();
       getStarsData();
       new TableSearch('search-input', 'stars').init();
-      new Tablesort(document.getElementById('stars'));
+      
     });
   }
 
@@ -65,7 +65,6 @@ This is a list of my own [github stars](https://github.com/rrickgauer?tab=stars)
     ar[1] = ar[1].trim();
     var newPage = ar[1].split("=");
     lastPage = parseInt(newPage[1].charAt(0));
-    // loadLinks();
   }
 
   function loadLinks() {
@@ -82,8 +81,7 @@ This is a list of my own [github stars](https://github.com/rrickgauer?tab=stars)
       });
     }
 
-
-
+    new Tablesort(document.getElementById('stars'));
   }
 
 
