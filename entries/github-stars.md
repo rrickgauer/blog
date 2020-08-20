@@ -13,9 +13,9 @@
 
   <div class="d-flex align-items-center">
     
-  <span>Languages:</span>
+  <span class="mr-2 text-weight-bold">Languages:</span>
 
-  <select id="select-languages">
+  <select id="select-languages" class="form-control">
   </select>
 
   </div>
