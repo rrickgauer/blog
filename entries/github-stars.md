@@ -103,8 +103,10 @@ This is a list of my own [github stars](https://github.com/rrickgauer?tab=stars)
     var newLanguages = $(".card .badge-language").text();
 
     for (var count = 0; count < newLanguages.length; count++) {
-      console.log(newLanguages);
+      console.log(newLanguages[count]);
     }
+
+    console.log('get list of languages');
 
 
   }
