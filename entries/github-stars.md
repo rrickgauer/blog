@@ -69,7 +69,7 @@
     var html = '<div class="card"><div class="card-body">';
 
     // title
-    html += '<div class="card-title h3">';
+    html += '<div class="card-title h4 font-weight-bold">';
     html += '<a href="' + star.owner.html_url + '">' + star.owner.login + '</a>'; // owner
     html += ' / ';
     html += '<a href="' + star.html_url + '">' + star.name + '</a></div>';         // repo
@@ -119,12 +119,18 @@
   }
 
   function getListOfLanguages() {
-      
-    var html = '';
 
+    // sort list
+    languages.sort(function (a, b) {
+      return (a.toUpperCase() < a.toUpperCase()) ? -1 : 1;
+    });
+
+    // generate html
+    var html = '';
     for (var count = 0; count < languages.length; count++) {
       html += '<option value="' + languages[count] + '">' + languages[count] + '</option>';
     }
+
 
     $("#select-languages").append(html);
   }
