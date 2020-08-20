@@ -102,9 +102,9 @@ This is a list of my own [github stars](https://github.com/rrickgauer?tab=stars)
 
     // footer
     html += '<div class="d-flex align-items-center">';
-    html += '<span class="badge badge-warning mr-4">' + star.language + '</span>';                              // language
-    html += '<span class="mr-4"><i class="bx bx-star"></i><span class="ml-2">' + star.stargazers_count + '</span></span>';   // number of stars
-    html += '<span class="mr-4"><i class="bx bx-git-repo-forked"></i><span class="ml-2">' + star.forks + '</span></span>';   // number of forks
+    html += '<span class="badge badge-secondary mr-4">' + star.language + '</span>';                              // language
+    html += '<span class="mr-4"><i class="bx bx-star"></i><span class="ml-1">' + star.stargazers_count + '</span></span>';   // number of stars
+    html += '<span class="mr-4"><i class="bx bx-git-repo-forked"></i><span class="ml-1">' + star.forks + '</span></span>';   // number of forks
     html += '</div>';
 
     // end card-body and card
