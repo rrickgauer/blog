@@ -1,5 +1,5 @@
 
-This is a list of my own [github stars](https://github.com/rrickgauer?tab=stars)
+<p>This is a list of my own <a href="https://github.com/rrickgauer?tab=stars">github stars</a></p>
 
 <!-- <div class="input-group">
   <div class="input-group-prepend">
@@ -9,7 +9,18 @@ This is a list of my own [github stars](https://github.com/rrickgauer?tab=stars)
 </div> -->
 
 
+<div class="d-flex toolbar">
 
+  <div class="d-flex align-items-center">
+    
+  <span>Languages:</span>
+
+  <select id="select-languages">
+  </select>
+
+  </div>
+  
+</div>
 
 <div id="stars" class="mt-3"></div>
 
@@ -104,12 +115,17 @@ This is a list of my own [github stars](https://github.com/rrickgauer?tab=stars)
       getListOfLanguages();
     }, 3000);
 
-    getListOfLanguages();
   }
 
   function getListOfLanguages() {
-    for (var count = 0; count < languages.length; count++)
-      console.log(languages[count]);
+      
+    var html = '';
+
+    for (var count = 0; count < languages.length; count++) {
+      html += '<option value="' + languages[count] + '">' + languages[count] + '</option>';
+    }
+
+    $("#select-languages").html(html);
   }
 
 
