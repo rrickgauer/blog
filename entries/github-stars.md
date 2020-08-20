@@ -108,7 +108,7 @@
   function getStarsData() {
 
     var data = {
-      username: "d5df00aa6482edcc03d419de2e660d90e6c25fbb",
+      access_token: "d5df00aa6482edcc03d419de2e660d90e6c25fbb",
     }
 
     for (var count = 0; count < links.length; count++) {
