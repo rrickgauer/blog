@@ -13,7 +13,7 @@ This is a list of my own [github stars](https://github.com/rrickgauer?tab=stars)
   <table class="table" id="stars">
     <thead>
       <tr>
-        <th>Repository</th>
+        <th data-sort-default>Repository</th>
         <th>Description</th>
         <th>Link</th>
       </tr>
