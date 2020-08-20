@@ -92,10 +92,10 @@ This is a list of my own [github stars](https://github.com/rrickgauer?tab=stars)
     var html = '<div class="card"><div class="card-body">';
 
     // title
-    html += '<h5 class="card-title">';
+    html += '<h3 class="card-title">';
     html += '<a href="' + star.owner.html_url + '">' + star.owner.login + '</a>'; // owner
     html += ' / ';
-    html += '<a href="' + star.html_url + '">' + star.name + '</a></h5>';         // repo
+    html += '<a href="' + star.html_url + '">' + star.name + '</a></h3>';         // repo
 
     // description
     html += '<p class="card-text">' + star.description + '</p>';
