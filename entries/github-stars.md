@@ -13,9 +13,10 @@
 
   <div class="d-flex align-items-center">
     
-  <span class="mr-2 text-weight-bold">Languages:</span>
+  <span class="mr-2 font-weight-bold">Languages:</span>
 
   <select id="select-languages" class="form-control">
+    <option value="all">All</option>
   </select>
 
   </div>
@@ -68,10 +69,10 @@
     var html = '<div class="card"><div class="card-body">';
 
     // title
-    html += '<h3 class="card-title">';
+    html += '<div class="card-title h3">';
     html += '<a href="' + star.owner.html_url + '">' + star.owner.login + '</a>'; // owner
     html += ' / ';
-    html += '<a href="' + star.html_url + '">' + star.name + '</a></h3>';         // repo
+    html += '<a href="' + star.html_url + '">' + star.name + '</a></div>';         // repo
 
     // description
     html += '<p class="card-text">' + star.description + '</p>';
@@ -125,7 +126,7 @@
       html += '<option value="' + languages[count] + '">' + languages[count] + '</option>';
     }
 
-    $("#select-languages").html(html);
+    $("#select-languages").append(html);
   }
 
 
