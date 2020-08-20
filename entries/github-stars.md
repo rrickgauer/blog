@@ -1,43 +1,17 @@
 
 This is a list of my own [github stars](https://github.com/rrickgauer?tab=stars)
 
-<div class="input-group">
+<!-- <div class="input-group">
   <div class="input-group-prepend">
     <span class="input-group-text"><i class='bx bx-search'></i></span>
   </div>
   <input type="email" class="form-control" id="search-input" placeholder="Search...">
-</div>
-
-
-<!-- <div class="table-responsive">
-  <table class="table" id="stars">
-    <thead>
-      <tr>
-        <th data-sort-default>Repository</th>
-        <th>Description</th>
-        <th>Link</th>
-      </tr>
-    </thead>
-    <tbody>
-    </tbody>
-  </table>
-
 </div> -->
 
-<div id="stars">
-  
 
 
 
-
-
-
-</div>
-
-
-
-
-
+<div id="stars" class="mt-3"></div>
 
 
 
@@ -46,6 +20,8 @@ This is a list of my own [github stars](https://github.com/rrickgauer?tab=stars)
   const link   = 'https://api.github.com/user/22210580/starred?page=2'
   var links    = [];
   var lastPage = 1;
+
+  var languages = [];
 
   $(document).ready(function() {
     getStars();
@@ -57,33 +33,17 @@ This is a list of my own [github stars](https://github.com/rrickgauer?tab=stars)
       getLastPage(xhr.getResponseHeader("link"));
       loadLinks();
       getStarsData();
-      // new TableSearch('search-input', 'stars').init();
       
     });
   }
 
   function displayStars(stars) {
     var html = '';
-
-    // for (var count = 0; count < stars.length; count++) {
-    //   html += '<tr>';
-    //   html += '<td>' + stars[count].name + '</td>';
-    //   html += '<td>' + stars[count].description + '</td>';
-    //   html += '<td><a href="' + stars[count].html_url + '">Visit</a></td>';
-    //   html += '</tr>';
-    // }
-
-    // $("#stars tbody").append(html);
-    // new TableSearch('search-input', 'stars').init();
-
-
     for (var count = 0; count < stars.length; count++) {
       html += getCardHtml(stars[count]);
     }
 
     $("#stars").append(html);
-
-    
   }
 
 
@@ -102,7 +62,7 @@ This is a list of my own [github stars](https://github.com/rrickgauer?tab=stars)
 
     // footer
     html += '<div class="d-flex align-items-center">';
-    html += '<span class="badge badge-secondary mr-4">' + star.language + '</span>';                              // language
+    html += '<span class="badge badge-secondary badge-language mr-4">' + star.language + '</span>';                              // language
     html += '<span class="mr-4"><i class="bx bx-star"></i><span class="ml-1">' + star.stargazers_count + '</span></span>';   // number of stars
     html += '<span class="mr-4"><i class="bx bx-git-repo-forked"></i><span class="ml-1">' + star.forks + '</span></span>';   // number of forks
     html += '</div>';
@@ -112,13 +72,6 @@ This is a list of my own [github stars](https://github.com/rrickgauer?tab=stars)
 
     return html;
   }
-
-
-
-
-
-
-
 
 
   function getLastPage(link) {
@@ -142,7 +95,18 @@ This is a list of my own [github stars](https://github.com/rrickgauer?tab=stars)
       });
     }
 
-    // new Tablesort(document.getElementById('stars'));
+    getListOfLanguages();
+  }
+
+  function getListOfLanguages() {
+
+    var newLanguages = $(".card .badge-language").text();
+
+    for (var count = 0; count < newLanguages.length; count++) {
+      console.log(newLanguages);
+    }
+
+
   }
 
 
