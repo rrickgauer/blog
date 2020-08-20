@@ -10,86 +10,76 @@ This is a list of my own [github stars](https://github.com/rrickgauer?tab=stars)
 
 
 <div class="table-responsive">
-    <table class="table" id="stars">
-        <thead>
-            <tr>
-                <th>Repository</th>
-                <th>Description</th>
-                <th>Link</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
+  <table class="table" id="stars">
+    <thead>
+      <tr>
+        <th>Repository</th>
+        <th>Description</th>
+        <th>Link</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
 </div>
 
 <script>
-    const API = 'https://api.github.com/users/rrickgauer/starred';
-    const link = 'https://api.github.com/user/22210580/starred?page=2'
-    var links = [];
-    var lastPage = 1;
+  const API    = 'https://api.github.com/users/rrickgauer/starred';
+  const link   = 'https://api.github.com/user/22210580/starred?page=2'
+  var links    = [];
+  var lastPage = 1;
 
-    $(document).ready(function() {
-        getStars();
+  $(document).ready(function() {
+    getStars();
+  });
 
-        $("#stars").on('click', ".link", function() {
-            gotoRepo(this);
-        });
+  function getStars() {
+    $.getJSON(API, function(response, status, xhr) {
+      // displayStars(response);
+      getLastPage(xhr.getResponseHeader("link"));
+      loadLinks();
+      getStarsData();
+      new TableSearch('search-input', 'stars').init();
     });
+  }
 
-    function getStars() {
-        $.getJSON(API, function(response, status, xhr) {
-            // displayStars(response);
-            getLastPage(xhr.getResponseHeader("link"));
-            loadLinks();
-            getStarsData();
-            new TableSearch('search-input', 'stars').init();
-        });
+  function displayStars(stars) {
+    var html = '';
+
+    for (var count = 0; count < stars.length; count++) {
+      html += '<tr>';
+      html += '<td>' + stars[count].name + '</td>';
+      html += '<td>' + stars[count].description + '</td>';
+      html += '<td><a href="' + stars[count].html_url + '">Visit</a></td>';
+      html += '</tr>';
     }
 
-    function displayStars(stars) {
-        var html = '';
+    $("#stars tbody").append(html);
+    new TableSearch('search-input', 'stars').init();
+  }
 
-        for (var count = 0; count < stars.length; count++) {
-            html += '<tr>';
-            html += '<td>' + stars[count].name + '</td>';
-            html += '<td>' + stars[count].description + '</td>';
-            html += '<td><a href="' + stars[count].html_url + '">Visit</a></td>';
-            html += '</tr>';
-        }
+  function getLastPage(link) {
+    var ar = link.split(",");          // Split on commas
+    ar[1] = ar[1].trim();
+    var newPage = ar[1].split("=");
+    lastPage = parseInt(newPage[1].charAt(0));
+    // loadLinks();
+  }
 
-        $("#stars tbody").append(html);
-        new TableSearch('search-input', 'stars').init();
+  function loadLinks() {
+    for (var count = 1; count <= lastPage; count++) {
+      var newLink = 'https://api.github.com/user/22210580/starred?page=' + count.toString();
+      links.push(newLink);
     }
+  }
 
-    function getLastPage(link) {
-        var ar = link.split(",");          // Split on commas
-        ar[1] = ar[1].trim();
-        var newPage = ar[1].split("=");
-        lastPage = parseInt(newPage[1].charAt(0));
-        // loadLinks();
+  function getStarsData() {
+    for (var count = 0; count < links.length; count++) {
+      $.getJSON(links[count], function(response) {
+        displayStars(response);
+      });
     }
-
-    function loadLinks() {
-        for (var count = 1; count <= lastPage; count++) {
-            var newLink = 'https://api.github.com/user/22210580/starred?page=' + count.toString();
-            links.push(newLink);
-        }
-    }
-
-    function getStarsData() {
-        for (var count = 0; count < links.length; count++) {
-            $.getJSON(links[count], function(response) {
-                displayStars(response);
-            });
-        }
-    }
-
-    function gotoRepo(link) {
-
-        // $(link).attr('data-url');
-        window.location.href = $(link).attr('data-url');
-    }
+  }
 
 
-</script>
+    </script>
