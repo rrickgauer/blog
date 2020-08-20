@@ -57,7 +57,7 @@ This is a list of my own [github stars](https://github.com/rrickgauer?tab=stars)
 
     $("#stars tbody").append(html);
     new TableSearch('search-input', 'stars').init();
-    new Tablesort(document.getElementById('stars'));
+    
   }
 
   function getLastPage(link) {
@@ -82,7 +82,7 @@ This is a list of my own [github stars](https://github.com/rrickgauer?tab=stars)
       });
     }
 
-    new Tablesort(document.getElementById('stars'));
+
 
   }
 
