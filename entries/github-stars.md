@@ -94,7 +94,7 @@ This is a list of my own [github stars](https://github.com/rrickgauer?tab=stars)
     // title
     html += '<h5 class="card-title">';
     html += '<a href="' + star.owner.html_url + '">' + star.owner.login + '</a>'; // owner
-    html += '&nbsp;/&nbsp;';
+    html += ' / ';
     html += '<a href="' + star.html_url + '">' + star.name + '</a></h5>';         // repo
 
     // description
@@ -103,8 +103,8 @@ This is a list of my own [github stars](https://github.com/rrickgauer?tab=stars)
     // footer
     html += '<div class="d-flex align-items-center">';
     html += '<span class="badge badge-warning mr-4">' + star.language + '</span>';                              // language
-    html += '<span class="mr-4"><i class="bx bx-star"></i><span>' + star.stargazers_count + '</span></span>';   // number of stars
-    html += '<span class="mr-4"><i class="bx bx-git-repo-forked"></i><span>' + star.forks + '</span></span>';   // number of forks
+    html += '<span class="mr-4"><i class="bx bx-star"></i><span class="ml-2">' + star.stargazers_count + '</span></span>';   // number of stars
+    html += '<span class="mr-4"><i class="bx bx-git-repo-forked"></i><span class="ml-2">' + star.forks + '</span></span>';   // number of forks
     html += '</div>';
 
     // end card-body and card
