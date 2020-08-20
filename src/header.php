@@ -38,3 +38,9 @@
 
 <!-- table search -->
 <script src="js/tablesearch.js"></script>
+
+<!-- table sort -->
+<script src="js/tablesort/tablesort.js"></script>
+<script src="js/tablesort/tablesort.date.js"></script>
+<script src="js/tablesort/tablesort.dotstep.js"></script>
+<script src="js/tablesort/tablesort.number.js"></script>
