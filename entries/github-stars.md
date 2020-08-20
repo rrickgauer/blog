@@ -77,8 +77,12 @@ This is a list of my own [github stars](https://github.com/rrickgauer?tab=stars)
     for (var count = 0; count < links.length; count++) {
       $.getJSON(links[count], function(response) {
         displayStars(response);
+        
       });
     }
+
+    new Tablesort(document.getElementById('stars'));
+
   }
 
 
