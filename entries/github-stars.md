@@ -12,13 +12,20 @@
 <div class="d-flex toolbar">
 
   <div class="d-flex align-items-center">
-    
-  <span class="mr-2 font-weight-bold">Languages:</span>
+    <span class="mr-2 font-weight-bold">Languages:</span>
+    <select id="select-languages" class="form-control">
+      <option value="all">All</option>
+    </select>
+  </div>
 
-  <select id="select-languages" class="form-control">
-    <option value="all">All</option>
-  </select>
-
+  <div class="dropdown dropdown-sort">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
+      Sort
+    </button>
+    <div class="dropdown-menu dropdown-options">
+      <!-- <h6 class="dropdown-header">Dropdown header</h6> -->
+      <button class="dropdown-item" type="button" data-sort-option="alphabetical" onclick="sortItems(this)">Alphabetical</button>
+    </div>
   </div>
   
 </div>
@@ -124,10 +131,9 @@
   }
 
   function getListOfLanguages() {
-
     // sort list
     languages.sort(function (a, b) {
-      return (a.toUpperCase() < a.toUpperCase()) ? -1 : 1;
+      return (a.toUpperCase() < b.toUpperCase()) ? -1 : 1;
     });
 
     // generate html
