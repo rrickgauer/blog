@@ -13,7 +13,7 @@
 
   <div class="d-flex align-items-center">
     <span class="mr-2 font-weight-bold">Languages:</span>
-    <select id="select-languages" class="form-control">
+    <select id="select-languages" class="form-control" onchange="filterItems()">
       <option value="all">All</option>
     </select>
   </div>
@@ -86,7 +86,7 @@
 
     // footer
     html += '<div class="d-flex align-items-center">';
-    html += '<span class="badge badge-secondary badge-language mr-4">' + star.language + '</span>';                              // language
+    html += '<span class="badge badge-secondary badge-language mr-4" data-language="' + star.language + '">' + star.language + '</span>';                              // language
     html += '<span class="mr-4"><i class="bx bx-star"></i><span class="ml-1">' + star.stargazers_count + '</span></span>';   // number of stars
     html += '<span class="mr-4"><i class="bx bx-git-repo-forked"></i><span class="ml-1">' + star.forks + '</span></span>';   // number of forks
     html += '</div>';
@@ -159,6 +159,18 @@
     });
 
     $("#stars").html(cards);
+
+  }
+
+  function filterItems() {
+    var selectedOption = $('#select-languages').val();
+
+    $(".card").hide();
+
+    $(".card .badge-language[data-language='" + selectedOption + "']").closest('.card').show();
+
+    
+
 
   }
 
