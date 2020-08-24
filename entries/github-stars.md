@@ -165,12 +165,13 @@
   function filterItems() {
     var selectedOption = $('#select-languages').val();
 
+    if (selectedOption == 'All') {
+      $(".card").show();
+      return;
+    }
+
     $(".card").hide();
-
     $(".card .badge-language[data-language='" + selectedOption + "']").closest('.card').show();
-
-    
-
 
   }
 
