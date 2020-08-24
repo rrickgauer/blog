@@ -9,7 +9,7 @@
 </div> -->
 
 
-<div class="d-flex toolbar">
+<div class="d-flex justify-content-between">
 
   <div class="d-flex align-items-center">
     <span class="mr-2 font-weight-bold">Languages:</span>
@@ -79,7 +79,7 @@
     html += '<div class="card-title h4 font-weight-bold">';
     html += '<a href="' + star.owner.html_url + '">' + star.owner.login + '</a>'; // owner
     html += ' / ';
-    html += '<a href="' + star.html_url + '">' + star.name + '</a></div>';         // repo
+    html += '<a href="' + star.html_url + '" class="repo-title">' + star.name + '</a></div>';         // repo
 
     // description
     html += '<p class="card-text">' + star.description + '</p>';
@@ -133,7 +133,7 @@
   function getListOfLanguages() {
     // sort list
     languages.sort(function (a, b) {
-      return (a.toUpperCase() < b.toUpperCase()) ? -1 : 1;
+      return (a.toUpperCase() < a.toUpperCase()) ? -1 : 1;
     });
 
     // generate html
@@ -144,6 +144,22 @@
 
 
     $("#select-languages").append(html);
+  }
+
+
+  function sortItems(btn) {
+
+    var cards = $(".card");
+
+
+    cards.sort(function (a, b) {
+      var textA = $(a).find('.repo-title').text().toUpperCase();
+      var textB = $(b).find('.repo-title').text().toUpperCase();
+      return (textA < textB) ? -1 : 1;
+    });
+
+    $("#stars").html(cards);
+
   }
 
 
