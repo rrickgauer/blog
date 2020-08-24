@@ -165,7 +165,7 @@
   function filterItems() {
     var selectedOption = $('#select-languages').val();
 
-    if (selectedOption == 'All') {
+    if (selectedOption == 'all') {
       $(".card").show();
       return;
     }
