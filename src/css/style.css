@@ -8,8 +8,6 @@ body {
   display: flex;
   justify-content: space-between;
   background-color: inherit;
-
-
 }
 
 .entry .title {
@@ -53,5 +51,16 @@ h1.custom-font {
 
   .post-title {
     font-size: 30px !important;
+  }
+
+  .container,
+  body {
+    padding: 0;
+  }
+
+  body {
+
+    margin: 8px;
+    margin-top: 20px;
   }
 }
