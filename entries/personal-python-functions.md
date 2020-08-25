@@ -17,7 +17,8 @@ def space(numSpaces = 1):
 [Beautiful Table](https://github.com/pri22296/beautifultable) is a module I just discovered the other day. It has come in quite handy, and I highly recommend to anyone that needs an easy way to print out tables in the terminal.
 
 #### Installation
-```
+
+```shell
 pip install beautifultable
 ```
 
