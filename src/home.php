@@ -28,6 +28,13 @@
         }
       ?>
     </ul>
+
+
+    <p class="text-center mt-4">
+      <span>&copy; 2020 by </span>
+      <a href="https://www.ryanrickgauer.com/resume/index.html" target="_blank">Ryan Rickgauer</a>
+    </p>
+
   </div>
 
   

@@ -1,20 +1,23 @@
 body {
-    /*background-color: whitesmoke;*/
-    margin-bottom: 50px;
+  /*background-color: whitesmoke !important;*/
+  margin-bottom: 50px;
+  font-size: 1rem;
 }
 
 .entry {
-    display: flex;
-    justify-content: space-between;
-    background-color: inherit;
+  display: flex;
+  justify-content: space-between;
+  background-color: inherit;
+
+
 }
 
 .entry .title {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 .entry .date {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 .custom-font {
@@ -37,4 +40,18 @@ h1.custom-font {
   padding: 0;
   margin: 0;
   text-align: center;
+}
+
+@media screen and (max-width: 700px) {
+  h1 {
+    font-size: 36px !important;
+  }
+
+  .entry {
+    flex-direction: column;
+  }
+
+  .post-title {
+    font-size: 30px !important;
+  }
 }
