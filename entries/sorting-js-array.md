@@ -65,6 +65,21 @@ Let's say you have a table
 
 ```
 
+The result would look like this
+
+| Full Name           | Country           | Created At                                                | Id | Email                          |
+|---------------------|-------------------|-----------------------------------------------------------|----|--------------------------------|
+| Creola McClure      | Panama Canal Zone | Sun May 26 2019 04:07:05 GMT-0500 (Central Daylight Time) | 0  | Laverna@noelia.com             |
+| Mrs. John Bahringer | Lebanon           | Thu Oct 06 1988 09:45:25 GMT-0500 (Central Daylight Time) | 1  | Juliet.OKeefe@sheila.tv        |
+| Eryn O'Kon          | Colombia          | Sun May 14 2017 20:17:55 GMT-0500 (Central Daylight Time) | 2  | Kenyatta.Schultz@laurianne.tv  |
+| Delilah Murphy      | Vanuatu           | Wed Aug 14 2002 20:35:15 GMT-0500 (Central Daylight Time) | 3  | Immanuel@adelbert.net          |
+| Toy Blanda          | Qatar             | Wed May 03 2000 01:48:55 GMT-0500 (Central Daylight Time) | 4  | Daisha_Hettinger@audreanne.org |
+| May Prohaska        | French Guiana     | Sat Jan 03 1987 10:46:04 GMT-0600 (Central Standard Time) | 5  | Keegan@giuseppe.com            |
+| Aditya Flatley      | Ghana             | Thu Feb 04 1988 04:05:33 GMT-0600 (Central Standard Time) | 6  | Brice@al.name                  |
+| Retha Klein PhD     | Oman              | Mon Jul 21 1986 13:02:16 GMT-0500 (Central Daylight Time) | 7  | Nathanial@angelo.biz           |
+| Scot Tillman PhD    | Tokelau           | Sat Feb 12 2005 17:41:17 GMT-0600 (Central Standard Time) | 8  | Lisette_McGlynn@charles.co.uk  |
+| Jayce Klocko        | Kiribati          | Thu Nov 05 1998 22:04:55 GMT-0600 (Central Standard Time) | 9  | Rhianna_Keebler@mateo.co.uk    |
+
 
 ## Sorting
 
