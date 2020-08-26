@@ -24,6 +24,7 @@ Source | Description
 [Coolors](https://coolors.co/) | Create the perfect palette or get inspired by thousands of beautiful color schemes.
 [Extended Color Keywords](https://drafts.csswg.org/css-color-3/#svg-color) | List of all the HTML color keywords with examples.
 [Hero Patterns](http://www.heropatterns.com/) | A collection of repeatable SVG background patterns for you to use on your web projects.
+[Lol Colors](https://www.webdesignrankings.com/resources/lolcolors/) | Curated color palette inspiration.
 
 
 ## CSS
