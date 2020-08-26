@@ -7,7 +7,6 @@ Here is the [documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScr
 Let's say you have a table
 
 ```html
-
 <table>
 <thead>
   <tr>
