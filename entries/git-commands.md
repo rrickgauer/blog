@@ -1,6 +1,6 @@
-# Git Branching
 
-## Using a branches
+
+## Branches
 
 ### Creating a new branch
 
@@ -35,14 +35,29 @@ This will push your commits to your new branch and set the upstream to your new 
 git push
 ```
 
-## Merging a branch
+### Merging a branch
 
 When you are ready to merge a branch into another, go to your repository on GitHub and it will walk you through the steps.
 
-After that, you need to reconcile your changes onto your local repo. To do this, switch to the master branch and use these commands:
+After that, you need to reconcile your changes onto your local repo. To do this, *switch to the master branch* and use these commands:
 
 ```shell
 git add *
 git stash
 git pull
 ```
+
+### Additional commands
+
+To list the local branches:
+
+```shell
+git branch
+```
+
+To delete a local branch:
+
+```shell
+git branch -d <branch_name>
+```
+
