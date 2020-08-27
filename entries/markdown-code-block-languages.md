@@ -1,5 +1,5 @@
 
-<div class="d-flex">
+<div class="d-flex justify-content-between">
 
 <ul>    
     <li data-id="css">CSS - <code class=" language-markup">css</code></li>
