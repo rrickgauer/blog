@@ -3,9 +3,6 @@ This is a list of supported languages used for markdown when you use a code bloc
 
 [Source](https://prismjs.com/#supported-languages)
 
-<br>
-
-
 
 <div class="d-flex justify-content-between">
 
