@@ -1,4 +1,12 @@
 
+This is a list of supported languages used for markdown when you use a code block. I got this list from [Prism.JS](https://prismjs.com/).
+
+[Source](https://prismjs.com/#supported-languages)
+
+<br>
+
+
+
 <div class="d-flex justify-content-between">
 
 <ul>    
@@ -158,12 +166,12 @@
     <li data-id="php">PHP - <code class=" language-markup">php</code></li>
     <li data-id="phpdoc">PHPDoc - <code class=" language-markup">phpdoc</code></li>
     <li data-id="php-extras">PHP Extras - <code class=" language-markup">php-extras</code></li>
-</ul>
-
-<ul>
     <li data-id="plsql">PL/SQL - <code class=" language-markup">plsql</code></li>
     <li data-id="powerquery">PowerQuery - <code class=" language-markup">powerquery</code>, <code class=" language-markup">pq</code>, <code class=" language-markup">mscript</code></li>
     <li data-id="powershell">PowerShell - <code class=" language-markup">powershell</code></li>
+</ul>
+
+<ul>
     <li data-id="processing">Processing - <code class=" language-markup">processing</code></li>
     <li data-id="prolog">Prolog - <code class=" language-markup">prolog</code></li>
     <li data-id="properties">.properties - <code class=" language-markup">properties</code></li>
