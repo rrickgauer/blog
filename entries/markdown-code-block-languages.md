@@ -87,10 +87,10 @@ This is a list of supported languages used for markdown when you use a code bloc
     <li data-id="glsl">GLSL - <code class=" language-markup">glsl</code></li>
     <li data-id="go">Go - <code class=" language-markup">go</code></li>
     <li data-id="graphql">GraphQL - <code class=" language-markup">graphql</code></li>
+    <li data-id="groovy">Groovy - <code class=" language-markup">groovy</code></li>
 </ul>
 
 <ul>
-    <li data-id="groovy">Groovy - <code class=" language-markup">groovy</code></li>
     <li data-id="haml">Haml - <code class=" language-markup">haml</code></li>
     <li data-id="handlebars">Handlebars - <code class=" language-markup">handlebars</code></li>
     <li data-id="haskell">Haskell - <code class=" language-markup">haskell</code>, <code class=" language-markup">hs</code></li>
@@ -169,10 +169,10 @@ This is a list of supported languages used for markdown when you use a code bloc
     <li data-id="plsql">PL/SQL - <code class=" language-markup">plsql</code></li>
     <li data-id="powerquery">PowerQuery - <code class=" language-markup">powerquery</code>, <code class=" language-markup">pq</code>, <code class=" language-markup">mscript</code></li>
     <li data-id="powershell">PowerShell - <code class=" language-markup">powershell</code></li>
+    <li data-id="processing">Processing - <code class=" language-markup">processing</code></li>
 </ul>
 
 <ul>
-    <li data-id="processing">Processing - <code class=" language-markup">processing</code></li>
     <li data-id="prolog">Prolog - <code class=" language-markup">prolog</code></li>
     <li data-id="properties">.properties - <code class=" language-markup">properties</code></li>
     <li data-id="protobuf">Protocol Buffers - <code class=" language-markup">protobuf</code></li>
