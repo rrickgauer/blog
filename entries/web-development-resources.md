@@ -133,7 +133,7 @@ Source | Description
 
     rows.sort(function (a, b) {
       var nameA = $(a).find('td a').first().text().toUpperCase();
-      var nameA = $(b).find('td a').first().text().toUpperCase();
+      var nameB = $(b).find('td a').first().text().toUpperCase();
       return (nameA < nameB) ? -1 : 1;
     });
 
