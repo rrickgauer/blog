@@ -125,7 +125,7 @@
   function getListOfLanguages() {
     // sort list
     languages.sort(function (a, b) {
-      return (a.toUpperCase() < a.toUpperCase()) ? -1 : 1;
+      return (a.toUpperCase() < b.toUpperCase()) ? -1 : 1;
     });
 
     // generate html
