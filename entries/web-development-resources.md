@@ -109,28 +109,23 @@ Source | Description
 
 
 <script>
-
   $(document).ready(function() {
     sortTables();
   });
-
 
   function sortTables() {
     var tables = $('table');
     var size = tables.length;
 
     for (var count = 0; count < size; count++) {
-      var table = tables[count];
-      var rows = $(table).find('tbody tr');
-      rows = sortRows(rows);
-      $(table).find('tbody').html(rows);
+      var table = tables[count];              // next table
+      var rows = $(table).find('tbody tr');   // get the tbody rows in the table
+      rows = sortRows(rows);                  // sort the rows
+      $(table).find('tbody').html(rows);      // replace the rows with the sorted rows
     }
-
-
   }
 
   function sortRows(rows) {
-
     rows.sort(function (a, b) {
       var nameA = $(a).find('td a').first().text().toUpperCase();
       var nameB = $(b).find('td a').first().text().toUpperCase();
@@ -139,8 +134,6 @@ Source | Description
 
     return rows;
   }
-
-
 </script>
 
 
