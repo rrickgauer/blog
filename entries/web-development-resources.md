@@ -105,3 +105,54 @@ Source | Description
 Source | Description
 :--- | :---
 [Vue.js Tutorials](https://www.youtube.com/playlist?list=PL4cUxeGkcC9gQcYgjhBoeQH7wiAyZNrYa) | A playlist of Vue.js video tutorials by [The Net Ninja](https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg)
+
+
+
+<script>
+
+  $(document).ready(function() {
+    sortTables();
+  });
+
+
+  function sortTables() {
+    var tables = $('table');
+    var size = tables.length;
+
+    for (var count = 0; count < size; count++) {
+      var table = tables[count];
+      var rows = $(table).find('tbody tr');
+      rows = sortRows(rows);
+      $(table).find('tbody').html(rows);
+    }
+
+
+  }
+
+  function sortRows(rows) {
+
+    rows.sort(function (a, b) {
+      var nameA = $(a).find('td a').first().text().toUpperCase();
+      var nameA = $(b).find('td a').first().text().toUpperCase();
+      return (nameA < nameB) ? -1 : 1;
+    });
+
+    return rows;
+  }
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
