@@ -1,13 +1,6 @@
 
 <p>This is a list of my own <a href="https://github.com/rrickgauer?tab=stars">github stars</a></p>
 
-<!-- <div class="input-group">
-  <div class="input-group-prepend">
-    <span class="input-group-text"><i class='bx bx-search'></i></span>
-  </div>
-  <input type="email" class="form-control" id="search-input" placeholder="Search...">
-</div> -->
-
 
 <div class="d-flex justify-content-between">
 
@@ -31,7 +24,6 @@
 </div>
 
 <div id="stars" class="mt-3"></div>
-
 
 
 <script>
