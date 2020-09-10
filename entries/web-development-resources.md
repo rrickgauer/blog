@@ -55,6 +55,7 @@ Source | Description
 [TableSort](https://github.com/tristen/tablesort) | A small & simple sorting component for tables written in JavaScript.
 [HTML Table Search](https://github.com/niksofteng/html-table-search-js) | Simple table text search highlighter.
 [Jquery Toast Plugin](https://kamranahmed.info/toast) | Highly customizable jquery plugin to show toast messages
+[Autosize](http://www.jacklmoore.com/autosize/) | A small, stand-alone script to automatically adjust textarea height.
 
 ### Icons
 
