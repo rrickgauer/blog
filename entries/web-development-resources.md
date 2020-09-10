@@ -2,7 +2,7 @@
 
 I got this idea from this [site](https://webdevresources.info/colors). I will be adding to this list as time goes on.
 
-## Content
+### Content
 1. [Colors](#colors)
 2. [CSS](#css)
 3. [JavaScript](#javascript)
@@ -13,7 +13,7 @@ I got this idea from this [site](https://webdevresources.info/colors). I will be
 8. [Images](#images)
 9. [Tutorials](#tutorials)
 
-## Colors
+### Colors
 
 Source | Description
 :--- | :---
@@ -27,7 +27,7 @@ Source | Description
 [Lol Colors](https://www.webdesignrankings.com/resources/lolcolors/) | Curated color palette inspiration.
 
 
-## CSS
+### CSS
 
 Source | Description
 :--- | :---
@@ -39,7 +39,7 @@ Source | Description
 [Skeleton](http://getskeleton.com/) | A dead simple, responsive boilerplate.
 [Pretty Checkbox](https://lokesh-coder.github.io/pretty-checkbox/) | A pure CSS library to beautify checkbox and radio buttons
 
-## JavaScript
+### JavaScript
 
 Source | Description
 :--- | :---
@@ -55,7 +55,7 @@ Source | Description
 [TableSort](https://github.com/tristen/tablesort) | A small & simple sorting component for tables written in JavaScript.
 [HTML Table Search](https://github.com/niksofteng/html-table-search-js) | Simple table text search highlighter.
 
-## Icons
+### Icons
 
 Source | Description
 :--- | :---
@@ -65,13 +65,13 @@ Source | Description
 [Favicon](https://favicon.io/favicon-generator/) | Create a favicon in few simple clicks.
 [Zondicons](http://www.zondicons.com/icons.html) | A set of free premium SVG icons for you to use on your digital products.
 
-## HTML
+### HTML
 
 Source | Description
 :--- | :---
 [HTML character codes](https://www.rapidtables.com/web/html/html-codes.html) | All HTML character codes of text fonts and symbols from &#0; to &#65535
 
-## Articles
+### Articles
 
 Source | Description
 :--- | :---
@@ -84,7 +84,7 @@ Source | Description
 [Flexbox Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) | A Complete Guide to Flexbox.
 
 
-## APIs
+### APIs
 
 Source | Description
 :--- | :---
@@ -92,7 +92,7 @@ Source | Description
 [Lucid Index](https://lucidindex.com/) | Curated lists of awesome tech resources
 [Free Formatter](https://www.freeformatter.com/) | Free online tools that include several formatters, validators, code minifiers, string escapers, encoders and decoders, message digesters, web resources and more.
 
-## Images
+### Images
 
 Source | Description
 :--- | :---
@@ -100,7 +100,7 @@ Source | Description
 [Creative Backgrounds](https://wweb.dev/resources/creative-backgrounds) | websites for creative backgrounds
 [unDraw](https://undraw.co/illustrations) | Browse to find the images that fit your needs and click to download
 
-## Tutorials
+### Tutorials
 
 Source | Description
 :--- | :---
