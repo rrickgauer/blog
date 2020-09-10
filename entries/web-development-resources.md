@@ -56,6 +56,7 @@ Source | Description
 [HTML Table Search](https://github.com/niksofteng/html-table-search-js) | Simple table text search highlighter.
 [Jquery Toast Plugin](https://kamranahmed.info/toast) | Highly customizable jquery plugin to show toast messages
 [Autosize](http://www.jacklmoore.com/autosize/) | A small, stand-alone script to automatically adjust textarea height.
+[Bootstrap Notify](https://github.com/mouse0270/bootstrap-notify) | Turns standard Bootstrap alerts into "Growl-like" notifications.
 
 ### Icons
 
