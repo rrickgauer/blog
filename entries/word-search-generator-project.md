@@ -1,4 +1,3 @@
-# Word Search Generator Project
 Recently, I purchased a subscription to the [Chicago Tribune](https://www.chicagotribune.com/), and while reading over the first issue I received, I noticed that they included a word search. As the days went on, I really started to enjoy working through the puzzle. 
 
 This got me thinking about how the publishers generated the puzzle. So I decided to see if I could make my own. As a result, I am pleased to share my own [word search puzzle generator](https://ryanrickgauer.com/word-search/index.html)! Here is a link to the [GitHub repo](https://github.com/rrickgauer/word-search-generator). 
