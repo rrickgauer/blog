@@ -563,6 +563,8 @@ There are four necessary conditions for deadlock.
 
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <script>
   
   $(document).ready(function() {
@@ -570,6 +572,7 @@ There are four necessary conditions for deadlock.
     var content = $('#content').next();
 
     console.log(content).html();
+    var html = '<details open><summary>Content</summary>' + $(content).html() + '</details>';
 
 
   });
