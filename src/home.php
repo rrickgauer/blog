@@ -31,8 +31,9 @@
           $id = $entry['id'];
           $title = $entry['title'];
           $date = $entry['date_formatted'];
+          $dateSort = $entry['date_sort'];
 
-          echo '<li class="list-group-item entry">';
+          echo "<li class=\"list-group-item entry\" data-date=\"$dateSort\">";
           echo "<div  class=\"title\"><a href=\"entries.php?entryID=$id\">$title</a></div>";
           echo "<div class=\"date\">$date</div>";
           echo '</li>';
