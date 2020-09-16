@@ -5,13 +5,13 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <!-- TypeIt -->
-<script src="js/typeit.min.js"></script>
+<script src="js/external/typeit.min.js"></script>
 
 <!-- table search -->
-<script src="js/tablesearch.js"></script>
+<script src="js/external/tablesearch.js"></script>
 
 <!-- table sort -->
-<script src="js/tablesort/tablesort.js"></script>
-<script src="js/tablesort/tablesort.date.js"></script>
-<script src="js/tablesort/tablesort.dotstep.js"></script>
-<script src="js/tablesort/tablesort.number.js"></script>
+<script src="js/external/tablesort/tablesort.js"></script>
+<script src="js/external/tablesort/tablesort.date.js"></script>
+<script src="js/external/tablesort/tablesort.dotstep.js"></script>
+<script src="js/external/tablesort/tablesort.number.js"></script>

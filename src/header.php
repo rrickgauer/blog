@@ -8,10 +8,10 @@
 
 <!-- github css -->
 <!-- https://gist.github.com/tuzz/3331384 -->
-<link rel="stylesheet" type="text/css" href="css/github.css" />
+<link rel="stylesheet" type="text/css" href="css/external/github.css" />
 
 <!-- prism code highlighter -->
-<link rel="stylesheet" type="text/css" href="css/prism.css" />
+<link rel="stylesheet" type="text/css" href="css/external/prism.css" />
 
 <!-- boxicons -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
@@ -20,7 +20,7 @@
 <link href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap" rel="stylesheet" />
 
 <!-- hamgurger.css -->
-<link href="css/hamburgers.css" rel="stylesheet" />
+<link href="css/external/hamburgers.css" rel="stylesheet" />
 
 <!-- custom css sheet -->
 <link rel="stylesheet" type="text/css" href="css/style.css" />
