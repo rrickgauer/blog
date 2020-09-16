@@ -559,9 +559,20 @@ There are four necessary conditions for deadlock.
 # Additional Notes
 
 
-
-
-
-
-
 [&uarr; Back to top](#table-of-content)
+
+
+
+<script>
+  
+  $(document).ready(function() {
+
+    var content = $('#content').next();
+
+    console.log(content).html();
+
+
+  });
+
+
+</script>
