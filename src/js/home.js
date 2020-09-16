@@ -30,15 +30,26 @@ function initTypeIt() {
 
 
 function sortEntries() {
-
   var sortOption = $('.select-sort').val();
 
-  // if (sortOption = SORT_OPTIONS.DATE)
-  //   sortEntriesByDate();
-  // else
-  //   sortEntriesByTitle();
+  if (sortOption == SORT_OPTIONS.DATE)
+    sortEntriesByDate();
+  else
+    sortEntriesByTitle();
+}
 
-  sortEntriesByTitle();
+
+function sortEntriesByDate() {
+  var entries = $('.entry');
+
+  entries.sort(function(a, b) {
+    var dateA = $(a).attr('data-date');
+    var dateB = $(b).attr('data-date');
+
+    return (parseInt(dateA) > parseInt(dateB)) ? -1 : 1;
+  });
+
+  $('.list-group').html(entries);
 }
 
 function sortEntriesByTitle() {
