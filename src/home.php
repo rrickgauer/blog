@@ -44,20 +44,11 @@
       <span>&copy; 2020 by </span>
       <a href="https://www.ryanrickgauer.com/resume/index.html" target="_blank">Ryan Rickgauer</a>
     </p>
-
   </div>
 
 
   <?php include('footer.php'); ?>
-  
-  <script>
-    new TypeIt('.custom-font', {
-      speed: 50,
-      startDelay: 900
-    })
-    .options({speed: 50})
-    .go();
-  </script>
+  <script src="js/home.js"></script>
 
 </body>
 </html>
