@@ -568,21 +568,12 @@ There are four necessary conditions for deadlock.
 <script>
   
   $(document).ready(function() {
-
     var content = $('#content').next();
-
-    console.log($(content).html());
-    console.log($(content).text());
-
-    var html = '<details open><summary>Content</summary><ol>' + $(content).html() + '</ol></details>';
-
-
-
+    var html = '<details open><summary><h2>Content</h2></summary><ol>' + $(content).html() + '</ol></details>';
 
     $('#table-of-content').html(html);
     $('#content').next().remove();
     $('#content').remove();
-
   });
 
 
