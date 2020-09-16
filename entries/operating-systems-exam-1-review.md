@@ -569,7 +569,7 @@ There are four necessary conditions for deadlock.
   
   $(document).ready(function() {
     var content = $('#content').next();
-    var html = '<details open><summary><h2>Content</h2></summary><ol>' + $(content).html() + '</ol></details>';
+    var html = '<details open><summary><span style="font-weight: bold; font-size: 24px; font-family: Helvetica, arial, sans-serif;">Content</span></summary><ol>' + $(content).html() + '</ol></details>';
 
     $('#table-of-content').html(html);
     $('#content').next().remove();
