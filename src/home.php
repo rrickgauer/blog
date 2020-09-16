@@ -14,11 +14,9 @@
 
     <h1 id="hero" class="custom-font mt-5 mb-5">Ryan Rickgauer's Blog</h1>
 
-
-
+    <!-- sorting select options -->
     <div class="toolbar-sort">
       <span class="label"><b>Sort:</b></span>
-      
       <div>
         <select class="form-control form-control-sm select-sort">
           <option value="date">Date</option>
@@ -42,7 +40,6 @@
       ?>
     </ul>
 
-
     <p class="text-center mt-4">
       <span>&copy; 2020 by </span>
       <a href="https://www.ryanrickgauer.com/resume/index.html" target="_blank">Ryan Rickgauer</a>
@@ -50,6 +47,8 @@
 
   </div>
 
+
+  <?php include('footer.php'); ?>
   
   <script>
     new TypeIt('.custom-font', {
