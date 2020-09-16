@@ -14,6 +14,19 @@
 
     <h1 id="hero" class="custom-font mt-5 mb-5">Ryan Rickgauer's Blog</h1>
 
+
+
+    <div class="toolbar-sort">
+      <span class="label"><b>Sort:</b></span>
+      
+      <div>
+        <select class="form-control form-control-sm select-sort">
+          <option value="date">Date</option>
+          <option value="title">Title</option>
+        </select>
+      </div>
+    </div>
+
     <ul class="list-group list-group-flush">
       <?php
         while ($entry = $entries->fetch(PDO::FETCH_ASSOC)) {

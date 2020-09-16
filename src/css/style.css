@@ -44,6 +44,20 @@ table {
   width: 100% !important;
 }
 
+.toolbar-sort {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+.toolbar-sort .label {
+  margin-right: 10px;
+}
+.toolbar-sort .select-sort {
+  padding-right: 50px;
+}
+
 @media screen and (max-width: 700px) {
   h1 {
     font-size: 36px !important;

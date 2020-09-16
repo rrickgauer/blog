@@ -46,6 +46,21 @@ table {
   width: 100% !important;
 }
 
+.toolbar-sort {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  margin-left: 10px;
+
+  .label {
+    margin-right: 10px;
+  }
+
+  .select-sort {
+    padding-right: 50px;
+  }
+}
 
 
 @media screen and (max-width: 700px) {
