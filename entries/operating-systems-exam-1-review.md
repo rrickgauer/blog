@@ -7,33 +7,40 @@ This is a study guide I wrote to help myself review for my first exam in my [ope
 
 # Table of Content
 
-1. [Exam Information](#exam-information)
-2. [Introduction and OS Structures](#introduction-and-os-structures)
-   1. [Operating System Components](#operating-system-components)
-   2. [System Calls](#system-calls)
-   3. [Linux System Calls](#linux-system-calls)
-   4. [System Programs](#system-programs)
-3. [Process Management](#process-management)
-    1. [Process Control Block](#process-control-block)
-    2. [Schedulers](#schedulers)
-    3. [Scheduling Queues](#scheduling-queues)
-    4. [Context Switch](#context-switch)
-    5. [Interprocess Communication](#interprocess-communication)
-    6. [Zombie and Orphan Processes](#zombie-and-orphan-processes)
-4. [Threads](#threads)
-   1. [Differences Between Threads And Processes](#differences-between-threads-and-processes)
-   2. [Kernel And User Threads](#kernel-and-user-threads)
-   3. [Threading Models](#threading-models)
-5. [CPU Scheduling](#cpu-scheduling)
-   1. [Performance Criteria](#performance-criteria)
-   2. [Preemptive And Non-Preemptive Scheduling](#preemptive-and-non-preemptive-scheduling)
-   3. [Scheduling Algorithms](#scheduling-algorithms)
-6. [Process Synchronization](#process-synchronization)
-   1. [Race Condition](#race-condition)
-   2. [Critical Section Problem](#critical-section-problem)
-   3. [Semaphores](#semaphores)
-7. [Deadlock](#deadlock)
-8. [Additional Notes](#additional-notes)
+<details open>
+  <summary>Content</summary>
+
+  1. [Exam Information](#exam-information)
+  2. [Introduction and OS Structures](#introduction-and-os-structures)
+     1. [Operating System Components](#operating-system-components)
+     2. [System Calls](#system-calls)
+     3. [Linux System Calls](#linux-system-calls)
+     4. [System Programs](#system-programs)
+  3. [Process Management](#process-management)
+      1. [Process Control Block](#process-control-block)
+      2. [Schedulers](#schedulers)
+      3. [Scheduling Queues](#scheduling-queues)
+      4. [Context Switch](#context-switch)
+      5. [Interprocess Communication](#interprocess-communication)
+      6. [Zombie and Orphan Processes](#zombie-and-orphan-processes)
+  4. [Threads](#threads)
+     1. [Differences Between Threads And Processes](#differences-between-threads-and-processes)
+     2. [Kernel And User Threads](#kernel-and-user-threads)
+     3. [Threading Models](#threading-models)
+  5. [CPU Scheduling](#cpu-scheduling)
+     1. [Performance Criteria](#performance-criteria)
+     2. [Preemptive And Non-Preemptive Scheduling](#preemptive-and-non-preemptive-scheduling)
+     3. [Scheduling Algorithms](#scheduling-algorithms)
+  6. [Process Synchronization](#process-synchronization)
+     1. [Race Condition](#race-condition)
+     2. [Critical Section Problem](#critical-section-problem)
+     3. [Semaphores](#semaphores)
+  7. [Deadlock](#deadlock)
+  8. [Additional Notes](#additional-notes)
+
+</details>
+
+
 
 # Exam Information
 * **Date:** Monday, 2/24/2020
