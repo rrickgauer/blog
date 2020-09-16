@@ -128,15 +128,29 @@ function isLoginSuccessful($username, $password) {
   return ($password == $author['password']);
 }
 
+/**
+ * Returns all entries
+ * 
+ * id
+ * title
+ * date
+ * date_formatted
+ * date_sort
+ */
 function getAllEntries() {
-  $pdo = dbConnect();
-  $sql = "select Entries.id, Entries.title, Entries.date, DATE_FORMAT(Entries.date, \"%M %D, %Y\") as 'date_formatted' from Entries ORDER BY date desc, id desc";
-  $results = $pdo->query($sql);
+  $stmt = '
+  SELECT Entries.id,
+         Entries.title,
+         Entries.date,
+         DATE_FORMAT(Entries.date, "%M %D, %Y") AS date_formatted,
+         DATE_FORMAT(Entries.date, "%Y%m%d") AS date_sort
+  FROM   Entries
+  ORDER  BY date DESC, id DESC';
 
-  $pdo = null;
-  $sql = null;
+  $sql = dbConnect()->prepare($stmt);
+  $sql->execute();
 
-  return $results;
+  return $sql;
 }
 
 function printFooter() {
