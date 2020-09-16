@@ -28,6 +28,9 @@ $Parsedown = new Parsedown();
       </div>
     </div>
 
+
+  <?php include('footer.php'); ?>
+
   <script src="js/prism.js"></script>
   <script>
     new TypeIt('.custom-font', {

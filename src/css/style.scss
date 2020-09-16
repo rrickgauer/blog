@@ -19,8 +19,10 @@ body {
 }
 
 .custom-font {
-  font-family: "Special Elite", cursive;
+  font-family: 'Special Elite', cursive;
 }
+
+
 
 h1.custom-font {
   font-size: 40px;
@@ -31,7 +33,7 @@ h1.custom-font {
 }
 
 #hero {
-  font-family: "Special Elite", cursive;
+  font-family: 'Special Elite', cursive;
   font-size: 64px;
   border: none;
   padding: 0;
@@ -50,13 +52,16 @@ table {
   justify-content: flex-start;
   margin-bottom: 20px;
   margin-left: 10px;
+
+  .label {
+    margin-right: 10px;
+  }
+
+  .select-sort {
+    padding-right: 50px;
+  }
 }
-.toolbar-sort .label {
-  margin-right: 10px;
-}
-.toolbar-sort .select-sort {
-  padding-right: 50px;
-}
+
 
 @media screen and (max-width: 700px) {
   h1 {
@@ -72,14 +77,13 @@ table {
   }
 
   .container,
-body {
+  body {
     padding: 0;
   }
 
   body {
+
     margin: 8px;
     margin-top: 20px;
   }
 }
-
-/*# sourceMappingURL=style.css.map */
