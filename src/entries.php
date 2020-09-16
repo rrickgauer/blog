@@ -31,7 +31,7 @@ $Parsedown = new Parsedown();
 
   <?php include('footer.php'); ?>
 
-  <script src="js/prism.js"></script>
+  <script src="js/external/prism.js"></script>
   <script>
     new TypeIt('.custom-font', {
       speed: 50,
