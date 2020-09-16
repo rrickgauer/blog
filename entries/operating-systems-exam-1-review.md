@@ -571,8 +571,10 @@ There are four necessary conditions for deadlock.
 
     var content = $('#content').next();
 
-    console.log(content).html();
-    var html = '<details open><summary>Content</summary>' + $(content).html() + '</details>';
+    console.log($(content).html());
+    console.log($(content).text());
+    
+    // var html = '<details open><summary>Content</summary>' + $(content).html() + '</details>';
 
 
   });
