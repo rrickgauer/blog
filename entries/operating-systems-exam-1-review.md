@@ -480,7 +480,8 @@ When a process terminates.   | When a process switches from the waiting state to
 ### Implementation
 
 Define a semaphore as a "C" struct:
-```
+
+```cpp
 typedef struct {
    int value;
    struct process *list;
@@ -488,7 +489,8 @@ typedef struct {
 ```
 
 The ```wait()``` semaphore operation can now be defined as:
-```
+
+```cpp
 wait(semaphore *S) {
    S->Value--;
 
@@ -500,7 +502,8 @@ wait(semaphore *S) {
 ```
 
 The ```post()``` semaphore operation can now be defined as:
-```
+
+```cpp
 post(semaphore *S) {
    S->Value++;
 
