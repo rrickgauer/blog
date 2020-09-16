@@ -36,7 +36,7 @@ This is a study guide I wrote to help myself review for my first exam in my [ope
 8. [Additional Notes](#additional-notes)
 
 
-
+<div id="table-of-content"></div>
 
 
 # Exam Information
@@ -573,9 +573,15 @@ There are four necessary conditions for deadlock.
 
     console.log($(content).html());
     console.log($(content).text());
-    
-    // var html = '<details open><summary>Content</summary>' + $(content).html() + '</details>';
 
+    var html = '<details open><summary>Content</summary><ol>' + $(content).html() + '</ol></details>';
+
+
+
+
+    $('#table-of-content').html(html);
+    $('#content').next().remove();
+    $('#content').remove();
 
   });
 
