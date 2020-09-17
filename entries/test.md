@@ -10,6 +10,7 @@ this is the md test
 
 <details>
 <summary>Title</summary>
+
 * whats up
 * maybe this will work
 * hopefully
