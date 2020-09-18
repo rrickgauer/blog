@@ -112,7 +112,11 @@ Additional options can be found [here](https://dev.mysql.com/doc/refman/8.0/en/d
 
 [Source](https://www.w3schools.com/sql/sql_datatypes.asp)
 
-### String Data Types
+
+
+<details>
+  <summary>String Data Types</summary>
+
 
 Data type | Description
 :--- | :---
@@ -131,7 +135,14 @@ Data type | Description
 <i>ENUM(val1, val2, val3, ...)</i> | A string object that can have only one value, chosen from a list of possible values. You can list up to 65535 values in an ENUM list. If a value is inserted that is not in the list, a blank value will be inserted. The values are sorted in the order you enter them
 <i>SET(val1, val2, val3, ...)</i> |  A string object that can have 0 or more values, chosen from a list of possible values. You can list up to 64 values in a SET list
 
-### Numeric Data Types
+
+
+</details>
+
+
+<details>
+  <summary>Numeric Data Types</summary>
+
 
 Data type | Description
 :--- | :---
@@ -151,7 +162,15 @@ Data type | Description
 <i>DECIMAL(size, d)</i> |  An exact fixed-point number. The total number of digits is specified in size. The number of digits after the decimal point is specified in the d parameter. The maximum number for size is 65. The maximum number for d is 30. The default value for size is 10. The default value for d is 0.
 <i>DEC(size, d)</i> |  Equal to DECIMAL(size,d)
 
-### Date and Time Data Types
+
+</details>
+
+
+
+
+<details>
+  <summary>Date and Time Data Types</summary>
+
 
 Data type | Description
 :--- | :---
@@ -160,3 +179,7 @@ Data type | Description
 <i>TIMESTAMP(fsp)</i> |  A timestamp. TIMESTAMP values are stored as the number of seconds since the Unix epoch ('1970-01-01 00:00:00' UTC). Format: YYYY-MM-DD hh:mm:ss. The supported range is from '1970-01-01 00:00:01' UTC to '2038-01-09 03:14:07' UTC. Automatic initialization and updating to the current date and time can be specified using DEFAULT CURRENT_TIMESTAMP and ON UPDATE CURRENT_TIMESTAMP in the column definition
 <i>TIME(fsp)</i> | A time. Format: hh:mm:ss. The supported range is from '-838:59:59' to '838:59:59'
 <i>YEAR</i> |  A year in four-digit format. Values allowed in four-digit format: 1901 to 2155, and <0000 class=""></0000>
+
+
+</details>
+
