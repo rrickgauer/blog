@@ -117,6 +117,7 @@ Additional options can be found [here](https://dev.mysql.com/doc/refman/8.0/en/d
 <details>
   <summary>String Data Types</summary>
 
+<br>
 
 Data type | Description
 :--- | :---
@@ -143,6 +144,8 @@ Data type | Description
 <details>
   <summary>Numeric Data Types</summary>
 
+
+<br>
 
 Data type | Description
 :--- | :---
@@ -171,6 +174,8 @@ Data type | Description
 <details>
   <summary>Date and Time Data Types</summary>
 
+
+<br>
 
 Data type | Description
 :--- | :---
