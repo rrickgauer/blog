@@ -1,14 +1,17 @@
-# Javascript Notes
 This post is going to be like my [PHP Notes page](https://www.ryanrickgauer.com/blog/entries.php?entryID=32). I will be adding to it periodically. If you have any comments or suggestions, don't hesitate to email me.
 
 ## Content
+
 1. [New Page](#new-page)
 2. [Ajax](#ajax)
 3. [New Tab Links](#new-tab-links)
 4. [URL Parameters](#url-parameters)
+5. [Checked Radio Input Value](#checked-radio-input-value)
 
 
 ## New page
+
+To send the browser to a different page
 
 ```javascript
 window.location.href = "http://example.com/";
@@ -94,4 +97,15 @@ var urlParams = new URLSearchParams(queryString);
 var name = urlParams.get('name');                   // name
 var age = urlParams.get('age');                     // age
 
+```
+
+
+## Checked Radio Input Value
+
+To do this, we are going to use jQuery's [:checked selector](https://api.jquery.com/checked-selector/). The `:checked` selector only words for checkboxes, radio buttons, and options of `select` elements.
+
+To get the value of a checked radio button with a name of `radio-input` you can do:
+
+```js
+var radioInputValue = $('input[name="radio-input"]:checked').val();
 ```
