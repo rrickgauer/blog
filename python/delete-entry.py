@@ -73,13 +73,14 @@ else:
   entryID = args.id
 
 
-stmt = "DELETE FROM Entries WHERE id = &s"
-val = (args.id)
 
+sql = "UPDATE Entries WHERE id = %s"
+val = (entryID)
 
 # execute insert statement
 mycursor.execute(sql, val)
 mydb.commit()
+
 
 # print number of inserted records
 print(mycursor.rowcount, "record deleted.")
