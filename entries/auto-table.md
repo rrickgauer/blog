@@ -10,6 +10,8 @@ This is a demo of my [auto-tables javascript library](https://github.com/rrickga
 </div>
 
 
+<div class="table-responsive">
+
 <table id="data-table" class="table table-sm tablesort tablesearch-table">
   <thead><tr>
     <th data-tablesort-type="int">Index</th>
@@ -37,5 +39,7 @@ This is a demo of my [auto-tables javascript library](https://github.com/rrickga
     <tr><td>15</td><td>Peter</td><td>James</td><td>james_peter@hotmail.com</td><td>germany</td><td data-tablesort-value="19600510">5/10/1960</td></tr>
   </tbody>
 </table>
+
+</div>
 
 </div>
