@@ -13,3 +13,6 @@
 <script src="js/external/tablesort/tablesort.date.js"></script>
 <script src="js/external/tablesort/tablesort.dotstep.js"></script>
 <script src="js/external/tablesort/tablesort.number.js"></script>
+
+<!-- autosort -->
+<script src="js/auto-tables.js"></script>
