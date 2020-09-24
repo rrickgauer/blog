@@ -4,8 +4,6 @@ This is a demo of my [auto-tables javascript library](https://github.com/rrickga
 
 
 <div class="container">
-    
-<h1 class="text-center mt-5 mb-5">Auto sort</h1>
 
 <div class="d-flex justify-content-between">
     <input type="text" class="form-control mb-3 tablesearch-input" data-tablesearch-table="#data-table"  placeholder="Search">
