@@ -37,7 +37,7 @@ This is a demo of my [auto-tables javascript library](https://github.com/rrickga
 
 
 <details>
-<summary>View code</summary>
+<summary>Click me to view code</summary>
 
 
 
