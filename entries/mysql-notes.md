@@ -188,3 +188,14 @@ Data type | Description
 
 </details>
 
+
+
+
+
+<script>
+  
+$(document).ready(function() {
+  $('table').addClass('tablesort');
+});
+
+</script>
