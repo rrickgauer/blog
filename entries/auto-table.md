@@ -60,7 +60,7 @@ This is a demo of my [auto-tables javascript library](https://github.com/rrickga
 
 
 <!-- code goes here -->
-<div class="tab-pane fade show active" id="table-code" role="tabpanel">
+<div class="tab-pane fade" id="table-code" role="tabpanel">
 
 <pre><code class="language-html">
 <input type="text" class="tablesearch-input" data-tablesearch-table="#data-table" placeholder="Search">
