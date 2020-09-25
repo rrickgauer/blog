@@ -62,8 +62,10 @@ This is a demo of my [auto-tables javascript library](https://github.com/rrickga
 <!-- code goes here -->
 <div class="tab-pane fade" id="table-code" role="tabpanel">
 
-<pre><code class="language-html"><input type="text" class="tablesearch-input" data-tablesearch-table="#data-table" placeholder="Search">
 
+
+```html
+<input type="text" class="tablesearch-input" data-tablesearch-table="#data-table" placeholder="Search">
 <table id="data-table" class="tablesort tablesearch-table">
   <thead><tr>
     <th data-tablesort-type="int">Index</th>
@@ -91,7 +93,8 @@ This is a demo of my [auto-tables javascript library](https://github.com/rrickga
     <tr><td>15</td><td>Lucretia</td><td>Huxton</td><td>lhuxtone@pen.io</td><td>Colombia</td><td data-tablesort-value="18961117">11/17/1896</td></tr>
   </tbody>
 </table> 
-</code></pre>
+```
+
 
 
 
