@@ -22,21 +22,21 @@ This is a demo of my [auto-tables javascript library](https://github.com/rrickga
     <th data-tablesort-type="date">Dob</th>
   </tr></thead>
   <tbody>
-    <tr><td>1</td><td>Johny</td><td>Walker</td><td>johny.walker@whiskey.com</td><td>Scotland</td><td data-tablesort-value="19200101">1/1/1920</td></tr>
-    <tr><td>2</td><td>nikhil</td><td>Vartak</td><td>nikhil.vartak@hotmail.co.in</td><td>india</td><td data-tablesort-value="19861205">12/5/1986</td></tr>
-    <tr><td>3</td><td>Peter</td><td>James</td><td>james_peter@hotmail.com</td><td>germany</td><td data-tablesort-value="19600510">5/10/1960</td></tr>
-    <tr><td>4</td><td>nikhil</td><td>Vartak</td><td>nikhil.vartak@hotmail.com</td><td>india</td><td data-tablesort-value="19841127">11/27/1984</td></tr>
-    <tr><td>5</td><td>Peter</td><td>James</td><td>james_peter@hotmail.com</td><td>germany</td><td data-tablesort-value="19600510">5/10/1960</td></tr>
-    <tr><td>6</td><td>jack</td><td>Daniel</td><td>j'daniels@whiskey.com</td><td>USA</td><td data-tablesort-value="18460110">1/10/1846</td></tr>
-    <tr><td>7</td><td>nikhil</td><td>Vartak</td><td>nikhil.vartak@hotmail.co.in</td><td>india</td><td data-tablesort-value="19861205">12/5/1986</td></tr>
-    <tr><td>8</td><td>Peter</td><td>James</td><td>james_peter@hotmail.com</td><td>germany</td><td data-tablesort-value="19600510">5/10/1960</td></tr>
-    <tr><td>9</td><td>jack</td><td>Daniel</td><td>j'daniels@whiskey.com</td><td>USA</td><td data-tablesort-value="18460110">1/10/1846</td></tr>
-    <tr><td>10</td><td>jack</td><td>Daniel</td><td>j'daniels@whiskey.com</td><td>USA</td><td data-tablesort-value="18460110">1/10/1846</td></tr>
-    <tr><td>11</td><td>Mark</td><td>Anderson</td><td>anderson_m@gmail.com</td><td>canada</td><td data-tablesort-value="19800229">2/29/1980</td></tr>
-    <tr><td>12</td><td>jack</td><td>Daniel</td><td>j'daniels@whiskey.com</td><td>USA</td><td data-tablesort-value="18460110">1/10/1846</td></tr>
-    <tr><td>13</td><td>nikhil</td><td>Vartak</td><td>nikhil.vartak@hotmail.co.in</td><td>india</td><td data-tablesort-value="19861205">12/5/1986</td></tr>
-    <tr><td>14</td><td>jack</td><td>Daniel</td><td>j'daniels@whiskey.com</td><td>USA</td><td data-tablesort-value="18460110">1/10/1846</td></tr>
-    <tr><td>15</td><td>Peter</td><td>James</td><td>james_peter@hotmail.com</td><td>germany</td><td data-tablesort-value="19600510">5/10/1960</td></tr>
+    <tr><td>1</td><td>Dreddy</td><td>Norgate</td><td>dnorgate0@java.com</td><td>Indonesia</td><td data-tablesort-value="19560309">03/09/1956</td></tr>
+    <tr><td>2</td><td>Rodger</td><td>Parkins</td><td>rparkins1@imdb.com</td><td>Brazil</td><td data-tablesort-value="18810225">02/25/1881</td></tr>
+    <tr><td>3</td><td>Udell</td><td>Treeby</td><td>utreeby2@xing.com</td><td>Bolivia</td><td data-tablesort-value="19690125">01/25/1969</td></tr>
+    <tr><td>4</td><td>Marsiella</td><td>Ghelarducci</td><td>mghelarducci3@cpanel.net</td><td>Japan</td><td data-tablesort-value="19761016">10/16/1976</td></tr>
+    <tr><td>5</td><td>Kerwinn</td><td>Dickey</td><td>kdickey4@cornell.edu</td><td>Thailand</td><td data-tablesort-value="19821004">10/04/1982</td></tr>
+    <tr><td>6</td><td>Rani</td><td>Meatyard</td><td>rmeatyard5@twitpic.com</td><td>China</td><td data-tablesort-value="18980910">09/10/1898</td></tr>
+    <tr><td>7</td><td>Bianka</td><td>Spellacy</td><td>bspellacy6@icq.com</td><td>United States</td><td data-tablesort-value="19120828">08/28/1912</td></tr>
+    <tr><td>8</td><td>Dianna</td><td>Jouaneton</td><td>djouaneton7@samsung.com</td><td>Montenegro</td><td data-tablesort-value="19151204">12/04/1915</td></tr>
+    <tr><td>9</td><td>Emlyn</td><td>Preator</td><td>epreator8@chicagotribune.com</td><td>Indonesia</td><td data-tablesort-value="19540313">03/13/1954</td></tr>
+    <tr><td>10</td><td>Kellie</td><td>Leipelt</td><td>kleipelt9@columbia.edu</td><td>China</td><td data-tablesort-value="19761203">12/03/1976</td></tr>
+    <tr><td>11</td><td>Trisha</td><td>Giorgioni</td><td>tgiorgionia@cloudflare.com</td><td>Bosnia and Herzegovina</td><td data-tablesort-value="19610730">07/30/1961</td></tr>
+    <tr><td>12</td><td>Lyn</td><td>Gault</td><td>lgaultb@google.es</td><td>Portugal</td><td data-tablesort-value="19710320">03/20/1971</td></tr>
+    <tr><td>13</td><td>Carolan</td><td>Redgrave</td><td>credgravec@twitpic.com</td><td>Argentina</td><td data-tablesort-value="19310912">09/12/1931</td></tr>
+    <tr><td>14</td><td>Adler</td><td>Fasset</td><td>afassetd@sohu.com</td><td>Albania</td><td data-tablesort-value="19610515">05/15/1961</td></tr>
+    <tr><td>15</td><td>Lucretia</td><td>Huxton</td><td>lhuxtone@pen.io</td><td>Colombia</td><td data-tablesort-value="18961117">11/17/1896</td></tr>
   </tbody>
 </table>
 
