@@ -6,7 +6,14 @@ Kip Irvine published a great [book](http://index-of.es/Programming/Assembly/Asse
 
 
 
+<div class="input-group">
+<div class="input-group-prepend">
+<span class="input-group-text"><i class='bx bx-search'></i></span>
+</div>
 <input type="text" class="tablesearch-input form-control mt-3 mb-3" data-tablesearch-table="#data-table" placeholder="Search table...">
+</div>
+
+
 
 
 
