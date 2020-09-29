@@ -1,6 +1,6 @@
 This is an *incomplete* list of the MASM instruction set. I will be adding more instructions as I come across them for work. 
 
-Kip Irvine published a great [book](http://index-of.es/Programming/Assembly/Assembly%20Language%20for%20x86%20Processors%206th%20Ed.pdf) that I use for reference.
+Kip Irvine published a great [book](http://index-of.es/Programming/Assembly/Assembly%20Language%20for%20x86%20Processors%206th%20Ed.pdf) that I use for reference. The complete instruction set is on page 652.
 
 ### Instructions Table
 
