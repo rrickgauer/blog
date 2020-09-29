@@ -46,7 +46,7 @@ soup = BeautifulSoup(response.text, 'html.parser')
 
 `soup` contains the BS4 object that you can parse.
 
-There are a few different parsers: html.parse, [lxml](https://lxml.de/), [lxml-xml](https://lxml.de/), and [html5lib](https://github.com/html5lib/html5lib-python). Each has its own [advantages and disadvantages](). 
+There are a few different parsers: html.parse, [lxml](https://lxml.de/), [lxml-xml](https://lxml.de/), and [html5lib](https://github.com/html5lib/html5lib-python). Each has its own [advantages and disadvantages](https://www.crummy.com/software/BeautifulSoup/bs4/doc/#installing-a-parser). 
 
 
 ### Searching for elements
@@ -60,7 +60,6 @@ element = soup.find(id='elementTagID')
 One common task is extracting all the URLs found within a page’s `<a>` tags:
 
 ```py
-
 for link in soup.find_all('a'):
   print(link.get('href'))
 
@@ -72,7 +71,6 @@ for link in soup.find_all('a'):
 To get the link text from the page you can do 
 
 ```py
-
 for link in soup.find_all('a'):
   print(link.get_text())
 
