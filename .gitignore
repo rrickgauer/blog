@@ -5,5 +5,5 @@ ignore/
 update-my-entries.py
 db-info.php
 .tables.config
-.tables-mysql-info
+.tables-mysql-info.json
 tables.output.txt
