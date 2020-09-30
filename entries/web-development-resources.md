@@ -11,7 +11,8 @@ I got this idea from this [site](https://webdevresources.info/colors). I will be
 6. [Articles](#articles)
 7. [APIs](#apis)
 8. [Images](#images)
-9. [Tutorials](#tutorials)
+9. [Design Aggregators](#design-aggregators)
+
 
 ### Colors
 
@@ -86,7 +87,8 @@ Source | Description
 [UI Design Daily](https://uidesigndaily.com/) | Free weekly UI resources
 [Checklist Design](https://www.checklist.design/) | A collection of the best UX and UI practices.
 [Flexbox Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) | A Complete Guide to Flexbox.
-
+[Eloquent JavaScript](https://eloquentjavascript.net/index.html) | A complete e-book about JavaScript
+[HTML5 For Web Designers](https://www.dmassociates.com/images/general/HTML5_for_Web_Designers.pdf) | E-book by Jeremy Keith on HTML5 Semantics
 
 ### APIs
 
@@ -95,6 +97,8 @@ Source | Description
 [IP Address](http://ip4.me/) | what is my IP Address?
 [Lucid Index](https://lucidindex.com/) | Curated lists of awesome tech resources
 [Free Formatter](https://www.freeformatter.com/) | Free online tools that include several formatters, validators, code minifiers, string escapers, encoders and decoders, message digesters, web resources and more.
+[Symbol Search](https://symbol-search.netlify.app/) | Finding symbols is faster now.
+[Convert Case](https://convertcase.net/) | Convert upper case to lower case, lower case to upper case and more.
 
 ### Images
 
@@ -104,17 +108,22 @@ Source | Description
 [Creative Backgrounds](https://wweb.dev/resources/creative-backgrounds) | websites for creative backgrounds
 [unDraw](https://undraw.co/illustrations) | Browse to find the images that fit your needs and click to download
 
-### Tutorials
+
+
+### Design Aggregators
 
 Source | Description
 :--- | :---
-[Vue.js Tutorials](https://www.youtube.com/playlist?list=PL4cUxeGkcC9gQcYgjhBoeQH7wiAyZNrYa) | A playlist of Vue.js video tutorials by [The Net Ninja](https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg)
+[Design Resources](https://www.designresourc.es/) | Design Resources
+[Web Dev Resources](https://webdevresources.info/colors) | Created to organize the resources I've accumulated over the last 3 years or so
+
 
 
 
 <script>
   $(document).ready(function() {
     sortTables();
+    setLinks();
   });
 
   function sortTables() {
@@ -138,18 +147,12 @@ Source | Description
 
     return rows;
   }
+
+  // make all links in the table open in a new tab
+  function setLinks() {
+    $('table tbody tr a').attr("target", "_blank");
+  }
+
+
+
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
