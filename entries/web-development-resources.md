@@ -11,6 +11,7 @@ I got this idea from this [site](https://webdevresources.info/colors). I will be
 6. [Articles](#articles)
 7. [APIs](#apis)
 8. [Images](#images)
+9. [Design Aggregators](#design-aggregators)
 
 
 ### Colors
@@ -106,6 +107,15 @@ Source | Description
 [Free SVG Illustrations](https://wweb.dev/resources/free-svg-illustrations) | A curated list of websites for free SVG illustrations
 [Creative Backgrounds](https://wweb.dev/resources/creative-backgrounds) | websites for creative backgrounds
 [unDraw](https://undraw.co/illustrations) | Browse to find the images that fit your needs and click to download
+
+
+
+### Design Aggregators
+
+Source | Description
+:--- | :---
+[Design Resources](https://www.designresourc.es/) | Design Resources
+[Web Dev Resources](https://webdevresources.info/colors) | Created to organize the resources I've accumulated over the last 3 years or so
 
 
 
