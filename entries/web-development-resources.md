@@ -87,8 +87,8 @@ Source | Description
 [UI Design Daily](https://uidesigndaily.com/) | Free weekly UI resources
 [Checklist Design](https://www.checklist.design/) | A collection of the best UX and UI practices.
 [Flexbox Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) | A Complete Guide to Flexbox.
-[Eloquent JavaScript](https://eloquentjavascript.net/index.html) | A book about JavaScript
-
+[Eloquent JavaScript](https://eloquentjavascript.net/index.html) | A complete e-book about JavaScript
+[HTML5 For Web Designers](https://www.dmassociates.com/images/general/HTML5_for_Web_Designers.pdf) | E-book by Jeremy Keith on HTML5 Semantics
 
 ### APIs
 
