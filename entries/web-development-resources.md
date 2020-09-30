@@ -123,6 +123,7 @@ Source | Description
 <script>
   $(document).ready(function() {
     sortTables();
+    setLinks();
   });
 
   function sortTables() {
@@ -146,6 +147,17 @@ Source | Description
 
     return rows;
   }
+
+  // make all links in the table open in a new tab
+  function setLinks() {
+    $('table tbody tr a').attr("target", "_blank");
+  }
+
+
+
+
+
+
 </script>
 
 
