@@ -96,6 +96,7 @@ Source | Description
 [IP Address](http://ip4.me/) | what is my IP Address?
 [Lucid Index](https://lucidindex.com/) | Curated lists of awesome tech resources
 [Free Formatter](https://www.freeformatter.com/) | Free online tools that include several formatters, validators, code minifiers, string escapers, encoders and decoders, message digesters, web resources and more.
+[Symbol Search](https://symbol-search.netlify.app/) | Finding symbols is faster now.
 
 ### Images
 
