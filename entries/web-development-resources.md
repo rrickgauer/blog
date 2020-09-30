@@ -11,7 +11,7 @@ I got this idea from this [site](https://webdevresources.info/colors). I will be
 6. [Articles](#articles)
 7. [APIs](#apis)
 8. [Images](#images)
-9. [Tutorials](#tutorials)
+
 
 ### Colors
 
@@ -104,11 +104,6 @@ Source | Description
 [Creative Backgrounds](https://wweb.dev/resources/creative-backgrounds) | websites for creative backgrounds
 [unDraw](https://undraw.co/illustrations) | Browse to find the images that fit your needs and click to download
 
-### Tutorials
-
-Source | Description
-:--- | :---
-[Vue.js Tutorials](https://www.youtube.com/playlist?list=PL4cUxeGkcC9gQcYgjhBoeQH7wiAyZNrYa) | A playlist of Vue.js video tutorials by [The Net Ninja](https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg)
 
 
 
