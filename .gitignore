@@ -1,6 +1,9 @@
 db-info.php
 db-info.txt
 __pycache__
-tables/
 ignore/
 update-my-entries.py
+db-info.php
+.tables.config
+.tables-mysql-info
+tables.output.txt
