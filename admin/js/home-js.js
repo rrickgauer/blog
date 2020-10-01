@@ -1,14 +1,26 @@
-const API        = 'api.blog.php';
-const entryTable = $('.table-entries');
+const API            = 'api.blog.php';
+const entryTable     = $('.table-entries');
+const modalEntryEdit = $('#modal-entry-edit');
 
 
 ///////////////////
 // Main function //
 ///////////////////
 $(document).ready(function() {
-  $("#nav-item-home").addClass('active');
   getEntries();
+  $("#nav-item-home").addClass('active');
+  addMyListeners();
 });
+
+
+//////////////////////////////////////////////////////
+// Adds all the event listeners on inital page load //
+//////////////////////////////////////////////////////
+function addMyListeners() {
+  $('.table-entries tbody').on('click', '.btn-open-entry-modal', function() {
+    openEntryModal(this);
+  });
+}
 
 
 /////////////////////////////////////
@@ -56,7 +68,7 @@ function loadEntries(entries) {
 // Return the html for a table row //
 /////////////////////////////////////
 function getEntryTableRowHtml(entry) {
-  var html = '<tr data-entry-id="' + entry.id + '">';
+  var html = '<tr class="table-entries-row" data-entry-id="' + entry.id + '">';
 
   html += getEntryTableCellHtml(entry.id, 'entry-id');
   html += getEntryTableCellHtml(entry.title, 'entry-title');
@@ -65,6 +77,11 @@ function getEntryTableRowHtml(entry) {
   // create the html for the link
   var linkHtml = '<a href="' + entry.link + '" target="_blank">Visit</a>';
   html += getEntryTableCellHtml(linkHtml, 'entry-link');
+
+  // button that opens the edit entry modal
+  var editCellHtml = '<td><button class="btn btn-sm btn-open-entry-modal">';
+  editCellHtml += '<i class="bx bxs-pencil"></i></button></td>';
+  html += editCellHtml;
 
   html += '</tr>';
 
@@ -76,4 +93,40 @@ function getEntryTableRowHtml(entry) {
 /////////////////////////////////////////////
 function getEntryTableCellHtml(value, className) {
   return '<td class="' + className + '">' + value + '</td>';
+}
+
+///////////////////////////////////////////
+// Retrieves the entry data from the api //
+///////////////////////////////////////////
+function openEntryModal(btn) {
+  var entryID = $(btn).closest('.table-entries-row').attr('data-entry-id');
+
+  var data = {
+    function: "get-entry",
+    entryID: entryID,
+  }
+
+  $.getJSON(API, data, function(response) {
+    displayEntryModal(response);
+  })
+  .fail(function(response) {
+    displayAlert(response);
+  });
+}
+
+/////////////////////////////////////////
+// Loads the data into the form inputs //
+// Opens the modal for view            //
+/////////////////////////////////////////
+function displayEntryModal(entry) {
+  // set the entry id in the modal
+  $(modalEntryEdit).attr('data-entry-id', entry.id);
+
+  // set input values
+  $('#edit-entry-title').val(entry.title);
+  $('#edit-entry-link').val(entry.link);
+  $('#edit-entry-date').val(entry.date);
+
+  // display the modal
+  $(modalEntryEdit).modal('show');
 }
