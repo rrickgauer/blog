@@ -10,5 +10,9 @@
 <!-- jquery toast: https://kamranahmed.info/toast -->
 <script src="js/external/jquery.toast.min.js"></script>
 
+<!-- flatpickr -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+
 <!-- autotables -->
 <script src="js/external/auto-tables.js"></script>

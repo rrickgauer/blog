@@ -2,6 +2,15 @@ const API            = 'api.blog.php';
 const entryTable     = $('.table-entries');
 const modalEntryEdit = $('#modal-entry-edit');
 
+// set new date
+var newEntryDate = flatpickr("#new-entry-date", {
+  altInput: true,
+  altFormat: "F j, Y",
+  dateFormat: "Y-m-d",
+  maxDate: "today",
+  defaultDate: "today",
+});
+
 
 ///////////////////
 // Main function //
@@ -138,7 +147,15 @@ function displayEntryModal(entry) {
   // set input values
   $('#edit-entry-title').val(entry.title);
   $('#edit-entry-link').val(entry.link);
-  $('#edit-entry-date').val(entry.date_raw);
+
+  // set date
+  flatpickr("#edit-entry-date", {
+    altInput: true,
+    altFormat: "F j, Y",
+    dateFormat: "Y-m-d",
+    maxDate: "today",
+    defaultDate: entry.date_raw,
+  });
 
   // display the modal
   $(modalEntryEdit).modal('show');
