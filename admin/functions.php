@@ -1,6 +1,8 @@
 <?php
 
-// return a pdo database object
+//////////////////////////////////
+// return a pdo database object //
+//////////////////////////////////
 function dbConnect() {
   include('db-info.php');
 
@@ -16,7 +18,9 @@ function dbConnect() {
   }
 }
 
-// returns a bootstrap alert
+///////////////////////////////
+// returns a bootstrap alert //
+///////////////////////////////
 function getAlert($message, $alertType = 'success') {
   return "
   <div class=\"alert alert-$alertType alert-dismissible mt-5 mb-5 fade show\" role=\"alert\">
@@ -26,4 +30,52 @@ function getAlert($message, $alertType = 'success') {
     </button>
   </div>";
 }
+
+
+//////////////////////////
+// Retrieve all entries //
+//                      //
+// id                   //
+// date                 //
+// title                //
+// link                 //
+// date_display         //
+//////////////////////////
+function getEntries() {
+  $stmt = '
+  SELECT  e.id,
+          e.date,
+          e.title,
+          e.link,
+          DATE_FORMAT(e.date, "%c/%d/%Y") AS date_display
+  FROM    Entries e
+  ORDER BY e.title ASC';
+
+  $sql = dbConnect()->prepare($stmt);
+  $sql->execute();
+  return $sql;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>
