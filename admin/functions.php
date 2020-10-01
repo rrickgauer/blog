@@ -26,4 +26,52 @@ function getAlert($message, $alertType = 'success') {
     </button>
   </div>";
 }
+
+
+//////////////////////////
+// Retrieve all entries //
+//                      //
+// id                   //
+// date                 //
+// title                //
+// link                 //
+// date_display         //
+//////////////////////////
+function getEntries() {
+  $stmt = '
+  SELECT  e.id,
+          e.date,
+          e.title,
+          e.link,
+          DATE_FORMAT(e.date, "%c/%d/%Y") AS date_display
+  FROM    Entries e
+  ORDER BY e.title ASC';
+
+  $sql = dbConnect()->prepare($stmt);
+  $sql->execute();
+  return $sql;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>
