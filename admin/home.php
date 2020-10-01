@@ -13,14 +13,14 @@
 
     <!-- entries table -->
     <div class="table-responsive">
-      <table class="table table-sm table-entries">
+      <table class="table table-sm table-entries tablesort">
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Date</th>
-            <th>Link</th>
-            <th>Edit</th>
+            <th data-tablesort-type="int">ID</th>
+            <th data-tablesort-type="string">Title</th>
+            <th data-tablesort-type="date">Date</th>
+            <th data-tablesort-type="string">Link</th>
+            <th data-tablesort-type="string">Edit</th>
           </tr>
         </thead>
         <tbody></tbody> 
