@@ -54,7 +54,34 @@ function getEntries() {
   $sql = dbConnect()->prepare($stmt);
   $sql->execute();
   return $sql;
+}
 
+///////////////////////////////////////
+// Retrieves data for a single entry //
+//                                   //
+// id                                //
+// title                             //
+// date                              //
+// link                              //
+///////////////////////////////////////
+function getEntry($entryID) {
+  $stmt = '
+  SELECT e.id,
+         e.title,
+         DATE_FORMAT(e.date, "%Y-%m-%d") as "date",
+         e.link
+  FROM   Entries e
+  WHERE  e.id = :entryID
+  LIMIT  1';
+
+  $sql = dbConnect()->prepare($stmt);
+
+  // filter and bind entry id
+  $entryID = filter_var($entryID, FILTER_SANITIZE_NUMBER_INT);
+  $sql->bindParam(':entryID', $entryID, PDO::PARAM_INT);
+
+  $sql->execute();
+  return $sql;
 }
 
 
