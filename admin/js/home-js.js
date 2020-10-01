@@ -54,6 +54,7 @@ function getEntries() {
 
   $.getJSON(API, data, function(response) {
     loadEntries(response);
+    loadAllTableText();
   })
   .fail(function(response) {
     displayAlert('There was an error in the API. get-entries');

@@ -11,9 +11,26 @@
   <div class="container">
     <h1 class="text-center mt-5 mb-5">Entries Admin Page</h1>
 
+    <div class="table-toolbar">
+      <!-- search box -->
+      <div class="left">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="bx bx-search"></i></span>
+          </div>
+          <input type="text" class="form-control tablesearch-input" placeholder="Search..." data-tablesearch-table="#table-entries" autofocus>
+        </div>
+      </div>
+
+      <!-- new entry button -->
+      <div class="right">
+        <button type="button" class="btn btn-primary">New</button>
+      </div>
+    </div>
+
     <!-- entries table -->
     <div class="table-responsive">
-      <table class="table table-sm table-entries tablesort">
+      <table class="table table-sm table-entries tablesort tablesearch-table" id="table-entries">
         <thead>
           <tr>
             <th data-tablesort-type="int">ID</th>
