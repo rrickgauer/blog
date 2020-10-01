@@ -1,4 +1,8 @@
-<?php include('functions.php'); ?>
+<?php 
+
+include('functions.php'); 
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +16,24 @@
     <h1 class="text-center mt-5 mb-5">Entries Admin Page</h1>
 
 
-    
+    <!-- entries table -->
+    <div class="table-responsive">
+      <table class="table table-entries">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Link</th>
+          </tr>
+        </thead>
+        <tbody></tbody> 
+      </table>
+
+
+      
+    </div>
+
   </div>
 
   <?php include('footer.php'); ?>
