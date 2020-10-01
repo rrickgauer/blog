@@ -28,6 +28,10 @@ function addMyListeners() {
   $('.btn-submit-entry-edit').on('click', function() {
     updateEntry();
   });
+
+  $('.btn-submit-entry-new').on('click', function() {
+    insertEntry();
+  });
 }
 
 
@@ -201,4 +205,3 @@ function updateEntriesTableRow(entryID) {
 function getEntryTableRowElement(entryID) {
   return $('.table-entries-row[data-entry-id="' + entryID + '"]');
 }
-

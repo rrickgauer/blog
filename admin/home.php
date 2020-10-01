@@ -1,4 +1,13 @@
-<?php include('functions.php'); ?>
+<?php
+
+include('functions.php'); 
+
+function entryInserted() {
+  if (isset($_GET['entry-inserted']) && $_GET['entry-inserted'] == 'true')
+    echo getAlert('Entry was successfully created.');
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +18,9 @@
   <?php include('navbar.php'); ?>
 
   <div class="container">
+
+    <?php entryInserted(); ?>
+
     <h1 class="text-center mt-5 mb-5">Entries Admin Page</h1>
 
     <div class="table-toolbar">
@@ -115,7 +127,7 @@
           </div>
           <div class="modal-body">
             
-            <form>
+            <form method="post" action="api.blog.php">
 
               <!-- Title -->
               <div class="form-group">
@@ -124,7 +136,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="bx bx-font"></i></span>
                   </div>
-                  <input type="text" class="form-control" id="new-entry-title" name="new-entry-title">
+                  <input type="text" class="form-control" id="new-entry-title" name="new-entry-title" required>
                 </div>
               </div>
 
@@ -135,7 +147,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="bx bx-link"></i></span>
                   </div>
-                  <input type="url" class="form-control" id="new-entry-link" name="new-entry-link">
+                  <input type="url" class="form-control" id="new-entry-link" name="new-entry-link" required>
                 </div>
               </div>
 
@@ -146,11 +158,13 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="bx bx-calendar"></i></span>
                   </div>
-                  <input type="date" class="form-control" id="new-entry-date" name="new-entry-date">
+                  <input type="date" class="form-control" id="new-entry-date" name="new-entry-date" required>
                 </div>
               </div>
 
-              <button type="button" class="btn btn-primary btn-submit-entry-new">Save</button>
+              <!-- <button type="button" class="btn btn-primary btn-submit-entry-new">Save</button> -->
+
+              <input type="submit" value="Create entry" class="btn btn-primary">
 
             </form>
           </div>

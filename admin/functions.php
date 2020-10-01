@@ -31,7 +31,7 @@ function getBadResponseCode() {
 ///////////////////////////////
 function getAlert($message, $alertType = 'success') {
   return "
-  <div class=\"alert alert-$alertType alert-dismissible mt-5 mb-5 fade show\" role=\"alert\">
+  <div class=\"alert alert-$alertType alert-dismissible fade show\" role=\"alert\">
     $message
     <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">
       <span aria-hidden=\"true\">&times;</span>
@@ -57,7 +57,7 @@ function getEntries() {
           e.link,
           DATE_FORMAT(e.date, "%c/%d/%Y") AS date_display
   FROM    Entries e
-  ORDER BY e.title ASC';
+  ORDER BY e.date desc';
 
   $sql = dbConnect()->prepare($stmt);
   $sql->execute();
@@ -129,6 +129,42 @@ function updateEntry($entryID, $title, $link, $date) {
   $sql->execute();
   return $sql;
 
+}
+
+////////////////////////
+// Insert a new entry //
+////////////////////////
+function insertEntry($title, $link, $date) {
+  $stmt = '
+  INSERT INTO Entries (
+    title,
+    link,
+    date
+  )
+  
+  VALUES (
+    :title,
+    :link,
+    :date
+  )';
+
+  $sql = dbConnect()->prepare($stmt);
+
+  // filter and bind title
+  $title = filter_var($title, FILTER_SANITIZE_STRING);
+  $sql->bindParam(':title', $title, PDO::PARAM_STR);
+
+  // filter and bind link
+  $link = filter_var($link, FILTER_SANITIZE_URL);
+  $sql->bindParam(':link', $link, PDO::PARAM_STR);
+
+  // filter and bind date
+  $date = filter_var($date, FILTER_SANITIZE_STRING);
+  $sql->bindParam(':date', $date, PDO::PARAM_STR);
+
+
+  $sql->execute();
+  return $sql;
 }
 
 
