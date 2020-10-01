@@ -39,6 +39,20 @@ else if (isset($_POST['function'], $_POST['entryID']) && $_POST['function'] == '
   exit;
 }
 
+////////////////////////
+// Insert a new entry //
+////////////////////////
+else if (isset($_POST['new-entry-title'], $_POST['new-entry-link'], $_POST['new-entry-date'])) {
+  $title = $_POST['new-entry-title'];
+  $link  = $_POST['new-entry-link'];
+  $date  = $_POST['new-entry-date'];
+
+  $result = insertEntry($title, $link, $date);
+  header('Location: home.php?entry-inserted=true');
+  exit;
+
+}
+
 
 
 

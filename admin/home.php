@@ -1,4 +1,13 @@
-<?php include('functions.php'); ?>
+<?php
+
+include('functions.php'); 
+
+function entryInserted() {
+  if (isset($_GET['entry-inserted']) && $_GET['entry-inserted'] == 'true')
+    echo getAlert('Entry was successfully created.');
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +18,9 @@
   <?php include('navbar.php'); ?>
 
   <div class="container">
+
+    <?php entryInserted(); ?>
+
     <h1 class="text-center mt-5 mb-5">Entries Admin Page</h1>
 
     <div class="table-toolbar">
@@ -24,7 +36,7 @@
 
       <!-- new entry button -->
       <div class="right">
-        <button type="button" class="btn btn-primary">New</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-entry-new">New entry</button>
       </div>
     </div>
 
@@ -48,7 +60,7 @@
 
   <section class="section-modals">
 
-    <!-- entry modal -->
+    <!-- edit entry modal -->
     <div class="modal fade" id="modal-entry-edit" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -98,8 +110,63 @@
               <button type="button" class="btn btn-primary btn-submit-entry-edit">Save</button>
 
             </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <!-- new entry modal -->
+    <div class="modal fade" id="modal-entry-new" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">New Entry</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            
+            <form method="post" action="api.blog.php">
 
+              <!-- Title -->
+              <div class="form-group">
+                <label for="new-entry-title">Title:</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="bx bx-font"></i></span>
+                  </div>
+                  <input type="text" class="form-control" id="new-entry-title" name="new-entry-title" required>
+                </div>
+              </div>
+
+              <!-- Link -->
+              <div class="form-group">
+                <label for="new-entry-title">Link:</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="bx bx-link"></i></span>
+                  </div>
+                  <input type="url" class="form-control" id="new-entry-link" name="new-entry-link" required>
+                </div>
+              </div>
+
+              <!-- Date -->
+              <div class="form-group">
+                <label for="new-entry-title">Date:</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="bx bx-calendar"></i></span>
+                  </div>
+                  <input type="date" class="form-control" id="new-entry-date" name="new-entry-date" required>
+                </div>
+              </div>
+
+              <!-- <button type="button" class="btn btn-primary btn-submit-entry-new">Save</button> -->
+
+              <input type="submit" value="Create entry" class="btn btn-primary">
+
+            </form>
           </div>
         </div>
       </div>
