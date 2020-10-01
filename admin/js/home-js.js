@@ -20,6 +20,10 @@ function addMyListeners() {
   $('.table-entries tbody').on('click', '.btn-open-entry-modal', function() {
     openEntryModal(this);
   });
+
+  $(modalEntryEdit).on('hide.bs.modal', function (e) {
+    closeModalEntryEdit();
+  });
 }
 
 
@@ -129,4 +133,11 @@ function displayEntryModal(entry) {
 
   // display the modal
   $(modalEntryEdit).modal('show');
+}
+
+/////////////////////////////////////////////////////
+// Clears the input values in the edit entry modal //
+/////////////////////////////////////////////////////
+function closeModalEntryEdit() {
+  $(modalEntryEdit).find('input').val('');
 }
