@@ -61,8 +61,8 @@ function entryInserted() {
   <section class="section-modals">
 
     <!-- edit entry modal -->
-    <div class="modal fade" id="modal-entry-edit" tabindex="-1">
-      <div class="modal-dialog">
+    <div class="modal" id="modal-entry-edit" tabindex="-1">
+      <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">Edit Entry</h5>
@@ -117,7 +117,7 @@ function entryInserted() {
 
     <!-- new entry modal -->
     <div class="modal fade" id="modal-entry-new" tabindex="-1">
-      <div class="modal-dialog">
+      <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title">New Entry</h5>
