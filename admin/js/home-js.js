@@ -24,6 +24,10 @@ function addMyListeners() {
   $(modalEntryEdit).on('hide.bs.modal', function (e) {
     closeModalEntryEdit();
   });
+
+  $('.btn-submit-entry-edit').on('click', function() {
+    updateEntry();
+  });
 }
 
 
@@ -129,7 +133,7 @@ function displayEntryModal(entry) {
   // set input values
   $('#edit-entry-title').val(entry.title);
   $('#edit-entry-link').val(entry.link);
-  $('#edit-entry-date').val(entry.date);
+  $('#edit-entry-date').val(entry.date_raw);
 
   // display the modal
   $(modalEntryEdit).modal('show');
@@ -141,3 +145,59 @@ function displayEntryModal(entry) {
 function closeModalEntryEdit() {
   $(modalEntryEdit).find('input').val('');
 }
+
+///////////////////////////
+// Updates an entry data //
+///////////////////////////
+function updateEntry() {
+  var data = getEditEntryInputValues();
+
+  $.post(API, data).fail(function(response) {
+    displayAlert('Error updating the entry');
+    return;
+  });
+
+  updateEntriesTableRow(data.entryID);
+  closeModalEntryEdit();
+}
+
+/////////////////////////////////////////////////
+// Returns the edit modal input values in json //
+/////////////////////////////////////////////////
+function getEditEntryInputValues() {
+  var data = {
+    function: "update-entry",
+    entryID: $(modalEntryEdit).attr('data-entry-id'),
+    title: $('#edit-entry-title').val(),
+    link: $('#edit-entry-link').val(),
+    date: $('#edit-entry-date').val(),
+  }
+
+  return data;
+}
+
+/////////////////////////////////////////////////////////
+// updates the entry row to the current data in the db //
+/////////////////////////////////////////////////////////
+function updateEntriesTableRow(entryID) {
+  var data =  {
+    function: 'get-entry',
+    entryID: entryID,
+  }
+
+  $.getJSON(API, data, function(response) {
+    var currentRow = getEntryTableRowElement(entryID);
+    var newRowHtml = getEntryTableRowHtml(response);
+    $(currentRow).replaceWith(newRowHtml);
+    $(modalEntryEdit).modal('hide');
+  });
+
+}
+
+////////////////////////////////////////////////
+// Returns the entry row element in the table //
+////////////////////////////////////////////////
+function getEntryTableRowElement(entryID) {
+  return $('.table-entries-row[data-entry-id="' + entryID + '"]');
+}
+

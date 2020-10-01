@@ -18,6 +18,14 @@ function dbConnect() {
   }
 }
 
+
+//////////////////////////////////////
+// Returns a http response code 400 //
+//////////////////////////////////////
+function getBadResponseCode() {
+  return http_response_code(400);
+}
+
 ///////////////////////////////
 // returns a bootstrap alert //
 ///////////////////////////////
@@ -61,14 +69,16 @@ function getEntries() {
 //                                   //
 // id                                //
 // title                             //
-// date                              //
+// date_display                      //
+// date_raw                          //
 // link                              //
 ///////////////////////////////////////
 function getEntry($entryID) {
   $stmt = '
   SELECT e.id,
          e.title,
-         DATE_FORMAT(e.date, "%Y-%m-%d") as "date",
+         DATE_FORMAT(e.date, "%c/%d/%Y") AS date_display,
+         DATE_FORMAT(e.date, "%Y-%m-%d") as "date_raw",
          e.link
   FROM   Entries e
   WHERE  e.id = :entryID
@@ -82,6 +92,43 @@ function getEntry($entryID) {
 
   $sql->execute();
   return $sql;
+}
+
+
+//////////////////////
+// Updates an entry //
+//////////////////////
+function updateEntry($entryID, $title, $link, $date) {
+  $stmt = '
+  UPDATE Entries
+  SET    title = :title,
+         link = :link,
+         date = :date
+  WHERE  id = :entryID';
+
+  $sql = dbConnect()->prepare($stmt);
+
+
+  // filter and bind id
+  $entryID = filter_var($entryID, FILTER_SANITIZE_NUMBER_INT);
+  $sql->bindParam(':entryID', $entryID, PDO::PARAM_INT);
+
+  // filter and bind title
+  $title = filter_var($title, FILTER_SANITIZE_STRING);
+  $sql->bindParam(':title', $title, PDO::PARAM_STR);
+
+  // filter and bind link
+  $link = filter_var($link, FILTER_SANITIZE_URL);
+  $sql->bindParam(':link', $link, PDO::PARAM_STR);
+
+  // filter and bind date
+  $date = filter_var($date, FILTER_SANITIZE_STRING);
+  $sql->bindParam(':date', $date, PDO::PARAM_STR);
+
+
+  $sql->execute();
+  return $sql;
+
 }
 
 

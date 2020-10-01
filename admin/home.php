@@ -20,6 +20,7 @@
             <th>Title</th>
             <th>Date</th>
             <th>Link</th>
+            <th>Edit</th>
           </tr>
         </thead>
         <tbody></tbody> 
@@ -73,7 +74,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="bx bx-calendar"></i></span>
                   </div>
-                  <input type="text" class="form-control" id="edit-entry-date" name="edit-entry-date">
+                  <input type="date" class="form-control" id="edit-entry-date" name="edit-entry-date">
                 </div>
               </div>
 
