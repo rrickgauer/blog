@@ -12,7 +12,15 @@ if (isset($_GET['function']) && $_GET['function'] == 'get-entries') {
   exit;
 }
 
-
+//////////////////////////////////////
+// Retrieve data for a single entry //
+//////////////////////////////////////
+else if (isset($_GET['function'], $_GET['entryID']) && $_GET['function'] == 'get-entry') {
+  $entryID = $_GET['entryID'];
+  $entry = getEntry($entryID)->fetch(PDO::FETCH_ASSOC);
+  echo json_encode($entry);
+  exit;
+}
 
 
 
