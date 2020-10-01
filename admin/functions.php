@@ -1,6 +1,8 @@
 <?php
 
-// return a pdo database object
+//////////////////////////////////
+// return a pdo database object //
+//////////////////////////////////
 function dbConnect() {
   include('db-info.php');
 
@@ -16,7 +18,9 @@ function dbConnect() {
   }
 }
 
-// returns a bootstrap alert
+///////////////////////////////
+// returns a bootstrap alert //
+///////////////////////////////
 function getAlert($message, $alertType = 'success') {
   return "
   <div class=\"alert alert-$alertType alert-dismissible mt-5 mb-5 fade show\" role=\"alert\">
