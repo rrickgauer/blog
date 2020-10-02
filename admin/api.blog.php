@@ -1,6 +1,9 @@
 <?php
 
+session_start();
 include_once('functions.php');
+
+
 
 
 ////////////////////////////////////////////
@@ -53,8 +56,24 @@ else if (isset($_POST['new-entry-title'], $_POST['new-entry-link'], $_POST['new-
 
 }
 
+////////////////////////
+// Log into account   //
+////////////////////////
+else if (isset($_POST['login-email'], $_POST['login-password'])) {
+  $email = $_POST['login-email'];
+  $password = $_POST['login-password'];
 
+  if (isValidEmailAndPassword($email, $password)) {
+    $_SESSION['loggedIn'] = true;
+    header('Location: home.php');
+    exit;
+  }
 
+  else {
+    header('Location: login.php?logged-in=false');
+    exit;
+  }
+}
 
 
 

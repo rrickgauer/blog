@@ -1,4 +1,13 @@
-<?php include('functions.php'); ?>
+<?php
+
+include('functions.php');
+
+// display error if invalid login
+function invalidLogin() {
+  if (isset($_GET['logged-in']))
+    echo getAlert('Email and password do not match.', 'danger');
+}
+?>
 
 <!DOCTYPE html>
 <html>
@@ -9,14 +18,15 @@
 <body>
 
   <div class="container">
-
     <h1 class="text-center mt-huge mb-5">Admin Login</h1>
 
     <!-- login form -->
     <div class="card card-login">
       <div class="card-body">
-        <form method="post" action="api.blog.php">
 
+        <?php invalidLogin(); ?>
+
+        <form method="post" action="api.blog.php">
           <!-- email -->
           <div class="form-group">
             <label for="login-email">Email address</label>

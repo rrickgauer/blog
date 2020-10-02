@@ -168,6 +168,31 @@ function insertEntry($title, $link, $date) {
 }
 
 
+function isValidEmailAndPassword($email, $password) {
+  $stmt = '
+  SELECT password
+  FROM   Users
+  WHERE  email = :email
+  LIMIT  1';
+
+  $sql = dbConnect()->prepare($stmt);
+
+  // filter and bind email
+  $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+  $sql->bindParam(':email', $email, PDO::PARAM_STR);
+
+  // fetch results
+  $sql->execute();
+  $result = $sql->fetch(PDO::FETCH_ASSOC);
+
+  // return if there is a match
+  if ($result['password'] == $password)
+    return true;
+  else
+    return false;
+}
+
+
 
 
 
