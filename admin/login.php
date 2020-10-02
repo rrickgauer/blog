@@ -10,12 +10,14 @@
 
   <div class="container">
 
-    <h1 class="text-center mt-5 mb-5">Admin Login</h1>
+    <h1 class="text-center mt-huge mb-5">Admin Login</h1>
 
     <!-- login form -->
     <div class="card card-login">
       <div class="card-body">
         <form method="post" action="api.blog.php">
+
+          <!-- email -->
           <div class="form-group">
             <label for="login-email">Email address</label>
             <div class="input-group">
@@ -26,7 +28,7 @@
             </div>
           </div>
 
-
+          <!-- password -->
           <div class="form-group">
             <label for="login-password">Password</label>
             <div class="input-group">
@@ -41,7 +43,7 @@
         </form>
       </div>
     </div>
- 
+
   </div>
 
 
