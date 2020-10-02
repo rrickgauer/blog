@@ -1,6 +1,8 @@
 const API            = 'api.blog.php';
 const entryTable     = $('.table-entries');
 const modalEntryEdit = $('#modal-entry-edit');
+const GITHUB_URL     = 'https://api.github.com/repos/rrickgauer/blog/contents/entries/';
+const GITHUB_AUTH    = 'token d5df00aa6482edcc03d419de2e660d90e6c25fbb';
 
 // set new date
 var newEntryDate = flatpickr("#new-entry-date", {
@@ -19,6 +21,7 @@ $(document).ready(function() {
   getEntries();
   $("#nav-item-home").addClass('active');
   addMyListeners();
+  getGithubEntryFiles(loadGithubEntries);
 });
 
 
@@ -41,6 +44,8 @@ function addMyListeners() {
   $('.btn-submit-entry-new').on('click', function() {
     insertEntry();
   });
+
+  $('#select-entry-file').on('change', setNewEntryLinkValue);
 }
 
 
@@ -222,3 +227,57 @@ function updateEntriesTableRow(entryID) {
 function getEntryTableRowElement(entryID) {
   return $('.table-entries-row[data-entry-id="' + entryID + '"]');
 }
+
+/////////////////////////////////////////
+// Retrieve all the github entry files //
+/////////////////////////////////////////
+function getGithubEntryFiles(action) {
+  var data = {
+    Authorization: GITHUB_AUTH,
+  }
+
+  $.getJSON(GITHUB_URL, data, function(response) {
+    action(response);
+  })
+  .fail(function(response) {
+    displayAlert('Error. Could not fetch entries from Github');
+  });
+}
+
+////////////////////////////////////////////////
+// Load the entry files retrieved from github //
+////////////////////////////////////////////////
+function loadGithubEntries(entries) {
+  // sort the entries
+  entries.sort(function(a, b) {
+    return (a.name.toUpperCase() < b.name.toUpperCase()) ? -1 : 1;
+  });
+
+  
+  // create html
+  var optionsHtml = '';
+  for (var count = 0; count < entries.length; count++)
+    optionsHtml += getEntrySelectOptionHtml(entries[count]);
+
+  $('#select-entry-file').append(optionsHtml);
+}
+
+////////////////////////////////////////////////////
+// Return the html for github entry select option //
+////////////////////////////////////////////////////
+function getEntrySelectOptionHtml(entry) {
+  return `<option value="${entry.download_url}">${entry.name}</option>`;
+}
+
+
+///////////////////////////////////////////////////////////////
+// Set the link value to the selection option of the entries //
+///////////////////////////////////////////////////////////////
+function setNewEntryLinkValue() {
+  var selectValue = $('#select-entry-file option:checked').val();
+  $('#new-entry-link').val(selectValue);
+}
+
+
+
+

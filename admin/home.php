@@ -155,6 +155,9 @@ function entryInserted() {
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="bx bx-link"></i></span>
                   </div>
+                  <select class="custom-select" id="select-entry-file">
+                    <option value="" selected>Choose...</option>
+                  </select>
                   <input type="url" class="form-control" id="new-entry-link" name="new-entry-link" required>
                 </div>
               </div>
@@ -170,10 +173,7 @@ function entryInserted() {
                 </div>
               </div>
 
-              <!-- <button type="button" class="btn btn-primary btn-submit-entry-new">Save</button> -->
-
-              <input type="submit" value="Create entry" class="btn btn-primary">
-
+              <input type="submit" value="Create entry" class="btn btn-primary">\
             </form>
           </div>
         </div>
