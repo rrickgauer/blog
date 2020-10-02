@@ -1,7 +1,15 @@
 <?php
 
+// redirect to login page if I didnt log in
+session_start();
+if (!isset($_SESSION['loggedIn'])) {
+  header('Location: login.php');
+  exit;
+}
+
 include('functions.php'); 
 
+// display alert if entry was successfully created
 function entryInserted() {
   if (isset($_GET['entry-inserted']) && $_GET['entry-inserted'] == 'true')
     echo getAlert('Entry was successfully created.');
