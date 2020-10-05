@@ -22,6 +22,8 @@ $(document).ready(function() {
   $("#nav-item-home").addClass('active');
   addMyListeners();
   getGithubEntryFiles(loadGithubEntries);
+
+  $('#modal-entry-edit').modal('show');
 });
 
 
@@ -46,6 +48,8 @@ function addMyListeners() {
   });
 
   $('#select-entry-file').on('change', setNewEntryLinkValue);
+
+  $('.btn-delete-entry').on('click', deleteEntry);
 }
 
 
@@ -279,5 +283,33 @@ function setNewEntryLinkValue() {
 }
 
 
+// Delete the entry
+function deleteEntry() {
+  // confirm that I want to delete the entry
+  if (!confirm('Are you sure you want to delete this entry?'))
+    return;
+
+  var entryID = $('#modal-entry-edit').attr('data-entry-id');
+  var data = {
+    function: "delete-entry",
+    entryID: entryID,
+  }
+
+  $.post(API, data, function(response) {
+    // remove the entry from the table
+    var entryRow = getEntryTableRowElement(entryID);
+    $(entryRow).remove();
+
+    // close the modal
+    $('#modal-entry-edit').modal('hide');
+
+    // display message
+    displayAlert('Entry was deleted');
+  })
+  .fail(function(response) {
+    displayAlert('Error. Entry was not deleted.');
+    return;
+  });
+}
 
 

@@ -75,7 +75,19 @@ else if (isset($_POST['login-email'], $_POST['login-password'])) {
   }
 }
 
+////////////////////////
+// Delete entry       //
+////////////////////////
+else if (isset($_POST['function'], $_POST['entryID']) && $_POST['function'] == 'delete-entry') {
+  $entryID = $_POST['entryID'];
+  $result = deleteEntry($entryID);
 
+  // return error if not successful
+  if ($result->rowCount() != 1)
+    echo getBadResponseCode();
+  
+  exit;
+}
 
 
 ?>

@@ -117,6 +117,8 @@ function entryInserted() {
 
               <button type="button" class="btn btn-primary btn-submit-entry-edit">Save</button>
 
+              <button type="button" class="btn btn-danger btn-delete-entry">Delete</button>
+
             </form>
           </div>
         </div>

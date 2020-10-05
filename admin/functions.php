@@ -193,8 +193,21 @@ function isValidEmailAndPassword($email, $password) {
 }
 
 
+// Delete an entry
+function deleteEntry($entryID) {
+  $stmt = '
+  DELETE FROM Entries
+  WHERE  id = :entryID';
 
+  $sql = dbConnect()->prepare($stmt);
 
+  // filter and bind id
+  $entryID = filter_var($entryID, FILTER_SANITIZE_NUMBER_INT);
+  $sql->bindParam(':entryID', $entryID, PDO::PARAM_INT);
+
+  $sql->execute();
+  return $sql;
+}
 
 
 
