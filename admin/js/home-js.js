@@ -29,7 +29,7 @@ $(document).ready(function() {
 // Adds all the event listeners on inital page load //
 //////////////////////////////////////////////////////
 function addMyListeners() {
-  $('.table-entries tbody').on('click', '.btn-open-entry-modal', function() {
+  $('.table-entries tbody').on('click', '.table-entries-row', function() {
     openEntryModal(this);
   });
 
@@ -78,6 +78,7 @@ function getEntries() {
   })
   .fail(function(response) {
     displayAlert('There was an error in the API. get-entries');
+    console.log(response.responseText);
   });
 }
 
@@ -102,15 +103,7 @@ function getEntryTableRowHtml(entry) {
   html += getEntryTableCellHtml(entry.id, 'entry-id');
   html += getEntryTableCellHtml(entry.title, 'entry-title');
   html += getEntryTableCellHtml(entry.date_display, 'entry-date');
-
-  // create the html for the link
-  var linkHtml = '<a href="' + entry.link + '" target="_blank">Visit</a>';
-  html += getEntryTableCellHtml(linkHtml, 'entry-link');
-
-  // button that opens the edit entry modal
-  var editCellHtml = '<td><button class="btn btn-sm btn-open-entry-modal">';
-  editCellHtml += '<i class="bx bxs-pencil"></i></button></td>';
-  html += editCellHtml;
+  html += getEntryTableCellHtml(entry.topic_name, 'entry-topic');
 
   html += '</tr>';
 
@@ -127,8 +120,8 @@ function getEntryTableCellHtml(value, className) {
 ///////////////////////////////////////////
 // Retrieves the entry data from the api //
 ///////////////////////////////////////////
-function openEntryModal(btn) {
-  var entryID = $(btn).closest('.table-entries-row').attr('data-entry-id');
+function openEntryModal(row) {
+  var entryID = $(row).attr('data-entry-id');
 
   var data = {
     function: "get-entry",

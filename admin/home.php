@@ -56,8 +56,7 @@ function entryInserted() {
             <th data-tablesort-type="int">ID</th>
             <th data-tablesort-type="string">Title</th>
             <th data-tablesort-type="date">Date</th>
-            <th data-tablesort-type="string">Link</th>
-            <th data-tablesort-type="string">Edit</th>
+            <th data-tablesort-type="string">Topic</th>
           </tr>
         </thead>
         <tbody></tbody> 
