@@ -140,18 +140,20 @@ function updateEntry($entryID, $title, $link, $date) {
 ////////////////////////
 // Insert a new entry //
 ////////////////////////
-function insertEntry($title, $link, $date) {
+function insertEntry($title, $link, $date, $topicID) {
   $stmt = '
   INSERT INTO Entries (
     title,
     link,
-    date
+    date,
+    topic_id
   )
   
   VALUES (
     :title,
     :link,
-    :date
+    :date,
+    :topicID
   )';
 
   $sql = dbConnect()->prepare($stmt);
@@ -167,6 +169,10 @@ function insertEntry($title, $link, $date) {
   // filter and bind date
   $date = filter_var($date, FILTER_SANITIZE_STRING);
   $sql->bindParam(':date', $date, PDO::PARAM_STR);
+
+  // filter and bind topic id
+  $topicID = filter_var($topicID, FILTER_SANITIZE_NUMBER_INT);
+  $sql->bindParam(':topicID', $topicID, PDO::PARAM_INT);
 
 
   $sql->execute();
