@@ -147,6 +147,7 @@ function displayEntryModal(entry) {
   // set input values
   $('#edit-entry-title').val(entry.title);
   $('#edit-entry-link').val(entry.link);
+  $('#edit-entry-topic option[value="' + entry.topic_id + '"]').prop('selected', true);
 
   // set date
   flatpickr("#edit-entry-date", {

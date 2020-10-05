@@ -76,19 +76,26 @@ function getEntries() {
 // id                                //
 // title                             //
 // date_display                      //
-// date_raw                          //
+// date_raw                          //DATE_FORMAT(e.date, "%Y-%m-%d") as "date_raw",
 // link                              //
+// topic_id                          //
+// topic_name                        //
 ///////////////////////////////////////
 function getEntry($entryID) {
   $stmt = '
-  SELECT e.id,
-         e.title,
-         DATE_FORMAT(e.date, "%c/%d/%Y") AS date_display,
-         DATE_FORMAT(e.date, "%Y-%m-%d") as "date_raw",
-         e.link
-  FROM   Entries e
-  WHERE  e.id = :entryID
-  LIMIT  1';
+  SELECT  Entries.id,
+          Entries.date,
+          Entries.title,
+          Entries.link,
+          DATE_FORMAT(Entries.date, "%c/%d/%Y") AS date_display,
+          DATE_FORMAT(Entries.date, "%Y-%m-%d") as "date_raw",
+          Entries.topic_id,
+          Topics.name as topic_name
+  FROM    Entries
+  LEFT JOIN Topics on Entries.topic_id = Topics.id
+  WHERE Entries.id = :entryID
+  GROUP BY Entries.id
+  ORDER BY Entries.date desc';
 
   $sql = dbConnect()->prepare($stmt);
 
