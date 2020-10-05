@@ -147,6 +147,7 @@ function displayEntryModal(entry) {
   // set input values
   $('#edit-entry-title').val(entry.title);
   $('#edit-entry-link').val(entry.link);
+  $('#edit-entry-topic option[value="' + entry.topic_id + '"]').prop('selected', true);
 
   // set date
   flatpickr("#edit-entry-date", {
@@ -181,6 +182,7 @@ function updateEntry() {
 
   updateEntriesTableRow(data.entryID);
   closeModalEntryEdit();
+  displayAlert('Entry updated successfully');
 }
 
 /////////////////////////////////////////////////
@@ -193,6 +195,7 @@ function getEditEntryInputValues() {
     title: $('#edit-entry-title').val(),
     link: $('#edit-entry-link').val(),
     date: $('#edit-entry-date').val(),
+    topicID: $('#edit-entry-topic').val(),
   }
 
   return data;

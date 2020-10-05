@@ -26,14 +26,15 @@ else if (isset($_GET['function'], $_GET['entryID']) && $_GET['function'] == 'get
   exit;
 }
 
-
+// Update an entry
 else if (isset($_POST['function'], $_POST['entryID']) && $_POST['function'] == 'update-entry') {
   $entryID = $_POST['entryID'];
   $title   = $_POST['title'];
   $link    = $_POST['link'];
   $date    = $_POST['date'];
+  $topicID = $_POST['topicID'];
 
-  $result = updateEntry($entryID, $title, $link, $date);
+  $result = updateEntry($entryID, $title, $link, $date, $topicID);
 
   // return error response if there was an error
   if ($result->rowCount() != 1) {
@@ -46,12 +47,13 @@ else if (isset($_POST['function'], $_POST['entryID']) && $_POST['function'] == '
 ////////////////////////
 // Insert a new entry //
 ////////////////////////
-else if (isset($_POST['new-entry-title'], $_POST['new-entry-link'], $_POST['new-entry-date'])) {
+else if (isset($_POST['new-entry-title'], $_POST['new-entry-link'], $_POST['new-entry-date'], $_POST['new-entry-topic'])) {
   $title = $_POST['new-entry-title'];
   $link  = $_POST['new-entry-link'];
   $date  = $_POST['new-entry-date'];
+  $topic = $_POST['new-entry-topic'];
 
-  $result = insertEntry($title, $link, $date);
+  $result = insertEntry($title, $link, $date, $topic);
   header('Location: home.php?entry-inserted=true');
   exit;
 
