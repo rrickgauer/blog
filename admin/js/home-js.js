@@ -277,7 +277,9 @@ function setNewEntryLinkValue() {
 }
 
 
-// Delete the entry
+//////////////////////
+// Delete the entry //
+//////////////////////
 function deleteEntry() {
   // confirm that I want to delete the entry
   if (!confirm('Are you sure you want to delete this entry?'))

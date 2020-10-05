@@ -4,8 +4,6 @@ session_start();
 include_once('functions.php');
 
 
-
-
 ////////////////////////////////////////////
 // Retrieve all entries from the database //
 ////////////////////////////////////////////
@@ -26,7 +24,14 @@ else if (isset($_GET['function'], $_GET['entryID']) && $_GET['function'] == 'get
   exit;
 }
 
-// Update an entry
+///////////////////////////////
+// Update an entry           //
+//                           //
+// function = 'update-entry' //
+//                           //
+// required parameters:      //
+// - entryID                 //
+///////////////////////////////
 else if (isset($_POST['function'], $_POST['entryID']) && $_POST['function'] == 'update-entry') {
   $entryID = $_POST['entryID'];
   $title   = $_POST['title'];
@@ -59,9 +64,9 @@ else if (isset($_POST['new-entry-title'], $_POST['new-entry-link'], $_POST['new-
 
 }
 
-////////////////////////
-// Log into account   //
-////////////////////////
+//////////////////////
+// Log into account //
+//////////////////////
 else if (isset($_POST['login-email'], $_POST['login-password'])) {
   $email = $_POST['login-email'];
   $password = $_POST['login-password'];
@@ -78,9 +83,9 @@ else if (isset($_POST['login-email'], $_POST['login-password'])) {
   }
 }
 
-////////////////////////
-// Delete entry       //
-////////////////////////
+//////////////////
+// Delete entry //
+//////////////////
 else if (isset($_POST['function'], $_POST['entryID']) && $_POST['function'] == 'delete-entry') {
   $entryID = $_POST['entryID'];
   $result = deleteEntry($entryID);
