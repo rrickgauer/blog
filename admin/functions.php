@@ -51,13 +51,17 @@ function getAlert($message, $alertType = 'success') {
 //////////////////////////
 function getEntries() {
   $stmt = '
-  SELECT  e.id,
-          e.date,
-          e.title,
-          e.link,
-          DATE_FORMAT(e.date, "%c/%d/%Y") AS date_display
-  FROM    Entries e
-  ORDER BY e.date desc';
+  SELECT  Entries.id,
+          Entries.date,
+          Entries.title,
+          Entries.link,
+          DATE_FORMAT(Entries.date, "%c/%d/%Y") AS date_display,
+          Entries.topic_id,
+          Topics.name as topic_name
+  FROM    Entries
+  LEFT JOIN Topics on Entries.topic_id = Topics.id
+  GROUP BY Entries.id
+  ORDER BY Entries.date desc';
 
   $sql = dbConnect()->prepare($stmt);
   $sql->execute();
