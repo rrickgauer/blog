@@ -48,6 +48,8 @@ function getAlert($message, $alertType = 'success') {
 // title                //
 // link                 //
 // date_display         //
+// topic_id             //
+// topic_name           //
 //////////////////////////
 function getEntries() {
   $stmt = '

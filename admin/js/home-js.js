@@ -29,7 +29,7 @@ $(document).ready(function() {
 // Adds all the event listeners on inital page load //
 //////////////////////////////////////////////////////
 function addMyListeners() {
-  $('.table-entries tbody').on('click', '.btn-open-entry-modal', function() {
+  $('.table-entries tbody').on('click', '.table-entries-row', function() {
     openEntryModal(this);
   });
 
@@ -75,7 +75,6 @@ function getEntries() {
   $.getJSON(API, data, function(response) {
     loadEntries(response);
     loadAllTableText();
-    console.log(response);
   })
   .fail(function(response) {
     displayAlert('There was an error in the API. get-entries');
@@ -121,8 +120,8 @@ function getEntryTableCellHtml(value, className) {
 ///////////////////////////////////////////
 // Retrieves the entry data from the api //
 ///////////////////////////////////////////
-function openEntryModal(btn) {
-  var entryID = $(btn).closest('.table-entries-row').attr('data-entry-id');
+function openEntryModal(row) {
+  var entryID = $(row).attr('data-entry-id');
 
   var data = {
     function: "get-entry",
