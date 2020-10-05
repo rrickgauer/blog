@@ -53,17 +53,18 @@ function getAlert($message, $alertType = 'success') {
 //////////////////////////
 function getEntries() {
   $stmt = '
-  SELECT  Entries.id,
-          Entries.date,
-          Entries.title,
-          Entries.link,
-          DATE_FORMAT(Entries.date, "%c/%d/%Y") AS date_display,
-          Entries.topic_id,
-          Topics.name as topic_name
-  FROM    Entries
-  LEFT JOIN Topics on Entries.topic_id = Topics.id
-  GROUP BY Entries.id
-  ORDER BY Entries.date desc';
+  SELECT Entries.id,
+         Entries.date,
+         Entries.title,
+         Entries.link,
+         DATE_FORMAT(Entries.date, "%c/%d/%Y") AS date_display,
+         Entries.topic_id,
+         Topics.NAME                           AS topic_name
+  FROM   Entries
+         LEFT JOIN Topics
+                ON Entries.topic_id = Topics.id
+  GROUP  BY Entries.id
+  ORDER  BY Entries.date DESC';
 
   $sql = dbConnect()->prepare($stmt);
   $sql->execute();
@@ -76,26 +77,27 @@ function getEntries() {
 // id                                //
 // title                             //
 // date_display                      //
-// date_raw                          //DATE_FORMAT(e.date, "%Y-%m-%d") as "date_raw",
+// date_raw                          //
 // link                              //
 // topic_id                          //
 // topic_name                        //
 ///////////////////////////////////////
 function getEntry($entryID) {
   $stmt = '
-  SELECT  Entries.id,
-          Entries.date,
-          Entries.title,
-          Entries.link,
-          DATE_FORMAT(Entries.date, "%c/%d/%Y") AS date_display,
-          DATE_FORMAT(Entries.date, "%Y-%m-%d") as "date_raw",
-          Entries.topic_id,
-          Topics.name as topic_name
-  FROM    Entries
-  LEFT JOIN Topics on Entries.topic_id = Topics.id
-  WHERE Entries.id = :entryID
-  GROUP BY Entries.id
-  ORDER BY Entries.date desc';
+  SELECT Entries.id,
+         Entries.date,
+         Entries.title,
+         Entries.link,
+         DATE_FORMAT(Entries.date, "%c/%d/%Y") AS date_display,
+         DATE_FORMAT(Entries.date, "%Y-%m-%d") AS date_raw,
+         Entries.topic_id,
+         Topics.NAME                           AS topic_name
+  FROM   Entries
+         LEFT JOIN Topics
+                ON Entries.topic_id = Topics.id
+  WHERE  Entries.id = :entryID
+  GROUP  BY Entries.id
+  ORDER  BY Entries.date DESC';
 
   $sql = dbConnect()->prepare($stmt);
 
@@ -153,19 +155,8 @@ function updateEntry($entryID, $title, $link, $date, $topicID) {
 ////////////////////////
 function insertEntry($title, $link, $date, $topicID) {
   $stmt = '
-  INSERT INTO Entries (
-    title,
-    link,
-    date,
-    topic_id
-  )
-  
-  VALUES (
-    :title,
-    :link,
-    :date,
-    :topicID
-  )';
+  INSERT INTO Entries (title, link, date, opic_id)
+  VALUES (:title, :link, :date, :topicID)';
 
   $sql = dbConnect()->prepare($stmt);
 
@@ -190,7 +181,9 @@ function insertEntry($title, $link, $date, $topicID) {
   return $sql;
 }
 
-
+///////////////////////////////////////////////////////////////////////
+// Validates a login attempt by checking if email and password match //
+///////////////////////////////////////////////////////////////////////
 function isValidEmailAndPassword($email, $password) {
   $stmt = '
   SELECT password
@@ -216,7 +209,9 @@ function isValidEmailAndPassword($email, $password) {
 }
 
 
-// Delete an entry
+/////////////////////
+// Delete an entry //
+/////////////////////
 function deleteEntry($entryID) {
   $stmt = '
   DELETE FROM Entries
@@ -232,7 +227,12 @@ function deleteEntry($entryID) {
   return $sql;
 }
 
-
+//////////////////////////////////////////////
+// Returns all the topics from the database //
+//                                          //
+// id                                       //
+// name                                     //
+//////////////////////////////////////////////
 function getTopics() {
   $stmt = 'SELECT * FROM Topics ORDER BY Name';
   $sql = dbConnect()->prepare($stmt);
@@ -241,6 +241,9 @@ function getTopics() {
   return $sql;
 }
 
+//////////////////////////////////////////////
+// Returns the html for the topics dropdown //
+//////////////////////////////////////////////
 function getNewEntryTopicsSelectHtml() {
   $topics = getTopics();
 
@@ -257,22 +260,6 @@ function getNewEntryTopicsSelectHtml() {
 
   return $html;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ?>
