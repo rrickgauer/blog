@@ -22,8 +22,6 @@ $(document).ready(function() {
   $("#nav-item-home").addClass('active');
   addMyListeners();
   getGithubEntryFiles(loadGithubEntries);
-
-  $('#modal-entry-edit').modal('show');
 });
 
 
