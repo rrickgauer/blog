@@ -182,6 +182,7 @@ function updateEntry() {
 
   updateEntriesTableRow(data.entryID);
   closeModalEntryEdit();
+  displayAlert('Entry updated successfully');
 }
 
 /////////////////////////////////////////////////
@@ -194,6 +195,7 @@ function getEditEntryInputValues() {
     title: $('#edit-entry-title').val(),
     link: $('#edit-entry-link').val(),
     date: $('#edit-entry-date').val(),
+    topicID: $('#edit-entry-topic').val(),
   }
 
   return data;

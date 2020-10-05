@@ -32,8 +32,9 @@ else if (isset($_POST['function'], $_POST['entryID']) && $_POST['function'] == '
   $title   = $_POST['title'];
   $link    = $_POST['link'];
   $date    = $_POST['date'];
+  $topicID = $_POST['topicID'];
 
-  $result = updateEntry($entryID, $title, $link, $date);
+  $result = updateEntry($entryID, $title, $link, $date, $topicID);
 
   // return error response if there was an error
   if ($result->rowCount() != 1) {

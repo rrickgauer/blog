@@ -111,16 +111,16 @@ function getEntry($entryID) {
 //////////////////////
 // Updates an entry //
 //////////////////////
-function updateEntry($entryID, $title, $link, $date) {
+function updateEntry($entryID, $title, $link, $date, $topicID) {
   $stmt = '
   UPDATE Entries
-  SET    title = :title,
-         link = :link,
-         date = :date
+  SET    title    = :title,
+         link     = :link,
+         date     = :date,
+         topic_id = :topicID
   WHERE  id = :entryID';
 
   $sql = dbConnect()->prepare($stmt);
-
 
   // filter and bind id
   $entryID = filter_var($entryID, FILTER_SANITIZE_NUMBER_INT);
@@ -137,6 +137,10 @@ function updateEntry($entryID, $title, $link, $date) {
   // filter and bind date
   $date = filter_var($date, FILTER_SANITIZE_STRING);
   $sql->bindParam(':date', $date, PDO::PARAM_STR);
+
+  // filter and bind topic id
+  $topicID = filter_var($topicID, FILTER_SANITIZE_NUMBER_INT);
+  $sql->bindParam(':topicID', $topicID, PDO::PARAM_INT);
 
 
   $sql->execute();
