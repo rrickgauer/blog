@@ -152,7 +152,7 @@ function entryInserted() {
 
               <!-- Link -->
               <div class="form-group">
-                <label for="new-entry-title">Link:</label>
+                <label for="new-entry-link">Link:</label>
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="bx bx-link"></i></span>
@@ -166,7 +166,7 @@ function entryInserted() {
 
               <!-- Date -->
               <div class="form-group">
-                <label for="new-entry-title">Date:</label>
+                <label for="new-entry-date">Date:</label>
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="bx bx-calendar"></i></span>
@@ -175,7 +175,20 @@ function entryInserted() {
                 </div>
               </div>
 
-              <input type="submit" value="Create entry" class="btn btn-primary">\
+              <!-- Topic -->
+              <div class="form-group">
+                <label for="new-entry-topic">Topic:</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="bx bx-calendar"></i></span>
+                  </div>
+                  <select class="form-control" id="new-entry-topic" name="new-entry-topic" required>
+                    <?php echo getNewEntryTopicsSelectHtml(); ?>
+                  </select>
+                </div>
+              </div>
+
+              <input type="submit" value="Create entry" class="btn btn-primary">
             </form>
           </div>
         </div>

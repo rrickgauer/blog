@@ -210,6 +210,32 @@ function deleteEntry($entryID) {
 }
 
 
+function getTopics() {
+  $stmt = 'SELECT * FROM Topics ORDER BY Name';
+  $sql = dbConnect()->prepare($stmt);
+  $sql->execute();
+
+  return $sql;
+}
+
+function getNewEntryTopicsSelectHtml() {
+  $topics = getTopics();
+
+  $html = '';
+  while ($topic = $topics->fetch(PDO::FETCH_ASSOC)) {
+    $id   = $topic['id'];
+    $name = $topic['name'];
+
+    if ($name == 'None')
+      $html .= "<option value=\"$id\" selected>$name</option>";
+    else
+      $html .= "<option value=\"$id\">$name</option>";
+  }
+
+  return $html;
+}
+
+
 
 
 
