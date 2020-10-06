@@ -20,7 +20,6 @@ include_once('functions.php');
   <div class="container">
     <h1 class="text-center mt-5 mb-5 custom-font">Topics</h1>
 
-    
     <!-- table search input -->
     <div class="input-group mb-3">
       <div class="input-group-prepend">

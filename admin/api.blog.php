@@ -126,5 +126,13 @@ else if (isset($_GET['function']) && $_GET['function'] == 'get-used-topics') {
   exit;
 }
 
+////////////////////
+// Get all topics //
+////////////////////
+else if (isset($_GET['function']) && $_GET['function'] == 'get-topics') {
+  $topics = getTopics()->fetchAll(PDO::FETCH_ASSOC);
+  echo json_encode($topics);
+  exit;
+}
 
 ?>

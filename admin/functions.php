@@ -232,9 +232,17 @@ function deleteEntry($entryID) {
 //                                          //
 // id                                       //
 // name                                     //
+// count                                    //
 //////////////////////////////////////////////
 function getTopics() {
-  $stmt = 'SELECT * FROM Topics ORDER BY Name';
+  $stmt = '
+  SELECT Topics.id,
+         Topics.name,
+         (SELECT COUNT(Entries.id)
+          FROM   Entries
+          WHERE  Entries.topic_id = Topics.id) AS count
+  FROM   Topics
+  ORDER  BY name';
   $sql = dbConnect()->prepare($stmt);
   $sql->execute();
 
