@@ -55,6 +55,8 @@ function addMyListeners() {
   $('#new-topic').on('click', clearNewTopicValidation);
 
   $('#modal-topic-new').on('hidden.bs.modal', clearNewTopicModalInput);
+
+  $('#filter-topics').on('change', filterTopics);
 }
 
 
@@ -105,7 +107,7 @@ function loadEntries(entries) {
 // Return the html for a table row //
 /////////////////////////////////////
 function getEntryTableRowHtml(entry) {
-  var html = '<tr class="table-entries-row" data-entry-id="' + entry.id + '">';
+  var html = '<tr class="table-entries-row" data-entry-id="' + entry.id + '" data-topic="' + entry.topic_name + '">';
 
   html += getEntryTableCellHtml(entry.id, 'entry-id');
   html += getEntryTableCellHtml(entry.title, 'entry-title');
@@ -375,13 +377,34 @@ function displayUsedTopicsOptions(topics) {
   for (var count = 0; count < topics.length; count++)
     html += getUsedTopicSelectHtml(topics[count]);
 
-  $('#filter-topics').html(html);
+
+  $('#filter-topics .custom-topic').remove();
+  $('#filter-topics').append(html);
 }
 
 ///////////////////////////////////////////////
 // Generate a used topic select html element //
 ///////////////////////////////////////////////
 function getUsedTopicSelectHtml(topic) {
-  return `<option value="${topic.name}">${topic.name}</option>`;
+  return `<option class="custom-topic" value="${topic.name}">${topic.name}</option>`;
 }
 
+///////////////////////
+// Filter the topics //
+///////////////////////
+function filterTopics() {
+  var filterTopics = $('#filter-topics');
+  var topic = $(filterTopics).find('option:checked').val();
+
+  // show all topics if the all option is selected
+  if (topic == 'SHOW_ALL') {
+    $('.table-entries-row').show();
+    return;
+  }
+
+  // hide all topics first
+  $('.table-entries-row').hide();
+
+  // show the ones with the topic
+  $('.table-entries-row[data-topic="' + topic + '"]').show();
+}

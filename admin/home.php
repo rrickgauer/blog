@@ -57,7 +57,7 @@ function topicInserted() {
 
         <!-- filter by tag -->
         <select class="form-control" id="filter-topics">
-          
+          <option value="SHOW_ALL" selected>All</option>
         </select>
       </div>
 
