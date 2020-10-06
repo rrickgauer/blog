@@ -97,9 +97,10 @@ else if (isset($_POST['function'], $_POST['entryID']) && $_POST['function'] == '
   exit;
 }
 
-
+////////////////////////
+// Insert a new topic //
+////////////////////////
 else if (isset($_POST['function'], $_POST['name']) && $_POST['function'] == 'insert-topic') {
-
   $name = $_POST['name'];
 
   // check if topic name is already taken

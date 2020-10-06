@@ -288,7 +288,9 @@ function isTopicNameTaken($name) {
     return true;
 }
 
-
+//////////////////////////////////////
+// Insert a topic into the database //
+//////////////////////////////////////
 function insertTopic($name) {
   $stmt = 'INSERT into Topics (name) values (:name)';
   $sql = dbConnect()->prepare($stmt);
