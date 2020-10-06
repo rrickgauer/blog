@@ -132,8 +132,8 @@ $stats = getStats()->fetch(PDO::FETCH_ASSOC);
 
           <!-- new entry button -->
           <div class="right">
-            <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#modal-topic-new">New topic</button>
-            <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-entry-new">New entry</button>
+            <button type="button" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#modal-topic-new">New topic</button>
+            <button type="button" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#modal-entry-new">New entry</button>
           </div>
         </div>
         <div class="table-responsive">

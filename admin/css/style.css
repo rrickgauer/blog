@@ -49,6 +49,7 @@ h1.custom-font {
   text-decoration: none;
   color: white;
   font-weight: bold;
+  margin: 0px 10px;
 }
 #navbar .nav-link:hover {
   color: #3777ff;
