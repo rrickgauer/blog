@@ -77,6 +77,6 @@ Attribute | Description
 
 <script>
 $(document).ready(function() {
-  $('table').addClass('table-sort');
+  $('table').addClass('tablesort');
 });
 </script>
