@@ -22,6 +22,8 @@ $(document).ready(function() {
   $("#nav-item-home").addClass('active');
   addMyListeners();
   getGithubEntryFiles(loadGithubEntries);
+
+  $('#modal-new-topic').modal('show');
 });
 
 
@@ -48,6 +50,8 @@ function addMyListeners() {
   $('#select-entry-file').on('change', setNewEntryLinkValue);
 
   $('.btn-delete-entry').on('click', deleteEntry);
+
+  $('.btn-new-topic').on('click', insertNewTopic);
 }
 
 
@@ -305,6 +309,26 @@ function deleteEntry() {
   .fail(function(response) {
     displayAlert('Error. Entry was not deleted.');
     return;
+  });
+}
+
+////////////////////////////////////
+// Insert a new topic into the db //
+////////////////////////////////////
+function insertNewTopic() {
+  var topicName = $('#new-topic').val();
+
+  var data = {
+    function: "insert-topic",
+    name: topicName,
+  }
+
+  $.post(API, data, function(response) {
+    window.location.href = 'home.php';
+  })
+  .fail(function(response) {
+    // show invalid state
+    $('#new-topic').addClass('is-invalid');
   });
 }
 

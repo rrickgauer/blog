@@ -98,4 +98,20 @@ else if (isset($_POST['function'], $_POST['entryID']) && $_POST['function'] == '
 }
 
 
+else if (isset($_POST['function'], $_POST['name']) && $_POST['function'] == 'insert-topic') {
+
+  $name = $_POST['name'];
+
+  // check if topic name is already taken
+  if (isTopicNameTaken($name)) {
+    echo getBadResponseCode();
+    exit;
+  }
+
+  // insert the name
+  $result = insertTopic($name);
+  $_SESSION['topic-created'] = true;
+  exit;
+}
+
 ?>
