@@ -59,7 +59,9 @@ else if (isset($_POST['new-entry-title'], $_POST['new-entry-link'], $_POST['new-
   $topic = $_POST['new-entry-topic'];
 
   $result = insertEntry($title, $link, $date, $topic);
-  header('Location: home.php?entry-inserted=true');
+
+  $_SESSION['entry-inserted'] = true;
+  header('Location: home.php');
   exit;
 
 }

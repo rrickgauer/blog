@@ -13,8 +13,9 @@ include('functions.php');
 // display alert if entry was successfully created //
 /////////////////////////////////////////////////////
 function entryInserted() {
-  if (isset($_GET['entry-inserted']) && $_GET['entry-inserted'] == 'true')
+  if (isset($_SESSION['entry-inserted']) && $_SESSION['entry-inserted'] == 'true')
     echo getAlert('Entry was successfully created.');
+    unset($_SESSION['entry-inserted']);
 }
 
 //////////////////////////////////////////////////////////
