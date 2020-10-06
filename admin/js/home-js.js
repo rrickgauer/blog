@@ -22,8 +22,6 @@ $(document).ready(function() {
   $("#nav-item-home").addClass('active');
   addMyListeners();
   getGithubEntryFiles(loadGithubEntries);
-
-  $('#modal-new-topic').modal('show');
 });
 
 
@@ -55,7 +53,7 @@ function addMyListeners() {
 
   $('#new-topic').on('click', clearNewTopicValidation);
 
-  $('#modal-new-topic').on('hidden.bs.modal', clearNewTopicModalInput);
+  $('#modal-topic-new').on('hidden.bs.modal', clearNewTopicModalInput);
 }
 
 

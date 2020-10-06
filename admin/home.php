@@ -57,6 +57,7 @@ function topicInserted() {
 
       <!-- new entry button -->
       <div class="right">
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-topic-new">New topic</button>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-entry-new">New entry</button>
       </div>
     </div>
@@ -220,7 +221,7 @@ function topicInserted() {
     </div>
 
     <!-- new topic modal -->
-    <div class="modal fade" id="modal-new-topic" tabindex="-1">
+    <div class="modal fade" id="modal-topic-new" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
