@@ -52,6 +52,8 @@ function addMyListeners() {
   $('.btn-delete-entry').on('click', deleteEntry);
 
   $('.btn-new-topic').on('click', insertNewTopic);
+
+  $('#new-topic').on('click', clearNewTopicValidation);
 }
 
 
@@ -332,4 +334,10 @@ function insertNewTopic() {
   });
 }
 
+///////////////////////////////////////////////////////////////
+// Removes the invalid text display from the new topic input //
+///////////////////////////////////////////////////////////////
+function clearNewTopicValidation() {
+  $('#new-topic').removeClass('is-invalid');
+}
 
