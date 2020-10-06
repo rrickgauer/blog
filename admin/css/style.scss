@@ -12,3 +12,21 @@
 .mt-huge {
   margin-top: 100px;
 }
+
+#table-entries {
+  thead {
+    th:hover {cursor: pointer;}
+
+    .tablesort-asc,
+    .tablesort-desc {
+      color: red;
+    }
+  }
+
+  tbody {
+    .table-entries-row:hover {
+      cursor: pointer;
+      background-color: lightgrey;
+    }
+  }
+}
