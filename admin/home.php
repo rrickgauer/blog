@@ -27,6 +27,8 @@ function topicInserted() {
   }
 }
 
+$stats = getStats()->fetch(PDO::FETCH_ASSOC);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -44,10 +46,71 @@ function topicInserted() {
 
     <h1 class="text-center mt-5 mb-5 custom-font">Entries Admin Page</h1>
 
+    <div id="stats" class="card">
+      <div class="card-header">
+        <h3 class="custom-font">Your stats</h3>
+      </div>
+
+      <div class="card-body stats-cards">
+
+        <!-- number of entries -->
+        <div class="card card-stat">
+          <div class="card-body">
+            <div class="card-icon">
+              <i class='bx bx-note'></i>
+            </div>
+            <div class="card-data">
+              <div class="card-description custom-font">
+                Entries
+              </div>
+              <div class="card-number">
+                 <?php echo $stats['count_entries']; ?>
+              </div>
+            </div>            
+          </div>
+        </div>
+
+        <!-- number of posts this week -->
+        <div class="card card-stat">
+          <div class="card-body">
+            <div class="card-icon">
+              <i class='bx bx-calendar-check'></i>
+            </div>
+            <div class="card-data">
+              <div class="card-description custom-font">
+                Posts this week
+              </div>
+              <div class="card-number">
+                 <?php echo $stats['count_weekly_posts']; ?>
+              </div>
+            </div>            
+          </div>
+        </div>
+
+        <!-- favorite topic -->
+        <div class="card card-stat">
+          <div class="card-body">
+            <div class="card-icon">
+              <i class='bx bx-font'></i>
+            </div>
+            <div class="card-data">
+              <div class="card-description custom-font">
+                Most used topic
+              </div>
+              <div class="card-number">
+                 <?php echo $stats['favorite_topic']; ?>
+              </div>
+            </div>            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
     <!-- entries table -->
     <div class="card mb-5">
       <div class="card-header">
-        <h4 class="custom-font">Entries</h4>
+        <h3 class="custom-font">Entries</h3>
       </div>
       <div class="card-body">
         <div class="table-toolbar">

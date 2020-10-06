@@ -327,5 +327,35 @@ function getUsedDistinctTopics() {
   return $sql;
 }
 
+////////////////////////////////////////////////////
+// Returns the stats for the top of the home page //
+//                                                //
+// count_entries                                  //
+// favorite_topic                                 //
+// count_weekly_posts                             //
+////////////////////////////////////////////////////
+function getStats() {
+  $stmt = '
+  SELECT (SELECT COUNT(id)
+          FROM   Entries)                            AS count_entries,
+         (SELECT name
+          FROM   (SELECT t.name,
+                         COUNT(Entries.id) AS count
+                  FROM   Entries,
+                         Topics t
+                  WHERE  t.id = Entries.topic_id
+                  GROUP  BY t.id
+                  ORDER  BY count DESC
+                  LIMIT  1) AS t)                    AS favorite_topic,
+         (SELECT COUNT(e.id)
+          FROM   Entries e
+          WHERE  YEARWEEK(e.date) = YEARWEEK(NOW())) AS count_weekly_posts';
+
+
+  $sql = dbConnect()->prepare($stmt);
+  $sql->execute();
+  return $sql;
+}
+
 
 ?>

@@ -6,6 +6,10 @@ body {
   font-family: "Balsamiq Sans", cursive;
 }
 
+h1.custom-font {
+  font-size: 3.2em;
+}
+
 .table-toolbar {
   display: flex;
   justify-content: space-between;
@@ -75,12 +79,50 @@ body {
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.18);
 }
 .card .card-header {
-  background-color: #3777ff;
+  background-color: #17c37b;
   color: white;
 }
 
 .form-group label {
   font-weight: bold;
+}
+
+#stats {
+  margin-bottom: 70px;
+}
+#stats .stats-cards {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+#stats .card-stat {
+  flex-grow: 1;
+  margin: 0px 10px;
+}
+#stats .card-stat .card-body {
+  display: flex;
+  align-content: baseline;
+  background-color: #f7f7f2;
+}
+#stats .card-stat .card-number {
+  font-size: 2em;
+}
+#stats .card-stat .card-data {
+  margin-left: 15px;
+  line-height: 1.2;
+}
+#stats .card-stat .card-description {
+  color: #666;
+}
+#stats .card-stat .card-icon {
+  padding-top: 5px;
+}
+#stats .card-stat .card-icon i {
+  font-size: 1.5em;
+  border-radius: 50%;
+  background-color: #3777ff;
+  padding: 15px;
+  color: white;
 }
 
 /*# sourceMappingURL=style.css.map */
