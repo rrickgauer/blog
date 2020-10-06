@@ -1,8 +1,7 @@
 $color-green: #17c37b;
-$color-green-light: #5fecb2;
+$color-green-light: #48eaa6;
 $color-white: #f7f7f2;
 $color-blue: #3777ff;
-
 $cusomt-font: 'Balsamiq Sans', cursive;
 
 body {
@@ -11,6 +10,10 @@ body {
 
 .custom-font {
   font-family: $cusomt-font;
+}
+
+h1.custom-font {
+  font-size: 3.2em;
 }
 
 .table-toolbar {
@@ -82,11 +85,10 @@ body {
 }
 
 .card {
-
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.18);
 
   .card-header {
-    background-color: $color-blue;
+    background-color: $color-green;
     color: white;
   }
 }
@@ -95,3 +97,46 @@ body {
   font-weight: bold;
 }
 
+#stats {
+  margin-bottom: 70px;
+
+  .stats-cards {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .card-stat {
+    flex-grow: 1;
+    margin: 0px 10px;
+
+    .card-body {
+      display: flex;
+      align-content: baseline;
+      background-color: $color-white;
+    }
+
+    .card-number {font-size: 2em;}
+
+    .card-data {
+      margin-left: 15px;
+      line-height: 1.2;
+    }
+
+    .card-description {
+      color: #666;
+    }
+
+    .card-icon {
+      padding-top: 5px;
+
+      i {
+        font-size: 1.5em;
+        border-radius: 50%;
+        background-color: $color-blue;
+        padding: 15px;
+        color: white;
+      }
+    }
+  }
+}
