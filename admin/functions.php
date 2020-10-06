@@ -261,5 +261,47 @@ function getNewEntryTopicsSelectHtml() {
   return $html;
 }
 
+/////////////////////////////////////////////////////////////
+// Checks if the topic name already exists in the database //
+/////////////////////////////////////////////////////////////
+function isTopicNameTaken($name) {
+  $stmt = '
+  SELECT Topics.id,
+         Topics.name
+  FROM   Topics
+  WHERE  name = :name
+  LIMIT  1';
+
+  $sql = dbConnect()->prepare($stmt);
+
+  // filter and bind name
+  $name = filter_var($name, FILTER_SANITIZE_STRING);
+  $sql->bindParam(':name', $name, PDO::PARAM_STR);
+
+  $sql->execute();
+  $result = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+  // return the result
+  if (count($result) == 0)
+    return false;
+  else
+    return true;
+}
+
+//////////////////////////////////////
+// Insert a topic into the database //
+//////////////////////////////////////
+function insertTopic($name) {
+  $stmt = 'INSERT into Topics (name) values (:name)';
+  $sql = dbConnect()->prepare($stmt);
+
+  // filter and bind name
+  $name = filter_var($name, FILTER_SANITIZE_STRING);
+  $sql->bindParam(':name', $name, PDO::PARAM_STR);
+
+  $sql->execute();
+  return $sql;
+}
+
 
 ?>

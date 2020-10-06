@@ -9,10 +9,22 @@ if (!isset($_SESSION['loggedIn'])) {
 
 include('functions.php'); 
 
-// display alert if entry was successfully created
+/////////////////////////////////////////////////////
+// display alert if entry was successfully created //
+/////////////////////////////////////////////////////
 function entryInserted() {
   if (isset($_GET['entry-inserted']) && $_GET['entry-inserted'] == 'true')
     echo getAlert('Entry was successfully created.');
+}
+
+//////////////////////////////////////////////////////////
+// Display an alert if a topic was successfully created //
+//////////////////////////////////////////////////////////
+function topicInserted() {
+  if (isset($_SESSION['topic-created']) && $_SESSION['topic-created'] == true) {
+    echo getAlert('Topic was successfully created');
+    unset($_SESSION['topic-created']);
+  }
 }
 
 ?>
@@ -28,6 +40,7 @@ function entryInserted() {
   <div class="container">
 
     <?php entryInserted(); ?>
+    <?php topicInserted(); ?>
 
     <h1 class="text-center mt-5 mb-5">Entries Admin Page</h1>
 
@@ -200,6 +213,41 @@ function entryInserted() {
               </div>
 
               <input type="submit" value="Create entry" class="btn btn-primary">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- new topic modal -->
+    <div class="modal fade" id="modal-new-topic" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">New topic</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            
+            <form>
+              <!-- name -->
+              <div class="form-group">
+                <label for="new-topic">Name</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class='bx bx-font'></i></span>
+                  </div>
+                  <input type="text" class="form-control" id="new-topic" name="new-topic" required>
+                  <div id="new-topic-invalid" class="invalid-feedback">
+                    Topic name already exists
+                  </div>
+                </div>
+              </div>
+
+              <!-- submit button -->
+              <button type="button" class="btn btn-primary btn-new-topic">Create new topic</button>
             </form>
           </div>
         </div>
