@@ -1,8 +1,9 @@
-const API            = 'api.blog.php';
-const entryTable     = $('.table-entries');
-const modalEntryEdit = $('#modal-entry-edit');
-const GITHUB_URL     = 'https://api.github.com/repos/rrickgauer/blog/contents/entries/';
-const GITHUB_AUTH    = 'token d5df00aa6482edcc03d419de2e660d90e6c25fbb';
+const API             = 'api.blog.php';
+const entryTable      = $('.table-entries');
+const modalEntryEdit  = $('#modal-entry-edit');
+const GITHUB_URL      = 'https://api.github.com/repos/rrickgauer/blog/contents/entries/';
+const GITHUB_AUTH     = 'token d5df00aa6482edcc03d419de2e660d90e6c25fbb';
+const BLOG_ENTRY_LINK = 'https://www.ryanrickgauer.com/blog/entries.php?entryID=';
 
 // set new date
 var newEntryDate = flatpickr("#new-entry-date", {
@@ -166,6 +167,10 @@ function displayEntryModal(entry) {
     maxDate: "today",
     defaultDate: entry.date_raw,
   });
+
+  // set the hrefs of the links
+  $(modalEntryEdit).find('.btn-link-source').attr('href', entry.link);
+  $(modalEntryEdit).find('.btn-link-post').attr('href', BLOG_ENTRY_LINK + entry.id);
 
   // display the modal
   $(modalEntryEdit).modal('show');

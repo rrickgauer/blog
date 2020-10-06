@@ -100,7 +100,6 @@ function topicInserted() {
           <div class="modal-body">
             
             <form>
-
               <!-- Title -->
               <div class="form-group">
                 <label for="edit-entry-title">Title:</label>
@@ -148,9 +147,13 @@ function topicInserted() {
               </div>
 
               <button type="button" class="btn btn-primary btn-submit-entry-edit">Save</button>
-              <button type="button" class="btn btn-danger btn-delete-entry">Delete</button>
-
             </form>
+          </div>
+
+          <div class="modal-footer">
+            <a href="#" target="_blank" class="btn btn-secondary btn-link-post">Check post</a>
+            <a href="#" target="_blank" class="btn btn-secondary btn-link-source">View source</a>
+            <button type="button" class="btn btn-danger btn-delete-entry">Delete</button>
           </div>
         </div>
       </div>
