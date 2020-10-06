@@ -155,7 +155,7 @@ function updateEntry($entryID, $title, $link, $date, $topicID) {
 ////////////////////////
 function insertEntry($title, $link, $date, $topicID) {
   $stmt = '
-  INSERT INTO Entries (title, link, date, opic_id)
+  INSERT INTO Entries (title, link, date, topic_id)
   VALUES (:title, :link, :date, :topicID)';
 
   $sql = dbConnect()->prepare($stmt);
