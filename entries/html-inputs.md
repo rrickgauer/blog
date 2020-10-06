@@ -14,26 +14,26 @@ Input | Description
 :--- | :---
 button | Defines a button-like input.
 checkbox | Defines a checkbox, which the user can toggle on or off.
-color | 
-date | 
-datetime-local | 
-email | 
+color | &nbsp;
+date | &nbsp;
+datetime-local | &nbsp;
+email | &nbsp;
 file | Defines a file upload box with a browse button.
 hidden | Defines a field within a form that is not visible to the user.
 image | Defines an image that is clicked to submit a form.
-month | 
-number | 
+month | &nbsp;
+number | &nbsp;
 password | Displays an obfuscated password entry field.
 radio | Defines a circular selection button in a form.
-range | 
+range | &nbsp;
 reset | Defines a button on a form that will return all fields to their default values.
-search | 
+search | &nbsp;
 submit | Defines a button that is clicked to submit a form.
-tel | 
+tel | &nbsp;
 text | Defines a text entry field in a form.
-time | 
-url | 
-week | 
+time | &nbsp;
+url | &nbsp;
+week | &nbsp;
 
 
 ## Input attributes
