@@ -47,12 +47,18 @@ function topicInserted() {
     <div class="table-toolbar">
       <!-- search box -->
       <div class="left">
+        <!-- search box -->
         <div class="input-group">
           <div class="input-group-prepend">
             <span class="input-group-text"><i class="bx bx-search"></i></span>
           </div>
           <input type="text" class="form-control tablesearch-input" placeholder="Search..." data-tablesearch-table="#table-entries" autofocus>
         </div>
+
+        <!-- filter by tag -->
+        <select class="form-control" id="filter-topics">
+          <option value="SHOW_ALL" selected>All</option>
+        </select>
       </div>
 
       <!-- new entry button -->

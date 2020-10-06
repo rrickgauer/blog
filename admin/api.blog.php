@@ -115,4 +115,14 @@ else if (isset($_POST['function'], $_POST['name']) && $_POST['function'] == 'ins
   exit;
 }
 
+///////////////////////////////////////////
+// Get the used topics and their counts  //
+///////////////////////////////////////////
+else if (isset($_GET['function']) && $_GET['function'] == 'get-used-topics') {
+  $result = getUsedDistinctTopics()->fetchAll(PDO::FETCH_ASSOC);
+  echo json_encode($result);
+  exit;
+}
+
+
 ?>

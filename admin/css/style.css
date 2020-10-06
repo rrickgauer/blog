@@ -3,6 +3,12 @@
   justify-content: space-between;
   margin-bottom: 20px;
 }
+.table-toolbar .left {
+  display: flex;
+}
+.table-toolbar #filter-topics {
+  margin-left: 20px;
+}
 
 .card-login {
   margin: 0px 200px;
