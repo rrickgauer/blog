@@ -54,6 +54,8 @@ function addMyListeners() {
   $('.btn-new-topic').on('click', insertNewTopic);
 
   $('#new-topic').on('click', clearNewTopicValidation);
+
+  $('#modal-new-topic').on('hidden.bs.modal', clearNewTopicModalInput);
 }
 
 
@@ -334,10 +336,19 @@ function insertNewTopic() {
   });
 }
 
+//////////////////////////////////////////////////////////////////////
+// When the new topic modal is closed, clear input and invalid text //
+//////////////////////////////////////////////////////////////////////
+function clearNewTopicModalInput() {
+  clearNewTopicValidation();
+  $('#new-topic').val('');
+}
+
 ///////////////////////////////////////////////////////////////
 // Removes the invalid text display from the new topic input //
 ///////////////////////////////////////////////////////////////
 function clearNewTopicValidation() {
   $('#new-topic').removeClass('is-invalid');
 }
+
 
