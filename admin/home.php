@@ -42,46 +42,53 @@ function topicInserted() {
     <?php entryInserted(); ?>
     <?php topicInserted(); ?>
 
-    <h1 class="text-center mt-5 mb-5">Entries Admin Page</h1>
-
-    <div class="table-toolbar">
-      <!-- search box -->
-      <div class="left">
-        <!-- search box -->
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text"><i class="bx bx-search"></i></span>
-          </div>
-          <input type="text" class="form-control tablesearch-input" placeholder="Search..." data-tablesearch-table="#table-entries" autofocus>
-        </div>
-
-        <!-- filter by tag -->
-        <select class="form-control" id="filter-topics">
-          <option value="SHOW_ALL" selected>All</option>
-        </select>
-      </div>
-
-      <!-- new entry button -->
-      <div class="right">
-        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-topic-new">New topic</button>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-entry-new">New entry</button>
-      </div>
-    </div>
+    <h1 class="text-center mt-5 mb-5 custom-font">Entries Admin Page</h1>
 
     <!-- entries table -->
-    <div class="table-responsive">
-      <table class="table table-sm table-entries tablesort tablesearch-table" id="table-entries">
-        <thead>
-          <tr>
-            <th data-tablesort-type="int">ID</th>
-            <th data-tablesort-type="string">Title</th>
-            <th data-tablesort-type="date">Date</th>
-            <th data-tablesort-type="string">Topic</th>
-          </tr>
-        </thead>
-        <tbody></tbody> 
-      </table>
+    <div class="card mb-5">
+      <div class="card-header">
+        <h4 class="custom-font">Entries</h4>
+      </div>
+      <div class="card-body">
+        <div class="table-toolbar">
+          <!-- search box -->
+          <div class="left">
+            <!-- search box -->
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="bx bx-search"></i></span>
+              </div>
+              <input type="text" class="form-control tablesearch-input" placeholder="Search..." data-tablesearch-table="#table-entries" autofocus>
+            </div>
+
+            <!-- filter by tag -->
+            <select class="form-control" id="filter-topics">
+              <option value="SHOW_ALL" selected>All</option>
+            </select>
+          </div>
+
+          <!-- new entry button -->
+          <div class="right">
+            <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#modal-topic-new">New topic</button>
+            <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-entry-new">New entry</button>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-sm table-entries tablesort tablesearch-table" id="table-entries">
+            <thead>
+              <tr>
+                <th data-tablesort-type="int">ID</th>
+                <th data-tablesort-type="string">Title</th>
+                <th data-tablesort-type="date">Date</th>
+                <th data-tablesort-type="string">Topic</th>
+              </tr>
+            </thead>
+            <tbody></tbody> 
+          </table>
+        </div>
+      </div>
     </div>
+
 
   </div>
 
@@ -146,14 +153,14 @@ function topicInserted() {
                 </div>
               </div>
 
-              <button type="button" class="btn btn-primary btn-submit-entry-edit">Save</button>
+              <button type="button" class="btn btn-sm btn-primary btn-submit-entry-edit">Save</button>
             </form>
           </div>
 
           <div class="modal-footer">
-            <a href="#" target="_blank" class="btn btn-secondary btn-link-post">Check post</a>
-            <a href="#" target="_blank" class="btn btn-secondary btn-link-source">View source</a>
-            <button type="button" class="btn btn-danger btn-delete-entry">Delete</button>
+            <a href="#" target="_blank" class="btn btn-sm btn-secondary btn-link-post">Check post</a>
+            <a href="#" target="_blank" class="btn btn-sm btn-secondary btn-link-source">View source</a>
+            <button type="button" class="btn btn-sm btn-danger btn-delete-entry">Delete</button>
           </div>
         </div>
       </div>
@@ -222,7 +229,7 @@ function topicInserted() {
                 </div>
               </div>
 
-              <input type="submit" value="Create entry" class="btn btn-primary">
+              <input type="submit" value="Create entry" class="btn btn-sm btn-primary">
             </form>
           </div>
         </div>
@@ -244,7 +251,7 @@ function topicInserted() {
             <form>
               <!-- name -->
               <div class="form-group">
-                <label for="new-topic">Name</label>
+                <label for="new-topic">Name:</label>
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class='bx bx-font'></i></span>
@@ -257,7 +264,7 @@ function topicInserted() {
               </div>
 
               <!-- submit button -->
-              <button type="button" class="btn btn-primary btn-new-topic">Create new topic</button>
+              <button type="button" class="btn btn-sm btn-primary btn-new-topic">Create new topic</button>
             </form>
           </div>
         </div>

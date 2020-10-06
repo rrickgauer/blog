@@ -1,3 +1,17 @@
+$color-green: #17c37b;
+$color-green-light: #5fecb2;
+$color-white: #f7f7f2;
+$color-blue: #3777ff;
+
+$cusomt-font: 'Balsamiq Sans', cursive;
+
+body {
+  background-color: $color-white;
+}
+
+.custom-font {
+  font-family: $cusomt-font;
+}
 
 .table-toolbar {
   display: flex;
@@ -22,7 +36,7 @@
 
     .tablesort-asc,
     .tablesort-desc {
-      color: red;
+      color: $color-blue;
     }
   }
 
@@ -36,9 +50,48 @@
 
 
 #navbar {
+  background-color: $color-green;
+  
+  .nav-link {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    &:hover {color: $color-blue;}
+  }  
+
   #navbarNavDropdown {
     display: flex;
     justify-content: space-around;
   }
+}
+
+.modal-header {
+  background-color: $color-green;
+  color: white;
+  font-family: $cusomt-font;
+  .modal-title {font-weight: bold;}
+
+  .close {
+    color: white;
+  }
+}
+
+.modal-body,
+.modal-footer {
+  background-color: $color-white;
+}
+
+.card {
+
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.18);
+
+  .card-header {
+    background-color: $color-blue;
+    color: white;
+  }
+}
+
+.form-group label {
+  font-weight: bold;
 }
 
