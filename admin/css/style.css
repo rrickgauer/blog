@@ -12,4 +12,16 @@
   margin-top: 100px;
 }
 
+#table-entries thead th:hover {
+  cursor: pointer;
+}
+#table-entries thead .tablesort-asc,
+#table-entries thead .tablesort-desc {
+  color: red;
+}
+#table-entries tbody .table-entries-row:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+}
+
 /*# sourceMappingURL=style.css.map */
