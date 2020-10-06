@@ -10,5 +10,8 @@
 <!-- jquery toast: https://kamranahmed.info/toast -->
 <link rel="stylesheet" href="css/external/jquery.toast.min.css">
 
+<!-- custom font -->
+<link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet" />
+
 <!-- personal css -->
 <link rel="stylesheet" type="text/css" href="css/style.css" />
