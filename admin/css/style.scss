@@ -3,6 +3,9 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+
+  .left {display: flex;}
+  #filter-topics {margin-left: 20px;}
 }
 
 .card-login {
