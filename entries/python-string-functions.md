@@ -52,3 +52,10 @@ Method | Description
 
 Source: https://www.w3schools.com/python/python_ref_string.asp
 
+
+
+<script>
+  $(document).ready(function() {
+    $('table').addClass('table-sort');
+  });
+</script>
