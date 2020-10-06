@@ -27,6 +27,8 @@ function topicInserted() {
   }
 }
 
+$stats = getStats()->fetch(PDO::FETCH_ASSOC);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,6 +45,30 @@ function topicInserted() {
     <?php topicInserted(); ?>
 
     <h1 class="text-center mt-5 mb-5 custom-font">Entries Admin Page</h1>
+
+    <div id="stats" class="mb-5">
+
+      <div class="stats-cards">
+        <div class="card card-stat">
+          <div class="card-body">
+            <?php echo $stats['count_entries']; ?> entries
+          </div>
+        </div>
+
+        <div class="card card-stat">
+          <div class="card-body">
+            <?php echo $stats['favorite_topic']; ?> most popular topic
+          </div>
+        </div>
+
+        <div class="card card-stat">
+          <div class="card-body">
+            <?php echo $stats['count_weekly_posts']; ?> posts this week
+          </div>
+        </div>
+        
+      </div>
+    </div>
 
     <!-- entries table -->
     <div class="card mb-5">
