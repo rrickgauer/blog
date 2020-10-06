@@ -30,4 +30,9 @@
   background-color: lightgrey;
 }
 
+#navbar #navbarNavDropdown {
+  display: flex;
+  justify-content: space-around;
+}
+
 /*# sourceMappingURL=style.css.map */
