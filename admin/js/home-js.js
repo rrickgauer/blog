@@ -21,7 +21,8 @@ $(document).ready(function() {
   getEntries();
   $("#nav-item-home").addClass('active');
   addMyListeners();
-  getGithubEntryFiles(loadGithubEntries);
+  // getGithubEntryFiles(loadGithubEntries);
+  getUsedTopics(displayUsedTopicsOptions);
 });
 
 
@@ -348,4 +349,39 @@ function clearNewTopicValidation() {
   $('#new-topic').removeClass('is-invalid');
 }
 
+//////////////////////////////////////
+// Get the used topics from the api //
+//////////////////////////////////////
+function getUsedTopics(action) {
+
+  var data = {
+    function: "get-used-topics",
+  }
+
+  $.getJSON(API, data, function(response) {
+    action(response);
+  })
+  .fail(function(response) {
+    displayAlert('Error fetching used distinct topics from db!');
+    return;
+  });
+}
+
+//////////////////////////////////
+// Display the used topics html //
+//////////////////////////////////
+function displayUsedTopicsOptions(topics) {
+  var html = '';
+  for (var count = 0; count < topics.length; count++)
+    html += getUsedTopicSelectHtml(topics[count]);
+
+  $('#filter-topics').html(html);
+}
+
+///////////////////////////////////////////////
+// Generate a used topic select html element //
+///////////////////////////////////////////////
+function getUsedTopicSelectHtml(topic) {
+  return `<option value="${topic.name}">${topic.name}</option>`;
+}
 

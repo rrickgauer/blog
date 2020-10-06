@@ -303,5 +303,29 @@ function insertTopic($name) {
   return $sql;
 }
 
+//////////////////////////////////////////////////////////////
+// Returns list of all used distinct topics and their count 
+//
+// id
+// name
+// count
+//////////////////////////////////////////////////////////////
+function getUsedDistinctTopics() {
+  $stmt = '
+  SELECT t.id,
+         t.name,
+         COUNT(Entries.id) AS count
+  FROM   Topics t,
+         Entries
+  WHERE  t.id = Entries.topic_id
+  GROUP  BY t.id
+  ORDER  BY NAME ASC';
+
+  $sql = dbConnect()->prepare($stmt);
+  $sql->execute();
+
+  return $sql;
+}
+
 
 ?>
