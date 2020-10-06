@@ -23,7 +23,7 @@
             <a class="dropdown-item" target="_blank" href="https://github.com/rrickgauer/blog/issues?q=is%3Aissue+is%3Aopen+-label%3Aadmin+-label%3Adocumentation+-label%3A%22new+entry%22+-label%3A%22edit+entry%22+-label%3Aresearch">Source</a>
           </div>
         </li>
-
+        
       </ul>
     </div>
   </nav>
