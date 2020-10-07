@@ -157,6 +157,9 @@ else if (isset($_POST['function'], $_POST['topicID']) && $_POST['function'] == '
   exit;
 }
 
+//////////////////////////////////////////////////
+// Return the data for the monthly entry counts //
+//////////////////////////////////////////////////
 else if (isset($_GET['function']) && $_GET['function'] == 'get-monthly-entry-counts') {
   $counts = getMonthlyEntryCounts()->fetchAll(PDO::FETCH_ASSOC);
   echo json_encode($counts);

@@ -383,7 +383,13 @@ function deleteTopic($topicID) {
   return $sql;
 }
 
-
+////////////////////////////////////////////////////////////////////
+// Returns the number of entries posted monthly for the past year 
+//
+// MONTH(e.date)
+// date_display
+// count
+////////////////////////////////////////////////////////////////////
 function getMonthlyEntryCounts() {
   $stmt = '
   SELECT MONTH(e.DATE),

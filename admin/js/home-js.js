@@ -393,13 +393,17 @@ function filterTopics() {
   $('.table-entries-row[data-topic="' + topic + '"]').show();
 }
 
-
+/////////////////////////////
+// Load all the chart data //
+/////////////////////////////
 function loadCharts() {
   getTopicsChartData();
   getMonthlyEntryCountsData();
 }
 
-
+///////////////////////////////
+// Get data for topics chart //
+///////////////////////////////
 function getTopicsChartData() {
   var data = {
     function: "get-topics",
@@ -427,6 +431,9 @@ function getTopicsChartData() {
   });
 }
 
+//////////////////////////////
+// Display the topics chart //
+//////////////////////////////
 function loadTopicsChart(topicNames, topicCounts) {
   var ctx = document.getElementById('chart-topics');
   new Chart(ctx, {
@@ -444,6 +451,9 @@ function loadTopicsChart(topicNames, topicCounts) {
   });
 }
 
+/////////////////////////////////////
+// Retrieve the montly counts data //
+/////////////////////////////////////
 function getMonthlyEntryCountsData() {
   var data = {function: "get-monthly-entry-counts"}
 
@@ -465,6 +475,9 @@ function getMonthlyEntryCountsData() {
   });
 }
 
+/////////////////////////////////////
+// Dsiplay the montly counts data  //
+/////////////////////////////////////
 function loadMonthlyEntryCountsChart(dates, counts) {
   var ctz = document.getElementById('chart-entries');
   new Chart(ctz, {
