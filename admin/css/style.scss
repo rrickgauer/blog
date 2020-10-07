@@ -162,10 +162,10 @@ h1.custom-font {
 .stats-graphs {
   display: flex;
   flex-wrap: nowrap;
-
-  margin-top: 20px;
+  margin-top: 30px;
 
   .chart {
+    padding: 10px;
     max-width: 50%;
     nax-height: auto;
   }
