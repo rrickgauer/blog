@@ -51,12 +51,6 @@ function addMyListeners() {
 
   $('.btn-delete-entry').on('click', deleteEntry);
 
-  $('.btn-new-topic').on('click', insertNewTopic);
-
-  $('#new-topic').on('click', clearNewTopicValidation);
-
-  $('#modal-topic-new').on('hidden.bs.modal', clearNewTopicModalInput);
-
   $('#filter-topics').on('change', filterTopics);
 }
 
@@ -319,41 +313,6 @@ function deleteEntry() {
     displayAlert('Error. Entry was not deleted.');
     return;
   });
-}
-
-////////////////////////////////////
-// Insert a new topic into the db //
-////////////////////////////////////
-function insertNewTopic() {
-  var topicName = $('#new-topic').val();
-
-  var data = {
-    function: "insert-topic",
-    name: topicName,
-  }
-
-  $.post(API, data, function(response) {
-    window.location.href = 'home.php';
-  })
-  .fail(function(response) {
-    // show invalid state
-    $('#new-topic').addClass('is-invalid');
-  });
-}
-
-//////////////////////////////////////////////////////////////////////
-// When the new topic modal is closed, clear input and invalid text //
-//////////////////////////////////////////////////////////////////////
-function clearNewTopicModalInput() {
-  clearNewTopicValidation();
-  $('#new-topic').val('');
-}
-
-///////////////////////////////////////////////////////////////
-// Removes the invalid text display from the new topic input //
-///////////////////////////////////////////////////////////////
-function clearNewTopicValidation() {
-  $('#new-topic').removeClass('is-invalid');
 }
 
 //////////////////////////////////////

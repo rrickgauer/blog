@@ -18,16 +18,6 @@ function entryInserted() {
     unset($_SESSION['entry-inserted']);
 }
 
-//////////////////////////////////////////////////////////
-// Display an alert if a topic was successfully created //
-//////////////////////////////////////////////////////////
-function topicInserted() {
-  if (isset($_SESSION['topic-created']) && $_SESSION['topic-created'] == true) {
-    echo getAlert('Topic was successfully created');
-    unset($_SESSION['topic-created']);
-  }
-}
-
 $stats = getStats()->fetch(PDO::FETCH_ASSOC);
 
 ?>
@@ -43,8 +33,7 @@ $stats = getStats()->fetch(PDO::FETCH_ASSOC);
   <div class="container">
 
     <?php entryInserted(); ?>
-    <?php topicInserted(); ?>
-
+    
     <h1 class="text-center mt-5 mb-5 custom-font">Entries Admin Page</h1>
 
     <div id="stats" class="card">
@@ -133,7 +122,7 @@ $stats = getStats()->fetch(PDO::FETCH_ASSOC);
 
           <!-- new entry button -->
           <div class="right">
-            <button type="button" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#modal-topic-new">New topic</button>
+            <!-- <button type="button" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#modal-topic-new">New topic</button> -->
             <button type="button" class="btn btn-sm btn-secondary" data-toggle="modal" data-target="#modal-entry-new">New entry</button>
           </div>
         </div>
@@ -294,41 +283,6 @@ $stats = getStats()->fetch(PDO::FETCH_ASSOC);
               </div>
 
               <input type="submit" value="Create entry" class="btn btn-sm btn-primary">
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- new topic modal -->
-    <div class="modal fade" id="modal-topic-new" tabindex="-1">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">New topic</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            
-            <form>
-              <!-- name -->
-              <div class="form-group">
-                <label for="new-topic">Name:</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class='bx bx-font'></i></span>
-                  </div>
-                  <input type="text" class="form-control" id="new-topic" name="new-topic" required>
-                  <div id="new-topic-invalid" class="invalid-feedback">
-                    Topic name already exists
-                  </div>
-                </div>
-              </div>
-
-              <!-- submit button -->
-              <button type="button" class="btn btn-sm btn-primary btn-new-topic">Create new topic</button>
             </form>
           </div>
         </div>
