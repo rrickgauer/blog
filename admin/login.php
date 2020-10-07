@@ -29,10 +29,10 @@ function displaySavedEmail() {
   <title>Log in</title>
   <?php include('header.php'); ?>
 </head>
-<body>
+<body class="bg-green-white">
 
   <div class="container">
-    <h1 class="text-center mt-huge mb-5">Admin Login</h1>
+    <h1 class="text-center mt-huge mb-5 custom-font color-green">Admin Login</h1>
 
     <!-- login form -->
     <div class="card card-login">
@@ -43,7 +43,7 @@ function displaySavedEmail() {
         <form method="post" action="api.blog.php">
           <!-- email -->
           <div class="form-group">
-            <label for="login-email">Email address</label>
+            <label for="login-email" class="custom-font">Email address</label>
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text">@</span>
@@ -53,8 +53,8 @@ function displaySavedEmail() {
           </div>
 
           <!-- password -->
-          <div class="form-group">
-            <label for="login-password">Password</label>
+          <div class="form-group mt-4">
+            <label for="login-password" class="custom-font">Password</label>
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="bx bx-lock-alt"></i></span>
@@ -69,7 +69,7 @@ function displaySavedEmail() {
             <label class="form-check-label" for="login-save-email">Remember my email</label>
           </div>
 
-          <input type="submit" value="Log in" class="btn btn-primary float-right">
+          <input type="submit" value="Log in" class="btn btn-sm btn-primary float-right">
         </form>
       </div>
     </div>
