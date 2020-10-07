@@ -365,5 +365,23 @@ function getStats() {
   return $sql;
 }
 
+////////////////////////////////////
+// Delete a topic from the datase //
+////////////////////////////////////
+function deleteTopic($topicID) {
+  $stmt = '
+  DELETE FROM Topics
+  WHERE  id = :topicID';
+
+  $sql = dbConnect()->prepare($stmt);
+
+  // filter and bind topic id
+  $topicID = filter_var($topicID, FILTER_SANITIZE_NUMBER_INT);
+  $sql->bindParam(':topicID', $topicID, PDO::PARAM_INT);
+
+  $sql->execute();
+  return $sql;
+}
+
 
 ?>

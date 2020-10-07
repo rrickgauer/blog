@@ -135,4 +135,17 @@ else if (isset($_GET['function']) && $_GET['function'] == 'get-topics') {
   exit;
 }
 
+//////////////////////////////////
+// Delete a topic from database //
+//////////////////////////////////
+else if (isset($_POST['function'], $_POST['topicID']) && $_POST['function'] == 'delete-topic') {
+  $topicID = $_POST['topicID'];
+  $result = deleteTopic($topicID);
+
+  // return bad response if there was an error
+  if ($result->rowCount() != 1)
+    echo getBadResponseCode();
+  exit;
+}
+
 ?>
