@@ -4,6 +4,14 @@ $color-white: #f7f7f2;
 $color-blue: #3777ff;
 $cusomt-font: 'Balsamiq Sans', cursive;
 
+.color-green {color: $color-green;}
+.color-white {color: $color-white;}
+.color-blue {color: $color-blue;}
+.bg-green {background-color: $color-green;}
+.bg-green-light {background-color: $color-green-light;}
+.bg-white {background-color: $color-white !important;}
+.bg-blue {background-color: $color-blue;}
+
 body {
   background-color: $color-white;
 }

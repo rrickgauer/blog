@@ -1,3 +1,31 @@
+.color-green {
+  color: #17c37b;
+}
+
+.color-white {
+  color: #f7f7f2;
+}
+
+.color-blue {
+  color: #3777ff;
+}
+
+.bg-green {
+  background-color: #17c37b;
+}
+
+.bg-green-light {
+  background-color: #48eaa6;
+}
+
+.bg-white {
+  background-color: #f7f7f2 !important;
+}
+
+.bg-blue {
+  background-color: #3777ff;
+}
+
 body {
   background-color: #f7f7f2;
 }
