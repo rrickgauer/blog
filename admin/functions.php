@@ -384,4 +384,18 @@ function deleteTopic($topicID) {
 }
 
 
+function getMonthlyEntryCounts() {
+  $stmt = '
+  SELECT MONTH(e.DATE),
+         DATE_FORMAT(e.DATE, "%M %Y") AS date_display,
+         COUNT(e.DATE)                AS count
+  FROM   Entries e
+  WHERE  e.DATE >= NOW() - interval 1 year
+  GROUP  BY MONTH(e.DATE)';
+
+  $sql = dbConnect()->prepare($stmt);
+  $sql->execute();
+  return $sql;
+}
+
 ?>

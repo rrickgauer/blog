@@ -99,7 +99,7 @@ $stats = getStats()->fetch(PDO::FETCH_ASSOC);
 
         <div class="stats-graphs">
           <canvas id="chart-topics" class="chart"></canvas>
-          <!-- <canvas id="chart-entries" class="chart"></canvas> -->
+          <canvas id="chart-entries" class="chart"></canvas>
         </div>
 
         

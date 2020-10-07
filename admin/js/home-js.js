@@ -395,8 +395,12 @@ function filterTopics() {
 
 
 function loadCharts() {
-  // loadTopicsChart(['Red', 'Blue', 'Yellow', 'Green', 'Purple'], [12, 19, 3, 5, 2]);
+  getTopicsChartData();
+  getMonthlyEntryCountsData();
+}
 
+
+function getTopicsChartData() {
   var data = {
     function: "get-topics",
   }
@@ -406,15 +410,18 @@ function loadCharts() {
     topics.sort(function(a, b) {
       return a.count > b.count ? -1 : 1;
     });
-    
-    // build the lists
+
     var topicNames = [], topicCounts = [];
+
+    // build the lists
     for (var count = 0; count < 5; count++) {
       topicNames.push(topics[count].name)
       topicCounts.push(topics[count].count);
     }
+    
     loadTopicsChart(topicNames, topicCounts);
   })
+
   .fail(function(response) {
     displayAlert('Error. Could not load topic charts!');
   });
@@ -430,8 +437,47 @@ function loadTopicsChart(topicNames, topicCounts) {
         data: topicCounts,
         backgroundColor: CHART_COLORS.backgroundColor,
         borderColor: CHART_COLORS.borderColor,
-        borderWidth: 1
+        borderWidth: 1,
+        label: 'Topic count',
       }]
+    },
+  });
+}
+
+function getMonthlyEntryCountsData() {
+  var data = {function: "get-monthly-entry-counts"}
+
+  $.getJSON(API, data, function(response) {
+    var dates = [], counts = [];
+    
+    // build lists
+    for (var count = 0; count < response.length && count < 5; count++) {
+      dates.push(response[count].date_display);
+      counts.push(response[count].count);
+    }
+
+    // display data
+    loadMonthlyEntryCountsChart(dates, counts);
+  })
+  .fail(function(response) {
+    displayAlert('Error! Failed to fetch monthly entry counts from API');
+    return;
+  });
+}
+
+function loadMonthlyEntryCountsChart(dates, counts) {
+  var ctz = document.getElementById('chart-entries');
+  new Chart(ctz, {
+    type: 'line',
+    data: {
+      labels: dates,
+      datasets: [{
+        data: counts,
+        label: "Entries posted",
+        borderColor: "#3e95cd",
+        fill: false
+      }],
+      fill: false,
     },
   });
 }

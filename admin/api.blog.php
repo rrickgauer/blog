@@ -157,4 +157,10 @@ else if (isset($_POST['function'], $_POST['topicID']) && $_POST['function'] == '
   exit;
 }
 
+else if (isset($_GET['function']) && $_GET['function'] == 'get-monthly-entry-counts') {
+  $counts = getMonthlyEntryCounts()->fetchAll(PDO::FETCH_ASSOC);
+  echo json_encode($counts);
+  exit;
+}
+
 ?>
