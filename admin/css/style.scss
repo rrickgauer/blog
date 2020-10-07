@@ -157,3 +157,16 @@ h1.custom-font {
     }
   }
 }
+
+
+.stats-graphs {
+  display: flex;
+  flex-wrap: nowrap;
+
+  margin-top: 20px;
+
+  .chart {
+    max-width: 50%;
+    nax-height: auto;
+  }
+}

@@ -157,4 +157,14 @@ h1.custom-font {
   color: white;
 }
 
+.stats-graphs {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-top: 20px;
+}
+.stats-graphs .chart {
+  max-width: 50%;
+  nax-height: auto;
+}
+
 /*# sourceMappingURL=style.css.map */

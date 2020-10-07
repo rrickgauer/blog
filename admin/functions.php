@@ -327,7 +327,7 @@ function getUsedDistinctTopics() {
          Entries
   WHERE  t.id = Entries.topic_id
   GROUP  BY t.id
-  ORDER  BY NAME ASC';
+  ORDER  BY t.name ASC';
 
   $sql = dbConnect()->prepare($stmt);
   $sql->execute();
