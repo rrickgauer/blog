@@ -103,7 +103,8 @@ $stats = getStats()->fetch(PDO::FETCH_ASSOC);
         <h3 class="custom-font">Entries</h3>
       </div>
       <div class="card-body">
-        <div class="table-toolbar">
+
+        <div class="toolbar toolbar-table">
           <!-- search box -->
           <div class="left">
             <!-- search box -->

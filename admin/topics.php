@@ -32,14 +32,22 @@ function topicInserted() {
     <?php topicInserted(); ?>
     <h1 class="text-center mt-5 mb-5 custom-font">Topics</h1>
 
-    <div class="table-toolbar">
+    <div class="toolbar toolbar-topics">
+
       <!-- search box -->
       <div class="left">
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text"><i class="bx bx-search"></i></span>
+        <div>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="bx bx-search"></i></span>
+            </div>
+            <input type="text" class="form-control tablesearch-input" placeholder="Search..." data-tablesearch-table="#table-topics" autofocus>
           </div>
-          <input type="text" class="form-control tablesearch-input" placeholder="Search..." data-tablesearch-table="#table-topics" autofocus>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="toggle-unused-topics" value="yes">
+          <label class="form-check-label" for="toggle-unused-topics">Show unused topics</label>
         </div>
       </div>
 

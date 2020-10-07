@@ -16,13 +16,21 @@ h1.custom-font {
   font-size: 3.2em;
 }
 
-.table-toolbar {
+
+.toolbar {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
 
-  .left {display: flex;}
-  #filter-topics {margin-left: 20px;}
+  .left {
+    display: flex;
+    align-items: center;
+  }
+}
+
+#filter-topics,
+#toggle-unused-topics{
+  margin-left: 20px;
 }
 
 .card-login {

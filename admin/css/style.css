@@ -10,15 +10,18 @@ h1.custom-font {
   font-size: 3.2em;
 }
 
-.table-toolbar {
+.toolbar {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
 }
-.table-toolbar .left {
+.toolbar .left {
   display: flex;
+  align-items: center;
 }
-.table-toolbar #filter-topics {
+
+#filter-topics,
+#toggle-unused-topics {
   margin-left: 20px;
 }
 

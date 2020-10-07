@@ -21,6 +21,7 @@ function addMyListeners() {
   $('.btn-new-topic').on('click', insertNewTopic);
   $('#new-topic').on('keyup', clearNewTopicValidation);
   $('#modal-topic-new').on('hidden.bs.modal', clearNewTopicModalInput);
+  $('#toggle-unused-topics').on('click', toggleUnusedTopics);
 }
 
 
@@ -66,6 +67,7 @@ function loadTopicsTable(topics) {
 
   $('#table-topics tbody').html(html);
   loadAllTableText();
+  toggleUnusedTopics();
 }
 
 /////////////////////////////////////////////
@@ -149,4 +151,12 @@ function clearNewTopicModalInput() {
 ///////////////////////////////////////////////////////////////
 function clearNewTopicValidation() {
   $('#new-topic').removeClass('is-invalid');
+}
+
+
+//////////////////////////////////
+// Show/hide unsused topic rows //
+//////////////////////////////////
+function toggleUnusedTopics() {
+  $('.topic-row .topic-row-count:contains(0)').closest('.topic-row').toggle();
 }
