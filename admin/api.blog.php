@@ -75,6 +75,15 @@ else if (isset($_POST['login-email'], $_POST['login-password'])) {
 
   if (isValidEmailAndPassword($email, $password)) {
     $_SESSION['loggedIn'] = true;
+
+    // set the cookie to remeber the login email
+    if (isset($_POST['login-save-email']))
+      setcookie('save-email', $email, time() + (86400 * 30), '/');
+    else {
+      setcookie('save-email', '', time() - 3600, "/");
+    }
+
+    // go to the home page
     header('Location: home.php');
     exit;
   }

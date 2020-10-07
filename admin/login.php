@@ -7,6 +7,20 @@ function invalidLogin() {
   if (isset($_GET['logged-in']))
     echo getAlert('Email and password do not match.', 'danger');
 }
+
+// check the remember email checkbox if it was saved already
+function markCheckbox() {
+  if (isset($_COOKIE['save-email'])) {
+    echo 'checked';
+  }
+}
+
+// set the email to saved email
+function displaySavedEmail() {
+  if (isset($_COOKIE['save-email'])) {
+    echo ' value="' . $_COOKIE['save-email'] . '" ';
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +48,7 @@ function invalidLogin() {
               <div class="input-group-prepend">
                 <span class="input-group-text">@</span>
               </div>
-              <input type="email" class="form-control" id="login-email" name="login-email" required>
+              <input type="email" class="form-control" id="login-email" name="login-email" <?php displaySavedEmail(); ?> required>
             </div>
           </div>
 
@@ -49,7 +63,13 @@ function invalidLogin() {
             </div>
           </div>
 
-          <input type="submit" value="Log in" class="btn btn-primary">
+          <!-- remember my email checkbox -->
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" name="login-save-email" id="login-save-email" value="true" <?php markCheckbox(); ?> >
+            <label class="form-check-label" for="login-save-email">Remember my email</label>
+          </div>
+
+          <input type="submit" value="Log in" class="btn btn-primary float-right">
         </form>
       </div>
     </div>
