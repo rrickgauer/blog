@@ -5,7 +5,18 @@ const API = 'api.blog.php';
 //////////
 $(document).ready(function() {
   getTopics(loadTopicsTable);
+  addMyListeners();
 });
+
+
+//////////////////////////////
+// Adds the event listeners //
+//////////////////////////////
+function addMyListeners() {
+  $('#table-topics').on('click', '.btn-delete-topic', function() {
+    deleteTopic(this);
+  });
+}
 
 
 /////////////////////////////////////
@@ -57,11 +68,45 @@ function loadTopicsTable(topics) {
 /////////////////////////////////////////////
 function getTopicTableRowHtml(topic) {
   var html = `
-  <tr>
-      <td>${topic.id}</td>
-      <td>${topic.name}</td>
-      <td>${topic.count}</td>
+  <tr class="topic-row" data-topic-id="${topic.id}">
+      <td class="topic-row-id">${topic.id}</td>
+      <td class="topic-row-name">${topic.name}</td>
+      <td class="topic-row-count">${topic.count}</td>
+      <td class="topic-row-action"><button class="btn btn-sm btn-delete-topic"><i class='bx bx-trash'></i></button></td>
   </tr>`;
 
   return html;
+}
+
+////////////////////
+// Delete a topic //
+////////////////////
+function deleteTopic(btn) {
+  var topicRow = $(btn).closest('.topic-row');
+  var topicID = $(topicRow).attr('data-topic-id');
+
+  // don't delete if count > 0
+  if ($(topicRow).find('.topic-row-count').text() != '0') {
+    alert('Cannot delete used topic.');
+    return;
+  }
+
+  // confirm that I want to delete the topic
+  if (!confirm('Are you sure you want to delete this topic?'))
+    return;
+
+  var data = {
+    function: "delete-topic",
+    topicID: topicID
+  }
+
+  $.post(API, data, function(response) {
+    $(topicRow).remove();
+    displayAlert('Topic successfully deleted');
+    return;
+  })
+  .fail(function(response) {
+    displayAlert('Error! Topic was not deleted');
+    return;
+  });
 }

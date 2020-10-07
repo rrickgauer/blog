@@ -30,12 +30,13 @@ include_once('functions.php');
 
     <!-- topics table -->
     <div class="table-respsonsive">
-      <table class="table table-sm tablesort tablesearch-table" id="table-topics">
+      <table class="table tablesort tablesearch-table" id="table-topics">
         <thead>
           <tr>
             <th data-tablesort-type="int">ID</th>
             <th data-tablesort-type="string">Name</th>
             <th data-tablesort-type="int">Count</th>
+            <th>Delete</th>
           </tr>
         </thead>
 
