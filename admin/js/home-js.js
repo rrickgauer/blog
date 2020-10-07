@@ -5,6 +5,24 @@ const GITHUB_URL      = 'https://api.github.com/repos/rrickgauer/blog/contents/e
 const GITHUB_AUTH     = 'token d5df00aa6482edcc03d419de2e660d90e6c25fbb';
 const BLOG_ENTRY_LINK = 'https://www.ryanrickgauer.com/blog/entries.php?entryID=';
 
+
+const CHART_COLORS = {
+  backgroundColor: [
+      'rgba(255, 99, 132, 0.2)',
+      'rgba(54, 162, 235, 0.2)',
+      'rgba(255, 206, 86, 0.2)',
+      'rgba(75, 192, 192, 0.2)',
+      'rgba(153, 102, 255, 0.2)'
+  ],
+  borderColor: [
+      'rgba(255, 99, 132, 1)',
+      'rgba(54, 162, 235, 1)',
+      'rgba(255, 206, 86, 1)',
+      'rgba(75, 192, 192, 1)',
+      'rgba(153, 102, 255, 1)'
+  ],
+}
+
 // set new date
 var newEntryDate = flatpickr("#new-entry-date", {
   altInput: true,
@@ -24,6 +42,8 @@ $(document).ready(function() {
   addMyListeners();
   // getGithubEntryFiles(loadGithubEntries);
   getUsedTopics(displayUsedTopicsOptions);
+
+  loadCharts();
 });
 
 
@@ -372,3 +392,106 @@ function filterTopics() {
   // show the ones with the topic
   $('.table-entries-row[data-topic="' + topic + '"]').show();
 }
+
+/////////////////////////////
+// Load all the chart data //
+/////////////////////////////
+function loadCharts() {
+  getTopicsChartData();
+  getMonthlyEntryCountsData();
+}
+
+///////////////////////////////
+// Get data for topics chart //
+///////////////////////////////
+function getTopicsChartData() {
+  var data = {
+    function: "get-topics",
+  }
+
+  $.getJSON(API, data, function(topics) {
+    // sort the topics by highest count
+    topics.sort(function(a, b) {
+      return a.count > b.count ? -1 : 1;
+    });
+
+    var topicNames = [], topicCounts = [];
+
+    // build the lists
+    for (var count = 0; count < 5; count++) {
+      topicNames.push(topics[count].name)
+      topicCounts.push(topics[count].count);
+    }
+    
+    loadTopicsChart(topicNames, topicCounts);
+  })
+
+  .fail(function(response) {
+    displayAlert('Error. Could not load topic charts!');
+  });
+}
+
+//////////////////////////////
+// Display the topics chart //
+//////////////////////////////
+function loadTopicsChart(topicNames, topicCounts) {
+  var ctx = document.getElementById('chart-topics');
+  new Chart(ctx, {
+    type: 'horizontalBar',
+    data: {
+      labels: topicNames,
+      datasets: [{
+        data: topicCounts,
+        backgroundColor: CHART_COLORS.backgroundColor,
+        borderColor: CHART_COLORS.borderColor,
+        borderWidth: 1,
+        label: 'Topic count',
+      }]
+    },
+  });
+}
+
+/////////////////////////////////////
+// Retrieve the montly counts data //
+/////////////////////////////////////
+function getMonthlyEntryCountsData() {
+  var data = {function: "get-monthly-entry-counts"}
+
+  $.getJSON(API, data, function(response) {
+    var dates = [], counts = [];
+    
+    // build lists
+    for (var count = 0; count < response.length && count < 5; count++) {
+      dates.push(response[count].date_display);
+      counts.push(response[count].count);
+    }
+
+    // display data
+    loadMonthlyEntryCountsChart(dates, counts);
+  })
+  .fail(function(response) {
+    displayAlert('Error! Failed to fetch monthly entry counts from API');
+    return;
+  });
+}
+
+/////////////////////////////////////
+// Dsiplay the montly counts data  //
+/////////////////////////////////////
+function loadMonthlyEntryCountsChart(dates, counts) {
+  var ctz = document.getElementById('chart-entries');
+  new Chart(ctz, {
+    type: 'line',
+    data: {
+      labels: dates,
+      datasets: [{
+        data: counts,
+        label: "Entries posted",
+        borderColor: "#3e95cd",
+        fill: false
+      }],
+      fill: false,
+    },
+  });
+}
+

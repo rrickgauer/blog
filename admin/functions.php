@@ -327,7 +327,7 @@ function getUsedDistinctTopics() {
          Entries
   WHERE  t.id = Entries.topic_id
   GROUP  BY t.id
-  ORDER  BY NAME ASC';
+  ORDER  BY t.name ASC';
 
   $sql = dbConnect()->prepare($stmt);
   $sql->execute();
@@ -383,5 +383,25 @@ function deleteTopic($topicID) {
   return $sql;
 }
 
+////////////////////////////////////////////////////////////////////
+// Returns the number of entries posted monthly for the past year 
+//
+// MONTH(e.date)
+// date_display
+// count
+////////////////////////////////////////////////////////////////////
+function getMonthlyEntryCounts() {
+  $stmt = '
+  SELECT MONTH(e.DATE),
+         DATE_FORMAT(e.DATE, "%M %Y") AS date_display,
+         COUNT(e.DATE)                AS count
+  FROM   Entries e
+  WHERE  e.DATE >= NOW() - interval 1 year
+  GROUP  BY MONTH(e.DATE)';
+
+  $sql = dbConnect()->prepare($stmt);
+  $sql->execute();
+  return $sql;
+}
 
 ?>
