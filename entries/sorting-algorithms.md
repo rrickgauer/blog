@@ -182,3 +182,13 @@ One key feature is to bounce the array contents back and forth between the origi
 
 The most interesting feature of snake sort is that the more ordered the array is initially, the faster it runs. Because it is in the unique position of knowing when the intial order is descending, it is optimally efficient at transposing such a list to an ordered state.
 
+
+
+
+
+<script>
+    $(document).ready(function() {
+        // make links open in a new tab
+        $('#data a').attr("target", "_blank");
+    });
+</script>
