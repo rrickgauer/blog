@@ -26,6 +26,9 @@
 </details>
 
 
+https://www.interviewcake.com/sorting-algorithm-cheat-sheet
+
+
 ## Bubble sort
 
 Bubble Sort is a simple sorting algorithm. It works by repeatedly stepping through the list to be sorted, comparing two items at a time and swapping them if they are in the wrong order. The pass through the list is repeated until no swaps are needed, which means the list is sorted.
