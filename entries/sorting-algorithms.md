@@ -26,6 +26,9 @@
 </details>
 
 
+https://www.interviewcake.com/sorting-algorithm-cheat-sheet
+
+
 ## Bubble sort
 
 Bubble Sort is a simple sorting algorithm. It works by repeatedly stepping through the list to be sorted, comparing two items at a time and swapping them if they are in the wrong order. The pass through the list is repeated until no swaps are needed, which means the list is sorted.
@@ -182,3 +185,13 @@ One key feature is to bounce the array contents back and forth between the origi
 
 The most interesting feature of snake sort is that the more ordered the array is initially, the faster it runs. Because it is in the unique position of knowing when the intial order is descending, it is optimally efficient at transposing such a list to an ordered state.
 
+
+
+
+
+<script>
+    $(document).ready(function() {
+        // make links open in a new tab
+        $('#data a').attr("target", "_blank");
+    });
+</script>
