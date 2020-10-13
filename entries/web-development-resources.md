@@ -69,6 +69,7 @@ Source | Description
 [Favicon](https://favicon.io/favicon-generator/) | Create a favicon in few simple clicks.
 [Zondicons](http://www.zondicons.com/icons.html) | A set of free premium SVG icons for you to use on your digital products.
 [Material Design Icons](https://github.com/google/material-design-icons) | Material Design icons by Google
+[Tabler Icons](https://tablericons.com/) | 859 Fully customizable free SVG icons
 
 ### HTML
 
@@ -116,6 +117,7 @@ Source | Description
 :--- | :---
 [Design Resources](https://www.designresourc.es/) | Design Resources
 [Web Dev Resources](https://webdevresources.info/colors) | Created to organize the resources I've accumulated over the last 3 years or so
+[Dev Resourc](https://devresourc.es/) | Dev Resourcs has everything for your developer journey, all presented in curated lists
 
 
 
