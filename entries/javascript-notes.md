@@ -3,10 +3,12 @@ This post is going to be like my [PHP Notes page](https://www.ryanrickgauer.com/
 ## Content
 
 1. [New Page](#new-page)
-2. [Ajax](#ajax)
-3. [New Tab Links](#new-tab-links)
-4. [URL Parameters](#url-parameters)
-5. [Checked Radio Input Value](#checked-radio-input-value)
+1. [Ajax](#ajax)
+1. [New Tab Links](#new-tab-links)
+1. [URL Parameters](#url-parameters)
+1. [Checked Radio Input Value](#checked-radio-input-value)
+1. [String Literals](#string-literals)
+
 
 
 ## New page
@@ -108,4 +110,19 @@ To get the value of a checked radio button with a name of `radio-input` you can 
 
 ```js
 var radioInputValue = $('input[name="radio-input"]:checked').val();
+```
+
+
+## String Literals
+
+String literals are an easy way to generate an html element with JavaScript variables. You can read more about it from [this article](https://css-tricks.com/html-templates-via-javascript-template-literals/).
+
+To use a string literal, you can do the following:
+
+```js
+const some_html = `
+  <div class="module">
+    <h2>${data.title}</h2>
+    <p>${data.content}</p>
+  </div>`;
 ```
