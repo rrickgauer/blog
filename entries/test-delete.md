@@ -17,4 +17,4 @@ idk ashdkfajskldf'
 
 
 
-<img src="https://carbon.now.sh/?bg=rgba(187%2C187%2C187%2C1)&t=solarized%20light&wt=sharp&l=auto&ds=true&dsyoff=3px&dsblur=13px&wc=true&wa=true&pv=0px&ph=0px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false" />
+<img src="blob:https://carbon.now.sh/fdb2ba24-5d4f-4e91-ad78-701600c5104b" />
