@@ -18,7 +18,6 @@ Creating classes in PHP is pretty straightforward. The [official docs](https://w
 Here is an example of a simple class named `Person`:
 
 ```php
-
 class Person {
 
   private $firstName;
@@ -62,7 +61,6 @@ class Person {
 You can use the `Person` class anywhere in your files as long as you include the file name at the top of your page:
 
 ```php
-
 include_once('Person-Class.php');
 
 $person1 = new Person('Ryan', 'Rickgauer', 111111111);
@@ -83,7 +81,6 @@ Declaring class methods as [static](https://www.php.net/manual/en/language.oop5.
 Below is an example of using some static methods in a class called `MyStaticClass`:
 
 ```php
-
 class MyStaticClass {
 
   public static function getSum($num1, $num2) {
@@ -125,7 +122,6 @@ Before we look at an example, let's talk about [visibility](https://www.php.net/
 Now, let's take a look at an example of inheritance in php:
 
 ```php
-
 class Base {
 
   // these properties will be accessible by the child class
@@ -173,7 +169,6 @@ Now, let's build a `Child` class that *inherits* the `Base` class:
 
 
 ```php
-
 class Child extends Base {
 
   private $middleName;

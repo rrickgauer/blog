@@ -60,7 +60,6 @@ this.method();
 However, sometimes when you are using [higher-order functions](https://eloquentjavascript.net/05_higher_order.html), the scope of `this` is changed. For instance,
 
 ```js
-
 function MyClass(number) {
   this.number = number;
 }
@@ -88,7 +87,6 @@ The first assignment to `x` does not work, because `this` is refering to the but
 If you have a class that has some parameters for its constructor, you don't have to pass in arguments when you create an object. You can check if the parameter is `undefined`:
 
 ```js
-
 function Dog(weight, breed) {
   
   if (weight == undefined)
