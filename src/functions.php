@@ -138,13 +138,16 @@ function isLoginSuccessful($username, $password) {
  * date_sort
  */
 function getAllEntries() {
-  $stmt = '
-  SELECT Entries.id,
-         Entries.title,
-         Entries.date,
-         DATE_FORMAT(Entries.date, "%M %D, %Y") AS date_formatted,
-         DATE_FORMAT(Entries.date, "%Y%m%d") AS date_sort
-  FROM   Entries
+  $stmt = 'SELECT e.id as id,
+         e.title as title,
+         e.date as date,
+         DATE_FORMAT(e.date, "%M %D, %Y") AS date_formatted,
+         DATE_FORMAT(e.date, "%Y%m%d") AS date_sort,
+         e.topic_id as topic_id,
+         t.name as topic_name
+  FROM   Entries e
+  LEFT JOIN Topics t on e.topic_id = t.id
+  GROUP BY e.id
   ORDER  BY date DESC, id DESC';
 
   $sql = dbConnect()->prepare($stmt);
