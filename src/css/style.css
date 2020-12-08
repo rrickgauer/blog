@@ -44,17 +44,17 @@ table {
   width: 100% !important;
 }
 
-.toolbar-sort {
+.toolbar-select {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   margin-bottom: 20px;
   margin-left: 10px;
 }
-.toolbar-sort .label {
+.toolbar-select .label {
   margin-right: 10px;
 }
-.toolbar-sort .select-sort {
+.toolbar-select .select-sort {
   padding-right: 50px;
 }
 

@@ -12,33 +12,45 @@ $Parsedown = new Parsedown();
 <html lang="en" dir="ltr">
 
 <head>
-  <?php include('header.php'); ?>
-  <title><?php echo $entry['title']; ?></title>
+    <?php include('header.php'); ?>
+    <title><?php echo $entry['title']; ?></title>
 </head>
 
 <body>
     <div id="data" class="container">
-      <h1 class="custom-font post-title"><?php echo $entry['title']; ?></h1>
-      <h6 class="text-center entry-date"><?php echo $entry['date']; ?></h6>
-      <?php echo $Parsedown->text($content); ?>
 
-      <div class="text-center mt-4">
-        <a href="home.php">Other entries</a> | 
-        <a href="https://github.com/rrickgauer/blog" target="_blank"><i class='bx bxl-github'></i></a>
-      </div>
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="home.php">Home</a></li>
+                <li class="breadcrumb-item active"><?php echo $entry['title']; ?></li>
+            </ol>
+        </nav>
+
+
+        <h1 class="custom-font post-title"><?php echo $entry['title']; ?></h1>
+        <h6 class="text-center entry-date"><?php echo $entry['date']; ?></h6>
+        <?php echo $Parsedown->text($content); ?>
+
+        <div class="text-center mt-4">
+            <a href="home.php">Other entries</a> |
+            <a href="https://github.com/rrickgauer/blog" target="_blank"><i class='bx bxl-github'></i></a>
+        </div>
     </div>
 
 
-  <?php include('footer.php'); ?>
+    <?php include('footer.php'); ?>
 
-  <script src="js/external/prism.js"></script>
-  <script>
+    <script src="js/external/prism.js"></script>
+    <script>
     new TypeIt('.custom-font', {
-      speed: 50,
-      startDelay: 900
-    })
-    .options({speed: 50})
-    .go();
-  </script>
+            speed: 50,
+            startDelay: 900
+        })
+        .options({
+            speed: 50
+        })
+        .go();
+    </script>
 </body>
+
 </html>

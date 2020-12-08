@@ -10,13 +10,21 @@ class HTML {
         $topicID = $entry['topic_id'];
         $topicName = $entry['topic_name'];
 
-        $html = "<li class=\"list-group-item entry\" data-date=\"$dateSort\">";
+        $html = "<li class=\"list-group-item entry\" data-date=\"$dateSort\" data-topic-id=\"$topicID\">";
         $html .= "<div  class=\"title\">";
         $html .= "<a href=\"entries.php?entryID=$id\">$title</a>";
         $html .= "<span class=\"badge badge-secondary ml-2\">$topicName</span>";
         $html .= "</div>";
         $html .= "<div class=\"date\">$date</div>";
         $html .= '</li>';
+
+        return $html;
+    }
+
+    public static function getHomeTopicOption($topic) {
+        $html = '<option value="' . $topic['id'] . '">';
+        $html .= $topic['name'];
+        $html .= '</option>';
 
         return $html;
     }

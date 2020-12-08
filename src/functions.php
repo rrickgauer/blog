@@ -163,6 +163,14 @@ function printFooter() {
 }
 
 
+function getUsedTopics() {
+    $stmt = 'CALL getUsedTopics()';
+    $sql = dbConnect()->prepare($stmt);
+    $result = $sql->execute();
+    return $sql;
+}
+
+
 
 
 ?>
