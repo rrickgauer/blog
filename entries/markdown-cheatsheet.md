@@ -22,27 +22,25 @@ Header 2
 
 ### Code
 
-```md
-    4 space indent
-    makes a code block
-```
-
-
-```md
-
-  ```
-  code fences
-  ```
-
-```
-
-
-
-
-
-    ```js
-    codeFences.withLanguage()
-    ```
+      `Inline code`
+       
+      ``2` inline code``
+       
+      ```3` inline code```
+       
+          Unfenced code block
+       
+      ```
+      Fenced code block
+      ```
+       
+      ~~~
+      Fenced code block
+      ~~~
+       
+      ```js
+      // Fenced JS code block
+      ```
 
 
 ### Tables
