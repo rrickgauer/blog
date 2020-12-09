@@ -27,13 +27,17 @@ Header 2
     makes a code block
 ```
 
----
 
-    ```
-    code fences
-    ```
+```md
 
----
+  ```
+  code fences
+  ```
+
+```
+
+
+
 
 
     ```js
