@@ -38,7 +38,7 @@ Source | Description
 [Hamburgers](https://jonsuh.com/hamburgers/) | Tasty CSS-animated hamburgers
 [CSS Effects Snippets](https://emilkowalski.github.io/css-effects-snippets/) | A collection of CSS effects made with Vue.js
 [Skeleton](http://getskeleton.com/) | A dead simple, responsive boilerplate.
-[Pretty Checkbox](https://lokesh-coder.github.io/pretty-checkbox/) | A pure CSS library to beautify checkbox and radio buttons
+[Pretty Checkbox](https://lokesh-coder.github.io/pretty-checkbox/) | A pure CSS library to beautify check-box and radio buttons
 [Skeleton Elements](https://skeleton-elements.dev/) | UI for improved perceived performance
 
 ### JavaScript
@@ -59,6 +59,9 @@ Source | Description
 [Jquery Toast Plugin](https://kamranahmed.info/toast) | Highly customizable jquery plugin to show toast messages
 [Autosize](http://www.jacklmoore.com/autosize/) | A small, stand-alone script to automatically adjust textarea height.
 [Bootstrap Notify](https://github.com/mouse0270/bootstrap-notify) | Turns standard Bootstrap alerts into "Growl-like" notifications.
+[Luxon](https://moment.github.io/luxon/) | A powerful, modern, and friendly wrapper for JavaScript dates and times.
+
+
 
 ### Icons
 
@@ -112,7 +115,7 @@ Source | Description
 
 
 
-### Design Aggregators
+### Design Aggregates
 
 Source | Description
 :--- | :---
