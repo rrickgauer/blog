@@ -38,7 +38,6 @@ Source | Description
 [Text Input Effects](https://tympanus.net/Development/TextInputEffects/index.html) | Simple ideas for enhancing text input interactions
 [Hamburgers](https://jonsuh.com/hamburgers/) | Tasty CSS-animated hamburgers
 [CSS Effects Snippets](https://emilkowalski.github.io/css-effects-snippets/) | A collection of CSS effects made with Vue.js
-[Skeleton](http://getskeleton.com/) | A dead simple, responsive boilerplate.
 [Pretty Checkbox](https://lokesh-coder.github.io/pretty-checkbox/) | A pure CSS library to beautify check-box and radio buttons
 [Skeleton Elements](https://skeleton-elements.dev/) | UI for improved perceived performance
 
