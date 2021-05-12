@@ -99,6 +99,8 @@ Source | Description
 [Flexbox Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) | A Complete Guide to Flexbox.
 [Eloquent JavaScript](https://eloquentjavascript.net/index.html) | A complete e-book about JavaScript
 [HTML5 For Web Designers](https://www.dmassociates.com/images/general/HTML5_for_Web_Designers.pdf) | E-book by Jeremy Keith on HTML5 Semantics
+[Free JavaScript Books](https://tomanistor.com/blog/big-list-of-free-javascript-books/) | Big List of Free JavaScript Books.
+[You might not need jQuery](http://youmightnotneedjquery.com/) | Side-by-side jQuery to JavaScript examples.
 
 ### APIs
 
