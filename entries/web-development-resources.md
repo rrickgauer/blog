@@ -4,21 +4,22 @@ I got this idea from this [site](https://webdevresources.info/colors). I will be
 
 ### Content
 1. [Colors](#colors)
-2. [CSS](#css)
-3. [JavaScript](#javascript)
-4. [Icons](#icons)
-5. [HTML](#html)
-6. [Articles](#articles)
-7. [APIs](#apis)
-8. [Images](#images)
-9. [Design Aggregators](#design-aggregators)
+1. [CSS](#css)
+1. [JavaScript](#javascript)
+1. [Icons](#icons)
+1. [HTML](#html)
+1. [Publications](#publications)
+1. [APIs](#apis)
+1. [Images](#images)
+1. [Design Resource Lists](#design-resource-lists)
+1. [Bootstrap Extensions](#bootstrap-extensions)
 
 
 ### Colors
 
 Source | Description
 :--- | :---
-[Granim.js](https://github.com/sarcadass/granim.js) | Create fluid and interactive gradient animations with this small javascript library.
+[Granim.js](https://github.com/sarcadass/granim.js) | Create fluid and interactive gradient animations with this small JavaScript library.
 [Color Hunt](https://colorhunt.co/) | Color Palettes for Designers and Artists
 [Color Claim](https://www.vanschneider.com/colors) | Created Tobias van Schneider with the goal to collect & combine unique colors for future projects.
 [Colorsinspo](https://colorsinspo.com/) | Thousands of beautiful color palettes you can use it directly by one click.
@@ -32,20 +33,20 @@ Source | Description
 
 Source | Description
 :--- | :---
-[Bootstrap Table](https://bootstrap-table.com/docs/getting-started/introduction/) | An extended table to integration with some of the most widely used CSS frameworks.
 [Animate CSS](https://daneden.github.io/animate.css/) | A cross-browser library of CSS animations
 [Text Input Effects](https://tympanus.net/Development/TextInputEffects/index.html) | Simple ideas for enhancing text input interactions
 [Hamburgers](https://jonsuh.com/hamburgers/) | Tasty CSS-animated hamburgers
 [CSS Effects Snippets](https://emilkowalski.github.io/css-effects-snippets/) | A collection of CSS effects made with Vue.js
-[Skeleton](http://getskeleton.com/) | A dead simple, responsive boilerplate.
 [Pretty Checkbox](https://lokesh-coder.github.io/pretty-checkbox/) | A pure CSS library to beautify check-box and radio buttons
 [Skeleton Elements](https://skeleton-elements.dev/) | UI for improved perceived performance
+
+
 
 ### JavaScript
 
 Source | Description
 :--- | :---
-[Flatpickr](https://flatpickr.js.org/) | lightweight, powerful JavaScript datetimepicker with no dependencies
+[Flatpickr](https://flatpickr.js.org/) | lightweight, powerful JavaScript datetime picker with no dependencies
 [Select2](https://select2.org/) | The jQuery replacement for select boxes.
 [Prism](https://prismjs.com/) | front-end syntax highlighter
 [Cleave.js](https://nosir.github.io/cleave.js/) | Format your ```<input />``` content when you are typing.
@@ -56,10 +57,13 @@ Source | Description
 [MathJax](https://www.mathjax.org/) | A JavaScript display engine for mathematics that works in all browsers.
 [TableSort](https://github.com/tristen/tablesort) | A small & simple sorting component for tables written in JavaScript.
 [HTML Table Search](https://github.com/niksofteng/html-table-search-js) | Simple table text search highlighter.
-[Jquery Toast Plugin](https://kamranahmed.info/toast) | Highly customizable jquery plugin to show toast messages
-[Autosize](http://www.jacklmoore.com/autosize/) | A small, stand-alone script to automatically adjust textarea height.
+[Jquery Toast Plugin](https://kamranahmed.info/toast) | Highly customizable jQuery plug-in to show toast messages
+[Autosize](http://www.jacklmoore.com/autosize/) | A small, stand-alone script to automatically adjust text-area height.
 [Bootstrap Notify](https://github.com/mouse0270/bootstrap-notify) | Turns standard Bootstrap alerts into "Growl-like" notifications.
 [Luxon](https://moment.github.io/luxon/) | A powerful, modern, and friendly wrapper for JavaScript dates and times.
+[FilePond](https://github.com/pqina/filepond) | A flexible and fun JavaScript file upload library.
+[UUID](https://github.com/uuidjs/uuid) | Generate RFC-compliant UUIDs in JavaScript.
+
 
 
 
@@ -75,13 +79,15 @@ Source | Description
 [Material Design Icons](https://github.com/google/material-design-icons) | Material Design icons by Google
 [Tabler Icons](https://tablericons.com/) | 859 Fully customizable free SVG icons
 
+
 ### HTML
 
 Source | Description
 :--- | :---
 [HTML character codes](https://www.rapidtables.com/web/html/html-codes.html) | All HTML character codes of text fonts and symbols from &#0; to &#65535
 
-### Articles
+
+### Publications
 
 Source | Description
 :--- | :---
@@ -94,6 +100,8 @@ Source | Description
 [Flexbox Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) | A Complete Guide to Flexbox.
 [Eloquent JavaScript](https://eloquentjavascript.net/index.html) | A complete e-book about JavaScript
 [HTML5 For Web Designers](https://www.dmassociates.com/images/general/HTML5_for_Web_Designers.pdf) | E-book by Jeremy Keith on HTML5 Semantics
+[Free JavaScript Books](https://tomanistor.com/blog/big-list-of-free-javascript-books/) | Big List of Free JavaScript Books.
+[You might not need jQuery](http://youmightnotneedjquery.com/) | Side-by-side jQuery to JavaScript examples.
 
 ### APIs
 
@@ -112,17 +120,35 @@ Source | Description
 [Free SVG Illustrations](https://wweb.dev/resources/free-svg-illustrations) | A curated list of websites for free SVG illustrations
 [Creative Backgrounds](https://wweb.dev/resources/creative-backgrounds) | websites for creative backgrounds
 [unDraw](https://undraw.co/illustrations) | Browse to find the images that fit your needs and click to download
+[Kapwing](https://www.kapwing.com/) | Online image, video, and GIF editing platform.
+[Unsplash](https://unsplash.com/) | Over 2 million free high-resolution images brought to you by the world’s most generous community of photographers.
+[Hero Images](https://heroimages.com/) | Premium royalty-free images.
+[Pixelmob](https://pixelmob.co/) | Find, Sort And Save Photos From Multiple Sources Across The Web.
 
 
 
-### Design Aggregates
+
+### Design Resource Lists
 
 Source | Description
 :--- | :---
 [Design Resources](https://www.designresourc.es/) | Design Resources
 [Web Dev Resources](https://webdevresources.info/colors) | Created to organize the resources I've accumulated over the last 3 years or so
-[Dev Resourc](https://devresourc.es/) | Dev Resourcs has everything for your developer journey, all presented in curated lists
+[Dev Resourc](https://devresourc.es/) | Dev Resources has everything for your developer journey, all presented in curated lists
 
+
+### Bootstrap Extensions
+
+Extensions built specifically for [Bootstrap 4](https://getbootstrap.com/docs/4.5/components/alerts/).
+
+Source | Description
+:--- | :---
+[Bootstrap Table](https://bootstrap-table.com/docs/getting-started/introduction/) | An extended table to integration with some of the most widely used CSS frameworks.
+[Bootstrap Select](https://developer.snapappointments.com/bootstrap-select/) | The jQuery plugin that brings select elements into the 21st century
+[Select2 Bootstrap Theme](https://github.com/select2/select2-bootstrap-theme) | A [Select2](https://select2.org/) v4 Theme for Bootstrap 3
+[Bootstrap Dropdown Menus Enhancement](http://behigh.github.io/bootstrap_dropdowns_enhancement/) | Enhancing functionality of dropdown menus.
+[Bootstrap Datepicker](https://github.com/uxsolutions/bootstrap-datepicker) | A datepicker for twitter bootstrap
+[Bootstrap Resources](https://startbootstrap.com/bootstrap-resources) | A curated list of quality Bootstrap resources and Bootstrap plugins.
 
 
 
