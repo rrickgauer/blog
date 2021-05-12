@@ -4,21 +4,22 @@ I got this idea from this [site](https://webdevresources.info/colors). I will be
 
 ### Content
 1. [Colors](#colors)
-2. [CSS](#css)
-3. [JavaScript](#javascript)
-4. [Icons](#icons)
-5. [HTML](#html)
-6. [Articles](#articles)
-7. [APIs](#apis)
-8. [Images](#images)
-9. [Design Aggregators](#design-aggregators)
+1. [CSS](#css)
+1. [JavaScript](#javascript)
+1. [Icons](#icons)
+1. [HTML](#html)
+1. [Publications](#publications)
+1. [APIs](#apis)
+1. [Images](#images)
+1. [Design Resource Lists](#design-resource-lists)
+1. [Bootstrap Extensions](#bootstrap-extensions)
 
 
 ### Colors
 
 Source | Description
 :--- | :---
-[Granim.js](https://github.com/sarcadass/granim.js) | Create fluid and interactive gradient animations with this small javascript library.
+[Granim.js](https://github.com/sarcadass/granim.js) | Create fluid and interactive gradient animations with this small JavaScript library.
 [Color Hunt](https://colorhunt.co/) | Color Palettes for Designers and Artists
 [Color Claim](https://www.vanschneider.com/colors) | Created Tobias van Schneider with the goal to collect & combine unique colors for future projects.
 [Colorsinspo](https://colorsinspo.com/) | Thousands of beautiful color palettes you can use it directly by one click.
@@ -45,7 +46,7 @@ Source | Description
 
 Source | Description
 :--- | :---
-[Flatpickr](https://flatpickr.js.org/) | lightweight, powerful JavaScript datetimepicker with no dependencies
+[Flatpickr](https://flatpickr.js.org/) | lightweight, powerful JavaScript datetime picker with no dependencies
 [Select2](https://select2.org/) | The jQuery replacement for select boxes.
 [Prism](https://prismjs.com/) | front-end syntax highlighter
 [Cleave.js](https://nosir.github.io/cleave.js/) | Format your ```<input />``` content when you are typing.
@@ -56,8 +57,8 @@ Source | Description
 [MathJax](https://www.mathjax.org/) | A JavaScript display engine for mathematics that works in all browsers.
 [TableSort](https://github.com/tristen/tablesort) | A small & simple sorting component for tables written in JavaScript.
 [HTML Table Search](https://github.com/niksofteng/html-table-search-js) | Simple table text search highlighter.
-[Jquery Toast Plugin](https://kamranahmed.info/toast) | Highly customizable jquery plugin to show toast messages
-[Autosize](http://www.jacklmoore.com/autosize/) | A small, stand-alone script to automatically adjust textarea height.
+[Jquery Toast Plugin](https://kamranahmed.info/toast) | Highly customizable jQuery plug-in to show toast messages
+[Autosize](http://www.jacklmoore.com/autosize/) | A small, stand-alone script to automatically adjust text-area height.
 [Bootstrap Notify](https://github.com/mouse0270/bootstrap-notify) | Turns standard Bootstrap alerts into "Growl-like" notifications.
 [Luxon](https://moment.github.io/luxon/) | A powerful, modern, and friendly wrapper for JavaScript dates and times.
 
@@ -75,13 +76,15 @@ Source | Description
 [Material Design Icons](https://github.com/google/material-design-icons) | Material Design icons by Google
 [Tabler Icons](https://tablericons.com/) | 859 Fully customizable free SVG icons
 
+
 ### HTML
 
 Source | Description
 :--- | :---
 [HTML character codes](https://www.rapidtables.com/web/html/html-codes.html) | All HTML character codes of text fonts and symbols from &#0; to &#65535
 
-### Articles
+
+### Publications
 
 Source | Description
 :--- | :---
@@ -115,13 +118,20 @@ Source | Description
 
 
 
-### Design Aggregates
+### Design Resource Lists
 
 Source | Description
 :--- | :---
 [Design Resources](https://www.designresourc.es/) | Design Resources
 [Web Dev Resources](https://webdevresources.info/colors) | Created to organize the resources I've accumulated over the last 3 years or so
-[Dev Resourc](https://devresourc.es/) | Dev Resourcs has everything for your developer journey, all presented in curated lists
+[Dev Resourc](https://devresourc.es/) | Dev Resources has everything for your developer journey, all presented in curated lists
+
+
+### Bootstrap Extensions
+
+Source | Description
+:--- | :---
+
 
 
 
