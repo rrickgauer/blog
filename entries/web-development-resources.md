@@ -61,6 +61,9 @@ Source | Description
 [Autosize](http://www.jacklmoore.com/autosize/) | A small, stand-alone script to automatically adjust text-area height.
 [Bootstrap Notify](https://github.com/mouse0270/bootstrap-notify) | Turns standard Bootstrap alerts into "Growl-like" notifications.
 [Luxon](https://moment.github.io/luxon/) | A powerful, modern, and friendly wrapper for JavaScript dates and times.
+[FilePond](https://github.com/pqina/filepond) | A flexible and fun JavaScript file upload library.
+[UUID](https://github.com/uuidjs/uuid) | Generate RFC-compliant UUIDs in JavaScript.
+
 
 
 
