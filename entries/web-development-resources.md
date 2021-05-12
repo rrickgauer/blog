@@ -33,13 +33,14 @@ Source | Description
 
 Source | Description
 :--- | :---
-[Bootstrap Table](https://bootstrap-table.com/docs/getting-started/introduction/) | An extended table to integration with some of the most widely used CSS frameworks.
 [Animate CSS](https://daneden.github.io/animate.css/) | A cross-browser library of CSS animations
 [Text Input Effects](https://tympanus.net/Development/TextInputEffects/index.html) | Simple ideas for enhancing text input interactions
 [Hamburgers](https://jonsuh.com/hamburgers/) | Tasty CSS-animated hamburgers
 [CSS Effects Snippets](https://emilkowalski.github.io/css-effects-snippets/) | A collection of CSS effects made with Vue.js
 [Pretty Checkbox](https://lokesh-coder.github.io/pretty-checkbox/) | A pure CSS library to beautify check-box and radio buttons
 [Skeleton Elements](https://skeleton-elements.dev/) | UI for improved perceived performance
+
+
 
 ### JavaScript
 
@@ -138,10 +139,16 @@ Source | Description
 
 ### Bootstrap Extensions
 
+Extensions built specifically for [Bootstrap 4](https://getbootstrap.com/docs/4.5/components/alerts/).
+
 Source | Description
 :--- | :---
-
-
+[Bootstrap Table](https://bootstrap-table.com/docs/getting-started/introduction/) | An extended table to integration with some of the most widely used CSS frameworks.
+[Bootstrap Select](https://developer.snapappointments.com/bootstrap-select/) | The jQuery plugin that brings select elements into the 21st century
+[Select2 Bootstrap Theme](https://github.com/select2/select2-bootstrap-theme) | A [Select2](https://select2.org/) v4 Theme for Bootstrap 3
+[Bootstrap Dropdown Menus Enhancement](http://behigh.github.io/bootstrap_dropdowns_enhancement/) | Enhancing functionality of dropdown menus.
+[Bootstrap Datepicker](https://github.com/uxsolutions/bootstrap-datepicker) | A datepicker for twitter bootstrap
+[Bootstrap Resources](https://startbootstrap.com/bootstrap-resources) | A curated list of quality Bootstrap resources and Bootstrap plugins.
 
 
 
