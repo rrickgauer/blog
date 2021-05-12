@@ -115,6 +115,11 @@ Source | Description
 [Free SVG Illustrations](https://wweb.dev/resources/free-svg-illustrations) | A curated list of websites for free SVG illustrations
 [Creative Backgrounds](https://wweb.dev/resources/creative-backgrounds) | websites for creative backgrounds
 [unDraw](https://undraw.co/illustrations) | Browse to find the images that fit your needs and click to download
+[Kapwing](https://www.kapwing.com/) | Online image, video, and GIF editing platform.
+[Unsplash](https://unsplash.com/) | Over 2 million free high-resolution images brought to you by the world’s most generous community of photographers.
+[Hero Images](https://heroimages.com/) | Premium royalty-free images.
+[Pixelmob](https://pixelmob.co/) | Find, Sort And Save Photos From Multiple Sources Across The Web.
+
 
 
 
