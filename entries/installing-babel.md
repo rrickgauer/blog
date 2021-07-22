@@ -5,20 +5,20 @@
 
 In the terminal, cd into the project directory. Then, you need to create a `package.json` via:
 
-```
+```shell
 npm init
 ```
 
 Now it's time to install the Babel.js [core](https://babeljs.io/docs/en/usage#core-library) and [CLI](https://babeljs.io/docs/en/babel-cli) libaries:
 
-```
+```shell
 npm install --save-dev @babel/core @babel/cli
 ```
 
 
 *Optional*. Install the [plugin-proposal-class-properties plugin](https://babeljs.io/docs/en/babel-plugin-proposal-class-properties):
 
-```
+```shell
 npm install --save-dev @babel/plugin-proposal-class-properties
 ```
 
@@ -27,31 +27,31 @@ npm install --save-dev @babel/plugin-proposal-class-properties
 
 Compile the entire src directory and output it to the lib directory by using either `--out-dir` or `-d`. This doesn't overwrite any other files or directories in lib.
 
-```
+```shell
 npx babel src --out-dir lib
 ```
 
 Compile the entire src directory and output it as a single concatenated file.
 
-```
+```shell
 npx babel src --out-file script-compiled.js
 ```
 
 To compile a file every time that you change it, use the `--watch` or `-w` option:
 
-```
+```shell
 npx babel script.js --watch --out-file script-compiled.js
 ```
 
 Use the `--plugins` option to specify plugins to use in compilation:
 
-```
+```shell
 npx babel script.js --out-file script-compiled.js --plugins=@babel/proposal-class-properties,@babel/transform-modules-amd
 ```
 
 Use the `--presets` option to specify presets to use in compilation
 
-```
+```shell
 npx babel script.js --out-file script-compiled.js --presets=@babel/preset-env,@babel/flow
 ```
 
