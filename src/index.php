@@ -60,8 +60,8 @@ for ($count = 0; $count < count($usedTopics); $count++) {
         </ul>
 
         <p class="text-center mt-4">
-            <span>&copy; 2020 by </span>
-            <a href="https://www.ryanrickgauer.com/resume/index.html" target="_blank">Ryan Rickgauer</a>
+            <span>&copy; 2021 by </span>
+            <a href="https://ryanrickgauer.com" target="_blank">Ryan Rickgauer</a>
         </p>
     </div>
 

@@ -127,18 +127,20 @@ function isLoginSuccessful($username, $password) {
     return ($password == $author['password']);
 }
 
-/**
- * Returns all entries
- * 
- * id
- * title
- * date
- * date_formatted
- * date_sort
- */
+/*************************************************************
+Retrieve the records for the View_Entries table
+
+The entry parm contains the fields:
+    - id
+    - date
+    - title
+    - source_link
+    - page_link
+    - topic_id
+    - topic_name
+**************************************************************/
 function getAllEntries() {
   $stmt = 'SELECT * FROM View_Entries ORDER BY date DESC, title';
-
   $sql = dbConnect()->prepare($stmt);
   $sql->execute();
 

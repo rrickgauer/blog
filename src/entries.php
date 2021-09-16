@@ -32,7 +32,7 @@ $Parsedown = new Parsedown();
         <?php echo $Parsedown->text($content); ?>
 
         <div class="text-center mt-4">
-            <a href="home.php">Other entries</a> |
+            <a href="index.php">Other entries</a> |
             <a href="https://github.com/rrickgauer/blog" target="_blank"><i class='bx bxl-github'></i></a>
         </div>
     </div>
