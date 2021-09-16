@@ -32,9 +32,9 @@ class HTML {
 
         $html = '
         <li class="list-group-item entry" data-date="%s" data-topic-id="%s">
-            <div class="title">
+            <div class="title d-sm-flex align-items-center">
                 <a href="entries.php?entryID=%s">%s</a>
-                <span class="badge badge-secondary ml-2">%s</span>
+                <div><span class="badge badge-secondary  ml-sm-2">%s</span></div>
             </div>
             <div class="date">%s</div>
         </li>';

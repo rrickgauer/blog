@@ -34,7 +34,7 @@ for ($count = 0; $count < count($usedTopics); $count++) {
         <div class="d-flex justify-content-between">
             <!-- filters -->
             <div class="toolbar-select toolbar-filter">
-                <span class="label"><b>Filter:</b></span>
+                <span class="label"><b>Topics:</b></span>
                 <div>
                     <select class="form-control form-control-sm select-filter">
                         <option value="_all">All</option>
