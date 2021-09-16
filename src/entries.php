@@ -21,14 +21,14 @@ $Parsedown = new Parsedown();
 
         <nav aria-label="breadcrumb" class="mb-4">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="home.php">Home</a></li>
+                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                 <li class="breadcrumb-item active"><?php echo $entry['title']; ?></li>
             </ol>
         </nav>
 
 
         <h1 class="custom-font post-title"><?php echo $entry['title']; ?></h1>
-        <h6 class="text-center entry-date"><?php echo $entry['date']; ?></h6>
+        <h6 class="text-center entry-date"><?php echo $entry['date']; ?></h6>        
         <?php echo $Parsedown->text($content); ?>
 
         <div class="text-center mt-4">

@@ -12,7 +12,8 @@ function dbConnect() {
     return $pdo;
 
   } catch(PDOexception $e) {
-      return 0;
+    echo $e->getMessage();  
+    return 0;
   }
 }
 

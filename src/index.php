@@ -3,13 +3,13 @@ include('functions.php');
 include('Parsedown.php');
 include_once('HTML-Generator.php');
 $entries = getAllEntries(); 
-$usedTopics = getUsedTopics()->fetchAll(PDO::FETCH_ASSOC);
+//$usedTopics = getUsedTopics()->fetchAll(PDO::FETCH_ASSOC);
 
 
 $usedTopicsHtml = '';
-for ($count = 0; $count < count($usedTopics); $count++) {
-    $usedTopicsHtml .= HTML::getHomeTopicOption($usedTopics[$count]);
-}
+// for ($count = 0; $count < count($usedTopics); $count++) {
+   // $usedTopicsHtml .= HTML::getHomeTopicOption($usedTopics[$count]);
+//}
 
 
 
