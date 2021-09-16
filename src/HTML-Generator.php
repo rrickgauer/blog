@@ -2,23 +2,44 @@
 
 class HTML {
 
+    /*************************************************************
+    Generate the HTML for a blog entry on the home page.
+
+    The entry parm contains the fields:
+        - id
+        - date
+        - title
+        - source_link
+        - page_link
+        - topic_id
+        - topic_name
+
+    Parms:
+        entry - entry record from the database
+    
+    Returns a string: the html
+    **************************************************************/
     public static function getHomeListItem($entry) {
         $id = $entry['id'];
         $title = $entry['title'];
-        $date = $entry['date_formatted'];
-        $dateSort = $entry['date_sort'];
         $topicID = $entry['topic_id'];
         $topicName = $entry['topic_name'];
 
-        $html = "<li class=\"list-group-item entry\" data-date=\"$dateSort\" data-topic-id=\"$topicID\">";
-        $html .= "<div  class=\"title\">";
-        $html .= "<a href=\"entries.php?entryID=$id\">$title</a>";
-        $html .= "<span class=\"badge badge-secondary ml-2\">$topicName</span>";
-        $html .= "</div>";
-        $html .= "<div class=\"date\">$date</div>";
-        $html .= '</li>';
+        // format the dates
+        $date = new DateTime($entry['date']);
+        $dateDisplay = $date->format('F jS, Y');
+        $dateSort = $date->format('Ymd');
 
-        return $html;
+        $html = '
+        <li class="list-group-item entry" data-date="%s" data-topic-id="%s">
+            <div class="title">
+                <a href="entries.php?entryID=%s">%s</a>
+                <span class="badge badge-secondary ml-2">%s</span>
+            </div>
+            <div class="date">%s</div>
+        </li>';
+
+        return sprintf($html, $dateSort, $topicID, $id, $title, $topicName, $dateDisplay);
     }
 
     public static function getHomeTopicOption($topic) {
