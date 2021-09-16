@@ -2,18 +2,20 @@
 include('functions.php');
 include('Parsedown.php');
 include_once('HTML-Generator.php');
-$entries = getAllEntries(); 
-$usedTopics = getUsedTopics()->fetchAll(PDO::FETCH_ASSOC);
 
+// fetch all the entries and generate their html
+$entryListItemsHtml = '';
+$entries = getAllEntries()->fetchAll(PDO::FETCH_ASSOC); 
+for ($count = 0; $count < count($entries); $count++) {
+    $entryListItemsHtml .= HTML::getHomeListItem($entries[$count]);
+ }
 
+// generate the html for the topics dropdown input element
 $usedTopicsHtml = '';
+$usedTopics = getUsedTopics()->fetchAll(PDO::FETCH_ASSOC);
 for ($count = 0; $count < count($usedTopics); $count++) {
-    $usedTopicsHtml .= HTML::getHomeTopicOption($usedTopics[$count]);
+   $usedTopicsHtml .= HTML::getHomeTopicOption($usedTopics[$count]);
 }
-
-
-
-
 
 ?>
 
@@ -32,7 +34,7 @@ for ($count = 0; $count < count($usedTopics); $count++) {
         <div class="d-flex justify-content-between">
             <!-- filters -->
             <div class="toolbar-select toolbar-filter">
-                <span class="label"><b>Filter:</b></span>
+                <span class="label"><b>Topics:</b></span>
                 <div>
                     <select class="form-control form-control-sm select-filter">
                         <option value="_all">All</option>
@@ -51,23 +53,15 @@ for ($count = 0; $count < count($usedTopics); $count++) {
                     </select>
                 </div>
             </div>
-
-
         </div>
 
-
-
         <ul class="list-group list-group-flush">
-            <?php
-                while ($entry = $entries->fetch(PDO::FETCH_ASSOC)) {
-                    echo HTML::getHomeListItem($entry);
-                }
-            ?>
+            <?php echo $entryListItemsHtml; ?>
         </ul>
 
         <p class="text-center mt-4">
-            <span>&copy; 2020 by </span>
-            <a href="https://www.ryanrickgauer.com/resume/index.html" target="_blank">Ryan Rickgauer</a>
+            <span>&copy; 2021 by </span>
+            <a href="https://ryanrickgauer.com" target="_blank">Ryan Rickgauer</a>
         </p>
     </div>
 

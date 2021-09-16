@@ -2,50 +2,50 @@
 // connects to DB
 // returns the PDO connection
 function dbConnect() {
-  include('db-info.php');
+    include('db-info.php');
 
-  try {
-    // connect to database
-    $pdo = new PDO("mysql:host=$host;dbname=$dbName",$user,$password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    try {
+        // connect to database
+        $pdo = new PDO("mysql:host=$host;dbname=$dbName",$user,$password);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+        return $pdo;
 
-    return $pdo;
-
-  } catch(PDOexception $e) {
-      return 0;
-  }
+    } catch(PDOexception $e) {
+        echo $e->getMessage();  
+        return 0;
+    }
 }
 
 function insertEntry($title, $content) {
 
-   $pdo = dbConnect();
+    $pdo = dbConnect();
 
-   $content = addslashes($content);
-   $title = addslashes($title);
+    $content = addslashes($content);
+    $title = addslashes($title);
 
-   $sql = "INSERT INTO Entries (date, title, content) VALUES (CURRENT_DATE(), \"$title\", \"$content\")";
-   $result = $pdo->exec($sql);
+    $sql = "INSERT INTO Entries (date, title, content) VALUES (CURRENT_DATE(), \"$title\", \"$content\")";
+    $result = $pdo->exec($sql);
 
-   $sql = 'SELECT id FROM Entries ORDER BY id desc LIMIT 1';
-   $result = $pdo->query($sql);
-   $row = $result->fetch(PDO::FETCH_ASSOC);
+    $sql = 'SELECT id FROM Entries ORDER BY id desc LIMIT 1';
+    $result = $pdo->query($sql);
+    $row = $result->fetch(PDO::FETCH_ASSOC);
 
-   $pdo = null;
+    $pdo = null;
 
-   return $row['id'];
+    return $row['id'];
 }
 
 function updateEntry($id, $title, $content) {
+    $pdo = dbConnect();
 
-   $pdo = dbConnect();
+    $content = addslashes($content);
+    $title = addslashes($title);
 
-   $content = addslashes($content);
-   $title = addslashes($title);
+    $sql = "UPDATE Entries SET title=\"$title\", content=\"$content\" WHERE id=$id";
+    $result = $pdo->exec($sql);
 
-   $sql = "UPDATE Entries SET title=\"$title\", content=\"$content\" WHERE id=$id";
-   $result = $pdo->exec($sql);
-
-   $pdo = null;
+    $pdo = null;
 
 }
 
@@ -59,97 +59,88 @@ function updateEntry($id, $title, $content) {
  * date
 **************************************************************/
 function getEntry($id) {
-  $stmt = '
-  SELECT Entries.id,
-         Entries.title,
-         Entries.link,
-         DATE_FORMAT(Entries.date, "%M %D, %Y") AS date
-  FROM   Entries
-  WHERE  id = :id
-  LIMIT  1';
+    $stmt = '
+    SELECT Entries.id,
+            Entries.title,
+            Entries.link,
+            DATE_FORMAT(Entries.date, "%M %D, %Y") AS date
+    FROM   Entries
+    WHERE  id = :id
+    LIMIT  1';
 
-  $sql = dbConnect()->prepare($stmt);
+    $sql = dbConnect()->prepare($stmt);
 
-  // filter and bind the parameters
-  $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
-  $sql->bindParam(':id', $id, PDO::PARAM_INT);
+    // filter and bind the parameters
+    $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
+    $sql->bindParam(':id', $id, PDO::PARAM_INT);
 
-  $sql->execute();
-  return $sql;
+    $sql->execute();
+    return $sql;
 }
 
 function deleteEntry($id) {
-  $pdo = dbConnect();
-  $sql = "DELETE FROM Entries WHERE id=$id";
-  $result = $pdo->exec($sql);
-  $pdo = null;
-  $result = null;
+    $pdo = dbConnect();
+    $sql = "DELETE FROM Entries WHERE id=$id";
+    $result = $pdo->exec($sql);
+    $pdo = null;
+    $result = null;
 }
 
 function printTitleSelectOptions() {
 
-  $pdo = dbConnect();
-  $sql = 'SELECT * from Entries ORDER BY Title desc';
-  $result = $pdo->query($sql);
+    $pdo = dbConnect();
+    $sql = 'SELECT * from Entries ORDER BY Title desc';
+    $result = $pdo->query($sql);
 
-  while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-    $id = $row['id'];
-    $date = $row['date'];
-    $title = $row['title'];
-    $content = $row['content'];
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        $id = $row['id'];
+        $date = $row['date'];
+        $title = $row['title'];
+        $content = $row['content'];
 
-    echo "<option value=\"$id\">$title</option>";
-
-  }
+        echo "<option value=\"$id\">$title</option>";
+    }
 }
 
 function isLoginSuccessful($username, $password) {
-  $pdo = dbConnect();
-  $sql = $pdo->prepare('SELECT Authors.password FROM Authors WHERE Authors.username=:username');
+    $pdo = dbConnect();
+    $sql = $pdo->prepare('SELECT Authors.password FROM Authors WHERE Authors.username=:username');
 
-  // filter variables
-  $username = filter_var($username, FILTER_SANITIZE_STRING);
+    // filter variables
+    $username = filter_var($username, FILTER_SANITIZE_STRING);
 
-  // bind the parameters
-  $sql->bindParam(':username', $username, PDO::PARAM_STR);
+    // bind the parameters
+    $sql->bindParam(':username', $username, PDO::PARAM_STR);
 
-  // execute sql statement
-  $sql->execute();
+    // execute sql statement
+    $sql->execute();
 
-  // fetch the results
-  $author = $sql->fetch(PDO::FETCH_ASSOC);
+    // fetch the results
+    $author = $sql->fetch(PDO::FETCH_ASSOC);
 
-  // close the pdo connections
-  $pdo = null;
-  $sql = null;
+    // close the pdo connections
+    $pdo = null;
+    $sql = null;
 
-  // return true if passwords match
-  // otherwise, return false
-  return ($password == $author['password']);
+    // return true if passwords match
+    // otherwise, return false
+    return ($password == $author['password']);
 }
 
-/**
- * Returns all entries
- * 
- * id
- * title
- * date
- * date_formatted
- * date_sort
- */
-function getAllEntries() {
-  $stmt = 'SELECT e.id as id,
-         e.title as title,
-         e.date as date,
-         DATE_FORMAT(e.date, "%M %D, %Y") AS date_formatted,
-         DATE_FORMAT(e.date, "%Y%m%d") AS date_sort,
-         e.topic_id as topic_id,
-         t.name as topic_name
-  FROM   Entries e
-  LEFT JOIN Topics t on e.topic_id = t.id
-  GROUP BY e.id
-  ORDER  BY date DESC, id DESC';
+/*************************************************************
+Retrieve the records for the View_Entries table
 
+The entry parm contains the fields:
+    - id
+    - date
+    - title
+    - source_link
+    - page_link
+    - topic_id
+    - topic_name
+**************************************************************/
+function getAllEntries() {
+  $stmt = 'SELECT * FROM View_Entries ORDER BY date DESC, title';
   $sql = dbConnect()->prepare($stmt);
   $sql->execute();
 
@@ -164,7 +155,7 @@ function printFooter() {
 
 
 function getUsedTopics() {
-    $stmt = 'CALL getUsedTopics()';
+    $stmt = 'SELECT * FROM View_Used_Topics ORDER BY name';
     $sql = dbConnect()->prepare($stmt);
     $result = $sql->execute();
     return $sql;
