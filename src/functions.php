@@ -153,7 +153,7 @@ function printFooter() {
 
 
 function getUsedTopics() {
-    $stmt = 'CALL getUsedTopics()';
+    $stmt = 'SELECT * FROM View_Used_Topics ORDER BY name';
     $sql = dbConnect()->prepare($stmt);
     $result = $sql->execute();
     return $sql;
