@@ -25,7 +25,7 @@ Each application needed its own Apache configuration file and placed in `/etc/ap
 
 ### api.wmiys.com.conf
 
-```
+```apacheconf
 <VirtualHost *:80>
     ServerName api.wmiys.com
     ProxyPass / http://api.wmiys.com:81/
@@ -52,7 +52,7 @@ Each application needed its own Apache configuration file and placed in `/etc/ap
 
 ### wmiys.com.conf
 
-```
+```apacheconf
 <VirtualHost *:80>
     ServerName wmiys.com
     ProxyPass / http://wmiys.com:82/
