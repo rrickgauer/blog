@@ -8,7 +8,7 @@ It took me about 8 hours and countless youtube videos to get it going. However, 
 
 [PCPartPicker Part List](https://pcpartpicker.com/list/tmRjRT)
 
-Type|Item
+Part | Item
 :----|:----
 **CPU** | [Intel Core i7-10700K 3.8 GHz 8-Core Processor](https://pcpartpicker.com/product/yhxbt6/intel-core-i7-10700k-38-ghz-8-core-processor-bx8070110700k)
 **CPU Cooler** | [Corsair iCUE H100i RGB PRO XT 75 CFM Liquid CPU Cooler](https://pcpartpicker.com/product/B6pmP6/corsair-icue-h100i-rgb-pro-xt-75-cfm-liquid-cpu-cooler-cw-9060043-ww)
