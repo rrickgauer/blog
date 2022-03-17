@@ -19,6 +19,3 @@ entry = prompts.getNewEntry(topics)
 
 # insert the entry into the database
 sql_commands.insertEntry(db, entry)
-
-
-
