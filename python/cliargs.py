@@ -8,7 +8,7 @@ class CliArgs:
     # Constructor
     #----------------------------------------------------------
     def __init__(self):
-        self._parser = argparse.ArgumentParser(description="View a MySQL Database Schema on the command line.")
+        self._parser = argparse.ArgumentParser(description="Insert a new blog post entry.")
 
         self._host = None
         self._user = None
