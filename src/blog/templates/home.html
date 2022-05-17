@@ -39,11 +39,18 @@
             </div>
         </div>
 
-
+        <!-- entries -->
         <ul class="list-group list-group-flush">
-            <?php echo $entryListItemsHtml; ?>
+            {% for entry in data.entries %}
+                <li class="list-group-item entry" data-date="{{ entry.date }}" data-topic-id="{{ entry.topic_id }}">
+                    <div class="title d-sm-flex align-items-center">
+                        <a href="entries/{{ entry.id }}">{{ entry.title }}</a>
+                        <div><span class="badge badge-secondary ml-sm-2">{{ entry.topic_name }}</span></div>
+                    </div>
+                    <div class="date">{{ entry.date }}</div>
+                </li>   
+            {% endfor %}
         </ul>
-
 
         <p class="text-center mt-4">
             <span>&copy; 2022 by </span>

@@ -174,3 +174,5 @@ db-info*
 
 **/static/css/style.css
 **/static/css/style.css.map
+
+**/config/base.py
