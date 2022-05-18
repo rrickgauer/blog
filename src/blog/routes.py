@@ -16,6 +16,4 @@ def home_page():
         topics = get_used_topics(),
     )
 
-    print(data.get('topics'))
-
     return flask.render_template('home.html', data=data)
