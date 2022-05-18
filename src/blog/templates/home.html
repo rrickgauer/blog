@@ -8,7 +8,6 @@
 </head>
 <body>
 
-
     <div class="container">
         <h1 id="hero" class="custom-font mt-5 mb-5">Ryan Rickgauer's Blog</h1>
 
@@ -19,10 +18,10 @@
                 <div>
                     <select class="form-control form-control-sm select-filter">
                         <option value="_all">All</option>
-
-                        
-                        <?php echo $usedTopicsHtml; ?>
-
+                    
+                        {% for topic in data.topics %}
+                            <option value="{{ topic.id }}">{{ topic.name }}</option>
+                        {% endfor %}
                     </select>
                 </div>
             </div>
