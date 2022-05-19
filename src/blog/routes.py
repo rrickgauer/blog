@@ -26,9 +26,9 @@ def home_page():
 #------------------------------------------------------
 @bp_routes.route('entries/<int:entry_id>')
 def entry_page(entry_id: int):
-    
-    entry = get_entry(entry_id)
+    payload = dict(
+        entry = get_entry(entry_id),
+    )
 
+    return flask.render_template('entry.html', data=payload)
     return flask.jsonify(entry)
-    
-    return str(entry_id)
