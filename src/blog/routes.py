@@ -1,5 +1,6 @@
 import flask
 from blog.services.entries import get_entries
+from blog.services.entries import get_entry
 from blog.services.topics import get_used_topics
 
 # module blueprint
@@ -17,3 +18,17 @@ def home_page():
     )
 
     return flask.render_template('home.html', data=data)
+
+
+#------------------------------------------------------
+# Entry page
+# blog.ryanrickgauer.com/entries/:entry_id
+#------------------------------------------------------
+@bp_routes.route('entries/<int:entry_id>')
+def entry_page(entry_id: int):
+    
+    entry = get_entry(entry_id)
+
+    return flask.jsonify(entry)
+    
+    return str(entry_id)

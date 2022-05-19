@@ -13,7 +13,7 @@ import flask
 from .routes import bp_routes
 import pymysql
 from . import config
-from .utilities import get_config
+from .utilities import get_config, CustomJSONEncoder
 
 #------------------------------------------------------
 # Register the blueprints
@@ -26,6 +26,8 @@ def _register_blueprints(flask_app: flask.Flask):
 # ------------------------------------------------------
 def _set_configurations(flask_app: flask.Flask, selected_config: config.ConfigBase):
     flask_app.config.from_object(selected_config)
+
+    flask_app.json_encoder = CustomJSONEncoder
     
     pymysql.credentials.USER     = selected_config.DB_USER
     pymysql.credentials.PASSWORD = selected_config.DB_PASSWORD
