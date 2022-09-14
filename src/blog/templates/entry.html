@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'includes/header.html' %}
+    <title>{{ data.entry.title }}</title>
+</head>
+<body>
+
+    <div id="data" class="container">
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active">{{ data.entry.title }}</li>
+            </ol>
+        </nav>
+
+        
+        <h1 class="custom-font post-title">{{ data.entry.title }}</h1>
+        <h6 class="text-center entry-date">{{ data.entry.date_formatted }}</h6>        
+        {{ data.entry.content }}
+
+        <div class="text-center mt-4">
+            <a href="index.php">Other entries</a> |
+            <a href="https://github.com/rrickgauer/blog" target="_blank"><i class='bx bxl-github'></i></a>
+        </div>
+    </div>
+
+
+    <p class="text-center mt-4">
+        <span>&copy; 2022 by </span>
+        <a href="https://ryanrickgauer.com" target="_blank">Ryan Rickgauer</a>
+    </p>
+
+
+    {% include 'includes/footer.html' %}
+    
+    <script src="/static/js/external/prism.js"></script>
+    <script>
+    new TypeIt('.custom-font', {
+            speed: 50,
+            startDelay: 900
+        })
+        .options({
+            speed: 50
+        })
+        .go();
+    </script>
+</body>
+</html>

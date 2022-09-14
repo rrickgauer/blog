@@ -167,4 +167,12 @@ update-my-entries.py
 db-info.php
 .tables.config
 .tables-mysql-info.json
-tables.output.txt
+*tables.output.txt
+
+db-info*
+
+
+**/static/css/style.css
+**/static/css/style.css.map
+
+**/config/base.py

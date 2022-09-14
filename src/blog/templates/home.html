@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    {% include 'includes/header.html' %}
+    
+    <title>Blog</title>
+</head>
+<body>
+
+    <div class="container">
+        <h1 id="hero" class="custom-font mt-5 mb-5">Ryan Rickgauer's Blog</h1>
+
+        <div class="d-flex justify-content-between">
+            <!-- filters -->
+            <div class="toolbar-select toolbar-filter">
+                <span class="label"><b>Topics:</b></span>
+                <div>
+                    <select class="form-control form-control-sm select-filter">
+                        <option value="_all">All</option>
+                    
+                        {% for topic in data.topics %}
+                            <option value="{{ topic.id }}">{{ topic.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <!-- sorting select options -->
+            <div class="toolbar-select toolbar-sort">
+                <span class="label"><b>Sort:</b></span>
+                <div>
+                    <select class="form-control form-control-sm select-sort">
+                        <option value="date">Date</option>
+                        <option value="title">Title</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- entries -->
+        <ul class="list-group list-group-flush">
+            {% for entry in data.entries %}
+                <li class="list-group-item entry" data-date="{{ entry.date }}" data-topic-id="{{ entry.topic_id }}">
+                    <div class="title d-sm-flex align-items-center">
+                        <a href="entries/{{ entry.id }}">{{ entry.title }}</a>
+                        <div><span class="badge badge-secondary ml-sm-2">{{ entry.topic_name }}</span></div>
+                    </div>
+                    <div class="date">{{ entry.date_formatted }}</div>
+                </li>   
+            {% endfor %}
+        </ul>
+
+        <p class="text-center mt-4">
+            <span>&copy; 2022 by </span>
+            <a href="https://ryanrickgauer.com" target="_blank">Ryan Rickgauer</a>
+        </p>
+    </div>
+
+
+    {% include 'includes/footer.html' %}
+    <script src="/static/js/home.js"></script>
+</body>
+</html>

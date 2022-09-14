@@ -2,6 +2,7 @@ CREATE VIEW View_Entries
 AS
   SELECT e.id                                 AS id,
          DATE(e.date)                         AS date,
+         DATE_FORMAT(e.date, '%M %D, %Y')     AS date_formatted,
          e.title                              AS title,
          e.link                               AS source_link,
          CONCAT('entries.php?entryID=', e.id) AS page_link,
