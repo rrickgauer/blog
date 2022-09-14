@@ -45,7 +45,7 @@ Each application needed its own Apache configuration file and placed in `/etc/ap
 
     ProxyPass / http://api.wmiys.com:81/
 
-    RequestHeader set X-Forwarded-Port 444
+    RequestHeader set X-Forwarded-Port 443
     RequestHeader set X-Forwarded-Scheme https
 </VirtualHost>
 ```
