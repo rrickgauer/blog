@@ -167,7 +167,7 @@ update-my-entries.py
 db-info.php
 .tables.config
 .tables-mysql-info.json
-tables.output.txt
+*tables.output.txt
 
 db-info*
 
