@@ -1,5 +1,8 @@
 #!/bin/bash
 
+
+cd /var/www/blog/scripts/vps
+
 printf "\n\n\n"
 echo "------------------------------------------------"
 echo 'Pulling down latest code from GitHub...'
