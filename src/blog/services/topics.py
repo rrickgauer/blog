@@ -1,4 +1,4 @@
-
+from __future__ import annotations
 
 import blog.repository.topics as topics_repo
 
