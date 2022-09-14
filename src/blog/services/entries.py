@@ -1,4 +1,4 @@
-
+from __future__ import annotations
 import requests
 import markdown
 from jinja2.utils import markupsafe 
