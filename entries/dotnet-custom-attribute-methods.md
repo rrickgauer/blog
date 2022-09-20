@@ -3,7 +3,7 @@
 These functions are some that I use for handling custom attributes for properties in my C# classes.
 
 
-```c#
+```csharp
 /// <summary>
 /// Get a list of PropertyInfo's of the given source Type that are assigned the specified attribute
 /// </summary>
@@ -50,7 +50,7 @@ Let's take a look at how to use these methods.
 Here is a custom attribute class that I created:
 
 
-```c#
+```csharp
 [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = true)]
 public class SqlSelectColumnsAttribute : Attribute, ISqlColumnAttribute
 {
@@ -68,7 +68,7 @@ public class SqlSelectColumnsAttribute : Attribute, ISqlColumnAttribute
 
 Here is a class with some prperties that use the `SqlSelectColumnsAttribute` attribute:
 
-```c#
+```csharp
 public class Topic
 {
     [SqlSelectColumns("topic_id")]
@@ -86,7 +86,7 @@ public class Topic
 
 To use the mapper utility methods:
 
-```c#
+```csharp
 // get a list of PropertyInfos that have the SqlSelectColumns attribute
 List<PropertyInfo> propertiesWithAttribute = GetPropertiesWithAttribute(typeof(Topic), typeof(SqlSelectColumnsAttribute));  // Id, Name
 
