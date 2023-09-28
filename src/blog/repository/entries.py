@@ -1,7 +1,7 @@
 
 
-import pymysql.commands as sql_engine
-from pymysql.structs import DbOperationResult
+import rymysql.commands as sql_engine
+from rymysql.structs import DbOperationResult
 
 SQL_SELECT_ALL = 'SELECT * FROM View_Entries ORDER BY date DESC, title;'
 SQL_SELECT     = 'SELECT * FROM View_Entries e WHERE e.id = %s LIMIT 1;'
