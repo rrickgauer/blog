@@ -1,6 +1,6 @@
+import rymysql.commands as sql_engine
+from rymysql.structs import DbOperationResult
 
-import pymysql.commands as sql_engine
-from pymysql.structs import DbOperationResult
 
 SQL_SELECT_ALL = 'SELECT * FROM View_Used_Topics ORDER BY name;'
 
