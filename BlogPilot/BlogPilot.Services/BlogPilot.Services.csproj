@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Domain\Enum\" />
     <Folder Include="Mapping\" />
     <Folder Include="Repository\" />
     <Folder Include="Service\" />
