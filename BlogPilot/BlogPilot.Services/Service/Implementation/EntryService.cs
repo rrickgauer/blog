@@ -23,9 +23,18 @@ public class EntryService : IEntryService
     }
 
 
+    public async Task<EntryTableView?> GetEntryAsync(int entryId)
+    {
+        var entries = await GetEntriesAsync();
+
+        return entries.Where(e => e.Id == entryId).FirstOrDefault();
+    }
+
     public async Task<IEnumerable<EntryTableView>> GetEntriesAsync()
     {
         var table = await _entryRepository.SelectAllAsync();
         return _mapperService.ToModels<EntryTableView>(table);
     }
+
+
 }
