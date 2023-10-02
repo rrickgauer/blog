@@ -79,18 +79,41 @@ public class DbConnection
 
             await transaction.CommitAsync();
 
+
             await transaction.DisposeAsync();
             await CloseConnectionAsync(connection);
         }
-        catch (Exception ex)
+        catch (Exception)
         {
             await transaction.RollbackAsync();
-            throw ex;
+            throw;
         }
 
         return true;
     }
 
+    /// <summary>
+    /// Returns the newly inserted row id 
+    /// </summary>
+    /// <param name="command"></param>
+    /// <returns></returns>
+    public async Task<int> InsertAsync(MySqlCommand command)
+    {
+        // setup a new database connection object
+        using MySqlConnection connection = GetNewConnection();
+        await connection.OpenAsync();
+        command.Connection = connection;
+
+        // execute the non query command
+        await command.ExecuteNonQueryAsync();
+
+        var rowId = int.Parse(command.LastInsertedId.ToString());
+
+        // close the connection
+        await CloseConnectionAsync(connection);
+
+        return rowId;
+    }
 
 
 
@@ -102,15 +125,15 @@ public class DbConnection
     public async Task<int> ModifyAsync(MySqlCommand command)
     {
         // setup a new database connection object
-        using MySqlConnection conn = GetNewConnection();
-        await conn.OpenAsync();
-        command.Connection = conn;
+        using MySqlConnection connection = GetNewConnection();
+        await connection.OpenAsync();
+        command.Connection = connection;
 
         // execute the non query command
         int numRowsAffected = await command.ExecuteNonQueryAsync();
 
         // close the connection
-        await CloseConnectionAsync(conn);
+        await CloseConnectionAsync(connection);
 
         return numRowsAffected;
     }
@@ -123,10 +146,6 @@ public class DbConnection
     {
         return new MySqlConnection(ConnectionString);
     }
-
-
-
-
 
     private static async Task CloseConnectionAsync(MySqlConnection connection)
     {

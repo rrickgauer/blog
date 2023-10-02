@@ -15,4 +15,10 @@ public static class EntryRepositoryCommands
             View_Entries v
         ORDER BY
             v.date DESC;";
+
+    public const string Insert = @"
+        INSERT INTO
+            Entries (date, title, link, file_name, topic_id)
+        VALUES
+            (@date, @title, @link, @file_name, @topic_id);";
 }
