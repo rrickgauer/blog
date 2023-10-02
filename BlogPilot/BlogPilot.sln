@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogPilot", "BlogPilot\BlogPilot.csproj", "{67F8763F-82A9-4695-8D24-74A529984616}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogPilot.Services", "BlogPilot.Services\BlogPilot.Services.csproj", "{9A5CEC9B-ECC3-4BE0-97FA-1222C0C834EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67F8763F-82A9-4695-8D24-74A529984616}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67F8763F-82A9-4695-8D24-74A529984616}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67F8763F-82A9-4695-8D24-74A529984616}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67F8763F-82A9-4695-8D24-74A529984616}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A5CEC9B-ECC3-4BE0-97FA-1222C0C834EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A5CEC9B-ECC3-4BE0-97FA-1222C0C834EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A5CEC9B-ECC3-4BE0-97FA-1222C0C834EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A5CEC9B-ECC3-4BE0-97FA-1222C0C834EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0B050622-F507-4D22-8E9A-D26D9B849C23}
+	EndGlobalSection
+EndGlobal
