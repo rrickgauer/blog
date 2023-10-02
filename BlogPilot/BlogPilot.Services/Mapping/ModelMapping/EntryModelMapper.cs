@@ -9,11 +9,11 @@ public class EntryModelMapper : ModelMapper<Entry>
     {
         Entry entry = new()
         {
-            Id       = GetSqlColumn<uint?>(dataRow, nameof(Entry.Id)),
+            Id       = GetSqlColumn<int?>(dataRow, nameof(Entry.Id)),
             Title    = GetSqlColumn<string?>(dataRow, nameof(Entry.Title)),
             Link     = new(new(GetSqlColumn<string?>(dataRow, nameof(Entry.Link)))),
             FileName = GetSqlColumn<string?>(dataRow, nameof(Entry.FileName)),
-            TopicId  = GetSqlColumn<uint?>(dataRow, nameof(Entry.TopicId)),
+            TopicId  = GetSqlColumn<int?>(dataRow, nameof(Entry.TopicId)),
             Date     = GetSqlColumn<DateTime?>(dataRow, nameof(Entry.Date)),
         };
 

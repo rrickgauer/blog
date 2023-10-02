@@ -13,7 +13,7 @@ public class EntryTableView : ITableView, ITableViewModel<EntryTableView, Entry>
 
     [CopyToModel(typeof(Entry))]
     [SqlColumn("id")]
-    public uint? Id { get; set; }
+    public int? Id { get; set; }
 
     [CopyToModel(typeof(Entry))]
     [SqlColumn("date")]

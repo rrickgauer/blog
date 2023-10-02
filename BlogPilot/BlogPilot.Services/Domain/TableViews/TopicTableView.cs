@@ -13,7 +13,7 @@ public class TopicTableView : ITableView, ITableViewModel<TopicTableView, Topic>
 
     [CopyToModel(typeof(Topic))]
     [SqlColumn("id")]
-    public uint? Id { get; set; }
+    public int? Id { get; set; }
 
     [CopyToModel(typeof(Topic))]
     [SqlColumn("name")]

@@ -5,7 +5,7 @@ namespace BlogPilot.Services.Domain.Model;
 public class Topic
 {
     [SqlColumn("id")]
-    public uint? Id { get; set; }
+    public int? Id { get; set; }
 
     [SqlColumn("name")]
     public string? Name { get; set; }

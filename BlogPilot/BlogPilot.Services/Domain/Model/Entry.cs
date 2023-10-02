@@ -6,7 +6,7 @@ public class Entry
 {
 
     [SqlColumn("id")]
-    public uint? Id { get; set; }
+    public int? Id { get; set; }
 
     [SqlColumn("title")]
     public string? Title { get; set; }
@@ -18,7 +18,7 @@ public class Entry
     public string? FileName { get; set; }
 
     [SqlColumn("topic_id")]
-    public uint? TopicId { get; set; }
+    public int? TopicId { get; set; }
 
     [SqlColumn("date")]
     public DateTime? Date { get; set; } = DateTime.Now;

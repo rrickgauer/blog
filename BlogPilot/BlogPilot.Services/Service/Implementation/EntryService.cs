@@ -1,4 +1,5 @@
-﻿using BlogPilot.Services.Repository.Interface;
+﻿using BlogPilot.Services.Domain.TableViews;
+using BlogPilot.Services.Repository.Interface;
 using BlogPilot.Services.Service.Interface;
 
 namespace BlogPilot.Services.Service.Implementation;
@@ -22,5 +23,9 @@ public class EntryService : IEntryService
     }
 
 
-    public void Test() { }
+    public async Task<IEnumerable<EntryTableView>> GetEntriesAsync()
+    {
+        var table = await _entryRepository.SelectAllAsync();
+        return _mapperService.ToModels<EntryTableView>(table);
+    }
 }

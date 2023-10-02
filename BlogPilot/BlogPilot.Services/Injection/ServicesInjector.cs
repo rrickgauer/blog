@@ -1,5 +1,7 @@
-﻿using BlogPilot.Services.Repository.Implementation;
+﻿using BlogPilot.Services.Configs;
+using BlogPilot.Services.Repository.Implementation;
 using BlogPilot.Services.Repository.Interface;
+using BlogPilot.Services.Repository.Other;
 using BlogPilot.Services.Service.Implementation;
 using BlogPilot.Services.Service.Interface;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,16 +27,16 @@ public class ServicesInjector
 
     public void InjectDependencies()
     {
-        //// set the appropriate configuration class
-        //// depends if the app is running in development or production
-        //if (isDevlopment)
-        //{
-        //    services.AddSingleton<IConfigs, ConfigurationDev>();
-        //}
-        //else
-        //{
-        //    services.AddSingleton<IConfigs, ConfigurationProduction>();
-        //}
+        // set the appropriate configuration class
+        // depends if the app is running in development or production
+        if (IsProduction)
+        {
+            Services.AddSingleton<IConfigs, ConfigsProduction>();
+        }
+        else
+        {
+            Services.AddSingleton<IConfigs, ConfigsDev>();
+        }
 
 
         // services
@@ -43,6 +45,8 @@ public class ServicesInjector
 
         // repositories
         Services.AddSingleton<IEntryRepository, EntryRepository>();
-
+        
+        // other
+        Services.AddTransient<DbConnection>();
     }
 }

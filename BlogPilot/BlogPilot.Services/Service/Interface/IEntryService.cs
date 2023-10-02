@@ -1,6 +1,8 @@
-﻿namespace BlogPilot.Services.Service.Interface;
+﻿using BlogPilot.Services.Domain.TableViews;
+
+namespace BlogPilot.Services.Service.Interface;
 
 public interface IEntryService
 {
-    public void Test();
+    public Task<IEnumerable<EntryTableView>> GetEntriesAsync();
 }

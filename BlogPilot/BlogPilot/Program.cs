@@ -1,6 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-using BlogPilot;
-using BlogPilot.Services.Injection;
+﻿using BlogPilot.Services.Injection;
 using BlogPilot.Services.Service.Interface;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -18,8 +16,5 @@ injector.InjectDependencies();
 ServiceProvider serviceProvider = services.BuildServiceProvider();
 
 var entryService = serviceProvider.GetRequiredService<IEntryService>();
-entryService.Test();
-
-int x = 10;
-
+var entries = await entryService.GetEntriesAsync();
 
