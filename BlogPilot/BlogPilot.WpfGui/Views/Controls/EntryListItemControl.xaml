@@ -6,14 +6,58 @@
              xmlns:local="clr-namespace:BlogPilot.WpfGui.Views.Controls"
              xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
              mc:Ignorable="d" 
-             Margin="20"
+             Margin="2"
+             d:Foreground="White"
              d:DataContext="{d:DesignInstance local:EntryListItemControl, IsDesignTimeCreatable=False}"
-             d:DesignHeight="450" 
              d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style x:Key="SectionBorderStyle" TargetType="Border">
+            <Setter Property="Padding" Value="0,10" />
+
+        </Style>
+    </UserControl.Resources>
 
     <Border>
-        <Grid>
-            <TextBlock Text="{Binding ViewModel.Entry.Title}" />
-        </Grid>
+
+        <ui:CardExpander d:IsExpanded="False">
+            <ui:CardExpander.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                
+                    <StackPanel Grid.Column="0">
+
+                        <Border>
+                            <StackPanel Orientation="Horizontal">
+                                
+                                <TextBlock Text="{Binding ViewModel.Entry.Title}" 
+                                           d:Text="Entry Title" FontSize="16"/>
+
+                                <ui:Badge Appearance="Light" 
+                                          FontSize="12"
+                                          d:Content="Topic name"
+                                          Content="{Binding ViewModel.Entry.TopicName}" 
+                                          Margin="10,0,0,0"/>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                    <Border Grid.Column="1">
+                        <ui:Button Icon="MoreHorizontal24" />
+                    </Border>
+                </Grid>
+            </ui:CardExpander.Header>
+            <ui:CardExpander.Content>
+                Sup
+            </ui:CardExpander.Content>
+            
+            
+
+        </ui:CardExpander>
+        
+
+            
+        
     </Border>
 </UserControl>

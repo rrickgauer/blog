@@ -56,12 +56,19 @@ public partial class EntriesViewModel : ObservableObject, INavigationAware
     private async Task LoadEntriesAsync()
     {
         SpinnerIsVisible = true;
-        
-        var entries = await _entryService.GetEntriesAsync();
-        var controls = entries.Select(e => new EntryListItemControl(new(e)));
+
+        var controls = await GetEntryControlsAsync();
         Entries = new(controls);
         
         SpinnerIsVisible = false;
+    }
+
+    private async Task<IEnumerable<EntryListItemControl>> GetEntryControlsAsync()
+    {
+        var entries = await _entryService.GetEntriesAsync();
+        var controls = entries.Select(e => new EntryListItemControl(new(e)));
+
+        return controls;
     }
 
 

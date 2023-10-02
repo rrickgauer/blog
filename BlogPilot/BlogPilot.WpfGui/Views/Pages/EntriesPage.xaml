@@ -12,7 +12,7 @@
            d:Foreground="Black"
            Title="EntriesPage">
     <Border>
-        <Grid>
+        <Grid>  
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
@@ -28,6 +28,7 @@
                     <ListView ItemsSource="{Binding ViewModel.Entries}"
                               d:ItemsSource="{d:SampleData ItemCount=5}"
                               d:Visibility="Visible"
+                              ItemContainerStyle="{StaticResource ListViewItemStyle}"
                               Visibility="{Binding ViewModel.SpinnerIsVisible, Converter={StaticResource BoolToVisibilityInverseConverter}}"/>
 
                     <ui:ProgressRing IsIndeterminate="True" 
