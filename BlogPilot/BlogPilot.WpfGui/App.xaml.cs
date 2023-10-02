@@ -63,6 +63,9 @@ namespace BlogPilot.WpfGui
                 services.AddScoped<LandingViewModel>();
                 services.AddScoped<LandingPage>();
 
+                services.AddScoped<EntriesViewModel>();
+                services.AddScoped<EntriesPage>();
+
 
             }).Build();
 

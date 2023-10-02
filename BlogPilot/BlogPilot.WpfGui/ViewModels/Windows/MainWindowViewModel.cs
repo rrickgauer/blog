@@ -36,9 +36,9 @@ public partial class MainWindowViewModel : ObservableObject
 
     private void InitializeViewModel()
     {
-        ApplicationTitle = "WPF UI - DotnetLists.WpfGui";
+        ApplicationTitle = "Blog Pilot";
 
-        NavigationItems = new ObservableCollection<INavigationControl>
+        NavigationItems = new()
         {
             new NavigationItem()
             {
@@ -46,6 +46,14 @@ public partial class MainWindowViewModel : ObservableObject
                 PageTag = "home",
                 Icon = SymbolRegular.Home24,
                 PageType = typeof(Views.Pages.LandingPage)
+            },
+
+            new NavigationItem()
+            {
+                Content = "Entries",
+                PageTag = "entries",
+                Icon = SymbolRegular.Home24,
+                PageType = typeof(Views.Pages.EntriesPage)
             },
 
             //new NavigationItem()
