@@ -1,5 +1,6 @@
 ﻿using BlogPilot.Services.Domain.TableViews;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,4 +17,27 @@ public partial class EntryListItemViewModel : ObservableObject
     {
         Entry = entry;
     }
+
+    #region - Commands -
+
+    [RelayCommand]
+    private void Edit()
+    {
+        int x = 10;
+    }
+
+    [RelayCommand]
+    private void Delete()
+    {
+        int x = 10;
+    }
+
+    [RelayCommand]  
+    private void View()
+    {
+        int x = 10;
+    }
+
+
+    #endregion
 }

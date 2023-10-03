@@ -1,4 +1,5 @@
 ﻿using BlogPilot.WpfGui.ViewModels.Controls;
+using System.Windows;
 using System.Windows.Controls;
 using Wpf.Ui.Common.Interfaces;
 
@@ -16,5 +17,11 @@ public partial class EntryListItemControl : UserControl, INavigableView<EntryLis
         ViewModel = viewModel;
 
         InitializeComponent();
+    }
+
+    private void Button_Click(object sender, RoutedEventArgs e)
+    {
+        var button = (Button)sender;
+        button.ContextMenu.IsOpen = true;
     }
 }
