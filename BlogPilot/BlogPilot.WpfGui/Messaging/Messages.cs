@@ -1,0 +1,14 @@
+﻿using CommunityToolkit.Mvvm.Messaging.Messages;
+
+namespace BlogPilot.WpfGui.Messaging;
+
+public sealed class EntryFormSubmittedMessage : ValueChangedMessage<EventArgs>
+{
+    public EntryFormSubmittedMessage(EventArgs e) : base(e) { }
+}
+
+
+public sealed class EntryListItemEditMessage : ValueChangedMessage<int>
+{
+    public EntryListItemEditMessage(int entryId) : base(entryId) { }
+}

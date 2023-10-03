@@ -5,6 +5,7 @@
 
 using BlogPilot.Services.Injection;
 using BlogPilot.WpfGui.Models;
+using BlogPilot.WpfGui.Other;
 using BlogPilot.WpfGui.Services;
 using BlogPilot.WpfGui.ViewModels.Pages;
 using BlogPilot.WpfGui.ViewModels.Windows;
@@ -66,6 +67,9 @@ namespace BlogPilot.WpfGui
                 services.AddScoped<EntriesViewModel>();
                 services.AddScoped<EntriesPage>();
 
+                services.AddScoped<CreateEntryViewModel>();
+                services.AddScoped<CreateEntryPage>();
+
 
             }).Build();
 
@@ -101,6 +105,8 @@ namespace BlogPilot.WpfGui
             services.AddScoped<SettingsViewModel>();
         }
 
+
+
         /// <summary>
         /// Gets registered service.
         /// </summary>
@@ -118,6 +124,13 @@ namespace BlogPilot.WpfGui
         private void OnStartup(object sender, StartupEventArgs e)
         {
             _host.Start();
+
+            InitMessengers();
+        }
+
+        private static void InitMessengers()
+        {
+            ((IMessengerCompliant)GetService<EntriesViewModel>()).RegisterMessages();
         }
 
         /// <summary>

@@ -1,16 +1,24 @@
 ﻿using BlogPilot.Services.Domain.TableViews;
 using BlogPilot.Services.Service.Interface;
+using BlogPilot.WpfGui.Messaging;
+using BlogPilot.WpfGui.Other;
 using BlogPilot.WpfGui.Views.Controls;
+using BlogPilot.WpfGui.Views.Pages;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Messaging;
 using System.Collections.ObjectModel;
 using Wpf.Ui.Common.Interfaces;
+using Wpf.Ui.Controls.Interfaces;
+using Wpf.Ui.Mvvm.Contracts;
 
 namespace BlogPilot.WpfGui.ViewModels.Pages;
 
-public partial class EntriesViewModel : ObservableObject, INavigationAware
+public partial class EntriesViewModel : ObservableObject, INavigationAware, IMessengerCompliant,
+    IRecipient<EntryListItemEditMessage>
 {
     #region - Private Members -
     private readonly IEntryService _entryService;
+    private readonly INavigation _navigation;
     #endregion
 
     #region - Generated Properties -
@@ -31,10 +39,24 @@ public partial class EntriesViewModel : ObservableObject, INavigationAware
     #endregion
 
 
-    public EntriesViewModel(IEntryService entryService)
+    public EntriesViewModel(IEntryService entryService, INavigationService navigationService)
     {
         _entryService = entryService;
+        _navigation = navigationService.GetNavigationControl();
     }
+
+    #region - Messaging -
+
+    public void Receive(EntryListItemEditMessage message)
+    {
+        int x = 10;
+
+        _navigation.Navigate(typeof(CreateEntryPage));
+
+    }
+
+
+    #endregion
 
     #region - INavigationAware -
 
@@ -49,7 +71,6 @@ public partial class EntriesViewModel : ObservableObject, INavigationAware
     }
 
     #endregion
-
 
     #region - Private Methods -
 
