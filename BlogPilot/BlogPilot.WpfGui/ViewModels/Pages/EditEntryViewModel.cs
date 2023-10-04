@@ -2,6 +2,7 @@
 using BlogPilot.Services.Service.Interface;
 using BlogPilot.WpfGui.Messaging;
 using BlogPilot.WpfGui.Other;
+using BlogPilot.WpfGui.Services;
 using BlogPilot.WpfGui.ViewModels.Controls;
 using BlogPilot.WpfGui.Views.Controls;
 using BlogPilot.WpfGui.Views.Pages;
@@ -26,6 +27,7 @@ public partial class EditEntryViewModel : ObservableObject, INavigationAware, IM
     private readonly IEntryService _entryService;
     private readonly INavigation _navigation;
     private readonly IWebService _webService;
+    private readonly CustomAlertService _customAlertService;
 
     private int _currentEntryId = int.MinValue;
 
@@ -50,11 +52,12 @@ public partial class EditEntryViewModel : ObservableObject, INavigationAware, IM
     #endregion
 
 
-    public EditEntryViewModel(IEntryService entryService, INavigationService navigationService, IWebService webService)
+    public EditEntryViewModel(IEntryService entryService, INavigationService navigationService, IWebService webService, CustomAlertService customAlertService)
     {
         _entryService = entryService;
         _navigation = navigationService.GetNavigationControl();
         _webService = webService;
+        _customAlertService = customAlertService;
     }
 
 
@@ -86,6 +89,10 @@ public partial class EditEntryViewModel : ObservableObject, INavigationAware, IM
     public async void Receive(EntryFormSubmittedMessage message)
     {
         await SaveEntryChangesAsync();
+
+        NavigateToEntriesPage();
+
+        _customAlertService.Successful("Changes saved successfully");
     }
 
     public void Receive(EditEntryMessage message)
@@ -111,6 +118,8 @@ public partial class EditEntryViewModel : ObservableObject, INavigationAware, IM
         if (deleted)
         {
             NavigateToEntriesPage();
+
+            _customAlertService.Successful("Entry deleted");
         }
     }
 
@@ -176,8 +185,6 @@ public partial class EditEntryViewModel : ObservableObject, INavigationAware, IM
         }
 
         await _entryService.SaveEntryAsync(updatedEntry);
-
-        NavigateToEntriesPage();
     }
 
     private void NavigateToEntriesPage()

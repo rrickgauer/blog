@@ -55,22 +55,6 @@ public partial class MainWindowViewModel : ObservableObject
                 Icon = SymbolRegular.Home24,
                 PageType = typeof(Views.Pages.EntriesPage)
             },
-
-            //new NavigationItem()
-            //{
-            //    Content = "Checklists",
-            //    PageTag = "checklists",
-            //    Icon = SymbolRegular.WindowBulletList20,
-            //    PageType = typeof(Views.Pages.ChecklistsPage)
-            //},
-
-            //new NavigationItem()
-            //{
-            //    Content = "Labels",
-            //    PageTag = "labels",
-            //    Icon = SymbolRegular.Tag24,
-            //    PageType = typeof(Views.Pages.LabelsPage)
-            //},
         };
 
         NavigationFooter = new ObservableCollection<INavigationControl>
