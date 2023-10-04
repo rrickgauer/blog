@@ -60,6 +60,8 @@ public partial class EntriesViewModel : ObservableObject, INavigationAware, IMes
     {
         IsSortDropdownVisible = false;
 
+        SearchInputText = string.Empty;
+
         await LoadEntriesAsync();
     }
 
@@ -92,6 +94,8 @@ public partial class EntriesViewModel : ObservableObject, INavigationAware, IMes
 
     partial void OnSelectedFilterOptionChanged(EnumDescription<TopicReference>? value)
     {
+        SearchInputText = string.Empty;
+
         if (value == null)
         {
             ShowAllControls();
