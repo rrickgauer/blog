@@ -1,5 +1,9 @@
-﻿using BlogPilot.Services.Domain.TableViews;
+﻿using BlogPilot.Services.Domain.Enum;
+using BlogPilot.Services.Domain.Helpers;
+using BlogPilot.Services.Domain.TableViews;
 using BlogPilot.Services.Service.Interface;
+using BlogPilot.Services.Utilities;
+using BlogPilot.WpfGui.Enums;
 using BlogPilot.WpfGui.Messaging;
 using BlogPilot.WpfGui.Other;
 using BlogPilot.WpfGui.Services;
@@ -40,6 +44,44 @@ public partial class EntriesViewModel : ObservableObject, INavigationAware, IMes
     [ObservableProperty]
     private bool _spinnerIsVisible = false;
 
+    /// <summary>
+    /// SortOptions
+    /// </summary>
+    [ObservableProperty]
+    private ObservableCollection<EnumDescription<EntriesSortOption>> _sortOptions = new(EnumUtilities.GetDescriptions<EntriesSortOption>());
+
+    /// <summary>
+    /// SelectedSortOption
+    /// </summary>
+    [ObservableProperty]
+    private EnumDescription<EntriesSortOption> _selectedSortOption;
+
+    /// <summary>
+    /// IsSortDropdownVisible
+    /// </summary>
+    [ObservableProperty]
+    private bool _isSortDropdownVisible = false;
+
+
+    /// <summary>
+    /// IsFilterDropdownVisible
+    /// </summary>
+    [ObservableProperty]
+    private bool _isFilterDropdownVisible = false;
+
+    /// <summary>
+    /// FilterOptions
+    /// </summary>
+    [ObservableProperty]
+    private ObservableCollection<EnumDescription<TopicReference>> _filterOptions = new(EnumUtilities.GetDescriptions<TopicReference>());
+
+    /// <summary>
+    /// SelectedFilterOption
+    /// </summary>
+    [ObservableProperty]
+    [NotifyCanExecuteChangedFor(nameof(ClearSelectedFilterCommand))]
+    private EnumDescription<TopicReference>? _selectedFilterOption = null;
+
     #endregion
 
 
@@ -48,6 +90,9 @@ public partial class EntriesViewModel : ObservableObject, INavigationAware, IMes
         _entryService = entryService;
         _navigation = navigationService.GetNavigationControl();
         _customAlertService = customAlertService;
+
+        SelectedSortOption = SortOptions[0];
+        
     }
 
     #region - Messaging -
@@ -69,10 +114,49 @@ public partial class EntriesViewModel : ObservableObject, INavigationAware, IMes
 
     #region - Commands - 
 
+    /// <summary>
+    /// NewCommand
+    /// </summary>
     [RelayCommand]
     private void New()
     {
         NavigateToCreateEntryPage();
+    }
+
+    /// <summary>
+    /// ToggleSortCommand
+    /// </summary>
+    [RelayCommand]
+    private void ToggleSort()
+    {
+        ToggleSortDropdownVisibility();
+    }
+
+    /// <summary>
+    /// ToggleFilterCommand
+    /// </summary>
+    [RelayCommand]
+    private void ToggleFilter()
+    {
+        ToggleFilterDropdownVisibility();
+    }
+
+    [RelayCommand(CanExecute = nameof(CanClearSelectedFilter))]
+    private void ClearSelectedFilter()
+    {
+        SelectedFilterOption = null;
+        ToggleFilterDropdownVisibility();
+    }
+
+
+    private bool CanClearSelectedFilter()
+    {
+        if (SelectedFilterOption != null)
+        {
+            return true;
+        }
+
+        return false;
     }
 
 
@@ -116,6 +200,16 @@ public partial class EntriesViewModel : ObservableObject, INavigationAware, IMes
     private void NavigateToCreateEntryPage()
     {
         _navigation.Navigate(typeof(CreateEntryPage));
+    }
+
+    private void ToggleSortDropdownVisibility()
+    {
+        IsSortDropdownVisible = !IsSortDropdownVisible;
+    }
+
+    private void ToggleFilterDropdownVisibility()
+    {
+        IsFilterDropdownVisible = !IsFilterDropdownVisible;
     }
 
 

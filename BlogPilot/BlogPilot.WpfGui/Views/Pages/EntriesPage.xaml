@@ -21,7 +21,7 @@
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width=".3*" />
+                <ColumnDefinition Width=".4*" />
             </Grid.ColumnDefinitions>
 
             <!--Page title-->
@@ -46,18 +46,71 @@
                     Grid.RowSpan="2"
                     Padding="10,0,0,0">
                 <Border.Resources>
-                    <Style TargetType="{x:Type ui:Button}" BasedOn="{StaticResource {x:Type ui:Button}}">
+                    <Style TargetType="{x:Type ui:Button}" BasedOn="{StaticResource {x:Type ui:Button}}" x:Key="SidebarButtonStyle">
                         <Setter Property="HorizontalAlignment" Value="Stretch" />
                         <Setter Property="Margin" Value="0,0,0,5" />
                     </Style>
                 </Border.Resources>
                 <StackPanel>
+                    <!--New entry-->
                     <ui:Button Icon="Add24"
+                               Style="{StaticResource SidebarButtonStyle}"
+                               Command="{Binding ViewModel.NewCommand}"
                                ToolTip="Create a new entry"/>
+
+                    <!--Sorting-->
                     <ui:Button Icon="ArrowSort24"
+                               Style="{StaticResource SidebarButtonStyle}"
+                               Command="{Binding ViewModel.ToggleSortCommand}"
                                ToolTip="Sort entries" />
+
+                    <ui:Card Visibility="{Binding ViewModel.IsSortDropdownVisible, Converter={StaticResource BoolToVisibilityConverter}}"
+                             d:Visibility="Visible"
+                             Margin="0,0,0,5">
+                        
+                        <ListBox ItemsSource="{Binding ViewModel.SortOptions}"
+                                 SelectedItem="{Binding ViewModel.SelectedSortOption, Mode=TwoWay}">
+                            
+                            <ListBox.Resources>
+                                <Style TargetType="{x:Type ListBoxItem}" >
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate>
+                                                <RadioButton IsChecked="{Binding Path=IsSelected, Mode=TwoWay}"
+                                                             Content="{Binding Path=DataContext.Description}"
+                                                             DataContext="{Binding RelativeSource={RelativeSource TemplatedParent}}" />
+
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListBox.Resources>
+                        </ListBox>
+                    </ui:Card>
+
+
+                    <!--Filter-->
                     <ui:Button Icon="Filter24"
+                               Style="{StaticResource SidebarButtonStyle}"
+                               Command="{Binding ViewModel.ToggleFilterCommand}"
                                ToolTip="Filter entries" />
+
+                    <ui:Card Visibility="{Binding ViewModel.IsFilterDropdownVisible, Converter={StaticResource BoolToVisibilityConverter}}"
+                             d:Visibility="Visible"
+                             Margin="0,0,0,5">
+
+                        <StackPanel>
+                            <ComboBox ItemsSource="{Binding ViewModel.FilterOptions}"
+                                      DisplayMemberPath="Description"
+                                      SelectedItem="{Binding ViewModel.SelectedFilterOption, Mode=TwoWay}"/>
+
+                            <ui:Button Content="Clear"
+                                       HorizontalAlignment="Stretch"
+                                       Margin="0,5"
+                                       Command="{Binding ViewModel.ClearSelectedFilterCommand}"/>
+                        </StackPanel>
+
+                    </ui:Card>
                 </StackPanel>
             </Border>
             

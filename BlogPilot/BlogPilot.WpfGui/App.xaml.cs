@@ -4,6 +4,8 @@
 // All Rights Reserved.
 
 using BlogPilot.Services.Injection;
+using BlogPilot.Services.Utilities;
+using BlogPilot.WpfGui.Enums;
 using BlogPilot.WpfGui.Models;
 using BlogPilot.WpfGui.Other;
 using BlogPilot.WpfGui.Services;
@@ -129,6 +131,9 @@ public partial class App
         _host.Start();
 
         InitMessengers();
+
+        //TestMe();
+
     }
 
     private static void InitMessengers()
@@ -154,5 +159,13 @@ public partial class App
     private void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
     {
         // For more info see https://docs.microsoft.com/en-us/dotnet/api/system.windows.application.dispatcherunhandledexception?view=windowsdesktop-6.0
+    }
+
+
+    private void TestMe()
+    {
+        //var descriptions = EnumUtilities.GetDescriptions<EntriesSortOption>();
+
+        //int x = 10;
     }
 }
