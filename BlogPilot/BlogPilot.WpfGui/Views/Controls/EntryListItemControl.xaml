@@ -8,7 +8,8 @@
              xmlns:helpers="clr-namespace:BlogPilot.WpfGui.Helpers"
              mc:Ignorable="d" 
              Margin="2"
-             
+             Visibility="{Binding ViewModel.Visibile, Converter={StaticResource BoolToVisibilityConverter}}"
+             d:Visibility="Visible"
              d:Foreground="White"
              d:DataContext="{d:DesignInstance local:EntryListItemControl, IsDesignTimeCreatable=False}"
              d:DesignWidth="800">

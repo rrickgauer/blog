@@ -56,6 +56,14 @@ public partial class EntriesViewModel : ObservableObject, INavigationAware, IMes
     [ObservableProperty]
     private EnumDescription<EntriesSortOption> _selectedSortOption;
 
+    async partial void OnSelectedSortOptionChanged(EnumDescription<EntriesSortOption> value)
+    {
+        IsSortDropdownVisible = false;
+
+        await LoadEntriesAsync();
+    }
+
+
     /// <summary>
     /// IsSortDropdownVisible
     /// </summary>
@@ -82,6 +90,18 @@ public partial class EntriesViewModel : ObservableObject, INavigationAware, IMes
     [NotifyCanExecuteChangedFor(nameof(ClearSelectedFilterCommand))]
     private EnumDescription<TopicReference>? _selectedFilterOption = null;
 
+    partial void OnSelectedFilterOptionChanged(EnumDescription<TopicReference>? value)
+    {
+        if (value == null)
+        {
+            ShowAllControls();
+        }
+        else
+        {
+            FilterCurrentControls();
+        }
+    }
+
     #endregion
 
 
@@ -92,7 +112,6 @@ public partial class EntriesViewModel : ObservableObject, INavigationAware, IMes
         _customAlertService = customAlertService;
 
         SelectedSortOption = SortOptions[0];
-        
     }
 
     #region - Messaging -
@@ -185,17 +204,34 @@ public partial class EntriesViewModel : ObservableObject, INavigationAware, IMes
 
         var controls = await GetEntryControlsAsync();
         Entries = new(controls);
+
+        FilterCurrentControls();
         
         SpinnerIsVisible = false;
     }
 
     private async Task<IEnumerable<EntryListItemControl>> GetEntryControlsAsync()
     {
-        var entries = await _entryService.GetEntriesAsync();
+        var entries = await GetSortedEntriesAsync();
         var controls = entries.Select(e => new EntryListItemControl(new(e)));
 
         return controls;
     }
+
+    private async Task<List<EntryTableView>> GetSortedEntriesAsync()
+    {
+        var entries = await _entryService.GetEntriesAsync();
+
+        var currentSort = SelectedSortOption.Value;
+
+        var sortedEntries = currentSort == EntriesSortOption.CreatedOn ? 
+            entries.OrderByDescending(x => x.Date) : 
+            entries.OrderBy(x => x.Title);
+
+        return sortedEntries.ToList();
+
+    }
+
 
     private void NavigateToCreateEntryPage()
     {
@@ -210,6 +246,35 @@ public partial class EntriesViewModel : ObservableObject, INavigationAware, IMes
     private void ToggleFilterDropdownVisibility()
     {
         IsFilterDropdownVisible = !IsFilterDropdownVisible;
+    }
+
+    private void FilterCurrentControls()
+    {
+        ShowAllControls();
+
+        if (SelectedFilterOption != null)
+        {
+            FilterControlsByTopic((uint)SelectedFilterOption.Value);
+        }
+    }
+
+    private void ShowAllControls()
+    {
+        foreach (var control in Entries)
+        {
+            control.ViewModel.Visibile = true;
+        }
+    }
+
+    private void FilterControlsByTopic(uint topicId)
+    {
+        foreach (var control in Entries)
+        {
+            if (control.ViewModel.Entry.TopicId != topicId)
+            {
+                control.ViewModel.Visibile = false;
+            }
+        }
     }
 
 
