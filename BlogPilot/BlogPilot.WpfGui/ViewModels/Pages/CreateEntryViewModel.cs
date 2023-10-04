@@ -1,6 +1,7 @@
 ﻿using BlogPilot.Services.Service.Interface;
 using BlogPilot.WpfGui.Messaging;
 using BlogPilot.WpfGui.Other;
+using BlogPilot.WpfGui.Services;
 using BlogPilot.WpfGui.Views.Controls;
 using BlogPilot.WpfGui.Views.Pages;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -19,6 +20,7 @@ public partial class CreateEntryViewModel : ObservableObject, INavigationAware, 
     #region - Private Members -
     private readonly IEntryService _entryService;
     private readonly INavigation _navigation;
+    private readonly CustomAlertService _customAlertService;
     #endregion
 
     #region - Generated Properties - 
@@ -41,10 +43,11 @@ public partial class CreateEntryViewModel : ObservableObject, INavigationAware, 
     /// </summary>
     /// <param name="entryService"></param>
     /// <param name="navigationService"></param>
-    public CreateEntryViewModel(IEntryService entryService, INavigationService navigationService)
+    public CreateEntryViewModel(IEntryService entryService, INavigationService navigationService, CustomAlertService customAlertService)
     {
         _entryService = entryService;
         _navigation = navigationService.GetNavigationControl();
+        _customAlertService = customAlertService;
     }
 
     #endregion
@@ -77,6 +80,8 @@ public partial class CreateEntryViewModel : ObservableObject, INavigationAware, 
     public async void Receive(EntryFormSubmittedMessage message)
     {
         await CreateNewEntryAsync();
+
+        _customAlertService.Successful("Entry created");
 
         _navigation.Navigate(typeof(EntriesPage));
     }

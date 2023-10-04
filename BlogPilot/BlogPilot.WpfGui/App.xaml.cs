@@ -59,7 +59,7 @@ public partial class App
             servicesInjector.InjectDependencies();
 
             // inject all the custom view/view models
-            //services.AddSingleton<CustomAlertsService>();
+            services.AddSingleton<CustomAlertService>();
 
             services.AddScoped<LandingViewModel>();
             services.AddScoped<LandingPage>();
