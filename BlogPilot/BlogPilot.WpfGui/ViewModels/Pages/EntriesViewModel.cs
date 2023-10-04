@@ -102,6 +102,24 @@ public partial class EntriesViewModel : ObservableObject, INavigationAware, IMes
         }
     }
 
+    /// <summary>
+    /// SearchInputText
+    /// </summary>
+    [ObservableProperty]
+    private string? _searchInputText = string.Empty;
+
+    partial void OnSearchInputTextChanged(string? value)
+    {
+        if (!string.IsNullOrWhiteSpace(value) && value.Length > 2)
+        {
+            SearchForEntry(value);
+        }
+        else
+        {
+            FilterCurrentControls();
+        }
+    }
+
     #endregion
 
 
@@ -246,6 +264,13 @@ public partial class EntriesViewModel : ObservableObject, INavigationAware, IMes
     private void ToggleFilterDropdownVisibility()
     {
         IsFilterDropdownVisible = !IsFilterDropdownVisible;
+    }
+
+    private void SearchForEntry(string searchText)
+    {
+        FilterCurrentControls();
+
+        Entries.Where(c => !c.ViewModel.Entry.Title.ToLower().Contains(searchText.ToLower())).ToList().ForEach(c => c.ViewModel.Visibile = false);
     }
 
     private void FilterCurrentControls()

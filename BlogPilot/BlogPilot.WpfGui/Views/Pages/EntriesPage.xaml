@@ -37,7 +37,7 @@
 
             <!--Entry search-->
             <Border Grid.Row="1" Grid.Column="0" Padding="0,0,10,0">
-                <ui:TextBox Icon="Search24" />
+                <ui:TextBox Icon="Search24" Text="{Binding ViewModel.SearchInputText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </Border>
 
             <!--Sidebar Buttons-->
