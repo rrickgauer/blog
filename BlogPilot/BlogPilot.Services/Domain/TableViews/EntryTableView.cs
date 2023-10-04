@@ -28,7 +28,7 @@ public class EntryTableView : ITableView, ITableViewModel<EntryTableView, Entry>
 
     [CopyToModel(typeof(Entry), nameof(Entry.Link))]
     [SqlColumn("source_link")]
-    public Uri? SourceLink { get; set; }
+    public string? SourceLink { get; set; }
 
     [SqlColumn("page_link")]
     public string? PageLink { get; set; }
@@ -41,6 +41,9 @@ public class EntryTableView : ITableView, ITableViewModel<EntryTableView, Entry>
     [CopyToModel(typeof(Topic), nameof(Topic.Name))]
     [SqlColumn("topic_name")]
     public string? TopicName { get; set; }
+
+
+    public string DisplayId => $"#{Id}";
 
 
     #region - ITableViewModel -

@@ -42,6 +42,7 @@ public class ServicesInjector
         // services
         Services.AddSingleton<IModelMapperService, ModelMapperService>();
         Services.AddSingleton<IEntryService, EntryService>();
+        Services.AddSingleton<IWebService, WebService>();
 
         // repositories
         Services.AddSingleton<IEntryRepository, EntryRepository>();

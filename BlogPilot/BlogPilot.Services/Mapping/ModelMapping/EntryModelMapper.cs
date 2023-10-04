@@ -11,9 +11,9 @@ public class EntryModelMapper : ModelMapper<Entry>
         {
             Id       = GetSqlColumn<int?>(dataRow, nameof(Entry.Id)),
             Title    = GetSqlColumn<string?>(dataRow, nameof(Entry.Title)),
-            Link     = new(new(GetSqlColumn<string?>(dataRow, nameof(Entry.Link)))),
+            Link     = GetSqlColumn<string?>(dataRow, nameof(Entry.Link)),
             FileName = GetSqlColumn<string?>(dataRow, nameof(Entry.FileName)),
-            TopicId  = GetSqlColumn<int?>(dataRow, nameof(Entry.TopicId)),
+            TopicId  = GetSqlColumn<uint?>(dataRow, nameof(Entry.TopicId)),
             Date     = GetSqlColumn<DateTime?>(dataRow, nameof(Entry.Date)),
         };
 

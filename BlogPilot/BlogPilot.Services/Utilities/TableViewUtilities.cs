@@ -33,12 +33,12 @@ public static class TableViewUtilities
         {
             // see if the property has a CopyToModelAttribute assignment whose ModelType matches TModel
             var customAttribute = viewProperty.GetCustomAttributes<CopyToModelAttribute>().Where(a => a.ModelType == typeof(TModel)).FirstOrDefault();
-            
+
             if (customAttribute != null)
             {
                 // we have a match.. so copy over the value from the view to the model
                 var propertyValue = viewProperty.GetValue(view);
-                modelProperties[customAttribute.PropertyName].SetValue(result, propertyValue);
+                modelProperties[customAttribute.PropertyName].SetValue(result, propertyValue);                
             }
         }
 

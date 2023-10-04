@@ -11,7 +11,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ui:ThemesDictionary Theme="Light" />
+                <ui:ThemesDictionary Theme="Dark" />
                 <ui:ControlsDictionary />
             </ResourceDictionary.MergedDictionaries>
 
@@ -33,6 +33,26 @@
                     </Setter.Value>
                 </Setter>
             </Style>
+
+            <Style x:Key="PageBorderStyle" TargetType="Border">
+                <Setter Property="Padding" Value="10" />
+            </Style>
+
+
+            <Style x:Key="PageTitleBorderStyle" TargetType="Border">
+                <Setter Property="BorderThickness" Value="0,1,0,0" />
+                <Setter Property="Margin" Value="0,5,0,0" />
+                <Setter Property="BorderBrush">
+                    <Setter.Value>
+                        <SolidColorBrush Color="Gray" Opacity=".3" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="PageTitleTextStyle" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="24" />
+            </Style>
+
 
         </ResourceDictionary>
     </Application.Resources>

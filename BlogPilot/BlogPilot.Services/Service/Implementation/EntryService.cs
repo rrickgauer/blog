@@ -47,6 +47,11 @@ public class EntryService : IEntryService
 
     public async Task<int> SaveEntryAsync(Entry entry)
     {
+        if (!entry.UpdatePropertiesValid())
+        {
+            throw new Exception("Value is missing a required property value!");
+        }
+
         return await _entryRepository.UpdateAsync(entry);
     }
 
