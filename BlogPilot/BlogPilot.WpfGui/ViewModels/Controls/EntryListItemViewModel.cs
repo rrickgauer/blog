@@ -15,6 +15,9 @@ public partial class EntryListItemViewModel : ObservableObject
 
     public EntryTableView Entry { get; private set; }
 
+    [ObservableProperty]
+    private bool _visibile = true;
+
     /// <summary>
     /// Constructor
     /// </summary>

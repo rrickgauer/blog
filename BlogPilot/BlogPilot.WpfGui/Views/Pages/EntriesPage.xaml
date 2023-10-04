@@ -19,23 +19,103 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <Border Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width=".4*" />
+            </Grid.ColumnDefinitions>
+
+            <!--Page title-->
+            <Border Grid.Row="0" 
+                    Grid.Column="0" 
+                    Grid.ColumnSpan="2"
+                    Margin="0,0,0,20">
                 <StackPanel>
                     <TextBlock Style="{StaticResource PageTitleTextStyle}" Text="Entries" />
                     <Border Style="{StaticResource PageTitleBorderStyle}" />
                 </StackPanel>
             </Border>
 
-            <Border Grid.Row="1" Margin="0,10">
-                <StackPanel>
-                    <ui:Button Content="New" 
-                               Command="{Binding ViewModel.NewCommand}"
-                               ToolTip="Create new entry" />
-                </StackPanel>
-                
+            <!--Entry search-->
+            <Border Grid.Row="1" Grid.Column="0" Padding="0,0,10,0">
+                <ui:TextBox Icon="Search24" Text="{Binding ViewModel.SearchInputText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             </Border>
 
-            <Border Grid.Row="2">
+            <!--Sidebar Buttons-->
+            <Border Grid.Row="1" 
+                    Grid.Column="1" 
+                    Grid.RowSpan="2"
+                    Padding="10,0,0,0">
+                <Border.Resources>
+                    <Style TargetType="{x:Type ui:Button}" BasedOn="{StaticResource {x:Type ui:Button}}" x:Key="SidebarButtonStyle">
+                        <Setter Property="HorizontalAlignment" Value="Stretch" />
+                        <Setter Property="Margin" Value="0,0,0,5" />
+                    </Style>
+                </Border.Resources>
+                <StackPanel>
+                    <!--New entry-->
+                    <ui:Button Icon="Add24"
+                               Style="{StaticResource SidebarButtonStyle}"
+                               Command="{Binding ViewModel.NewCommand}"
+                               ToolTip="Create a new entry"/>
+
+                    <!--Sorting-->
+                    <ui:Button Icon="ArrowSort24"
+                               Style="{StaticResource SidebarButtonStyle}"
+                               Command="{Binding ViewModel.ToggleSortCommand}"
+                               ToolTip="Sort entries" />
+
+                    <ui:Card Visibility="{Binding ViewModel.IsSortDropdownVisible, Converter={StaticResource BoolToVisibilityConverter}}"
+                             d:Visibility="Visible"
+                             Margin="0,0,0,5">
+                        
+                        <ListBox ItemsSource="{Binding ViewModel.SortOptions}"
+                                 SelectedItem="{Binding ViewModel.SelectedSortOption, Mode=TwoWay}">
+                            
+                            <ListBox.Resources>
+                                <Style TargetType="{x:Type ListBoxItem}" >
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate>
+                                                <RadioButton IsChecked="{Binding Path=IsSelected, Mode=TwoWay}"
+                                                             Content="{Binding Path=DataContext.Description}"
+                                                             DataContext="{Binding RelativeSource={RelativeSource TemplatedParent}}" />
+
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListBox.Resources>
+                        </ListBox>
+                    </ui:Card>
+
+
+                    <!--Filter-->
+                    <ui:Button Icon="Filter24"
+                               Style="{StaticResource SidebarButtonStyle}"
+                               Command="{Binding ViewModel.ToggleFilterCommand}"
+                               ToolTip="Filter entries" />
+
+                    <ui:Card Visibility="{Binding ViewModel.IsFilterDropdownVisible, Converter={StaticResource BoolToVisibilityConverter}}"
+                             d:Visibility="Visible"
+                             Margin="0,0,0,5">
+
+                        <StackPanel>
+                            <ComboBox ItemsSource="{Binding ViewModel.FilterOptions}"
+                                      DisplayMemberPath="Description"
+                                      SelectedItem="{Binding ViewModel.SelectedFilterOption, Mode=TwoWay}"/>
+
+                            <ui:Button Content="Clear"
+                                       HorizontalAlignment="Stretch"
+                                       Margin="0,5"
+                                       Command="{Binding ViewModel.ClearSelectedFilterCommand}"/>
+                        </StackPanel>
+
+                    </ui:Card>
+                </StackPanel>
+            </Border>
+            
+            <!--Entries--> 
+            <Border Grid.Row="2" Margin="0,10">
 
                 <Grid>
                     <ListView ItemsSource="{Binding ViewModel.Entries}"
@@ -50,9 +130,7 @@
                 </Grid>
 
             </Border>
-            
-            
-            
+
         </Grid>
     </Border>
 </ui:UiPage>

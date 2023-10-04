@@ -8,7 +8,8 @@
              xmlns:helpers="clr-namespace:BlogPilot.WpfGui.Helpers"
              mc:Ignorable="d" 
              Margin="2"
-             
+             Visibility="{Binding ViewModel.Visibile, Converter={StaticResource BoolToVisibilityConverter}}"
+             d:Visibility="Visible"
              d:Foreground="White"
              d:DataContext="{d:DesignInstance local:EntryListItemControl, IsDesignTimeCreatable=False}"
              d:DesignWidth="800">
@@ -97,8 +98,6 @@
                     </StackPanel>
                     
 
-
-
                     <!--Link-->
                     <StackPanel Style="{StaticResource StyleDetailsStackPanel}" >
                         
@@ -115,7 +114,7 @@
                                 <ContextMenu>
                                     <ui:MenuItem Header="Copy" />
                                 </ContextMenu>
-                            </TextBlock.ContextMenu>s
+                            </TextBlock.ContextMenu>
                         </TextBlock>
                     </StackPanel>
 
