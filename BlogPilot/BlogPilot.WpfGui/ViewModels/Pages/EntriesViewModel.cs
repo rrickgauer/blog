@@ -5,6 +5,7 @@ using BlogPilot.WpfGui.Other;
 using BlogPilot.WpfGui.Views.Controls;
 using BlogPilot.WpfGui.Views.Pages;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using System.Collections.ObjectModel;
 using Wpf.Ui.Common.Interfaces;
@@ -49,14 +50,25 @@ public partial class EntriesViewModel : ObservableObject, INavigationAware, IMes
 
     public void Receive(EntryListItemEditMessage message)
     {
-        int x = 10;
-
-        _navigation.Navigate(typeof(CreateEntryPage));
-
+        WeakReferenceMessenger.Default.Send(new EditEntryMessage(message.Value));
+        _navigation.Navigate(typeof(EditEntryPage));
     }
 
 
     #endregion
+
+
+    #region - Commands - 
+
+    [RelayCommand]
+    private void New()
+    {
+        NavigateToCreateEntryPage();
+    }
+
+
+    #endregion
+
 
     #region - INavigationAware -
 
@@ -90,6 +102,11 @@ public partial class EntriesViewModel : ObservableObject, INavigationAware, IMes
         var controls = entries.Select(e => new EntryListItemControl(new(e)));
 
         return controls;
+    }
+
+    private void NavigateToCreateEntryPage()
+    {
+        _navigation.Navigate(typeof(CreateEntryPage));
     }
 
 

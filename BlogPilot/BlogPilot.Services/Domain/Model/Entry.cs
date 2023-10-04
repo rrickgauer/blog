@@ -18,7 +18,7 @@ public class Entry
     public string? FileName { get; set; }
 
     [SqlColumn("topic_id")]
-    public int? TopicId { get; set; }
+    public uint? TopicId { get; set; }
 
     [SqlColumn("date")]
     public DateTime? Date { get; set; } = DateTime.Now;

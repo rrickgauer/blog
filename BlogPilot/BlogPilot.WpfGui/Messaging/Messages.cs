@@ -12,3 +12,10 @@ public sealed class EntryListItemEditMessage : ValueChangedMessage<int>
 {
     public EntryListItemEditMessage(int entryId) : base(entryId) { }
 }
+
+
+public sealed class EditEntryMessage : ValueChangedMessage<int>
+{
+    public EditEntryMessage(int entryId) : base(entryId) { }
+}
+

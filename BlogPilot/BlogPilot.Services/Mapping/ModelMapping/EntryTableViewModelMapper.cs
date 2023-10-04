@@ -16,13 +16,13 @@ public class EntryTableViewModelMapper : ModelMapper<EntryTableView>
     {
         EntryTableView entry = new()
         {
-            Id = GetSqlColumn<int?>(dataRow, nameof(EntryTableView.Id)),
-            Title = GetSqlColumn<string?>(dataRow, nameof(EntryTableView.Title)),
+            Id         = GetSqlColumn<int?>(dataRow, nameof(EntryTableView.Id)),
+            Title      = GetSqlColumn<string?>(dataRow, nameof(EntryTableView.Title)),
             SourceLink = new(new(GetSqlColumn<string?>(dataRow, nameof(EntryTableView.SourceLink)))),
-            Date = GetSqlColumn<DateTime?>(dataRow, nameof(EntryTableView.Date)),
-            DateText = GetSqlColumn<string?>(dataRow, nameof(EntryTableView.DateText)),
-            TopicId = GetSqlColumn<uint?>(dataRow, nameof(EntryTableView.TopicId)),
-            TopicName = GetSqlColumn<string?>(dataRow, nameof(EntryTableView.TopicName)),
+            Date       = GetSqlColumn<DateTime?>(dataRow, nameof(EntryTableView.Date)),
+            DateText   = GetSqlColumn<string?>(dataRow, nameof(EntryTableView.DateText)),
+            TopicId    = GetSqlColumn<uint?>(dataRow, nameof(EntryTableView.TopicId)),
+            TopicName  = GetSqlColumn<string?>(dataRow, nameof(EntryTableView.TopicName)),
         };
 
         return entry;
