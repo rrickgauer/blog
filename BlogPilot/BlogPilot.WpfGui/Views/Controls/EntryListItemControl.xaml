@@ -97,8 +97,6 @@
                     </StackPanel>
                     
 
-
-
                     <!--Link-->
                     <StackPanel Style="{StaticResource StyleDetailsStackPanel}" >
                         
@@ -115,7 +113,7 @@
                                 <ContextMenu>
                                     <ui:MenuItem Header="Copy" />
                                 </ContextMenu>
-                            </TextBlock.ContextMenu>s
+                            </TextBlock.ContextMenu>
                         </TextBlock>
                     </StackPanel>
 
