@@ -6,15 +6,52 @@
            xmlns:local="clr-namespace:BlogPilot.WpfGui.Views.Pages"
            xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
            mc:Ignorable="d" 
-           d:DataContext="{d:DesignInstance local:CreateEntryPage, IsDesignTimeCreatable=False}"
+           d:DataContext="{d:DesignInstance local:EditEntryPage, IsDesignTimeCreatable=False}"
            d:DesignHeight="450" 
            d:DesignWidth="800"
            Title="EditEntryPage">
 
-    <Grid>
+    <Border Style="{StaticResource PageBorderStyle}">
         <Grid>
-            <ContentControl Content="{Binding ViewModel.EntryFormControl}" />
-        </Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-    </Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width=".3*" />
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="0" Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Style="{StaticResource PageTitleTextStyle}" Text="Edit Entry" />
+                    <Border Style="{StaticResource PageTitleBorderStyle}" />
+                </StackPanel>
+            </Border>
+    
+    
+            <Border Grid.Column="0" Grid.Row="1" Padding="0,0,16,0">
+                <ui:Card VerticalAlignment="Top">
+                    <ContentControl Content="{Binding ViewModel.EntryFormControl}" />
+                </ui:Card>
+            </Border>
+
+            <Border Grid.Column="1" Grid.Row="1">
+                <StackPanel>
+                    <StackPanel.Resources>
+                        <Style TargetType="{x:Type ui:Button}" BasedOn="{StaticResource {x:Type ui:Button}}">
+                            <Setter Property="HorizontalAlignment" Value="Stretch" />
+                            <Setter Property="Margin" Value="0,0,0,5" />
+                        </Style>
+
+                    </StackPanel.Resources>
+
+                    <ui:Button Content="View" Command="{Binding ViewModel.ViewCommand}" />
+                    <ui:Button Content="Delete" Command="{Binding ViewModel.DeleteCommand}"/>
+                </StackPanel>
+            </Border>
+            
+        </Grid>
+    </Border>
 </ui:UiPage>

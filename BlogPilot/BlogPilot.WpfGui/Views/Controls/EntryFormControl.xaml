@@ -14,7 +14,7 @@
 
     <UserControl.Resources>
         <Style x:Key="StyleSection" TargetType="StackPanel">
-            <Setter Property="Margin" Value="0,20" />
+            <Setter Property="Margin" Value="0,0,0,35" />
         </Style>
         
         <Style x:Key="StyleLabelForm" TargetType="Label" BasedOn="{StaticResource {x:Type Label}}">
@@ -48,16 +48,18 @@
 
             
             <!--Action Buttons-->
-            <StackPanel Style="{StaticResource StyleSection}" Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal">
                 
                 <!--Submit Button-->
-                <ui:Button Content="{Binding ViewModel.SubmitButtonText}" 
+                <ui:Button Content="{Binding ViewModel.SubmitButtonText}"
+                           d:Content="Save"
                            Command="{Binding ViewModel.SubmitCommand}"
                            Margin="0,0,10,0" 
                            Appearance="Success"/>
                 
                 <!--Cancel Button-->
                 <ui:Button Content="Cancel" 
+                           Command="{Binding ViewModel.CancelCommand}"
                            Margin="0,0,10,0" 
                            Appearance="Danger" />
             </StackPanel>

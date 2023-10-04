@@ -11,7 +11,10 @@
            d:DesignWidth="800"
            Title="LandingPage">
 
-    <Grid>
-        
-    </Grid>
+    <Border Style="{StaticResource PageBorderStyle}">
+        <Grid>
+            <TextBlock Text="Landing Page" />
+        </Grid>
+    </Border>
+    
 </ui:UiPage>

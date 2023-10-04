@@ -15,4 +15,26 @@ public static class EntryRepositoryCommands
             Entries (date, title, link, topic_id)
         VALUES
             (@date, @title, @link, @topic_id);";
+
+
+    public const string Update = @"
+        UPDATE
+            Entries
+        SET
+            title = @title,
+            link = @link,
+            topic_id = @topic_id
+        WHERE
+            id = @id;";
+
+
+    public const string Delete = @"
+        DELETE FROM
+            Entries
+        WHERE
+            id = @id;";
+
+
+
+
 }

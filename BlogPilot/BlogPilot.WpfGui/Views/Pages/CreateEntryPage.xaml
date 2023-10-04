@@ -8,10 +8,28 @@
            mc:Ignorable="d" 
            d:DataContext="{d:DesignInstance local:CreateEntryPage, IsDesignTimeCreatable=False}"
            d:DesignHeight="450" 
-           d:DesignWidth="800"
+           d:DesignWidth="500"
+           d:Foreground="White"
            Title="CreateEntryPage">
+    <Border Style="{StaticResource PageBorderStyle}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-    <Grid>
-        <ContentControl Content="{Binding ViewModel.EntryFormControl}" />
-    </Grid>
+            <Border Grid.Row="0" Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Style="{StaticResource PageTitleTextStyle}" Text="Create new entry" />
+                    <Border Style="{StaticResource PageTitleBorderStyle}" />
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Row="1">
+                <ContentControl Content="{Binding ViewModel.EntryFormControl}" />
+            </Border>
+
+        </Grid>
+    </Border>
+ 
 </ui:UiPage>

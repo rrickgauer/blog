@@ -12,7 +12,8 @@ using Wpf.Ui.Mvvm.Contracts;
 namespace BlogPilot.WpfGui.ViewModels.Pages;
 
 public partial class CreateEntryViewModel : ObservableObject, INavigationAware, IMessengerCompliant, IEntryFormSubscriber,
-    IRecipient<EntryFormSubmittedMessage>
+    IRecipient<EntryFormSubmittedMessage>,
+    IRecipient<EntryFormCanceledMessage>
 {
 
     #region - Private Members -
@@ -28,7 +29,6 @@ public partial class CreateEntryViewModel : ObservableObject, INavigationAware, 
     [ObservableProperty]
     private EntryFormControl? _entryFormControl = null;
     #endregion
-
 
     #region - Public Properties - 
     public Guid EntryFormMessageToken => new(@"c1b8299d-965f-44a5-8cec-3320a1ee8b48");
@@ -48,7 +48,6 @@ public partial class CreateEntryViewModel : ObservableObject, INavigationAware, 
     }
 
     #endregion
-
 
     #region - INavigationAware - 
 
@@ -82,9 +81,12 @@ public partial class CreateEntryViewModel : ObservableObject, INavigationAware, 
         _navigation.Navigate(typeof(EntriesPage));
     }
 
+    public void Receive(EntryFormCanceledMessage message)
+    {
+        _navigation.Navigate(typeof(EntriesPage));
+    }
+
     #endregion
-
-
 
     #region - Private Methods -
 

@@ -29,19 +29,30 @@ public class EntryRepository : IEntryRepository
 
         command.Parameters.AddWithValue("@date", entry.Date);
         command.Parameters.AddWithValue("@title", entry.Title);
-        command.Parameters.AddWithValue("@link", entry.Link?.AbsoluteUri);
+        command.Parameters.AddWithValue("@link", entry.Link);
         command.Parameters.AddWithValue("@topic_id", entry.TopicId);
 
         return await _connection.InsertAsync(command);
     }
 
-    public Task<int> UpdateAsync(Entry entry)
+    public async Task<int> UpdateAsync(Entry entry)
     {
-        throw new NotImplementedException();
+        MySqlCommand command = new(EntryRepositoryCommands.Update);
+
+        command.Parameters.AddWithValue("@id", entry.Id);
+        command.Parameters.AddWithValue("@title", entry.Title);
+        command.Parameters.AddWithValue("@link", entry.Link);
+        command.Parameters.AddWithValue("@topic_id", entry.TopicId);
+
+        return await _connection.ModifyAsync(command);
     }
 
-    public Task<int> DeleteAsync(int entryId)
+    public async Task<int> DeleteAsync(int entryId)
     {
-        throw new NotImplementedException();
+        MySqlCommand command = new(EntryRepositoryCommands.Delete);
+
+        command.Parameters.AddWithValue("@id", entryId);
+
+        return await _connection.ModifyAsync(command);
     }
 }

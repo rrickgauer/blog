@@ -8,6 +8,7 @@
              xmlns:helpers="clr-namespace:BlogPilot.WpfGui.Helpers"
              mc:Ignorable="d" 
              Margin="2"
+             
              d:Foreground="White"
              d:DataContext="{d:DesignInstance local:EntryListItemControl, IsDesignTimeCreatable=False}"
              d:DesignWidth="800">
@@ -22,6 +23,7 @@
         <Style x:Key="StyleDetailsLabel" TargetType="TextBlock">
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="FontSize" Value="12" />
+            <Setter Property="Margin" Value="0,5" />
             <Setter Property="Foreground">
                 <Setter.Value>
                     <SolidColorBrush Color="Gray" Opacity=".8" />
@@ -35,65 +37,33 @@
 
     </UserControl.Resources>
 
-    <Border>
+    <Border x:Name="topElement">
 
-        <ui:CardExpander d:IsExpanded="False">
+        <ui:CardExpander d:IsExpanded="False" 
+                         MaxWidth="{Binding ElementName=topElement, Path=ActualWidth}">
             <ui:CardExpander.Header>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                
-                    <StackPanel Grid.Column="0">
+                <StackPanel>
+                    <Border>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <TextBlock Text="{Binding ViewModel.Entry.Title}" 
+                                        d:Text="Entry Title" 
+                                        FontSize="16"/>
 
-                        <Border>
-                            <StackPanel Orientation="Horizontal">
-                                
-                                <TextBlock Text="{Binding ViewModel.Entry.Title}" 
-                                           d:Text="Entry Title" 
-                                           FontSize="16"/>
-
-                                <ui:Badge Appearance="Light" 
-                                          FontSize="12"
-                                          d:Content="Topic name"
-                                          Content="{Binding ViewModel.Entry.TopicName}" 
-                                          Margin="10,0,0,0"/>
-                            </StackPanel>
-                        </Border>
-                    </StackPanel>
-                    <Border Grid.Column="1">
-                        
-                        <ui:Button Icon="MoreHorizontal24" 
-                                   Click="Button_Click"
-                                   Margin="0,0,10,0">
-                            
-                            <ui:Button.ContextMenu>
-                                <ContextMenu DataContext="{Binding Source={StaticResource Proxy}, Path=Data}"
-                                             d:DataContext="{d:DesignInstance local:EntryListItemControl, IsDesignTimeCreatable=False}">
-                                    
-                                    <ui:MenuItem Header="View" Command="{Binding ViewModel.ViewCommand}"/>
-                                    <ui:MenuItem Header="Edit" Command="{Binding ViewModel.EditCommand}"/>
-                                    <ui:MenuItem Header="Delete" Command="{Binding ViewModel.DeleteCommand}" />
-                                </ContextMenu>
-                            </ui:Button.ContextMenu>
-                            
-                        </ui:Button>
+                            <TextBlock Text="{Binding ViewModel.Entry.DisplayId}" 
+                                       Margin="10,0"
+                                       d:Text="#16" 
+                                       FontSize="16">
+                                <TextBlock.Foreground>
+                                    <SolidColorBrush Color="Gray" Opacity=".5" />
+                                </TextBlock.Foreground>
+                            </TextBlock>
+                        </StackPanel>
                     </Border>
-                </Grid>
+                </StackPanel>
+                
             </ui:CardExpander.Header>
             <ui:CardExpander.Content>
-
                 <StackPanel>
-
-                    <!--ID-->
-                    <StackPanel Style="{StaticResource StyleDetailsStackPanel}">
-                        <TextBlock Style="{StaticResource StyleDetailsLabel}" Text="ID:" />
-                        
-                        <TextBlock Text="{Binding ViewModel.Entry.Id}"
-                                   Style="{StaticResource StyleDetailsData}"
-                                   d:Text="ID"/>
-                    </StackPanel>
 
                     <!--Title-->
                     <StackPanel Style="{StaticResource StyleDetailsStackPanel}">
@@ -102,6 +72,18 @@
                         <TextBlock Text="{Binding ViewModel.Entry.Title}"
                                    Style="{StaticResource StyleDetailsData}"
                                    d:Text="Title"/>
+                    </StackPanel>
+
+                    <!--Topic-->
+                    <StackPanel Style="{StaticResource StyleDetailsStackPanel}">
+                        <TextBlock Style="{StaticResource StyleDetailsLabel}" Text="Topic:" />
+
+                        <ui:Badge Appearance="Light" 
+                                  HorizontalAlignment="Left"
+                                  FontSize="12"
+                                  d:Content="Topic name"
+                                  Content="{Binding ViewModel.Entry.TopicName}" />
+
                     </StackPanel>
 
 
@@ -113,32 +95,53 @@
                                    Style="{StaticResource StyleDetailsData}"
                                    d:Text="10/25/2023"/>
                     </StackPanel>
+                    
+
 
 
                     <!--Link-->
-                    <StackPanel Style="{StaticResource StyleDetailsStackPanel}">
-                        <TextBlock Style="{StaticResource StyleDetailsLabel}" Text="Link:" />
+                    <StackPanel Style="{StaticResource StyleDetailsStackPanel}" >
+                        
+                        <TextBlock Style="{StaticResource StyleDetailsLabel}" 
+                                   Text="Link:" />
 
-                        <TextBlock Text="{Binding ViewModel.Entry.SourceLink.AbsoluteUri}"
+                        <TextBlock Text="{Binding ViewModel.Entry.SourceLink}"
                                    Style="{StaticResource StyleDetailsData}"
-                                   d:Text="Link"/>
+                                   MaxWidth="{Binding ElementName=topElement, Path=ActualWidth}"
+                                   TextWrapping="NoWrap"
+                                   TextTrimming="CharacterEllipsis"
+                                   d:Text="Link">
+                            <TextBlock.ContextMenu>
+                                <ContextMenu>
+                                    <ui:MenuItem Header="Copy" />
+                                </ContextMenu>
+                            </TextBlock.ContextMenu>s
+                        </TextBlock>
                     </StackPanel>
 
 
-                    <!--Topic-->
-                    <StackPanel Style="{StaticResource StyleDetailsStackPanel}">
-                        <TextBlock Style="{StaticResource StyleDetailsLabel}" Text="Topic:" />
+                    <Border BorderThickness="0,1,0,0" Margin="0,10">
+                        <Border.BorderBrush>
+                            <SolidColorBrush Color="Gray" Opacity=".2" />
+                        </Border.BorderBrush>
+                        
+                    </Border>
 
-                        <TextBlock Text="{Binding ViewModel.Entry.TopicName}"
-                                   Style="{StaticResource StyleDetailsData}"
-                                   d:Text="Topic"/>
+
+                    <!--Action Buttons-->
+                    <StackPanel Style="{StaticResource StyleDetailsStackPanel}"
+                                Orientation="Horizontal">
+                        <StackPanel.Resources>
+                            <Style TargetType="{x:Type ui:Button}" BasedOn="{StaticResource {x:Type ui:Button}}">
+                                <Setter Property="Margin" Value="0,0,5,0" />
+                            </Style>
+                        </StackPanel.Resources>
+
+                        <ui:Button Content="View" Command="{Binding ViewModel.ViewCommand}" />
+                        <ui:Button Content="Edit" Command="{Binding ViewModel.EditCommand}" />
+                        <ui:Button Content="Delete" Appearance="Danger" Command="{Binding ViewModel.DeleteCommand}" />
                     </StackPanel>
-
-
                 </StackPanel>
-                
-                
-                
                 
             </ui:CardExpander.Content>
             

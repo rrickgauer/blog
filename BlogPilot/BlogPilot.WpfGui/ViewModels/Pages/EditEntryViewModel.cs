@@ -4,21 +4,28 @@ using BlogPilot.WpfGui.Messaging;
 using BlogPilot.WpfGui.Other;
 using BlogPilot.WpfGui.ViewModels.Controls;
 using BlogPilot.WpfGui.Views.Controls;
+using BlogPilot.WpfGui.Views.Pages;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
-using System.Runtime.InteropServices;
+using System.Windows;
 using Wpf.Ui.Common.Interfaces;
+using Wpf.Ui.Controls.Interfaces;
+using Wpf.Ui.Mvvm.Contracts;
 
 namespace BlogPilot.WpfGui.ViewModels.Pages;
 
 public partial class EditEntryViewModel : ObservableObject, INavigationAware, IMessengerCompliant, IEntryFormSubscriber,
     IRecipient<EntryFormSubmittedMessage>,
+    IRecipient<EntryFormCanceledMessage>,
     IRecipient<EditEntryMessage>
 {
 
     #region - Private Members -
 
     private readonly IEntryService _entryService;
+    private readonly INavigation _navigation;
+    private readonly IWebService _webService;
 
     private int _currentEntryId = int.MinValue;
 
@@ -43,9 +50,11 @@ public partial class EditEntryViewModel : ObservableObject, INavigationAware, IM
     #endregion
 
 
-    public EditEntryViewModel(IEntryService entryService)
+    public EditEntryViewModel(IEntryService entryService, INavigationService navigationService, IWebService webService)
     {
         _entryService = entryService;
+        _navigation = navigationService.GetNavigationControl();
+        _webService = webService;
     }
 
 
@@ -84,7 +93,38 @@ public partial class EditEntryViewModel : ObservableObject, INavigationAware, IM
         _currentEntryId = message.Value;
     }
 
+    public void Receive(EntryFormCanceledMessage message)
+    {
+        NavigateToEntriesPage();
+    }
+
     #endregion
+
+
+    #region - Commands -
+
+    [RelayCommand]
+    private async Task DeleteAsync()
+    {
+        bool deleted = await DeleteEntryAsync();
+
+        if (deleted)
+        {
+            NavigateToEntriesPage();
+        }
+    }
+
+    [RelayCommand]
+    private void View()
+    {
+        _webService.ViewEntry(_currentEntryId);
+    }
+
+
+    #endregion
+
+
+
 
     #region - Private Methods -
 
@@ -135,10 +175,40 @@ public partial class EditEntryViewModel : ObservableObject, INavigationAware, IM
             return;
         }
 
-        var records = await _entryService.SaveEntryAsync(updatedEntry);
+        await _entryService.SaveEntryAsync(updatedEntry);
 
-        int x = 10;
+        NavigateToEntriesPage();
+    }
 
+    private void NavigateToEntriesPage()
+    {
+        _navigation.Navigate(typeof(EntriesPage));
+    }
+
+    private async Task<bool> DeleteEntryAsync()
+    {
+        if (!ConfirmDelete())
+        {
+            return false;
+        }
+
+        await _entryService.DeleteEntryAsync(_currentEntryId);
+
+        return true;
+    }
+
+    private bool ConfirmDelete()
+    {
+        var response = MessageBox.Show("Are you sure you want to delete this entry?", "Delete entry", MessageBoxButton.YesNoCancel);
+
+        switch (response)
+        {
+            case MessageBoxResult.Yes:
+            case MessageBoxResult.OK:
+                return true;
+            default:
+                return false;
+        }
     }
 
 

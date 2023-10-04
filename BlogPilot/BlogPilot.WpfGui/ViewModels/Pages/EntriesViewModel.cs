@@ -15,7 +15,8 @@ using Wpf.Ui.Mvvm.Contracts;
 namespace BlogPilot.WpfGui.ViewModels.Pages;
 
 public partial class EntriesViewModel : ObservableObject, INavigationAware, IMessengerCompliant,
-    IRecipient<EntryListItemEditMessage>
+    IRecipient<EntryListItemEditMessage>,
+    IRecipient<EntryListItemDeletedMessage>
 {
     #region - Private Members -
     private readonly IEntryService _entryService;
@@ -54,6 +55,10 @@ public partial class EntriesViewModel : ObservableObject, INavigationAware, IMes
         _navigation.Navigate(typeof(EditEntryPage));
     }
 
+    public async void Receive(EntryListItemDeletedMessage message)
+    {
+        await LoadEntriesAsync();
+    }
 
     #endregion
 

@@ -121,7 +121,7 @@ public partial class EntryFormViewModel : ObservableObject, IViewModelForm<Entry
         _entry = model;
 
         Title = _entry.Title ?? Title;
-        Link = _entry.Link?.AbsoluteUri ?? Link;
+        Link = _entry.Link ?? Link;
         SelectedTopic = Topics.ToList().Where(t => (uint)t == _entry.TopicId).FirstOrDefault();
     }
 
@@ -159,6 +159,12 @@ public partial class EntryFormViewModel : ObservableObject, IViewModelForm<Entry
         }
 
         return true;
+    }
+
+    [RelayCommand]
+    private void Cancel()
+    {
+        WeakReferenceMessenger.Default.Send(new EntryFormCanceledMessage(EventArgs.Empty), _messengerToken);
     }
 
 
