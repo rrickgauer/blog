@@ -457,3 +457,5 @@ db-info*
 **/config/base.py
 
 ConfigsProduction.cs
+
+ConfigurationProduction.cs
