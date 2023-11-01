@@ -1,0 +1,65 @@
+﻿@model Blog.Gui.Models.EntriesViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <partial name="~/Views/Includes/_Header.cshtml" />
+    <title>Blog</title>
+</head>
+<body>
+
+    <div class="container">
+        <h1 id="hero" class="custom-font mt-5 mb-5">Ryan Rickgauer's Blog</h1>
+
+        <div class="d-md-flex justify-content-between">
+            <!-- filters -->
+            <div class="toolbar-select toolbar-filter">
+                <span class="label"><b>Topics:</b></span>
+                <div>
+                    <select class="form-control form-control-sm select-filter">
+                        <option value="_all">All</option>
+
+                        @foreach(var topic in Model.UsedTopics)
+                        {
+                            <option value="@topic.Id">@topic.Name</option>
+                        }
+
+                    </select>
+                </div>
+            </div>
+
+            <!-- sorting select options -->
+            <div class="toolbar-select toolbar-sort">
+                <span class="label"><b>Sort:</b></span>
+                <div>
+                    <select class="form-control form-control-sm select-sort">
+                        <option value="date">Date</option>
+                        <option value="title">Title</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- entries -->
+        <ul class="list-group list-group-flush">
+
+            @foreach(var entry in Model.Entries)
+            {
+                <li class="list-group-item entry" data-date="@entry.Date" data-topic-id="@entry.TopicId">
+                    <div class="title d-sm-flex align-items-center">
+                        <a href="entries/@entry.EntryId">@entry.Title</a>
+                        <div><span class="badge badge-secondary ml-sm-2">@entry.TopicName</span></div>
+                    </div>
+                    <div class="date">@entry.Date?.ToString("MM/dd/yyyy")</div>
+                </li>
+            }
+        </ul>
+
+        <partial name="~/Views/Includes/_Copyright.cshtml" />
+
+    </div>
+
+    <partial name="~/Views/Includes/_Footer.cshtml" />
+    <script src="~/js/custom/home.js"></script>
+</body>
+</html>
