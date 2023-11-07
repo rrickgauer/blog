@@ -6,5 +6,5 @@ namespace Blog.Gui.Models;
 public class EntriesViewModel
 {
     public List<EntryTableView> Entries { get; set; } = new();
-    public List<EntryTopic> UsedTopics { get; set; } = new();
+    public List<TopicTableView> UsedTopics { get; set; } = new();
 }

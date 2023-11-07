@@ -33,14 +33,6 @@ public class EntryTableView : ITableView<EntryTableView, Entry>, ITableView<Entr
     [CopyToProperty<EntryTopic>(nameof(EntryTopic.Name))]
     public string? TopicName { get; set; }
 
-
-
-
-
-
-
-
-
     #region - ITableView -
 
     public static explicit operator Entry(EntryTableView other)

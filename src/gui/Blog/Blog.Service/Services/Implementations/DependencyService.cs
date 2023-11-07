@@ -34,7 +34,6 @@ public abstract class DependencyService
 
         InjectAdditionalDependencies(_serviceCollection);
 
-        //return _serviceCollection.BuildServiceProvider();
         return _serviceCollection;
     }
 
@@ -56,8 +55,13 @@ public abstract class DependencyService
     {
         _serviceCollection
             .AddScoped<IEntryService, EntryService>()
+            .AddScoped<ITopicService, TopicService>()
+
             .AddSingleton<ITableMapperService, TableMapperService>()
+            
             .AddScoped<IEntryRepository, EntryRepository>()
+            .AddScoped<ITopicRepository, TopicRepository>()
+            
             .AddTransient<DatabaseConnection>();
     }
 }
