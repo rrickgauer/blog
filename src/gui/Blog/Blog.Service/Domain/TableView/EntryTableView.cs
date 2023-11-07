@@ -1,7 +1,6 @@
 ﻿using Blog.Service.Domain.Contracts;
 using Blog.Service.Domain.CustomAttributes;
 using Blog.Service.Domain.Model;
-using Blog.Service.Domain.Other;
 
 namespace Blog.Service.Domain.TableView;
 
@@ -23,6 +22,10 @@ public class EntryTableView : ITableView<EntryTableView, Entry>, ITableView<Entr
     [SqlColumn("source_link")]
     [CopyToProperty<Entry>(nameof(Entry.Link))]
     public string? Link { get; set; }
+
+    [SqlColumn("file_name")]
+    [CopyToProperty<Entry>(nameof(Entry.FileName))]
+    public string? FileName { get; set; }
 
     [SqlColumn("topic_id")]
     [CopyToProperty<Entry>(nameof(Entry.TopicId))]

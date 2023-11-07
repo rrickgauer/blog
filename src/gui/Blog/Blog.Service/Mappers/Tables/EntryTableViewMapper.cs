@@ -1,6 +1,4 @@
-﻿using Blog.Service.Domain.CustomAttributes;
-using Blog.Service.Domain.Other;
-using Blog.Service.Domain.TableView;
+﻿using Blog.Service.Domain.TableView;
 using System.Data;
 
 namespace Blog.Service.Mappers.Tables;
@@ -17,6 +15,7 @@ public class EntryTableViewMapper : TableMapper<EntryTableView>
             Link      = row.Field<string?>(GetColumnName(nameof(EntryTableView.Link))),
             TopicId   = row.Field<uint?>(GetColumnName(nameof(EntryTableView.TopicId))),
             TopicName = row.Field<string?>(GetColumnName(nameof(EntryTableView.TopicName))),
+            FileName  = row.Field<string?>(GetColumnName(nameof(EntryTableView.FileName))),
         };
 
         return result;

@@ -15,7 +15,7 @@ public sealed class EntryCommands
             ve.date_formatted AS date_formatted,
             ve.title AS title,
             ve.source_link AS source_link,
-            ve.page_link AS page_link,
+            ve.file_name AS file_name,
             ve.topic_id AS topic_id,
             ve.topic_name AS topic_name
         FROM

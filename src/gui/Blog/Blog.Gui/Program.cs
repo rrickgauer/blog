@@ -1,9 +1,10 @@
 using Blog.Gui.Other;
-using Blog.Service.Services.Contracts;
 
 var builder = WebApplication.CreateBuilder(args);
 
-WebGuiDependencyService serviceInjector = new(builder.Environment.IsProduction(), builder.Services);
+
+var isDevelopment = !builder.Environment.IsProduction();
+WebGuiDependencyService serviceInjector = new(isDevelopment, builder.Services);
 serviceInjector.BuildServices();
 
 

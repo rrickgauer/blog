@@ -4,12 +4,6 @@ using Blog.Service.Repository.Implementations;
 using Blog.Service.Repository.Other;
 using Blog.Service.Services.Contracts;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Data.Common;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Blog.Service.Services.Implementations;
 
@@ -58,7 +52,8 @@ public abstract class DependencyService
             .AddScoped<ITopicService, TopicService>()
 
             .AddSingleton<ITableMapperService, TableMapperService>()
-            
+            .AddSingleton<IMarkdownService, MarkdownService>()
+
             .AddScoped<IEntryRepository, EntryRepository>()
             .AddScoped<ITopicRepository, TopicRepository>()
             

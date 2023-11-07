@@ -7,8 +7,9 @@ namespace Blog.Service.Mappers.Tables;
 public abstract class TableMapper<T>
 {
     public abstract T ToModel(DataRow row);
+
     public static Type ModelType => typeof(T);
-    protected static ClassPropertyAttributes<SqlColumnAttribute> _sqlColumnProperties = new(typeof(T));
+    protected static readonly ClassPropertyAttributes<SqlColumnAttribute> SqlColumnProperties = new(ModelType);
 
     public IEnumerable<T> ToModels(DataTable table)
     {
@@ -25,7 +26,7 @@ public abstract class TableMapper<T>
 
     protected static string GetColumnName(string propertyName)
     {
-        var prop = _sqlColumnProperties.Get(propertyName);
+        var prop = SqlColumnProperties.Get(propertyName);
 
         if (prop == null)
         {

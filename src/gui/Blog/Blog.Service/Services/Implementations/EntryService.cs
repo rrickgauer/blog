@@ -23,4 +23,13 @@ public class EntryService : IEntryService
 
         return entries;
     }
+
+    public async Task<EntryTableView?> GetEntryAsync(uint entryId)
+    {
+        var entries = await GetAllEntriesAsync();
+
+        var entry = entries.Where(e => e.EntryId == entryId).FirstOrDefault();
+
+        return entry;
+    }
 }
