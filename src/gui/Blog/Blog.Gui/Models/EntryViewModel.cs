@@ -4,6 +4,6 @@ namespace Blog.Gui.Models;
 
 public class EntryViewModel
 {
-    public EntryTableView? Entry { get; set; }
-    public string? Content { get; set; }
+    public EntryTableView Entry { get; set; } = new();
+    public string Content { get; set; } = string.Empty;
 }

@@ -15,6 +15,9 @@ public interface IConfigs
     public string DbUser { get; }
     public string DbPassword { get; }
 
+    public string VpsIdAddress { get; }
 
     public string EntryFilesPath { get; }
+
+    public string StaticFilesPath { get; }  
 }

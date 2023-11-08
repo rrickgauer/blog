@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 cd /var/www/blog/scripts/vps
 
 printf "\n\n\n"
@@ -9,16 +8,19 @@ echo 'Pulling down latest code from GitHub...'
 echo "------------------------------------------------"
 printf "\n\n\n"
 
-./.pull-latest.sh
+git pull
 
 
 printf "\n\n\n"
 echo "------------------------------------------------"
-echo 'Refresh python dependencies'
+echo 'Building dotnet Project'
 echo "------------------------------------------------"
 printf "\n\n\n"
 
-./.install-python-dependencies.sh
+
+cd /var/www/blog/src/gui/Blog
+dotnet publish Blog.Gui -r linux-x64 --self-contained false -c Release
+
 
 
 printf "\n\n\n"
@@ -27,7 +29,8 @@ echo 'Compiling css'
 echo "------------------------------------------------"
 printf "\n\n\n"
 
-./.compile-css.sh
+cd /var/www/blog/src/gui/Blog/Blog.Gui/wwwroot/css
+sass --quiet --no-source-map custom/style.scss dist/style.css
 
 
 printf "\n\n\n"
@@ -36,4 +39,7 @@ echo 'Starting up gui server...'
 echo "------------------------------------------------"
 printf "\n\n\n"
 
-./.start-wsgi.sh
+cd /etc/systemd/system
+systemctl daemon-reload
+systemctl reload-or-restart blog.gui.service
+service apache2 restart
