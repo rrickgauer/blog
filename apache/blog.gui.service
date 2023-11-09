@@ -1,0 +1,18 @@
+[Unit]
+Description=blog.ryanrickgauer.com
+
+[Service]
+WorkingDirectory=/var/www/blog/src/gui/Blog/Blog.Gui/bin/Release/net7.0/linux-x64
+#WorkingDirectory=var/www/blog/src/gui/Blog/Blog.Gui
+ExecStart=/usr/bin/dotnet /var/www/blog/src/gui/Blog/Blog.Gui/bin/Release/net7.0/linux-x64/Blog.Gui.dll
+Restart=always
+# Restart service after 10 seconds if the dotnet service crashes:
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=blog-log
+User=www-data
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=ASPNETCORE_URLS=http://blog.ryanrickgauer.com:5050/
+
+[Install]
+WantedBy=multi-user.target

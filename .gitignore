@@ -14,7 +14,7 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
+#lib/
 lib64/
 parts/
 sdist/
@@ -457,3 +457,5 @@ db-info*
 **/config/base.py
 
 ConfigsProduction.cs
+
+ConfigurationProduction.cs

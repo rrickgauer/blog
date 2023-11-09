@@ -1,0 +1,38 @@
+﻿@model Blog.Gui.Models.EntryViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <partial name="~/Views/Includes/_Header.cshtml" />
+    <title>@Model.Entry?.Title</title>
+</head>
+<body>
+
+    <div id="data" class="container">
+
+        @*Breadcrumb*@
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active">@Model.Entry?.Title</li>
+            </ol>
+        </nav>
+
+        @*Entry title and date*@
+        <h1 class="custom-font post-title">@Model.Entry?.Title</h1>
+        <h6 class="text-center entry-date">@Model.Entry?.Date?.ToString("MM/dd/yyyy")</h6>
+        
+        @*Entry Content*@
+        <div>
+            @Html.Raw(Model.Content)
+        </div>
+
+        <partial name="~/Views/Includes/_Copyright.cshtml" />
+
+    </div>
+
+    <partial name="~/Views/Includes/_Footer.cshtml" />
+    <script src="~/lib/js/prism.js"></script>
+    <script src="~/js/custom/entry.js"></script>
+</body>
+</html>
