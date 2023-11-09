@@ -9,7 +9,6 @@ using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.Win32;
 using System.Collections.ObjectModel;
-using System.IO;
 
 namespace BlogPilot.WpfGui.ViewModels.Controls;
 
@@ -43,14 +42,10 @@ public partial class EntryFormViewModel : ObservableObject, IViewModelForm<Entry
     private string _title = string.Empty;
 
     /// <summary>
-    /// Link
+    /// FileName
     /// </summary>
     [ObservableProperty]
     [NotifyCanExecuteChangedFor(nameof(SubmitCommand))]
-    private string _link = string.Empty;
-
-    [NotifyCanExecuteChangedFor(nameof(SubmitCommand))]
-    [ObservableProperty]
     private string _fileName = string.Empty;
 
 

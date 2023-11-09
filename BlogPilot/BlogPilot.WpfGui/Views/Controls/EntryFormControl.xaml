@@ -9,7 +9,7 @@
              d:DataContext="{d:DesignInstance local:EntryFormControl, IsDesignTimeCreatable=False}"
              d:Padding="8"
              Foreground="White"
-             d:DesignHeight="450" 
+             
              d:DesignWidth="800">
 
     <UserControl.Resources>
@@ -32,27 +32,29 @@
                 <ui:TextBox Text="{Binding ViewModel.Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
 
-            <!--Link-->
-            <StackPanel Style="{StaticResource StyleSection}">
-                <Label Style="{StaticResource StyleLabelForm}" Content="Link:"  />
-                <ui:TextBox Text="{Binding ViewModel.Link, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            </StackPanel>
-
-
             <!--File-->
             <StackPanel Style="{StaticResource StyleSection}">
                 <Label Style="{StaticResource StyleLabelForm}" Content="File:"  />
-                <ui:TextBox Text="{Binding ViewModel.FileName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                            IsEnabled="False"
-                            />
 
-                <ui:Button Content="Select file" 
-                           Command="{Binding ViewModel.ChooseFileCommand}"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <ui:TextBox Text="{Binding ViewModel.FileName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                Grid.Column="0"
+                                IsEnabled="False" />
+
+                    <ui:Button ToolTip="Select file" 
+                               VerticalAlignment="Stretch"
+                               Margin="5,0,0,0"
+                               Grid.Column="1" 
+                               Icon="FolderOpen20"
+                               Command="{Binding ViewModel.ChooseFileCommand}"/>
+                </Grid>
+
 
             </StackPanel>
-
-
-
 
             <!--Topic-->
             <StackPanel Style="{StaticResource StyleSection}">
