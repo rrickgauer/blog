@@ -24,7 +24,8 @@ public class Entry : IUpdateable
     public DateTime? Date { get; set; } = DateTime.Now;
 
 
-    public bool UpdatePropertiesValid()
+    // IUpdateable
+    public bool CanUpdate()
     {
         if (Id == null) 
         { 
@@ -38,12 +39,12 @@ public class Entry : IUpdateable
         {
             return false;
         }
-        else if (Link == null)
+        else if (string.IsNullOrWhiteSpace(FileName))
         {
             return false;
         }
         
         return true;
-
     }
+
 }

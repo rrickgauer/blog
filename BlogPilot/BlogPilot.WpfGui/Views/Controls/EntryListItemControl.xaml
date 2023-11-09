@@ -102,14 +102,14 @@
                     <StackPanel Style="{StaticResource StyleDetailsStackPanel}" >
                         
                         <TextBlock Style="{StaticResource StyleDetailsLabel}" 
-                                   Text="Link:" />
+                                   Text="File:" />
 
-                        <TextBlock Text="{Binding ViewModel.Entry.SourceLink}"
+                        <TextBlock Text="{Binding ViewModel.Entry.FileName}"
                                    Style="{StaticResource StyleDetailsData}"
                                    MaxWidth="{Binding ElementName=topElement, Path=ActualWidth}"
                                    TextWrapping="NoWrap"
                                    TextTrimming="CharacterEllipsis"
-                                   d:Text="Link">
+                                   d:Text="file-name.md">
                             <TextBlock.ContextMenu>
                                 <ContextMenu>
                                     <ui:MenuItem Header="Copy" />

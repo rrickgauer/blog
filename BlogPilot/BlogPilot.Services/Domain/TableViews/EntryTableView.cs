@@ -7,8 +7,7 @@ namespace BlogPilot.Services.Domain.TableViews;
 public class EntryTableView : ITableView, ITableViewModel<EntryTableView, Entry>, ITableViewModel<EntryTableView, Topic>
 {
     #region - BaseTableView -
-    //public override string ViewName => "View_Used_Topics";
-    public string ViewName => "View_Used_Topics";
+    public string ViewName => "View_Entries";
     #endregion
 
     [CopyToModel(typeof(Entry))]
@@ -30,8 +29,9 @@ public class EntryTableView : ITableView, ITableViewModel<EntryTableView, Entry>
     [SqlColumn("source_link")]
     public string? SourceLink { get; set; }
 
-    [SqlColumn("page_link")]
-    public string? PageLink { get; set; }
+    [SqlColumn("file_name")]
+    [CopyToModel(typeof(Entry), nameof(Entry.FileName))]
+    public string? FileName { get; set; }
 
     [CopyToModel(typeof(Entry))]
     [CopyToModel(typeof(Topic), nameof(Topic.Id))]

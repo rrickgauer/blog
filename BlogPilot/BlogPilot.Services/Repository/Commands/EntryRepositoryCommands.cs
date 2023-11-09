@@ -12,9 +12,9 @@ public static class EntryRepositoryCommands
 
     public const string Insert = @"
         INSERT INTO
-            Entries (date, title, link, topic_id)
+            Entries (file_name, title, topic_id, date)
         VALUES
-            (@date, @title, @link, @topic_id);";
+            (@file_name, @title, @topic_id, @date);";
 
 
     public const string Update = @"
@@ -22,7 +22,7 @@ public static class EntryRepositoryCommands
             Entries
         SET
             title = @title,
-            link = @link,
+            file_name = @file_name,
             topic_id = @topic_id
         WHERE
             id = @id;";

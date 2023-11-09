@@ -27,10 +27,10 @@ public class EntryRepository : IEntryRepository
     {
         MySqlCommand command = new(EntryRepositoryCommands.Insert);
 
-        command.Parameters.AddWithValue("@date", entry.Date);
+        command.Parameters.AddWithValue("@file_name", entry.FileName);
         command.Parameters.AddWithValue("@title", entry.Title);
-        command.Parameters.AddWithValue("@link", entry.Link);
         command.Parameters.AddWithValue("@topic_id", entry.TopicId);
+        command.Parameters.AddWithValue("@date", entry.Date);
 
         return await _connection.InsertAsync(command);
     }
@@ -41,7 +41,7 @@ public class EntryRepository : IEntryRepository
 
         command.Parameters.AddWithValue("@id", entry.Id);
         command.Parameters.AddWithValue("@title", entry.Title);
-        command.Parameters.AddWithValue("@link", entry.Link);
+        command.Parameters.AddWithValue("@file_name", entry.FileName);
         command.Parameters.AddWithValue("@topic_id", entry.TopicId);
 
         return await _connection.ModifyAsync(command);

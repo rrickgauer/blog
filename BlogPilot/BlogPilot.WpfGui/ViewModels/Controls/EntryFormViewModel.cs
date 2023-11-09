@@ -7,6 +7,7 @@ using BlogPilot.WpfGui.Other;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.Messaging;
+using Microsoft.Win32;
 using System.Collections.ObjectModel;
 
 namespace BlogPilot.WpfGui.ViewModels.Controls;
@@ -17,6 +18,10 @@ public partial class EntryFormViewModel : ObservableObject, IViewModelForm<Entry
     #region - Symbolic Constants -
     private const string SubmitButtonTextValueCreate = "Create entry";
     private const string SubmitButtonTextValueEdit = "Save";
+
+    private const string FileDialogInitialDirectory = @"C:\xampp\htdocs\files\blog\entries";
+    private const string FileDialogFilter = @"Markdown files (*.md)|*.md|All files (*.*)|*.*";
+
     #endregion
 
     #region - Private Members -
@@ -37,11 +42,12 @@ public partial class EntryFormViewModel : ObservableObject, IViewModelForm<Entry
     private string _title = string.Empty;
 
     /// <summary>
-    /// Link
+    /// FileName
     /// </summary>
     [ObservableProperty]
     [NotifyCanExecuteChangedFor(nameof(SubmitCommand))]
-    private string _link = string.Empty;
+    private string _fileName = string.Empty;
+
 
     /// <summary>
     /// Topics
@@ -104,7 +110,7 @@ public partial class EntryFormViewModel : ObservableObject, IViewModelForm<Entry
     public Entry GetFormInputValues()
     {
         _entry.Title = Title;
-        _entry.Link = new(Link);
+        _entry.FileName = string.IsNullOrEmpty(FileName) ? null : FileName;
         _entry.TopicId = (uint?)SelectedTopic;
 
         return _entry;
@@ -121,7 +127,8 @@ public partial class EntryFormViewModel : ObservableObject, IViewModelForm<Entry
         _entry = model;
 
         Title = _entry.Title ?? Title;
-        Link = _entry.Link ?? Link;
+        FileName = _entry.FileName ?? FileName;
+
         SelectedTopic = Topics.ToList().Where(t => (uint)t == _entry.TopicId).FirstOrDefault();
     }
 
@@ -149,11 +156,15 @@ public partial class EntryFormViewModel : ObservableObject, IViewModelForm<Entry
         {
             return false;
         }
-        else if (string.IsNullOrWhiteSpace(Link))
+        else if (string.IsNullOrWhiteSpace(FileName))
         {
             return false;
         }
         else if (SelectedTopic == null)
+        {
+            return false;
+        }
+        else if (SelectedTopic == 0)
         {
             return false;
         }
@@ -165,6 +176,15 @@ public partial class EntryFormViewModel : ObservableObject, IViewModelForm<Entry
     private void Cancel()
     {
         WeakReferenceMessenger.Default.Send(new EntryFormCanceledMessage(EventArgs.Empty), _messengerToken);
+    }
+
+    [RelayCommand]
+    private void ChooseFile()
+    {
+        if (TryGetFileNameDialogResult(out string fileName))
+        {
+            FileName = fileName;
+        }
     }
 
 
@@ -183,6 +203,21 @@ public partial class EntryFormViewModel : ObservableObject, IViewModelForm<Entry
             FormInputMode.Create => SubmitButtonTextValueCreate,
             _                    => SubmitButtonTextValueEdit,
         };
+    }
+
+    private static bool TryGetFileNameDialogResult(out string fileName)
+    {
+        OpenFileDialog fileDialog = new()
+        {
+            InitialDirectory = FileDialogInitialDirectory,
+            Filter = FileDialogFilter,
+        };
+
+        bool fileSelected = fileDialog.ShowDialog() ?? false;
+
+        fileName = fileDialog.SafeFileName;
+
+        return fileSelected;
     }
 
 
