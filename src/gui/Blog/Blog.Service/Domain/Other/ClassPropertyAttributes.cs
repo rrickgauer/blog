@@ -13,6 +13,11 @@ public class ClassPropertyAttributes<TAttribute> where TAttribute : Attribute
         PropertyAttributes = PropertyAttribute<TAttribute>.GetAllPropertiesInClass(ClassType).ToList();
     }
 
+    /// <summary>
+    /// Get the assigned attribute for the specified property
+    /// </summary>
+    /// <param name="propertyName">Name of the property</param>
+    /// <returns></returns>
     public PropertyAttribute<TAttribute>? Get(string propertyName)
     {
         return PropertyAttributes.Where(p => p.PropertyInfo.Name == propertyName).FirstOrDefault();

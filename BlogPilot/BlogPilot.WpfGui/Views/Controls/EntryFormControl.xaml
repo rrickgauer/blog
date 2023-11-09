@@ -38,6 +38,22 @@
                 <ui:TextBox Text="{Binding ViewModel.Link, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
 
+
+            <!--File-->
+            <StackPanel Style="{StaticResource StyleSection}">
+                <Label Style="{StaticResource StyleLabelForm}" Content="File:"  />
+                <ui:TextBox Text="{Binding ViewModel.FileName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            IsEnabled="False"
+                            />
+
+                <ui:Button Content="Select file" 
+                           Command="{Binding ViewModel.ChooseFileCommand}"/>
+
+            </StackPanel>
+
+
+
+
             <!--Topic-->
             <StackPanel Style="{StaticResource StyleSection}">
                 <Label Style="{StaticResource StyleLabelForm}" Content="Topic:"  />

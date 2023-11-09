@@ -43,7 +43,6 @@ public partial class EditEntryViewModel : ObservableObject, INavigationAware, IM
 
     #endregion
 
-
     #region - Public Properties -
 
     // IEntryFormSubscriber
@@ -131,9 +130,6 @@ public partial class EditEntryViewModel : ObservableObject, INavigationAware, IM
 
 
     #endregion
-
-
-
 
     #region - Private Methods -
 

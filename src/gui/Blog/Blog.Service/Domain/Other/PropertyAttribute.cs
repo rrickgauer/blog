@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using Blog.Service.Domain.Model;
+using System.Reflection;
 
 namespace Blog.Service.Domain.Other;
 
@@ -9,11 +10,6 @@ public sealed class PropertyAttribute<TAttribute> where TAttribute : Attribute
     public PropertyInfo PropertyInfo { get; private set; }
     public TAttribute Attribute { get; private set; }
 
-    public PropertyAttribute(PropertyInfo propertyInfo)
-    {
-        PropertyInfo = propertyInfo;
-        Attribute = GetAttr(propertyInfo);
-    }
 
     public PropertyAttribute(PropertyInfo propertyInfo, TAttribute attribute)
     {
@@ -21,7 +17,19 @@ public sealed class PropertyAttribute<TAttribute> where TAttribute : Attribute
         Attribute = attribute;
     }
 
-    private static TAttribute GetAttr(PropertyInfo propertyInfo)
+    public PropertyAttribute(PropertyInfo propertyInfo)
+    {
+        PropertyInfo = propertyInfo;
+        Attribute = GetAttribute(propertyInfo);
+    }
+
+    /// <summary>
+    /// Get the attribute for the specified property
+    /// </summary>
+    /// <param name="propertyInfo"></param>
+    /// <returns></returns>
+    /// <exception cref="NotSupportedException"></exception>
+    private static TAttribute GetAttribute(PropertyInfo propertyInfo)
     {
         var attr = propertyInfo.GetCustomAttribute<TAttribute>(true);
 
@@ -33,15 +41,25 @@ public sealed class PropertyAttribute<TAttribute> where TAttribute : Attribute
         return attr;
     }
 
-
+    /// <summary>
+    /// Get the property value as a nullable object
+    /// </summary>
+    /// <param name="classData"></param>
+    /// <returns></returns>
     public object? GetPropertyValueRaw(object? classData)
     {
         return GetPropertyValue<object?>(classData);
     }
 
-    public T? GetPropertyValue<T>(object? classData) where T : class?
+    /// <summary>
+    /// Get the property value
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="classInstance"></param>
+    /// <returns></returns>
+    public T? GetPropertyValue<T>(object? classInstance) where T : class?
     {
-        return PropertyInfo.GetValue(classData) as T;
+        return PropertyInfo.GetValue(classInstance) as T;
     }
 
 
