@@ -16,12 +16,12 @@ namespace Blog.WpfGui.ViewModels.Windows
         [ObservableProperty]
         private ObservableCollection<object> _menuItems = new()
         {
-            //new NavigationViewItem()
-            //{
-            //    Content = "Home",
-            //    Icon = new SymbolIcon { Symbol = SymbolRegular.Home24 },
-            //    TargetPageType = typeof(Views.Pages.DashboardPage)
-            //},
+            new NavigationViewItem()
+            {
+                Content = "Entries",
+                Icon = new SymbolIcon { Symbol = SymbolRegular.Home24 },
+                TargetPageType = typeof(Views.Pages.EntriesPage)
+            },
         };
 
         [ObservableProperty]

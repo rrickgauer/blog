@@ -57,14 +57,8 @@ namespace Blog.WpfGui
                 services.AddSingleton<SettingsPage>();
                 services.AddSingleton<SettingsViewModel>();
 
-
-
-
-
-
-
-
-
+                services.AddSingleton<EntriesPage>();
+                services.AddSingleton<EntriesViewModel>();
 
 
             }).Build();
