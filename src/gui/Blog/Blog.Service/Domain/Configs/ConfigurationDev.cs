@@ -4,7 +4,8 @@ public class ConfigurationDev : ConfigurationProduction, IConfigs
 {
     public override bool IsProduction => false;
 
-    public override string DbDataBase => "blog_dev";
+    //public override string DbDataBase => "blog_dev";
+    public override string DbDataBase => "blog";
 
     public override string EntryFilesPath => @"C:\xampp\htdocs\files\blog\entries";
 

@@ -13,6 +13,7 @@ public partial class EntriesPage : INavigableView<EntriesViewModel>
     public EntriesPage(EntriesViewModel viewModel)
     {
         ViewModel = viewModel;
+        DataContext = this;
         InitializeComponent();
     }
 }
