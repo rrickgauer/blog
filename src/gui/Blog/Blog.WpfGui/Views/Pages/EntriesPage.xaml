@@ -7,23 +7,103 @@
       mc:Ignorable="d" 
       d:DataContext="{d:DesignInstance local:EntriesPage, IsDesignTimeCreatable=False}"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-      d:DesignHeight="450" 
+      xmlns:helpers="clr-namespace:Blog.WpfGui.Helpers"
       d:DesignWidth="800"
       Title="EntriesPage">
+    <Page.Resources>
+        <helpers:BindingProxy x:Key="Proxy" Data="{Binding}" />
+    </Page.Resources>
 
     <Border>
         <Grid>
 
-            <ListView ItemsSource="{Binding ViewModel.Entries}"
-                      d:ItemsSource="{d:SampleData ItemCount=5}"
-                      >
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Title}" Foreground="White" />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-            </ListView>
+            <Border Grid.Row="0" 
+                    Visibility="{Binding ViewModel.ShowLoadingSpinner, Converter={StaticResource BoolToVisibilityConverter}}"
+                    d:Visibility="Collapsed">
+                
+                <ui:ProgressRing IsIndeterminate="True"/>
+            </Border>
+            
+
+            <Border Grid.Row="1"
+                    Visibility="{Binding ViewModel.ShowLoadingSpinner, Converter={StaticResource BoolToVisibilityInverseConverter}}"
+                    d:Visibility="Visible">
+                
+                <ListView ItemsSource="{Binding ViewModel.Entries}"
+                          ItemContainerStyle="{StaticResource ListViewItemStyle}"
+                          d:ItemsSource="{d:SampleData ItemCount=5}"
+                      >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+
+                            <ui:CardExpander Header="{Binding WpfUiCardHeaderText}" 
+                                             IsExpanded="True" 
+                                             Margin="0,20">
+
+
+                                <StackPanel>
+                                    <StackPanel>
+                                        <TextBlock Text="Topic:" />
+                                        <TextBlock Text="{Binding TopicName}" 
+                                                   FontWeight="Bold" />
+                                    </StackPanel>
+
+                                    <StackPanel Margin="0,20">
+                                        <StackPanel Orientation="Horizontal">
+                                            <StackPanel.Resources>
+                                                <Style TargetType="ui:Button" BasedOn="{StaticResource {x:Type ui:Button}}">
+                                                    <Setter Property="Margin" Value="0,0,5,0" />
+                                                </Style>
+                                            </StackPanel.Resources>
+
+                                            <ui:Button Content="Edit"
+                                                       Command="{Binding Source={StaticResource Proxy}, Path=Data.ViewModel.EditItemCommand}"
+                                                       CommandParameter="{Binding}"
+                                                       Icon="{ui:SymbolIcon Edit24}" />
+
+
+                                            <ui:Button Content="Delete"
+                                                       Command="{Binding Source={StaticResource Proxy}, Path=Data.ViewModel.DeleteEntryCommand}"
+                                                       CommandParameter="{Binding}"
+                                                       Icon="{ui:SymbolIcon Delete24}"/>
+                                      
+                                            
+                                            <ui:Button Content="View"
+                                                       Command="{Binding Source={StaticResource Proxy}, Path=Data.ViewModel.EditEntryFileCommand}"
+                                                       CommandParameter="{Binding}"
+                                                       Icon="{ui:SymbolIcon Link24}" />
+
+
+                                            <ui:Button Content="{Binding FileName}"
+                                                       Icon="{ui:SymbolIcon Document24}"
+                                                       Command="{Binding Source={StaticResource Proxy}, Path=Data.ViewModel.ViewEntryPageCommand}"
+                                                       CommandParameter="{Binding}"
+                                                       d:Content="test-file.md"/>
+
+                                        </StackPanel>
+                                    </StackPanel>
+
+                                    
+                                </StackPanel>
+          
+                                
+                                
+                            </ui:CardExpander>
+                            
+                            
+                            
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                </ListView>
+            </Border>
+
+
 
 
 

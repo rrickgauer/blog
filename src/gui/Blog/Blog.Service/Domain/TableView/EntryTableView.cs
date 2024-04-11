@@ -1,6 +1,7 @@
 ﻿using Blog.Service.Domain.Contracts;
 using Blog.Service.Domain.CustomAttributes;
 using Blog.Service.Domain.Model;
+using Blog.Service.Utility;
 
 namespace Blog.Service.Domain.TableView;
 
@@ -35,6 +36,11 @@ public class EntryTableView : ITableView<EntryTableView, Entry>, ITableView<Entr
     [SqlColumn("topic_name")]
     [CopyToProperty<EntryTopic>(nameof(EntryTopic.Name))]
     public string? TopicName { get; set; }
+
+    public string WpfUiCardHeaderText => $"{Title} #{EntryId}";
+
+
+    
 
     #region - ITableView -
 

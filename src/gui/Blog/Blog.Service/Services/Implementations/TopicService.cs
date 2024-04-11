@@ -4,16 +4,10 @@ using Blog.Service.Services.Contracts;
 
 namespace Blog.Service.Services.Implementations;
 
-public class TopicService : ITopicService
+public class TopicService(ITopicRepository topicRepository, ITableMapperService tableMapperService) : ITopicService
 {
-    private readonly ITopicRepository _topicRepository;
-    private readonly ITableMapperService _tableMapperService;
-
-    public TopicService(ITopicRepository topicRepository, ITableMapperService tableMapperService)
-    {
-        _topicRepository = topicRepository;
-        _tableMapperService = tableMapperService;
-    }
+    private readonly ITopicRepository _topicRepository = topicRepository;
+    private readonly ITableMapperService _tableMapperService = tableMapperService;
 
     public async Task<IEnumerable<TopicTableView>> GetUsedTopicsAsync()
     {

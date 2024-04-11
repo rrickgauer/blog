@@ -6,16 +6,9 @@ using Wpf.Ui.Controls;
 namespace Blog.WpfGui.ViewModels.Pages;
 
 
-public partial class EntriesViewModel : ObservableObject, INavigationAware
+public partial class EntriesViewModel(IEntryService entryService) : ObservableObject, INavigationAware
 {
-    private readonly IEntryService _entryService;
-
-    public EntriesViewModel(IEntryService entryService)
-    {
-        _entryService = entryService;
-        
-    }
-
+    private readonly IEntryService _entryService = entryService;
 
 
     #region - Generated Properties -
@@ -26,12 +19,11 @@ public partial class EntriesViewModel : ObservableObject, INavigationAware
     [ObservableProperty]
     private ObservableCollection<EntryTableView> _entries = new();
 
+
+    [ObservableProperty]
+    private bool _showLoadingSpinner = true;
+
     #endregion
-
-
-
-
-
 
 
     #region - INavigationAware -
@@ -53,13 +45,48 @@ public partial class EntriesViewModel : ObservableObject, INavigationAware
 
     private async Task RefreshEntriesAsync()
     {
+        ShowLoadingSpinner = true;
+
         var entries = await _entryService.GetAllEntriesAsync();
         Entries = new(entries);
+
+        ShowLoadingSpinner = false;
     }
 
 
     #endregion
 
+
+    #region - Commands -
+
+    [RelayCommand]
+    private void EditItem(EntryTableView entry)
+    {
+        int x = 10;
+    }
+
+    [RelayCommand]
+    private void DeleteEntry(EntryTableView entry)
+    {
+        int x = 10;
+    }
+
+    [RelayCommand]
+    private void EditEntryFile(EntryTableView entry)
+    {
+        int x = 10;
+    }
+
+    [RelayCommand]
+    private void ViewEntryPage(EntryTableView entry)
+    {
+        int x = 10;
+    }
+
+
+
+
+    #endregion
 
 
 }
