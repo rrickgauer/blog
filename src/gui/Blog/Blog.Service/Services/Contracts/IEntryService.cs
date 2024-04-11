@@ -4,6 +4,6 @@ namespace Blog.Service.Services.Contracts;
 
 public interface IEntryService
 {
-    public Task<IEnumerable<EntryTableView>> GetAllEntriesAsync();
+    public Task<List<EntryTableView>> GetAllEntriesAsync();
     public Task<EntryTableView?> GetEntryAsync(uint entryId);
 }

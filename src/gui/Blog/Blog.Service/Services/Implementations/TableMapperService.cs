@@ -66,7 +66,7 @@ public class TableMapperService : ITableMapperService
         return GetMapper<T>().ToModel(dataRow);
     }
 
-    public IEnumerable<T> ToModels<T>(DataTable dataTable)
+    public List<T> ToModels<T>(DataTable dataTable)
     {
         return GetMapper<T>().ToModels(dataTable);
     }

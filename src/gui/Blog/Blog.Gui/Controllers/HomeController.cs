@@ -58,7 +58,7 @@ public class HomeController : Controller
             return NotFound();
         }
 
-        var markdown = _markdownService.GetEntryHtml(entry.FileName);
+        var markdown = _markdownService.GetEntryHtml(entry.FileName!);
 
         EntryViewModel viewModel = new()
         {

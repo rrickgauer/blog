@@ -4,18 +4,12 @@ using Blog.Service.Services.Contracts;
 
 namespace Blog.Service.Services.Implementations;
 
-public class EntryService : IEntryService
+public class EntryService(IEntryRepository entryRepository, ITableMapperService tableMapperService) : IEntryService
 {
-    private readonly IEntryRepository _entryRepository;
-    private readonly ITableMapperService _tableMapperService;
+    private readonly IEntryRepository _entryRepository = entryRepository;
+    private readonly ITableMapperService _tableMapperService = tableMapperService;
 
-    public EntryService(IEntryRepository entryRepository, ITableMapperService tableMapperService)
-    {
-        _entryRepository = entryRepository;
-        _tableMapperService = tableMapperService;
-    }
-
-    public async Task<IEnumerable<EntryTableView>> GetAllEntriesAsync()
+    public async Task<List<EntryTableView>> GetAllEntriesAsync()
     {
         var table = await _entryRepository.SelectAllAsync();
 

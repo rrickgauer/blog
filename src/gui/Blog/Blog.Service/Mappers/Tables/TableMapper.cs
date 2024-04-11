@@ -11,7 +11,7 @@ public abstract class TableMapper<T>
     public static Type ModelType => typeof(T);
     protected static readonly ClassPropertyAttributes<SqlColumnAttribute> SqlColumnProperties = new(ModelType);
 
-    public IEnumerable<T> ToModels(DataTable table)
+    public List<T> ToModels(DataTable table)
     {
         List<T> models = new();
 

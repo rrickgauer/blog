@@ -6,18 +6,17 @@
 using Blog.WpfGui.ViewModels.Pages;
 using Wpf.Ui.Controls;
 
-namespace Blog.WpfGui.Views.Pages
+namespace Blog.WpfGui.Views.Pages;
+
+public partial class DataPage : INavigableView<DataViewModel>
 {
-    public partial class DataPage : INavigableView<DataViewModel>
+    public DataViewModel ViewModel { get; }
+
+    public DataPage(DataViewModel viewModel)
     {
-        public DataViewModel ViewModel { get; }
+        ViewModel = viewModel;
+        DataContext = this;
 
-        public DataPage(DataViewModel viewModel)
-        {
-            ViewModel = viewModel;
-            DataContext = this;
-
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }
