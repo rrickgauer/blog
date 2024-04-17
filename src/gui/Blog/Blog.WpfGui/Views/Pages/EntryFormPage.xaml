@@ -1,20 +1,29 @@
 ﻿<Page x:Class="Blog.WpfGui.Views.Pages.EntryFormPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Blog.WpfGui.Views.Pages"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       d:DataContext="{d:DesignInstance local:EntryFormPage, IsDesignTimeCreatable=False}"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" 
+      mc:Ignorable="d"
+      d:DesignHeight="450"
       xmlns:helpers="clr-namespace:Blog.WpfGui.Helpers"
       d:DesignWidth="800"
       d:Background="White"
-      
+      Foreground="{DynamicResource TextFillColorPrimaryBrush}"
       Title="EntryFormPage">
     <Page.Resources>
         <helpers:BindingProxy x:Key="Proxy" Data="{Binding}" />
+
+        <Style x:Key="BorderInputSectionStyle" TargetType="Border">
+            <Setter Property="Margin" Value="0,0,0,30" />
+        </Style>
+        
+        <Style x:Key="InputLabelStyle" TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+            <Setter Property="Margin" Value="0,0,0,5" />
+        </Style>
+        
     </Page.Resources>
 
     <Border d:Padding="20">
@@ -22,16 +31,21 @@
 
             <StackPanel>
 
-                <Border>
+                <!--Title-->
+                <Border Style="{StaticResource BorderInputSectionStyle}">
                     <StackPanel>
-                        <TextBlock Text="Title:" />
+                        <TextBlock Text="Title:"
+                                   Style="{StaticResource InputLabelStyle}"/>
                         <ui:TextBox Text="{Binding ViewModel.Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                     </StackPanel>
                 </Border>
 
-                <Border>
+
+                <!--File-->
+                <Border Style="{StaticResource BorderInputSectionStyle}">
                     <StackPanel>
-                        <TextBlock Text="File:" />
+                        <TextBlock Text="File:"
+                                   Style="{StaticResource InputLabelStyle}"/>
 
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -41,33 +55,52 @@
 
                             <ui:TextBox Text="{Binding ViewModel.FileName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                         IsReadOnly="True"
-                                        Grid.Column="0"/>
+                                        Grid.Column="0" />
 
                             <ui:Button Icon="{ui:SymbolIcon FolderOpen24}"
                                        VerticalAlignment="Stretch"
                                        ToolTip="Select file"
                                        Margin="2,0,0,0"
                                        Command="{Binding ViewModel.SelectFolderCommand}"
-                                       Grid.Column="1"/>
+                                       Grid.Column="1" />
                         </Grid>
                         
-                 
                     </StackPanel>
                 </Border>
 
-                <Border>
+                <!--Topic-->
+                <Border Style="{StaticResource BorderInputSectionStyle}">
                     <StackPanel>
-                        <TextBlock Text="Topic:" />
+                        <TextBlock Text="Topic:"
+                                   Style="{StaticResource InputLabelStyle}" />
                         <ComboBox ItemsSource="{Binding ViewModel.Topics}"
-                              SelectedItem="{Binding ViewModel.SelectedTopic, Mode=TwoWay}"
-                              DisplayMemberPath="Name" />
+                                  SelectedItem="{Binding ViewModel.SelectedTopic, Mode=TwoWay}"
+                                  DisplayMemberPath="Name" />
 
                     </StackPanel>
                 </Border>
 
+                <!--Action Buttons-->
+                <Border Style="{StaticResource BorderInputSectionStyle}">
+                    
+                    <Border.Resources>
+                        <Style TargetType="{x:Type ui:Button}" BasedOn="{StaticResource {x:Type ui:Button}}">
+                            <Setter Property="Margin" Value="0,0,5,0" />
+                            <Setter Property="Width" Value="100" />
+                        </Style>
+                    </Border.Resources>
+                    
+                    <StackPanel Orientation="Horizontal">
+                        <ui:Button Content="Save"
+                                   Appearance="Success"
+                                   Command="{Binding ViewModel.SaveFormCommand}" />
+                        
+                        <ui:Button Content="Cancel"
+                                   Appearance="Danger"/>
+                        
+                    </StackPanel>
+                </Border>
 
-                <ui:Button Content="Save"
-                       Command="{Binding ViewModel.SaveFormCommand}" />
             </StackPanel>
 
 
