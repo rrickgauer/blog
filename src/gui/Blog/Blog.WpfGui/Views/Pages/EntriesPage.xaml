@@ -9,6 +9,8 @@
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       xmlns:helpers="clr-namespace:Blog.WpfGui.Helpers"
       d:DesignWidth="800"
+      d:Foreground="Black"
+      d:Background="Gray"
       Title="EntriesPage">
     <Page.Resources>
         <helpers:BindingProxy x:Key="Proxy" Data="{Binding}" />
@@ -19,10 +21,15 @@
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <Border Grid.Row="0" 
+            <Border Grid.Row="0">
+                <TextBlock Text="Entries" FontSize="32"/>
+            </Border>
+            
+            <Border Grid.Row="1" 
                     Visibility="{Binding ViewModel.ShowLoadingSpinner, Converter={StaticResource BoolToVisibilityConverter}}"
                     d:Visibility="Collapsed">
                 
@@ -30,7 +37,7 @@
             </Border>
             
 
-            <Border Grid.Row="1"
+            <Border Grid.Row="2"
                     Visibility="{Binding ViewModel.ShowLoadingSpinner, Converter={StaticResource BoolToVisibilityInverseConverter}}"
                     d:Visibility="Visible">
                 

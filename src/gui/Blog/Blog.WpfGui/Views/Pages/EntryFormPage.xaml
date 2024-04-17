@@ -30,6 +30,9 @@
         <Grid>
 
             <StackPanel>
+                
+                
+                
 
                 <!--Title-->
                 <Border Style="{StaticResource BorderInputSectionStyle}">
@@ -91,11 +94,13 @@
                     </Border.Resources>
                     
                     <StackPanel Orientation="Horizontal">
-                        <ui:Button Content="Save"
+                        <ui:Button d:Content="Save"
+                                   Content="{Binding ViewModel.SaveButtonText}"
                                    Appearance="Success"
                                    Command="{Binding ViewModel.SaveFormCommand}" />
                         
-                        <ui:Button Content="Cancel"
+                        <ui:Button d:Content="Cancel"
+                                   Content="{Binding ViewModel.CancelButtonText}"
                                    Appearance="Danger"/>
                         
                     </StackPanel>

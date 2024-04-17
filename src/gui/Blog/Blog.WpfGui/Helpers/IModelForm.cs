@@ -1,8 +1,21 @@
 ﻿namespace Blog.WpfGui.Helpers;
 
 
+public class NewModelFormArgs
+{
+    public required string Title { get; set; }
+
+    public string SaveButtonText { get; set; } = "Save";
+    public string CancelButtonText { get; set; } = "Cancel";
+}
+
+public class EditModelFormArgs<T> : NewModelFormArgs
+{
+    public required T Model { get; set; }
+}
+
 public interface IModelForm<T>
 {
-    public void EditModel(T model);
+    public void EditModel(EditModelFormArgs<T> args);
     public void NewModel();
 }

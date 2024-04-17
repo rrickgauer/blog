@@ -35,7 +35,17 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
     private EntryTopic? _selectedTopic = null;
 
     [ObservableProperty]
+    private string _saveButtonText = string.Empty;
+
+    [ObservableProperty]
+    private string _cancelButtonText = string.Empty;
+
+
+
+    [ObservableProperty]
     private ObservableCollection<EntryTopic> _topics = new(EntryTopic.GetAll());
+
+
 
     #endregion
 
@@ -67,13 +77,16 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
     #region - IModelForm -
 
 
-    public void EditModel(EntryTableView model)
+    public void EditModel(EditModelFormArgs<EntryTableView> args)
     {
-        _model = model;
+        _model = args.Model;
 
-        Title = model.Title ?? string.Empty;
-        FileName = model.FileName ?? string.Empty;
-        SelectedTopic = Topics.Where(t => t.Id == model.TopicId).FirstOrDefault();
+        Title = args.Model.Title ?? string.Empty;
+        FileName = args.Model.FileName ?? string.Empty;
+        SelectedTopic = Topics.Where(t => t.Id == args.Model.TopicId).FirstOrDefault();
+
+        SaveButtonText = args.SaveButtonText;
+        CancelButtonText = args.CancelButtonText;
     }
 
 
