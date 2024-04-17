@@ -2,3 +2,4 @@
 global using CommunityToolkit.Mvvm.Input;
 global using System;
 global using System.Windows;
+global using NativeMessageBox = System.Windows.MessageBox;

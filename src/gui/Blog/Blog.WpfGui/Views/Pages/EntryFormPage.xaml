@@ -1,0 +1,76 @@
+﻿<Page x:Class="Blog.WpfGui.Views.Pages.EntryFormPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Blog.WpfGui.Views.Pages"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      d:DataContext="{d:DesignInstance local:EntryFormPage, IsDesignTimeCreatable=False}"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" 
+      xmlns:helpers="clr-namespace:Blog.WpfGui.Helpers"
+      d:DesignWidth="800"
+      d:Background="White"
+      
+      Title="EntryFormPage">
+    <Page.Resources>
+        <helpers:BindingProxy x:Key="Proxy" Data="{Binding}" />
+    </Page.Resources>
+
+    <Border d:Padding="20">
+        <Grid>
+
+            <StackPanel>
+
+                <Border>
+                    <StackPanel>
+                        <TextBlock Text="Title:" />
+                        <ui:TextBox Text="{Binding ViewModel.Title, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+                </Border>
+
+                <Border>
+                    <StackPanel>
+                        <TextBlock Text="File:" />
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <ui:TextBox Text="{Binding ViewModel.FileName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        IsReadOnly="True"
+                                        Grid.Column="0"/>
+
+                            <ui:Button Icon="{ui:SymbolIcon FolderOpen24}"
+                                       VerticalAlignment="Stretch"
+                                       ToolTip="Select file"
+                                       Margin="2,0,0,0"
+                                       Grid.Column="1"/>
+                        </Grid>
+                        
+                 
+                    </StackPanel>
+                </Border>
+
+                <Border>
+                    <StackPanel>
+                        <TextBlock Text="Topic:" />
+                        <ComboBox ItemsSource="{Binding ViewModel.Topics}"
+                              SelectedItem="{Binding ViewModel.SelectedTopic, Mode=TwoWay}"
+                              DisplayMemberPath="Name" />
+
+                    </StackPanel>
+                </Border>
+
+
+                <ui:Button Content="Save"
+                       Command="{Binding ViewModel.SaveFormCommand}" />
+            </StackPanel>
+
+
+        </Grid>
+    </Border>
+
+</Page>

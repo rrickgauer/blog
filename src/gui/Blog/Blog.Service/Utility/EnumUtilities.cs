@@ -1,4 +1,4 @@
-﻿using Blog.Service.Domain.Enum;
+﻿using Blog.Service.Domain.Enums;
 using Blog.Service.Domain.Model;
 using System.ComponentModel;
 using System.Reflection;

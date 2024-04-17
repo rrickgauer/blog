@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Blog.Service.Domain.Enum;
+namespace Blog.Service.Domain.Enums;
 
 public enum TopicReference : uint
 {

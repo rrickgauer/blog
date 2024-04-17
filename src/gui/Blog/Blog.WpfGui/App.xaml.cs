@@ -55,6 +55,8 @@ public partial class App
             // Service containing navigation, same as INavigationWindow... but without window
             services.AddSingleton<INavigationService, NavigationService>();
 
+            services.AddSingleton<IContentDialogService, ContentDialogService>();
+
             // Main window with navigation
             services.AddSingleton<INavigationWindow, MainWindow>();
             services.AddSingleton<MainWindowViewModel>();
@@ -63,11 +65,16 @@ public partial class App
 
             services.AddSingleton<DataPage>();
             services.AddSingleton<DataViewModel>();
+
+
             services.AddSingleton<SettingsPage>();
             services.AddSingleton<SettingsViewModel>();
 
             services.AddSingleton<EntriesPage>();
             services.AddSingleton<EntriesViewModel>();
+
+            services.AddSingleton<EntryFormViewModel>();
+            services.AddSingleton<EntryFormPage>();
 
 
             bool isDebug = false;

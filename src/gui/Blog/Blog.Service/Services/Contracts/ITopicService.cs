@@ -1,11 +1,4 @@
-﻿using Blog.Service.Domain.Enum;
-using Blog.Service.Domain.Model;
-using Blog.Service.Domain.TableView;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Blog.Service.Domain.TableView;
 
 namespace Blog.Service.Services.Contracts;
 
