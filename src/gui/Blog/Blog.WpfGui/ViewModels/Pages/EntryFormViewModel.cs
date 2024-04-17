@@ -1,7 +1,10 @@
-﻿using Blog.Service.Domain.Model;
+﻿using Blog.Service.Domain.Configs;
+using Blog.Service.Domain.Model;
 using Blog.Service.Domain.TableView;
 using Blog.WpfGui.Helpers;
+using Microsoft.Win32;
 using System.Collections.ObjectModel;
+using System.IO;
 using Wpf.Ui.Controls;
 
 namespace Blog.WpfGui.ViewModels.Pages;
@@ -9,6 +12,9 @@ namespace Blog.WpfGui.ViewModels.Pages;
 
 public partial class EntryFormViewModel : ObservableObject, INavigationAware, IModelForm<EntryTableView>
 {
+
+    private readonly IConfigs _configs;
+
 
     protected EntryTableView? _model = null;
 
@@ -32,6 +38,15 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
     private ObservableCollection<EntryTopic> _topics = new(EntryTopic.GetAll());
 
     #endregion
+
+
+
+    public EntryFormViewModel(IConfigs configs)
+    {
+        _configs = configs;
+    }
+
+
 
 
     #region - INavigationAware -
@@ -100,6 +115,47 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
         }
 
         return true;
+    }
+
+
+    [RelayCommand]
+    private void SelectFolder()
+    {
+        if (!TrySelectingEntryFile(out FileInfo? selectedFile))
+        {
+            return;
+        }
+
+
+        var fileName = selectedFile!.Name;
+
+        int x = 10;
+
+
+        
+    }
+
+
+    private bool TrySelectingEntryFile(out FileInfo? selectedFile)
+    {
+        OpenFileDialog dialog = new()
+        {
+            DefaultExt = ".md",
+            Filter = "Markdown (.md)|*.md",
+            Multiselect = false,
+            InitialDirectory = _configs.EntryFilesPath,
+            DefaultDirectory = _configs.EntryFilesPath,
+        };
+
+        selectedFile = null;
+
+        if (dialog.ShowDialog() == true)
+        {
+            selectedFile = new(dialog.FileName);
+            return true;
+        }
+
+        return false;
     }
 
 

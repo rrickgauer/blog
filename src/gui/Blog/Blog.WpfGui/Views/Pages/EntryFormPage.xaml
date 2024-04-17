@@ -47,6 +47,7 @@
                                        VerticalAlignment="Stretch"
                                        ToolTip="Select file"
                                        Margin="2,0,0,0"
+                                       Command="{Binding ViewModel.SelectFolderCommand}"
                                        Grid.Column="1"/>
                         </Grid>
                         
