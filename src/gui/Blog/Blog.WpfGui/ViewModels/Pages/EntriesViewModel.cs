@@ -1,19 +1,32 @@
-﻿using Blog.Service.Domain.TableView;
+﻿using Blog.Service.Domain.Model;
+using Blog.Service.Domain.TableView;
 using Blog.Service.Services.Contracts;
+using Blog.WpfGui.ViewModels.Base;
 using Blog.WpfGui.Views.Pages;
+using CommunityToolkit.Mvvm.Messaging;
 using System.Collections.ObjectModel;
-using System.Runtime.CompilerServices;
 using Wpf.Ui;
-using Wpf.Ui.Controls;
+using static Blog.WpfGui.Messenger.ViewMessages;
 
 namespace Blog.WpfGui.ViewModels.Pages;
 
 
-public partial class EntriesViewModel(IEntryService entryService, EntryFormPage entryFormPage, INavigationService navigationService) : ObservableObject, INavigationAware
+public partial class EntriesViewModel : NavigableViewModel,
+    IRecipient<EntryFormSavedMessage>
 {
-    private readonly IEntryService _entryService = entryService;
-    private readonly EntryFormPage _entryFormPage = entryFormPage;
-    private readonly INavigationService _navigationService = navigationService;
+    private readonly IEntryService _entryService;
+    private readonly EntryFormPage _entryFormPage;
+    private readonly INavigationService _navigationService;
+
+
+    public EntriesViewModel(IEntryService entryService, EntryFormPage entryFormPage, INavigationService navigationService)
+    {
+        _entryService = entryService;
+        _entryFormPage = entryFormPage;
+        _navigationService = navigationService;
+
+        InitMessenger();
+    }
 
     #region - Generated Properties -
 
@@ -27,17 +40,14 @@ public partial class EntriesViewModel(IEntryService entryService, EntryFormPage 
     [ObservableProperty]
     private bool _showLoadingSpinner = true;
 
+
+
     #endregion
 
 
     #region - INavigationAware -
 
-    public void OnNavigatedFrom()
-    {
-
-    }
-
-    public async void OnNavigatedTo()
+    public override async void OnNavigatedTo()
     {
         await RefreshEntriesAsync();
     }
@@ -70,6 +80,7 @@ public partial class EntriesViewModel(IEntryService entryService, EntryFormPage 
         {
             Model = entry,
             Title = "Edit Entry",
+            MessengerToken = MessengerToken,
         });
 
         _navigationService.GetNavigationControl().Navigate(typeof(EntryFormPage));
@@ -111,8 +122,9 @@ public partial class EntriesViewModel(IEntryService entryService, EntryFormPage 
         return false;
     }
 
-
-
-
-
+    public async void Receive(EntryFormSavedMessage message)
+    {
+        await _entryService.SaveEntryAsync((Entry)message.Value);
+        _navigationService.GetNavigationControl().Navigate(typeof(EntriesPage));
+    }
 }

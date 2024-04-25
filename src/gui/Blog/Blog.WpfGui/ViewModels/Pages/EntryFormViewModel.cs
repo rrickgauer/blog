@@ -3,10 +3,13 @@ using Blog.Service.Domain.Contracts;
 using Blog.Service.Domain.Model;
 using Blog.Service.Domain.TableView;
 using Blog.Service.Services.Contracts;
+using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.Win32;
 using System.Collections.ObjectModel;
 using System.IO;
+using Wpf.Ui;
 using Wpf.Ui.Controls;
+using static Blog.WpfGui.Messenger.ViewMessages;
 
 namespace Blog.WpfGui.ViewModels.Pages;
 
@@ -15,6 +18,8 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
     #region - Private Members -
     private readonly IConfigs _configs;
     private readonly IEntryService _entryService;
+    private readonly INavigationView _navigation;
+
 
     protected EntryTableView? _entryTableView = null;
 
@@ -35,6 +40,10 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
             _entryTableView = value;
         }
     }
+
+
+
+    private Guid _parentMessengerToken = Guid.Empty;
 
     #endregion
 
@@ -65,10 +74,11 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
 
     #region - Constructor -
 
-    public EntryFormViewModel(IConfigs configs, IEntryService entryService)
+    public EntryFormViewModel(IConfigs configs, IEntryService entryService, INavigationService navigationService)
     {
         _configs = configs;
         _entryService = entryService;
+        _navigation = navigationService.GetNavigationControl();
     }
 
     #endregion
@@ -99,6 +109,8 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
 
         SaveButtonText = args.SaveButtonText;
         CancelButtonText = args.CancelButtonText;
+
+        _parentMessengerToken = args.MessengerToken;
     }
 
     public void NewModel()
@@ -120,9 +132,7 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
 
         SetModelValues(EntryTableView);
 
-        var entryModel = (Entry)EntryTableView;
-
-        EntryTableView = await _entryService.SaveEntryAsync(entryModel);
+        WeakReferenceMessenger.Default.Send(new EntryFormSavedMessage(EntryTableView), _parentMessengerToken);
     }
 
     private bool CanSaveForm()
@@ -145,6 +155,12 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
         return true;
     }
 
+
+    [RelayCommand]
+    private void CloseForm()
+    {
+        _navigation.GoBack();
+    }
 
     [RelayCommand]
     private void SelectFile()

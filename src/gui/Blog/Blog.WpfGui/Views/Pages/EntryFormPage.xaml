@@ -101,6 +101,7 @@
                         
                         <ui:Button d:Content="Cancel"
                                    Content="{Binding ViewModel.CancelButtonText}"
+                                   Command="{Binding ViewModel.CloseFormCommand}"
                                    Appearance="Danger"/>
                         
                     </StackPanel>

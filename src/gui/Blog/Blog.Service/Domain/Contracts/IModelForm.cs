@@ -7,6 +7,8 @@ public class NewModelFormArgs
 
     public string SaveButtonText { get; set; } = "Save";
     public string CancelButtonText { get; set; } = "Cancel";
+
+    public required Guid MessengerToken { get; set; }
 }
 
 public class EditModelFormArgs<T> : NewModelFormArgs
