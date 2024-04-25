@@ -19,7 +19,6 @@ public partial class EntriesViewModel : NavigableViewModel,
     private readonly EntryFormPage _entryFormPage;
     private readonly INavigationService _navigationService;
 
-
     public EntriesViewModel(IEntryService entryService, EntryFormPage entryFormPage, INavigationService navigationService)
     {
         _entryService = entryService;
@@ -37,11 +36,8 @@ public partial class EntriesViewModel : NavigableViewModel,
     [ObservableProperty]
     private ObservableCollection<EntryTableView> _entries = new();
 
-
     [ObservableProperty]
     private bool _showLoadingSpinner = true;
-
-
 
     #endregion
 
@@ -50,24 +46,10 @@ public partial class EntriesViewModel : NavigableViewModel,
 
     public override async void OnNavigatedTo()
     {
+        base.OnNavigatedTo();
+
         await RefreshEntriesAsync();
     }
-
-    #endregion
-
-
-    #region - Private Methods -
-
-    private async Task RefreshEntriesAsync()
-    {
-        ShowLoadingSpinner = true;
-
-        var entries = await _entryService.GetAllEntriesAsync();
-        Entries = new(entries);
-
-        ShowLoadingSpinner = false;
-    }
-
 
     #endregion
 
@@ -118,7 +100,17 @@ public partial class EntriesViewModel : NavigableViewModel,
 
     #endregion
 
+    #region - Private Methods -
 
+    private async Task RefreshEntriesAsync()
+    {
+        ShowLoadingSpinner = true;
+
+        var entries = await _entryService.GetAllEntriesAsync();
+        Entries = new(entries);
+
+        ShowLoadingSpinner = false;
+    }
 
     private NewModelFormArgs GetNewModelFormArgs()
     {
@@ -140,7 +132,6 @@ public partial class EntriesViewModel : NavigableViewModel,
             MessengerToken = MessengerToken,
         };
     }
-
 
     private static bool ConfirmDelete()
     {
@@ -172,4 +163,6 @@ public partial class EntriesViewModel : NavigableViewModel,
     {
         _navigationService.GetNavigationControl().Navigate(typeof(EntriesPage));
     }
+
+    #endregion
 }

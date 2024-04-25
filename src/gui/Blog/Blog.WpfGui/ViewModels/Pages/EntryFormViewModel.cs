@@ -134,7 +134,7 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
     #region - Commands -
 
     [RelayCommand(CanExecute = nameof(CanSaveForm))]
-    private async Task SaveFormAsync()
+    private void SaveForm()
     {
         if (EntryTableView is null)
         {

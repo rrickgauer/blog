@@ -80,7 +80,8 @@
                         <DataTemplate>
 
                             <ui:CardExpander Header="{Binding WpfUiCardHeaderText}" 
-                                             IsExpanded="True" 
+                                             d:IsExpanded="True" 
+                                             IsExpanded="False"
                                              Margin="0,20">
 
 
