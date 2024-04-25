@@ -33,7 +33,7 @@ public class EntryRepository(DatabaseConnection connection) : IEntryRepository
 
     public async Task<InsertAutoRowResult> InsertEntryAsync(Entry entry)
     {
-        MySqlCommand command = new(EntryCommands.Update);
+        MySqlCommand command = new(EntryCommands.Insert);
 
         AddEntryParmsToCommand(command, entry);
 

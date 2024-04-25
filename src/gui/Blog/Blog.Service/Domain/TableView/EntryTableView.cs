@@ -13,7 +13,7 @@ public class EntryTableView : ITableView<EntryTableView, Entry>, ITableView<Entr
 
     [SqlColumn("date")]
     [CopyToProperty<Entry>(nameof(Entry.Date))]
-    public DateTime? Date { get; set; }
+    public DateTime? Date { get; set; } = DateTime.Now;
 
     [SqlColumn("title")]
     [CopyToProperty<Entry>(nameof(Entry.Title))]

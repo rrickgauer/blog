@@ -1,4 +1,5 @@
-﻿using Blog.Service.Domain.Model;
+﻿using Blog.Service.Domain.Contracts;
+using Blog.Service.Domain.Model;
 using Blog.Service.Domain.TableView;
 using Blog.Service.Services.Contracts;
 using Blog.WpfGui.ViewModels.Base;
@@ -76,14 +77,11 @@ public partial class EntriesViewModel : NavigableViewModel,
     [RelayCommand]
     private void EditItem(EntryTableView entry)
     {
-        _entryFormPage.ViewModel.EditModel(new()
-        {
-            Model = entry,
-            Title = "Edit Entry",
-            MessengerToken = MessengerToken,
-        });
+        var editArgs = GetEditModelFormArgs(entry);
 
-        _navigationService.GetNavigationControl().Navigate(typeof(EntryFormPage));
+        _entryFormPage.ViewModel.EditModel(editArgs);
+
+        NavigateToEntryFormPage();
     }
 
     [RelayCommand]
@@ -107,7 +105,41 @@ public partial class EntriesViewModel : NavigableViewModel,
         int x = 10;
     }
 
+
+    [RelayCommand]  
+    private void CreateNewEntry()
+    {
+        var newModelArgs = GetNewModelFormArgs();
+
+        _entryFormPage.ViewModel.NewModel(newModelArgs);
+
+        NavigateToEntryFormPage();
+    }
+
     #endregion
+
+
+
+    private NewModelFormArgs GetNewModelFormArgs()
+    {
+        return new()
+        {
+            MessengerToken = MessengerToken,
+            Title = "New Entry",
+            SaveButtonText = "Create Entry",
+            CancelButtonText = "Cancel",
+        };
+    }
+
+    private EditModelFormArgs<EntryTableView> GetEditModelFormArgs(EntryTableView entry)
+    {
+        return new()
+        {
+            Model = entry,
+            Title = "Edit Entry",
+            MessengerToken = MessengerToken,
+        };
+    }
 
 
     private static bool ConfirmDelete()
@@ -124,7 +156,20 @@ public partial class EntriesViewModel : NavigableViewModel,
 
     public async void Receive(EntryFormSavedMessage message)
     {
-        await _entryService.SaveEntryAsync((Entry)message.Value);
+        var entry = (Entry)message.Value;
+
+        await _entryService.SaveEntryAsync(entry);
+
+        NavigateHere();
+    }
+
+    private void NavigateToEntryFormPage()
+    {
+        _navigationService.GetNavigationControl().Navigate(typeof(EntryFormPage));
+    }
+
+    private void NavigateHere()
+    {
         _navigationService.GetNavigationControl().Navigate(typeof(EntriesPage));
     }
 }

@@ -34,10 +34,7 @@ public class EntryTopic
 
     public static implicit operator TopicReference(EntryTopic topic)
     {
-        if (!topic.Id.HasValue)
-        {
-            throw new ArgumentException($"${nameof(Id)} is null");
-        }
+        ArgumentNullException.ThrowIfNull(topic.Id);
 
         return (TopicReference)topic.Id.Value;
     }

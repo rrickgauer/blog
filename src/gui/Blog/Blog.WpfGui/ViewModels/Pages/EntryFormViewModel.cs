@@ -101,22 +101,33 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
 
     public void EditModel(EditModelFormArgs<EntryTableView> args)
     {
+        ProcessNewEntryFormArgs(args);
+
         EntryTableView = args.Model;
 
         Title = args.Model.Title ?? string.Empty;
         FileName = args.Model.FileName ?? string.Empty;
         SelectedTopic = Topics.Where(t => t.Id == args.Model.TopicId).FirstOrDefault();
 
+    }
+
+    public void NewModel(NewModelFormArgs args)
+    {
+        ProcessNewEntryFormArgs(args);
+
+        EntryTableView = new();
+    }
+
+
+
+    private void ProcessNewEntryFormArgs(NewModelFormArgs args)
+    {
         SaveButtonText = args.SaveButtonText;
         CancelButtonText = args.CancelButtonText;
 
         _parentMessengerToken = args.MessengerToken;
     }
 
-    public void NewModel()
-    {
-        EntryTableView = new();
-    }
 
     #endregion
 

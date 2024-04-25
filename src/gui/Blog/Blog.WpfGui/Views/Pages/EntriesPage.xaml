@@ -24,17 +24,48 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width=".4*" />
+            </Grid.ColumnDefinitions>
+            
 
-            <Border Grid.Row="0">
+            <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
                 <TextBlock Text="Entries" FontSize="32"/>
             </Border>
             
             <Border Grid.Row="1" 
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
                     Visibility="{Binding ViewModel.ShowLoadingSpinner, Converter={StaticResource BoolToVisibilityConverter}}"
                     d:Visibility="Collapsed">
                 
                 <ui:ProgressRing IsIndeterminate="True"/>
             </Border>
+    
+            <Border Grid.Row="2"
+                    Grid.Column="1"
+                    Padding="10,20,0,0"
+                    Visibility="{Binding ViewModel.ShowLoadingSpinner, Converter={StaticResource BoolToVisibilityInverseConverter}}"
+                    d:Visibility="Visible">
+                
+                <StackPanel>
+                    <StackPanel.Resources>
+                        <Style TargetType="{x:Type ui:Button}" BasedOn="{StaticResource {x:Type ui:Button}}">
+                            <Setter Property="HorizontalAlignment" Value="Stretch" />
+                        </Style>
+                    </StackPanel.Resources>
+                    
+                    <ui:Button Content="New Entry"
+                               Command="{Binding ViewModel.CreateNewEntryCommand}"
+                               ToolTip="Create a new entry"/>
+                </StackPanel>
+                
+                
+            </Border>
+    
+ 
             
 
             <Border Grid.Row="2"
@@ -43,8 +74,8 @@
                 
                 <ListView ItemsSource="{Binding ViewModel.Entries}"
                           ItemContainerStyle="{StaticResource ListViewItemStyle}"
-                          d:ItemsSource="{d:SampleData ItemCount=5}"
-                      >
+                          d:ItemsSource="{d:SampleData ItemCount=5}">
+                    
                     <ListView.ItemTemplate>
                         <DataTemplate>
 
