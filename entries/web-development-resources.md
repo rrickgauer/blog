@@ -112,6 +112,7 @@ Source | Description
 [Free Formatter](https://www.freeformatter.com/) | Free online tools that include several formatters, validators, code minifiers, string escapers, encoders and decoders, message digesters, web resources and more.
 [Symbol Search](https://symbol-search.netlify.app/) | Finding symbols is faster now.
 [Convert Case](https://convertcase.net/) | Convert upper case to lower case, lower case to upper case and more.
+[PHPHub](https://phphub.net/) | Online tools for PHP developers, including a formatter, validator, playground, and regex tester.
 
 ### Images
 
