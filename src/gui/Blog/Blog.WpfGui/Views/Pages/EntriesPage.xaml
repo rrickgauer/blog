@@ -62,11 +62,7 @@
                                ToolTip="Create a new entry"/>
                 </StackPanel>
                 
-                
             </Border>
-    
- 
-            
 
             <Border Grid.Row="2"
                     Visibility="{Binding ViewModel.ShowLoadingSpinner, Converter={StaticResource BoolToVisibilityInverseConverter}}"
@@ -83,7 +79,6 @@
                                              d:IsExpanded="True" 
                                              IsExpanded="False"
                                              Margin="0,20">
-
 
                                 <StackPanel>
                                     <StackPanel>
@@ -129,23 +124,13 @@
 
                                     
                                 </StackPanel>
-          
-                                
                                 
                             </ui:CardExpander>
-                            
-                            
-                            
                         </DataTemplate>
                     </ListView.ItemTemplate>
 
                 </ListView>
             </Border>
-
-
-
-
-
 
         </Grid>
         
