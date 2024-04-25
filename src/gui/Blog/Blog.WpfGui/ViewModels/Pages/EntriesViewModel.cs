@@ -66,7 +66,12 @@ public partial class EntriesViewModel(IEntryService entryService, EntryFormPage 
     [RelayCommand]
     private void EditItem(EntryTableView entry)
     {
-        _entryFormPage.ViewModel.EditModel(entry);
+        _entryFormPage.ViewModel.EditModel(new()
+        {
+            Model = entry,
+            Title = "Edit Entry",
+        });
+
         _navigationService.GetNavigationControl().Navigate(typeof(EntryFormPage));
     }
 
