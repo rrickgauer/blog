@@ -1,4 +1,4 @@
-﻿namespace Blog.WpfGui.Helpers;
+﻿namespace Blog.Service.Domain.Contracts;
 
 
 public class NewModelFormArgs
@@ -13,6 +13,7 @@ public class EditModelFormArgs<T> : NewModelFormArgs
 {
     public required T Model { get; set; }
 }
+
 
 public interface IModelForm<T>
 {

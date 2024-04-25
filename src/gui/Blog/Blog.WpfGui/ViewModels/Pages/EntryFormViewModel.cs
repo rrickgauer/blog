@@ -1,8 +1,8 @@
 ﻿using Blog.Service.Domain.Configs;
+using Blog.Service.Domain.Contracts;
 using Blog.Service.Domain.Model;
 using Blog.Service.Domain.TableView;
 using Blog.Service.Services.Contracts;
-using Blog.WpfGui.Helpers;
 using Microsoft.Win32;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -10,16 +10,13 @@ using Wpf.Ui.Controls;
 
 namespace Blog.WpfGui.ViewModels.Pages;
 
-
 public partial class EntryFormViewModel : ObservableObject, INavigationAware, IModelForm<EntryTableView>
 {
-
+    #region - Private Members -
     private readonly IConfigs _configs;
     private readonly IEntryService _entryService;
 
-
     protected EntryTableView? _entryTableView = null;
-
 
     protected EntryTableView? EntryTableView
     {
@@ -39,9 +36,9 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
         }
     }
 
+    #endregion
 
     #region - Generated Properties -
-
 
     [ObservableProperty]
     [NotifyCanExecuteChangedFor(nameof(SaveFormCommand))]
@@ -61,17 +58,12 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
     [ObservableProperty]
     private string _cancelButtonText = string.Empty;
 
-
-
     [ObservableProperty]
     private ObservableCollection<EntryTopic> _topics = new(EntryTopic.GetAll());
 
-
-
     #endregion
 
-    
-
+    #region - Constructor -
 
     public EntryFormViewModel(IConfigs configs, IEntryService entryService)
     {
@@ -79,8 +71,7 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
         _entryService = entryService;
     }
 
-
-
+    #endregion
 
     #region - INavigationAware -
 
@@ -96,14 +87,11 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
 
     #endregion
 
-
     #region - IModelForm -
-
 
     public void EditModel(EditModelFormArgs<EntryTableView> args)
     {
-        EntryTableView = model;
-        _model = args.Model;
+        EntryTableView = args.Model;
 
         Title = args.Model.Title ?? string.Empty;
         FileName = args.Model.FileName ?? string.Empty;
@@ -113,17 +101,12 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
         CancelButtonText = args.CancelButtonText;
     }
 
-
-
-
     public void NewModel()
     {
         EntryTableView = new();
     }
 
     #endregion
-
-
 
     #region - Commands -
 
@@ -198,7 +181,7 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
 
     #endregion
 
-
+    #region - Private Methods -
 
     private void SetModelValues(EntryTableView model)
     {
@@ -214,11 +197,5 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
         SelectedTopic = Topics.Where(t => t.Id == model.TopicId).FirstOrDefault();
     }
 
-
-
-
-
-
-
-
+    #endregion
 }
