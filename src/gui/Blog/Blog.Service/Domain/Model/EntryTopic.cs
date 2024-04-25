@@ -31,6 +31,16 @@ public class EntryTopic
 
         return result;  
     }
+
+    public static implicit operator TopicReference(EntryTopic topic)
+    {
+        if (!topic.Id.HasValue)
+        {
+            throw new ArgumentException($"${nameof(Id)} is null");
+        }
+
+        return (TopicReference)topic.Id.Value;
+    }
 }
 
 

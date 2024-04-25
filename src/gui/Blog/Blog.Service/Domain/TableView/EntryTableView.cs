@@ -1,7 +1,6 @@
 ﻿using Blog.Service.Domain.Contracts;
 using Blog.Service.Domain.CustomAttributes;
 using Blog.Service.Domain.Model;
-using Blog.Service.Utility;
 
 namespace Blog.Service.Domain.TableView;
 
@@ -19,10 +18,6 @@ public class EntryTableView : ITableView<EntryTableView, Entry>, ITableView<Entr
     [SqlColumn("title")]
     [CopyToProperty<Entry>(nameof(Entry.Title))]
     public string? Title { get; set; }
-
-    [SqlColumn("source_link")]
-    [CopyToProperty<Entry>(nameof(Entry.Link))]
-    public string? Link { get; set; }
 
     [SqlColumn("file_name")]
     [CopyToProperty<Entry>(nameof(Entry.FileName))]
@@ -46,12 +41,12 @@ public class EntryTableView : ITableView<EntryTableView, Entry>, ITableView<Entr
 
     public static explicit operator Entry(EntryTableView other)
     {
-        return ((ITableView<EntryTableView, Entry>)other).CastToModel();
+        return other.CastToModel<EntryTableView, Entry>();
     }
 
     public static explicit operator EntryTopic(EntryTableView other)
     {
-        return ((ITableView<EntryTableView, EntryTopic>)other).CastToModel();
+        return other.CastToModel<EntryTableView, EntryTopic>();
     }
 
     #endregion

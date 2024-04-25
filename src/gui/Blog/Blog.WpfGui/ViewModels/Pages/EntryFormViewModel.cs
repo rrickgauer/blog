@@ -1,6 +1,7 @@
 ﻿using Blog.Service.Domain.Configs;
 using Blog.Service.Domain.Model;
 using Blog.Service.Domain.TableView;
+using Blog.Service.Services.Contracts;
 using Blog.WpfGui.Helpers;
 using Microsoft.Win32;
 using System.Collections.ObjectModel;
@@ -14,9 +15,29 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
 {
 
     private readonly IConfigs _configs;
+    private readonly IEntryService _entryService;
 
 
-    protected EntryTableView? _model = null;
+    protected EntryTableView? _entryTableView = null;
+
+
+    protected EntryTableView? EntryTableView
+    {
+        get => _entryTableView;
+        set
+        {
+            if (value is null)
+            {
+                SetFormValues(new());
+            }
+            else
+            {
+                SetFormValues(value);
+            }
+
+            _entryTableView = value;
+        }
+    }
 
 
     #region - Generated Properties -
@@ -39,11 +60,13 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
 
     #endregion
 
+    
 
 
-    public EntryFormViewModel(IConfigs configs)
+    public EntryFormViewModel(IConfigs configs, IEntryService entryService)
     {
         _configs = configs;
+        _entryService = entryService;
     }
 
 
@@ -69,17 +92,15 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
 
     public void EditModel(EntryTableView model)
     {
-        _model = model;
-
-        Title = model.Title ?? string.Empty;
-        FileName = model.FileName ?? string.Empty;
-        SelectedTopic = Topics.Where(t => t.Id == model.TopicId).FirstOrDefault();
+        EntryTableView = model;
     }
+
+
 
 
     public void NewModel()
     {
-        
+        EntryTableView = new();
     }
 
     #endregion
@@ -91,11 +112,17 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
     [RelayCommand(CanExecute = nameof(CanSaveForm))]
     private async Task SaveFormAsync()
     {
-        var tt = SelectedTopic;
+        if (EntryTableView is null)
+        {
+            return;
+        }
 
-        int x = 10;
+        SetModelValues(EntryTableView);
+
+        var entryModel = (Entry)EntryTableView;
+
+        EntryTableView = await _entryService.SaveEntryAsync(entryModel);
     }
-
 
     private bool CanSaveForm()
     {
@@ -119,20 +146,12 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
 
 
     [RelayCommand]
-    private void SelectFolder()
+    private void SelectFile()
     {
-        if (!TrySelectingEntryFile(out FileInfo? selectedFile))
+        if (TrySelectingEntryFile(out FileInfo? selectedFile))
         {
-            return;
+            FileName = selectedFile!.Name;
         }
-
-
-        var fileName = selectedFile!.Name;
-
-        int x = 10;
-
-
-        
     }
 
 
@@ -162,6 +181,20 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
     #endregion
 
 
+
+    private void SetModelValues(EntryTableView model)
+    {
+        model.Title = Title;
+        model.FileName = FileName;
+        model.TopicId = SelectedTopic?.Id;
+    }
+
+    private void SetFormValues(EntryTableView model)
+    {
+        Title = model.Title ?? string.Empty;
+        FileName = model.FileName ?? string.Empty;
+        SelectedTopic = Topics.Where(t => t.Id == model.TopicId).FirstOrDefault();
+    }
 
 
 
