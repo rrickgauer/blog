@@ -17,6 +17,8 @@
 
             <converters:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
             <converters:BoolToVisibilityInverseConverter x:Key="BoolToVisibilityInverseConverter" />
+            
+            
 
             <sys:Boolean x:Key="FalseValue">False</sys:Boolean>
             <sys:Boolean x:Key="TrueValue">True</sys:Boolean>
@@ -36,6 +38,17 @@
             <Style x:Key="CloseButtonStyle" TargetType="{x:Type ui:Button}" BasedOn="{StaticResource {x:Type ui:Button}}">
                 <Setter Property="ToolTip" Value="Close" />
                 <Setter Property="Icon" Value="{ui:SymbolIcon Dismiss24}" />
+            </Style>
+            
+            <Style x:Key="PageTitleBorderStyle" TargetType="Border">
+                <Setter Property="BorderBrush" Value="{DynamicResource ControlFillColorSecondaryBrush}" />
+                <Setter Property="Margin" Value="0,20" />
+                <Setter Property="BorderThickness" Value="0,0,0,2" />
+                <Setter Property="Padding" Value="0,0,0,5" />
+            </Style>
+
+            <Style x:Key="PageTitleTextStyle" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="32" />
             </Style>
 
 

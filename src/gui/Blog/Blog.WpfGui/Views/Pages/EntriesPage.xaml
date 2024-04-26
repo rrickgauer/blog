@@ -8,9 +8,11 @@
       d:DataContext="{d:DesignInstance local:EntriesPage, IsDesignTimeCreatable=False}"
       xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
       xmlns:helpers="clr-namespace:Blog.WpfGui.Helpers"
+      xmlns:uc="clr-namespace:Blog.WpfGui.Views.UserControls"
       d:DesignWidth="800"
       d:Foreground="Black"
       d:Background="Gray"
+      Foreground="{DynamicResource TextFillColorPrimaryBrush}"
       Title="EntriesPage">
     <Page.Resources>
         <helpers:BindingProxy x:Key="Proxy" Data="{Binding}" />
@@ -30,10 +32,12 @@
                 <ColumnDefinition Width=".4*" />
             </Grid.ColumnDefinitions>
             
-
-            <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
-                <TextBlock Text="Entries" FontSize="32"/>
-            </Border>
+            <!--Page Title-->
+            <uc:PageTitleControl Title="Entries"
+                                 Grid.Row="0"
+                                 Grid.Column="0"
+                                 Grid.ColumnSpan="2" />
+           
             
             <Border Grid.Row="1" 
                     Grid.Column="0"

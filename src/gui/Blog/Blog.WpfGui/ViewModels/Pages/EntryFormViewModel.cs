@@ -70,6 +70,9 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
     [ObservableProperty]
     private ObservableCollection<EntryTopic> _topics = new(EntryTopic.GetAll());
 
+    [ObservableProperty]
+    private string _formTitle = string.Empty;
+
     #endregion
 
     #region - Constructor -
@@ -126,6 +129,8 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
         CancelButtonText = args.CancelButtonText;
 
         _parentMessengerToken = args.MessengerToken;
+
+        FormTitle = args.Title;
     }
 
 
