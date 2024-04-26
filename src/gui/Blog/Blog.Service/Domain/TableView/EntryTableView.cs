@@ -34,6 +34,18 @@ public class EntryTableView : ITableView<EntryTableView, Entry>, ITableView<Entr
 
     public string WpfUiCardHeaderText => $"{Title} #{EntryId}";
 
+    public DateOnly? WpfDateDisplayText
+    {
+        get
+        {
+            if (!Date.HasValue)
+            {
+                return null;
+            }
+
+            return DateOnly.FromDateTime(Date.Value);
+        }
+    }
 
     
 

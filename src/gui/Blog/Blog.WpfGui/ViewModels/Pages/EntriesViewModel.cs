@@ -42,6 +42,12 @@ public partial class EntriesViewModel : NavigableViewModel,
     #endregion
 
 
+    public void OnEntryDoubleClicked(EntryTableView entry)
+    {
+        EditItem(entry);
+    }
+
+
     #region - INavigationAware -
 
     public override async void OnNavigatedTo()
@@ -107,7 +113,12 @@ public partial class EntriesViewModel : NavigableViewModel,
         ShowLoadingSpinner = true;
 
         var entries = await _entryService.GetAllEntriesAsync();
-        Entries = new(entries);
+        Entries.Clear();
+        
+        foreach (var entry in entries)
+        {
+            Entries.Add(entry);
+        }
 
         ShowLoadingSpinner = false;
     }
