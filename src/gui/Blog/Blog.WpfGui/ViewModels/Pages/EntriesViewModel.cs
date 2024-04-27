@@ -1,4 +1,5 @@
-﻿using Blog.Service.Domain.Contracts;
+﻿using Blog.Service.Domain.Configs;
+using Blog.Service.Domain.Contracts;
 using Blog.Service.Domain.Model;
 using Blog.Service.Domain.TableView;
 using Blog.Service.Services.Contracts;
@@ -18,12 +19,14 @@ public partial class EntriesViewModel : NavigableViewModel,
     private readonly IEntryService _entryService;
     private readonly EntryFormPage _entryFormPage;
     private readonly INavigationService _navigationService;
+    private readonly IConfigs _configs;
 
-    public EntriesViewModel(IEntryService entryService, EntryFormPage entryFormPage, INavigationService navigationService)
+    public EntriesViewModel(IEntryService entryService, EntryFormPage entryFormPage, INavigationService navigationService, IConfigs configs)
     {
         _entryService = entryService;
         _entryFormPage = entryFormPage;
         _navigationService = navigationService;
+        _configs = configs;
 
         InitMessenger();
     }
@@ -84,16 +87,13 @@ public partial class EntriesViewModel : NavigableViewModel,
     [RelayCommand]
     private void EditEntryFile(EntryTableView entry)
     {
-        int x = 10;
+        entry.ViewMarkdownFile(_configs);
     }
 
     [RelayCommand]
     private async void ViewEntryPage(EntryTableView entry)
     {
-        if (entry.EntryId is int entryId)
-        {
-            await _entryService.ViewPublication(entryId);
-        }
+        entry.ViewPublication(_configs);
     }
 
 

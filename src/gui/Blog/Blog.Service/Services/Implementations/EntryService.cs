@@ -3,7 +3,6 @@ using Blog.Service.Domain.Model;
 using Blog.Service.Domain.TableView;
 using Blog.Service.Repository.Contracts;
 using Blog.Service.Services.Contracts;
-using System.Diagnostics;
 
 namespace Blog.Service.Services.Implementations;
 
@@ -64,30 +63,5 @@ public class EntryService(IEntryRepository entryRepository, ITableMapperService 
         }
 
         return entryId;
-    }
-
-    /// <summary>
-    /// Open the published entry in web browser
-    /// </summary>
-    /// <param name="entryId"></param>
-    /// <returns></returns>
-    /// <exception cref="Exception"></exception>
-    public async Task ViewPublication(int entryId)
-    {
-        var entry = await GetEntryAsync(entryId);
-
-        if (entry == null)
-        {
-            throw new Exception($"Entry does not exist with id: {entryId}");
-        }
-
-        string url = entry.GetPublicUrl(_configs);
-
-        ProcessStartInfo startInfo = new(url)
-        {
-            UseShellExecute = true,
-        };
-
-        Process.Start(startInfo);
     }
 }

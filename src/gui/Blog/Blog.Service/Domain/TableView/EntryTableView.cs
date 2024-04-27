@@ -2,6 +2,8 @@
 using Blog.Service.Domain.Contracts;
 using Blog.Service.Domain.CustomAttributes;
 using Blog.Service.Domain.Model;
+using static Org.BouncyCastle.Math.EC.ECCurve;
+using System.Diagnostics;
 
 namespace Blog.Service.Domain.TableView;
 
@@ -48,16 +50,45 @@ public class EntryTableView : ITableView<EntryTableView, Entry>, ITableView<Entr
         }
     }
 
-
+    public void ViewPublication(IConfigs configs)
+    {
+        string url = GetPublicUrl(configs);
+        OpenFile(url);
+    }
 
     public string GetPublicUrl(IConfigs configs)
     {
         ArgumentNullException.ThrowIfNull(EntryId);
-
         return $"{configs.GuiHttpAddress.AbsoluteUri}entries/{EntryId}";
     }
 
-    
+
+    public void ViewMarkdownFile(IConfigs configs)
+    {
+        FileInfo markdownFile = GetMarkdownFileInfo(configs);
+
+        OpenFile(markdownFile.FullName);
+    }
+
+    public FileInfo GetMarkdownFileInfo(IConfigs configs)
+    {
+        ArgumentNullException.ThrowIfNull(FileName);
+
+        FileInfo markdownFile = new(Path.Combine(configs.EntryFilesPath, FileName));
+
+        return markdownFile;
+    }
+
+    private static void OpenFile(string filename)
+    {
+        ProcessStartInfo startInfo = new(filename)
+        {
+            UseShellExecute = true,
+        };
+
+        Process.Start(startInfo);
+    }
+
 
     #region - ITableView -
 
