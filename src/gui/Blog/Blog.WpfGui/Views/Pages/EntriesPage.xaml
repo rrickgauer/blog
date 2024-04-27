@@ -12,55 +12,45 @@
       d:DesignWidth="800"
       d:Foreground="Black"
       d:Background="Gray"
+      
       Foreground="{DynamicResource TextFillColorPrimaryBrush}"
       Title="EntriesPage">
     <Page.Resources>
         <helpers:BindingProxy x:Key="Proxy" Data="{Binding}" />
     </Page.Resources>
 
-    <Border>
+    <Border d:Padding="10">
         <Grid>
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width=".4*" />
-            </Grid.ColumnDefinitions>
             
             <!--Page Title-->
             <uc:PageTitleControl Title="Entries"
-                                 Grid.Row="0"
-                                 Grid.Column="0"
-                                 Grid.ColumnSpan="2" />
+                                 Grid.Row="0" />
            
             
+            <!--Spinner-->
             <Border Grid.Row="1" 
-                    Grid.Column="0"
-                    Grid.ColumnSpan="2"
                     Visibility="{Binding ViewModel.ShowLoadingSpinner, Converter={StaticResource BoolToVisibilityConverter}}"
                     d:Visibility="Collapsed">
-                
+
                 <ui:ProgressRing IsIndeterminate="True"/>
             </Border>
+            
     
+            <!--Action buttons-->
             <Border Grid.Row="2"
-                    Grid.Column="1"
-                    Padding="10,20,0,0"
+                    Margin="0,10,0,20"
                     Visibility="{Binding ViewModel.ShowLoadingSpinner, Converter={StaticResource BoolToVisibilityInverseConverter}}"
                     d:Visibility="Visible">
-                
+
                 <StackPanel>
-                    <StackPanel.Resources>
-                        <Style TargetType="{x:Type ui:Button}" BasedOn="{StaticResource {x:Type ui:Button}}">
-                            <Setter Property="HorizontalAlignment" Value="Stretch" />
-                        </Style>
-                    </StackPanel.Resources>
-                    
                     <ui:Button Content="New Entry"
                                Command="{Binding ViewModel.CreateNewEntryCommand}"
                                ToolTip="Create a new entry"/>
@@ -68,11 +58,13 @@
                 
             </Border>
 
-            <Border Grid.Row="2"
+            <!--Table-->
+            <Border Grid.Row="3"
                     Visibility="{Binding ViewModel.ShowLoadingSpinner, Converter={StaticResource BoolToVisibilityInverseConverter}}"
                     d:Visibility="Visible">
                 
                 <ui:DataGrid ItemsSource="{Binding ViewModel.Entries}"
+                             d:ItemsSource="{d:SampleData ItemCount=5}"
                              AllowDrop="False"
                              CanUserReorderColumns="False"
                              CanUserAddRows="False"
@@ -80,6 +72,7 @@
                              CanUserResizeRows="False"
                              IsReadOnly="True"
                              SelectionUnit="FullRow"
+                             ColumnWidth="*"
                              SelectionMode="Single"
                              AutoGenerateColumns="False">
                     <ui:DataGrid.Resources>
@@ -87,8 +80,6 @@
                             <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick" />
                         </Style>
 
-         
-                        
                     </ui:DataGrid.Resources>
                     
                     <ui:DataGrid.RowStyle>
@@ -117,25 +108,13 @@
                             </Setter>
                         </Style>
                     </ui:DataGrid.RowStyle>
-                    
- 
-                    
-
-
 
                     <ui:DataGrid.Columns>
-                        
                         <DataGridTextColumn Binding="{Binding Title}" Header="Title" />
-                        
                         <DataGridTextColumn Binding="{Binding FileName}" Header="FileName" />
                         <DataGridTextColumn Binding="{Binding TopicName}" Header="TopicName" />
                         <DataGridTextColumn Binding="{Binding WpfDateDisplayText}" Header="Date" />
-
                     </ui:DataGrid.Columns>
-                    
-                    
-                 
-
                 </ui:DataGrid>
                 
             
