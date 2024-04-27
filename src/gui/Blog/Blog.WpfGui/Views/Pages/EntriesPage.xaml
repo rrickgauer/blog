@@ -79,7 +79,6 @@
                         <Style TargetType="DataGridCell" BasedOn="{StaticResource {x:Type DataGridCell}}">
                             <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick" />
                         </Style>
-
                     </ui:DataGrid.Resources>
                     
                     <ui:DataGrid.RowStyle>
