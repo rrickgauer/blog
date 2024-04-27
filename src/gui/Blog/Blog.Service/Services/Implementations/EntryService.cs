@@ -1,16 +1,14 @@
-﻿using Blog.Service.Domain.Configs;
-using Blog.Service.Domain.Model;
+﻿using Blog.Service.Domain.Model;
 using Blog.Service.Domain.TableView;
 using Blog.Service.Repository.Contracts;
 using Blog.Service.Services.Contracts;
 
 namespace Blog.Service.Services.Implementations;
 
-public class EntryService(IEntryRepository entryRepository, ITableMapperService tableMapperService, IConfigs configs) : IEntryService
+public class EntryService(IEntryRepository entryRepository, ITableMapperService tableMapperService) : IEntryService
 {
     private readonly IEntryRepository _entryRepository = entryRepository;
     private readonly ITableMapperService _tableMapperService = tableMapperService;
-    private readonly IConfigs _configs = configs;
 
     public async Task<List<EntryTableView>> GetAllEntriesAsync()
     {
