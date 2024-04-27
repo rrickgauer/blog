@@ -99,10 +99,19 @@
                                         <MenuItem Header="Edit Information" 
                                                   Command="{Binding Source={StaticResource Proxy}, Path=Data.ViewModel.EditItemCommand}" 
                                                   CommandParameter="{Binding}" />
-                                             
-                                        <MenuItem Header="Delete Entry" />
-                                        <MenuItem Header="View Public" />
-                                        <MenuItem Header="Mardown File" />
+
+                                        <MenuItem Command="{Binding Source={StaticResource Proxy}, Path=Data.ViewModel.DeleteEntryCommand}" 
+                                                  CommandParameter="{Binding}"
+                                                  Header="Delete Entry" />
+                                        
+                                        <MenuItem Command="{Binding Source={StaticResource Proxy}, Path=Data.ViewModel.ViewEntryPageCommand}" 
+                                                  CommandParameter="{Binding}"
+                                                  Header="View Public" />
+
+                                        <MenuItem Command="{Binding Source={StaticResource Proxy}, Path=Data.ViewModel.EditEntryFileCommand}" 
+                                                  CommandParameter="{Binding}"
+                                                  Header="Mardown File" />
+                                        
                                     </ContextMenu>
                                 </Setter.Value>
                             </Setter>

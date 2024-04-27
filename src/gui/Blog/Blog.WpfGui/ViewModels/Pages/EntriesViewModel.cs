@@ -88,9 +88,12 @@ public partial class EntriesViewModel : NavigableViewModel,
     }
 
     [RelayCommand]
-    private void ViewEntryPage(EntryTableView entry)
+    private async void ViewEntryPage(EntryTableView entry)
     {
-        int x = 10;
+        if (entry.EntryId is int entryId)
+        {
+            await _entryService.ViewPublication(entryId);
+        }
     }
 
 

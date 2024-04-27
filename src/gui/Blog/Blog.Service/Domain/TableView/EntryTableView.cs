@@ -1,4 +1,5 @@
-﻿using Blog.Service.Domain.Contracts;
+﻿using Blog.Service.Domain.Configs;
+using Blog.Service.Domain.Contracts;
 using Blog.Service.Domain.CustomAttributes;
 using Blog.Service.Domain.Model;
 
@@ -45,6 +46,15 @@ public class EntryTableView : ITableView<EntryTableView, Entry>, ITableView<Entr
 
             return DateOnly.FromDateTime(Date.Value);
         }
+    }
+
+
+
+    public string GetPublicUrl(IConfigs configs)
+    {
+        ArgumentNullException.ThrowIfNull(EntryId);
+
+        return $"{configs.GuiHttpAddress.AbsoluteUri}entries/{EntryId}";
     }
 
     
