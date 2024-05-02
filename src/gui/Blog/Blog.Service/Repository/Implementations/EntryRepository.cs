@@ -40,12 +40,21 @@ public class EntryRepository(DatabaseConnection connection) : IEntryRepository
         return await _connection.InsertAsync(command);
     }
 
-    private void AddEntryParmsToCommand(MySqlCommand command, Entry entry)
+    private static void AddEntryParmsToCommand(MySqlCommand command, Entry entry)
     {
         command.Parameters.AddWithValue("@id", entry.Id);
         command.Parameters.AddWithValue("@date", entry.Date);
         command.Parameters.AddWithValue("@title", entry.Title);
         command.Parameters.AddWithValue("@file_name", entry.FileName);
         command.Parameters.AddWithValue("@topic_id", entry.TopicId);
+    }
+
+    public async Task<int> DeleteEntryAsync(int entryId)
+    {
+        MySqlCommand command = new(EntryCommands.Delete);
+
+        command.Parameters.AddWithValue("@id", entryId);
+
+        return await _connection.ModifyAsync(command);
     }
 }

@@ -76,14 +76,18 @@ public partial class EntriesViewModel : ViewModel,
     }
 
     [RelayCommand]
-    private void DeleteEntry(EntryTableView entry)
+    private async void DeleteEntry(EntryTableView entry)
     {
         if (!ConfirmDelete())
         {
             return;
         }
 
-
+        if (entry.EntryId is int entryId)
+        {
+            await _entryService.DeleteEntryAsync(entryId);
+            await RefreshEntriesAsync();
+        }
     }
 
     [RelayCommand]

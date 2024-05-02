@@ -9,6 +9,7 @@ public interface IEntryRepository
     public Task<DataTable> SelectAllAsync();
     public Task<InsertAutoRowResult> InsertEntryAsync(Entry entry);
     public Task<int> UpdateEntryAsync(Entry entry);
+    public Task<int> DeleteEntryAsync(int entryId);
 }
 
 

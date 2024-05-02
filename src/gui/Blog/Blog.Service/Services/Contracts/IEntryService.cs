@@ -9,4 +9,7 @@ public interface IEntryService
     public Task<EntryTableView?> GetEntryAsync(uint entryId);
     public Task<EntryTableView?> GetEntryAsync(int entryId);
     public Task<EntryTableView?> SaveEntryAsync(Entry entry);
+
+    public Task<int> DeleteEntryAsync(uint entryId);
+    public Task<int> DeleteEntryAsync(int entryId);
 }

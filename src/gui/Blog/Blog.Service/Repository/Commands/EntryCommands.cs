@@ -14,8 +14,7 @@ public sealed class EntryCommands
         FROM
             View_Entries ve
         ORDER BY
-            ve.date DESC;
-    ";
+            ve.date DESC;";
 
     public const string Update = @"
         UPDATE
@@ -26,14 +25,19 @@ public sealed class EntryCommands
             file_name = @file_name,
             topic_id = @topic_id
         WHERE
-            id = @id;
-    ";
+            id = @id;";
 
 
     public const string Insert = @"
         INSERT INTO
             Entries (id, date, title, file_name, topic_id)
         VALUES
-            (@id, @date, @title, @file_name, @topic_id);
-    ";
+            (@id, @date, @title, @file_name, @topic_id);";
+
+    public const string Delete = @"
+        DELETE FROM
+            Entries
+        WHERE
+            id = @id;";
+
 }

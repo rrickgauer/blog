@@ -62,4 +62,15 @@ public class EntryService(IEntryRepository entryRepository, ITableMapperService 
 
         return entryId;
     }
+
+    
+    public async Task<int> DeleteEntryAsync(uint entryId)
+    { 
+        return await DeleteEntryAsync((int)entryId);
+    }
+    
+    public async Task<int> DeleteEntryAsync(int entryId)
+    { 
+        return await _entryRepository.DeleteEntryAsync(entryId);
+    }
 }
