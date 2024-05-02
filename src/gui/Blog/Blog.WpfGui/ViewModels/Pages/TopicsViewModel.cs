@@ -89,10 +89,6 @@ public partial class TopicsViewModel : ViewModel,
 
     #region - Messenger -
 
-
-    
-
-
     public async void Receive(TopicFormSavedMessage message)
     {
         await SaveTopicFormChangesAsync(message.Value);
@@ -117,6 +113,36 @@ public partial class TopicsViewModel : ViewModel,
         });
 
         NavigateToFormPage();
+    }
+
+    [RelayCommand]
+    private void EditTopic(TopicTableView topic)
+    {
+        OnRowSelected(topic);
+    }
+
+    [RelayCommand(CanExecute = nameof(CanDeleteTopic))]
+    private async void DeleteTopic(TopicTableView topic)
+    {
+        if (!ConfirmDelete(topic))
+        {
+            return;
+        }
+        
+        if (topic.TopicId is uint topicId)
+        {
+            await DeleteTopicAsync(topicId);
+        }
+    }
+
+    private bool CanDeleteTopic()
+    {
+        if ((SelectedTopic?.Count ?? 0) > 0)
+        {
+            return false;
+        }
+
+        return true;
     }
 
     #endregion
@@ -155,6 +181,31 @@ public partial class TopicsViewModel : ViewModel,
             SelectedTopic = Topics.FirstOrDefault(t => t.TopicId == _previouslySelectedTopicId);
             ScrollToItem?.Invoke(this, SelectedTopic!);
         }
+    }
+
+    private static bool ConfirmDelete(TopicTableView topic)
+    {
+        var result = MessageBox.Show($"Are you sure you want to permanently delete {topic.Name}?", "Confirm", MessageBoxButton.YesNoCancel);
+
+        if (result == MessageBoxResult.Yes)
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    private async Task DeleteTopicAsync(uint topicId)
+    {
+        ShowWaitIndicator = true;
+
+        await _topicService.DeleteTopicAsync(topicId);
+        await RefreshTopics();
+
+        SelectedTopic = null;
+        _previouslySelectedTopicId = null;
+
+        ShowWaitIndicator = false;
     }
 
     #endregion

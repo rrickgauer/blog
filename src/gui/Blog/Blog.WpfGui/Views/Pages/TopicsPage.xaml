@@ -77,6 +77,25 @@
                     </Style>
                 </ui:DataGrid.Resources>
 
+                <ui:DataGrid.RowStyle>
+                    <Style TargetType="DataGridRow">
+                        <Setter Property="ContextMenu">
+                            <Setter.Value>
+                                <ContextMenu>
+                                    <MenuItem Header="Edit Topic"
+                                              Command="{Binding Source={StaticResource Proxy}, Path=Data.ViewModel.EditTopicCommand}"
+                                              CommandParameter="{Binding}" />
+
+                                    <MenuItem Command="{Binding Source={StaticResource Proxy}, Path=Data.ViewModel.DeleteTopicCommand}"
+                                              CommandParameter="{Binding}"
+                                              Header="Delete Topic" />
+
+                                </ContextMenu>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ui:DataGrid.RowStyle>
+
                 <ui:DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Name}" Header="Name" />
                     <DataGridTextColumn Binding="{Binding Count}" Header="Count" />

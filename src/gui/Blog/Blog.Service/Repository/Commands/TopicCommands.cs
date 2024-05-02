@@ -35,5 +35,12 @@ public sealed class TopicCommands
             name = @name
         WHERE
             id = @id;";
+
+    public const string Delete = @"
+        DELETE FROM
+            Topics
+        WHERE
+            id = @id;";
     
 }
+

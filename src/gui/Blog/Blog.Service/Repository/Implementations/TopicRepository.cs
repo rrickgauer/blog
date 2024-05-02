@@ -48,11 +48,18 @@ public class TopicRepository(DatabaseConnection connection) : ITopicRepository
         return await _connection.InsertAsync(command);
     }
 
-
-
     private void AddModifyParms(EntryTopic topic, MySqlCommand command)
     {
         command.Parameters.AddWithValue("@id", topic.Id);
         command.Parameters.AddWithValue("@name", topic.Name);
+    }
+
+    public async Task<int> DeleteTopicAsync(uint topicId)
+    {
+        MySqlCommand command = new(TopicCommands.Delete);
+
+        command.Parameters.AddWithValue("@id", topicId);
+
+        return await _connection.ModifyAsync(command);
     }
 }

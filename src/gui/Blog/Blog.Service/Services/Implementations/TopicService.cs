@@ -58,4 +58,31 @@ public class TopicService(ITopicRepository topicRepository, ITableMapperService 
 
         return topics.First(t => t.TopicId == topicId);
     }
+
+
+    public async Task<bool> DeleteTopicAsync(uint topicId)
+    {
+        var canDelete = await CanDeleteTopicAsync(topicId);
+
+        if (canDelete)
+        {
+            await _topicRepository.DeleteTopicAsync(topicId);
+        }
+
+        return canDelete;
+    }
+
+    private async Task<bool> CanDeleteTopicAsync(uint topicId)
+    {
+        var topic = await GetTopicAsync(topicId);
+
+        long count = topic.Count ?? 0;
+
+        if (count > 0)
+        {
+            return false;
+        }
+
+        return true;
+    }
 }
