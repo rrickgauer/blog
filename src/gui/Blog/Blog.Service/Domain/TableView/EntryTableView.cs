@@ -49,6 +49,8 @@ public class EntryTableView : ITableView<EntryTableView, Entry>, ITableView<Entr
         }
     }
 
+    #region - Methods -
+
     public void ViewPublication(IConfigs configs)
     {
         string url = GetPublicUrl(configs);
@@ -87,6 +89,8 @@ public class EntryTableView : ITableView<EntryTableView, Entry>, ITableView<Entr
 
         Process.Start(startInfo);
     }
+
+    #endregion
 
 
     #region - ITableView -

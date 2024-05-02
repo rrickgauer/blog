@@ -3,7 +3,7 @@ using Wpf.Ui.Controls;
 
 namespace Blog.WpfGui.ViewModels.Base;
 
-public abstract partial class NavigableViewModel : ObservableObject, INavigationAware
+public abstract partial class ViewModel : ObservableObject, INavigationAware
 {
     protected virtual Guid MessengerToken { get; } = Guid.NewGuid();
 

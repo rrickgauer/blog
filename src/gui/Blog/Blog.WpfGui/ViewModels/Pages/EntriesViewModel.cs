@@ -13,7 +13,7 @@ using static Blog.WpfGui.Messenger.ViewMessages;
 namespace Blog.WpfGui.ViewModels.Pages;
 
 
-public partial class EntriesViewModel : NavigableViewModel,
+public partial class EntriesViewModel : ViewModel,
     IRecipient<EntryFormSavedMessage>
 {
     private readonly IEntryService _entryService;

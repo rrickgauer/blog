@@ -17,7 +17,7 @@ public class EditModelFormArgs<T> : NewModelFormArgs
 }
 
 
-public interface IModelForm<T>
+public interface IModelForm<T> where T : new()
 {
     public void EditModel(EditModelFormArgs<T> args);
     public void NewModel(NewModelFormArgs args);

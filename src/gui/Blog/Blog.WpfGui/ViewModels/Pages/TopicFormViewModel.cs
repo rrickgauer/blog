@@ -1,14 +1,35 @@
 ﻿using Blog.Service.Domain.Contracts;
 using Blog.Service.Domain.TableView;
+using Blog.WpfGui.ViewModels.Base;
+using CommunityToolkit.Mvvm.Messaging;
 using Wpf.Ui;
 using Wpf.Ui.Controls;
+using static Blog.WpfGui.Messenger.ViewMessages;
 
 namespace Blog.WpfGui.ViewModels.Pages;
 
-public partial class TopicFormViewModel(INavigationService navigationService) : ObservableObject, INavigationAware, IModelForm<TopicTableView>
+public partial class TopicFormViewModel(INavigationService navigationService) : ViewModel, IModelForm<TopicTableView>
 {
 
+    #region - Private Members -
+
     private readonly INavigationView _navigation = navigationService.GetNavigationControl();
+
+    private Guid _parentMessengerToken = Guid.Empty;
+
+    private TopicTableView _topic = new();
+
+    protected TopicTableView Topic
+    {
+        get => _topic;
+        set
+        {
+            _topic = value;
+            NameInputText = _topic.Name ?? string.Empty;
+        }
+    }
+
+    #endregion
 
     #region - Generated Properties -
 
@@ -27,44 +48,30 @@ public partial class TopicFormViewModel(INavigationService navigationService) : 
 
     #endregion
 
-
-
     #region - IModelForm -
 
     public void EditModel(EditModelFormArgs<TopicTableView> args)
     {
         HandleNewModelFormArgs(args);
-        NameInputText = args.Model.Name ?? string.Empty;
+        Topic = args.Model;
     }
 
     public void NewModel(NewModelFormArgs args)
     {
         HandleNewModelFormArgs(args);
+        Topic = new();
     }
 
     #endregion
-
-    #region - INavigationAware -
-
-    public void OnNavigatedFrom()
-    {
-        
-    }
-
-    public void OnNavigatedTo()
-    {
-        
-    }
-
-    #endregion
-
 
     #region - Commands -
 
     [RelayCommand(CanExecute = nameof(CanSaveForm))]
     private void SaveForm()
     {
+        Topic.Name = NameInputText;
 
+        WeakReferenceMessenger.Default.Send(new TopicFormSavedMessage(Topic), _parentMessengerToken);
     }
 
     private bool CanSaveForm()
@@ -92,6 +99,7 @@ public partial class TopicFormViewModel(INavigationService navigationService) : 
         PageTitle = args.Title;
         SaveButtonText = args.SaveButtonText;
         CancelButtonText = args.CancelButtonText;
+        _parentMessengerToken = args.MessengerToken;
     }
 
 }

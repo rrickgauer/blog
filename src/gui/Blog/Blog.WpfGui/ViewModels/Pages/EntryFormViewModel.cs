@@ -3,6 +3,7 @@ using Blog.Service.Domain.Contracts;
 using Blog.Service.Domain.Model;
 using Blog.Service.Domain.TableView;
 using Blog.Service.Services.Contracts;
+using Blog.WpfGui.ViewModels.Base;
 using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.Win32;
 using System.Collections.ObjectModel;
@@ -13,12 +14,13 @@ using static Blog.WpfGui.Messenger.ViewMessages;
 
 namespace Blog.WpfGui.ViewModels.Pages;
 
-public partial class EntryFormViewModel : ObservableObject, INavigationAware, IModelForm<EntryTableView>
+public partial class EntryFormViewModel : ViewModel, IModelForm<EntryTableView>
 {
     #region - Private Members -
     private readonly IConfigs _configs;
     private readonly IEntryService _entryService;
     private readonly INavigationView _navigation;
+    private readonly ITopicService _topicService;
 
 
     protected EntryTableView? _entryTableView = null;
@@ -41,8 +43,6 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
         }
     }
 
-
-
     private Guid _parentMessengerToken = Guid.Empty;
 
     #endregion
@@ -59,7 +59,7 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
 
     [ObservableProperty]
     [NotifyCanExecuteChangedFor(nameof(SaveFormCommand))]
-    private EntryTopic? _selectedTopic = null;
+    private TopicTableView? _selectedTopic = null;
 
     [ObservableProperty]
     private string _saveButtonText = string.Empty;
@@ -68,7 +68,7 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
     private string _cancelButtonText = string.Empty;
 
     [ObservableProperty]
-    private ObservableCollection<EntryTopic> _topics = new(EntryTopic.GetAll());
+    private ObservableCollection<TopicTableView> _topics = new();
 
     [ObservableProperty]
     private string _formTitle = string.Empty;
@@ -77,10 +77,11 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
 
     #region - Constructor -
 
-    public EntryFormViewModel(IConfigs configs, IEntryService entryService, INavigationService navigationService)
+    public EntryFormViewModel(IConfigs configs, IEntryService entryService, INavigationService navigationService, ITopicService topicService)
     {
         _configs = configs;
         _entryService = entryService;
+        _topicService = topicService;
         _navigation = navigationService.GetNavigationControl();
     }
 
@@ -88,15 +89,21 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
 
     #region - INavigationAware -
 
-    public void OnNavigatedFrom()
+    public async override void OnNavigatedTo()
     {
-        //throw new NotImplementedException();
+        base.OnNavigatedTo();
+
+        var topics = await _topicService.GetAllTopicsAsync();
+
+        Topics = new(topics);
+
+        if (EntryTableView?.TopicId is uint topicId)
+        {
+            SelectedTopic = Topics.Where(t => t.TopicId == topicId).FirstOrDefault();
+        }
     }
 
-    public void OnNavigatedTo()
-    {
-        //throw new NotImplementedException();
-    }
+
 
     #endregion
 
@@ -110,7 +117,8 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
 
         Title = args.Model.Title ?? string.Empty;
         FileName = args.Model.FileName ?? string.Empty;
-        SelectedTopic = Topics.Where(t => t.Id == args.Model.TopicId).FirstOrDefault();
+
+        
 
     }
 
@@ -219,14 +227,14 @@ public partial class EntryFormViewModel : ObservableObject, INavigationAware, IM
     {
         model.Title = Title;
         model.FileName = FileName;
-        model.TopicId = SelectedTopic?.Id;
+        model.TopicId = SelectedTopic?.TopicId;
     }
 
     private void SetFormValues(EntryTableView model)
     {
         Title = model.Title ?? string.Empty;
         FileName = model.FileName ?? string.Empty;
-        SelectedTopic = Topics.Where(t => t.Id == model.TopicId).FirstOrDefault();
+        SelectedTopic = Topics.Where(t => t.TopicId == model.TopicId).FirstOrDefault();
     }
 
     #endregion
