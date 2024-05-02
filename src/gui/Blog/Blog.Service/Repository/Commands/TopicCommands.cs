@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Blog.Service.Repository.Commands;
+﻿namespace Blog.Service.Repository.Commands;
 
 public sealed class TopicCommands
 {
@@ -12,7 +6,19 @@ public sealed class TopicCommands
         SELECT
             *
         FROM
-            View_Used_Topics v
+            View_Topics v
+        WHERE 
+            v.count_entries > 0
         ORDER BY
-            v.name ASC;";
+            v.topic_name ASC;";
+
+
+    public const string SelectAll = @"
+        SELECT
+            *
+        FROM
+            View_Topics t
+        ORDER BY
+            t.topic_name ASC;";
+    
 }

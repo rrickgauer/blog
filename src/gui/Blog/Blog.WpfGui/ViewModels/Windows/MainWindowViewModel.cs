@@ -22,6 +22,13 @@ namespace Blog.WpfGui.ViewModels.Windows
                 Icon = new SymbolIcon { Symbol = SymbolRegular.Home24 },
                 TargetPageType = typeof(Views.Pages.EntriesPage)
             },
+
+            new NavigationViewItem()
+            {
+                Content = "Topics",
+                Icon = new SymbolIcon { Symbol = SymbolRegular.NumberSymbolSquare24 },
+                TargetPageType = typeof(Views.Pages.TopicsPage)
+            },
         };
 
         [ObservableProperty]

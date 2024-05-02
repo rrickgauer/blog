@@ -6,15 +6,15 @@ namespace Blog.Service.Domain.TableView;
 
 public class TopicTableView : ITableView<TopicTableView, EntryTopic>
 {
-    [SqlColumn("id")]
+    [SqlColumn("topic_id")]
     [CopyToProperty<EntryTopic>(nameof(EntryTopic.Id))]
     public uint? TopicId { get; set; }
 
-    [SqlColumn("name")]
+    [SqlColumn("topic_name")]
     [CopyToProperty<EntryTopic>(nameof(EntryTopic.Name))]
     public string? Name { get; set; }
 
-    [SqlColumn("count")]
+    [SqlColumn("count_entries")]
     public long? Count { get; set; }
 
 
@@ -22,7 +22,7 @@ public class TopicTableView : ITableView<TopicTableView, EntryTopic>
 
     public static explicit operator EntryTopic(TopicTableView other)
     {
-        return ((ITableView<TopicTableView, EntryTopic>)other).CastToModel();
+        return other.CastToModel();
     }
 
     #endregion

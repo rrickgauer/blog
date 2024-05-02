@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 
 namespace Blog.Service.Repository.Contracts;
 
 public interface ITopicRepository
 {
     public Task<DataTable> SelectAllUsedAsync();
+    public Task<DataTable> SelectAllAsync();
 }

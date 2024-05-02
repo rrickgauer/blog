@@ -4,5 +4,6 @@ namespace Blog.Service.Services.Contracts;
 
 public interface ITopicService
 {
-    public Task<IEnumerable<TopicTableView>> GetUsedTopicsAsync();
+    public Task<List<TopicTableView>> GetUsedTopicsAsync();
+    public Task<List<TopicTableView>> GetAllTopicsAsync();
 }

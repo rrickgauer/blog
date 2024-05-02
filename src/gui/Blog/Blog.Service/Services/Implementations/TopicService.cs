@@ -9,9 +9,18 @@ public class TopicService(ITopicRepository topicRepository, ITableMapperService 
     private readonly ITopicRepository _topicRepository = topicRepository;
     private readonly ITableMapperService _tableMapperService = tableMapperService;
 
-    public async Task<IEnumerable<TopicTableView>> GetUsedTopicsAsync()
+    public async Task<List<TopicTableView>> GetUsedTopicsAsync()
     {
         var dataTable = await _topicRepository.SelectAllUsedAsync();
+
+        var usedTopics = _tableMapperService.ToModels<TopicTableView>(dataTable);
+
+        return usedTopics;
+    }
+
+    public async Task<List<TopicTableView>> GetAllTopicsAsync()
+    {
+        var dataTable = await _topicRepository.SelectAllAsync();
 
         var usedTopics = _tableMapperService.ToModels<TopicTableView>(dataTable);
 
