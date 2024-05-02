@@ -1,4 +1,6 @@
-﻿using Blog.WpfGui.ViewModels.Pages;
+﻿using Blog.Service.Domain.TableView;
+using Blog.WpfGui.ViewModels.Pages;
+using System.Windows.Input;
 using Wpf.Ui.Controls;
 
 namespace Blog.WpfGui.Views.Pages;
@@ -16,5 +18,13 @@ public partial class TopicsPage : INavigableView<TopicsViewModel>
         DataContext = this;
 
         InitializeComponent();
+    }
+
+    private void DataGridCell_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+    {
+        if (((FrameworkElement)sender).DataContext is TopicTableView topic)
+        {
+            ViewModel.OnRowSelected(topic);
+        }
     }
 }

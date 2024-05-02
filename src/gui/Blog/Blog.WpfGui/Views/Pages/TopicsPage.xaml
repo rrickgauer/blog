@@ -45,7 +45,14 @@
                          ColumnWidth="*"
                          SelectionMode="Single"
                          AutoGenerateColumns="False">
-                    
+                <ui:DataGrid.Resources>
+                    <Style TargetType="DataGridCell"
+                           BasedOn="{StaticResource {x:Type DataGridCell}}">
+                        <EventSetter Event="MouseDoubleClick"
+                                     Handler="DataGridCell_MouseDoubleClick" />
+                    </Style>
+                </ui:DataGrid.Resources>
+
                 <ui:DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Name}" Header="Name" />
                     <DataGridTextColumn Binding="{Binding Count}" Header="Count" />

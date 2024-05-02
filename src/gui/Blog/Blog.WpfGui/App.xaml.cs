@@ -79,6 +79,9 @@ public partial class App
             services.AddSingleton<TopicsViewModel>();
             services.AddSingleton<TopicsPage>();
 
+            services.AddSingleton<TopicFormViewModel>();
+            services.AddSingleton<TopicFormPage>();
+
 
             bool isDebug = false;
 
