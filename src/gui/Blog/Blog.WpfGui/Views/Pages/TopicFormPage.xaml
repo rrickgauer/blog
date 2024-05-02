@@ -12,9 +12,18 @@
       d:DesignHeight="450" 
       d:DesignWidth="800"
       d:Foreground="Black"
-      d:Background="Gray"
+      d:Background="White"
       Foreground="{DynamicResource TextFillColorPrimaryBrush}"
       Title="TopicFormPage">
+    <Page.Resources>
+        <Style x:Key="BorderInputSectionStyle" TargetType="Border">
+            <Setter Property="Margin" Value="0,0,0,30" />
+        </Style>
+        
+        <Style x:Key="InputLabelStyle" TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+            <Setter Property="Margin" Value="0,0,0,5" />
+        </Style>
+    </Page.Resources>
 
     <Grid>
 
@@ -25,11 +34,56 @@
 
         <!--Page Title-->
         <uc:PageTitleControl Title="{Binding ViewModel.PageTitle}"
+                             d:Title="Edit Topic"
                              Grid.Row="0" />
 
         
         <Border Grid.Row="1">
-            <TextBlock Text="Shit" />
+            
+            <StackPanel>
+                
+                <Border Style="{StaticResource BorderInputSectionStyle}">
+                    <StackPanel>
+                        <TextBlock Text="Name:" Style="{StaticResource InputLabelStyle}" />
+                        <ui:TextBox Text="{Binding ViewModel.NameInputText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                           
+                            />
+                    </StackPanel>
+                </Border>
+
+                <!--Action Buttons-->
+                <Border Style="{StaticResource BorderInputSectionStyle}">
+
+                    <Border.Resources>
+                        <Style TargetType="{x:Type ui:Button}" BasedOn="{StaticResource {x:Type ui:Button}}">
+                            <Setter Property="Margin" Value="0,0,5,0" />
+                            <Setter Property="Width" Value="100" />
+                        </Style>
+                    </Border.Resources>
+
+                    <StackPanel Orientation="Horizontal">
+                        <ui:Button d:Content="Save"
+                                   Content="{Binding ViewModel.SaveButtonText}"
+                                   Appearance="Success"
+                                   Command="{Binding ViewModel.SaveFormCommand}" />
+
+                        <ui:Button d:Content="Cancel"
+                                   Content="{Binding ViewModel.CancelButtonText}"
+                                   Command="{Binding ViewModel.CloseFormCommand}"
+                                   Appearance="Danger" />
+
+                    </StackPanel>
+                </Border>
+
+            </StackPanel>
+            
+            
+
+            
+            
+            
+            
+            
         </Border>
     </Grid>
 </Page>

@@ -7,22 +7,29 @@ namespace Blog.WpfGui.ViewModels.Pages;
 public partial class TopicFormViewModel : ObservableObject, INavigationAware, IModelForm<TopicTableView>
 {
 
-
     [ObservableProperty]
     private string _pageTitle = string.Empty;
 
+    [ObservableProperty]
+    private string _saveButtonText = string.Empty;
 
+    [ObservableProperty]
+    private string _cancelButtonText = string.Empty;
+
+    [ObservableProperty]
+    [NotifyCanExecuteChangedFor(nameof(SaveFormCommand))]
+    private string _nameInputText = string.Empty;
 
     #region - IModelForm -
 
     public void EditModel(EditModelFormArgs<TopicTableView> args)
     {
-        PageTitle = args.Title;
+        HandleNewModelFormArgs(args);
     }
 
     public void NewModel(NewModelFormArgs args)
     {
-        throw new NotImplementedException();
+        HandleNewModelFormArgs(args);
     }
 
     #endregion
@@ -40,4 +47,43 @@ public partial class TopicFormViewModel : ObservableObject, INavigationAware, IM
     }
 
     #endregion
+
+
+    #region - Commands -
+
+    [RelayCommand(CanExecute = nameof(CanSaveForm))]
+    private void SaveForm()
+    {
+
+    }
+
+    private bool CanSaveForm()
+    {
+        if (string.IsNullOrWhiteSpace(NameInputText))
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+
+
+    [RelayCommand]
+    private void CloseForm()
+    {
+
+    }
+
+    #endregion
+
+
+
+    private void HandleNewModelFormArgs(NewModelFormArgs args)
+    {
+        PageTitle = args.Title;
+        SaveButtonText = args.SaveButtonText;
+        CancelButtonText = args.CancelButtonText;
+    }
+
 }
