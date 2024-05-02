@@ -7,18 +7,11 @@ namespace Blog.Gui.Controllers;
 
 [Controller]
 [Route("")]
-public class HomeController : Controller
+public class HomeController(IEntryService entryService, ITopicService topicService, IMarkdownService markdownService) : Controller
 {
-    private readonly IEntryService _entryService;
-    private readonly ITopicService _topicService;
-    private readonly IMarkdownService _markdownService;
-
-    public HomeController(IEntryService entryService, ITopicService topicService, IMarkdownService markdownService)
-    {
-        _entryService = entryService;
-        _topicService = topicService;
-        _markdownService = markdownService;
-    }
+    private readonly IEntryService _entryService = entryService;
+    private readonly ITopicService _topicService = topicService;
+    private readonly IMarkdownService _markdownService = markdownService;
 
 
     /// <summary>
@@ -58,7 +51,7 @@ public class HomeController : Controller
             return NotFound();
         }
 
-        var markdown = _markdownService.GetEntryHtml(entry.FileName);
+        var markdown = _markdownService.GetEntryHtml(entry.FileName!);
 
         EntryViewModel viewModel = new()
         {

@@ -12,7 +12,6 @@ public class EntryTableViewMapper : TableMapper<EntryTableView>
             EntryId   = Convert.ToInt32(row.Field<object?>(GetColumnName(nameof(EntryTableView.EntryId)))),
             Date      = row.Field<DateTime?>(GetColumnName(nameof(EntryTableView.Date))),
             Title     = row.Field<string?>(GetColumnName(nameof(EntryTableView.Title))),
-            //Link      = row.Field<string?>(GetColumnName(nameof(EntryTableView.Link))),
             TopicId   = row.Field<uint?>(GetColumnName(nameof(EntryTableView.TopicId))),
             TopicName = row.Field<string?>(GetColumnName(nameof(EntryTableView.TopicName))),
             FileName  = row.Field<string?>(GetColumnName(nameof(EntryTableView.FileName))),

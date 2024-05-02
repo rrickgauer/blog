@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Blog.Service.Domain.Configs;
+﻿namespace Blog.Service.Domain.Configs;
 
 public interface IConfigs
 {
@@ -20,4 +14,6 @@ public interface IConfigs
     public string EntryFilesPath { get; }
 
     public string StaticFilesPath { get; }  
+
+    public Uri GuiHttpAddress { get; }
 }

@@ -1,4 +1,5 @@
 ﻿using Blog.Service.Domain.Configs;
+using Blog.Service.Domain.Other;
 using MySql.Data.MySqlClient;
 using System.Data;
 
@@ -118,6 +119,29 @@ public class DatabaseConnection
         await CloseConnectionAsync(conn);
 
         return numRowsAffected;
+    }
+
+    public async Task<InsertAutoRowResult> InsertAsync(MySqlCommand command)
+    {
+        // setup a new database connection object
+        using MySqlConnection conn = GetNewConnection();
+        await conn.OpenAsync();
+        command.Connection = conn;
+
+        // execute the non query command
+        int numRowsAffected = await command.ExecuteNonQueryAsync();
+
+        int rowInsertId = Convert.ToInt32(command.LastInsertedId);
+
+        // close the connection
+        await CloseConnectionAsync(conn);
+
+        return new()
+        {
+            RowId = rowInsertId,
+            NumRows = numRowsAffected,
+        };
+        
     }
 
     /// <summary>

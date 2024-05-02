@@ -2,9 +2,9 @@
 Description=blog.ryanrickgauer.com
 
 [Service]
-WorkingDirectory=/var/www/blog/src/gui/Blog/Blog.Gui/bin/Release/net7.0/linux-x64
+WorkingDirectory=/var/www/blog/src/gui/Blog/Blog.Gui/bin/Release/net8.0/linux-x64
 #WorkingDirectory=var/www/blog/src/gui/Blog/Blog.Gui
-ExecStart=/usr/bin/dotnet /var/www/blog/src/gui/Blog/Blog.Gui/bin/Release/net7.0/linux-x64/Blog.Gui.dll
+ExecStart=/usr/bin/dotnet /var/www/blog/src/gui/Blog/Blog.Gui/bin/Release/net8.0/linux-x64/Blog.Gui.dll
 Restart=always
 # Restart service after 10 seconds if the dotnet service crashes:
 RestartSec=10

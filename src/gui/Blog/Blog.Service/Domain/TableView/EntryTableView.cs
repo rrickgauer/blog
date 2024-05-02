@@ -1,6 +1,8 @@
-﻿using Blog.Service.Domain.Contracts;
+﻿using Blog.Service.Domain.Configs;
+using Blog.Service.Domain.Contracts;
 using Blog.Service.Domain.CustomAttributes;
 using Blog.Service.Domain.Model;
+using System.Diagnostics;
 
 namespace Blog.Service.Domain.TableView;
 
@@ -13,15 +15,11 @@ public class EntryTableView : ITableView<EntryTableView, Entry>, ITableView<Entr
 
     [SqlColumn("date")]
     [CopyToProperty<Entry>(nameof(Entry.Date))]
-    public DateTime? Date { get; set; }
+    public DateTime? Date { get; set; } = DateTime.Now;
 
     [SqlColumn("title")]
     [CopyToProperty<Entry>(nameof(Entry.Title))]
     public string? Title { get; set; }
-
-    [SqlColumn("source_link")]
-    [CopyToProperty<Entry>(nameof(Entry.Link))]
-    public string? Link { get; set; }
 
     [SqlColumn("file_name")]
     [CopyToProperty<Entry>(nameof(Entry.FileName))]
@@ -36,16 +34,75 @@ public class EntryTableView : ITableView<EntryTableView, Entry>, ITableView<Entr
     [CopyToProperty<EntryTopic>(nameof(EntryTopic.Name))]
     public string? TopicName { get; set; }
 
+    public string WpfUiCardHeaderText => $"{Title} #{EntryId}";
+
+    public DateOnly? WpfDateDisplayText
+    {
+        get
+        {
+            if (!Date.HasValue)
+            {
+                return null;
+            }
+
+            return DateOnly.FromDateTime(Date.Value);
+        }
+    }
+
+    #region - Methods -
+
+    public void ViewPublication(IConfigs configs)
+    {
+        string url = GetPublicUrl(configs);
+        OpenFile(url);
+    }
+
+    public string GetPublicUrl(IConfigs configs)
+    {
+        ArgumentNullException.ThrowIfNull(EntryId);
+        return $"{configs.GuiHttpAddress.AbsoluteUri}entries/{EntryId}";
+    }
+
+
+    public void ViewMarkdownFile(IConfigs configs)
+    {
+        FileInfo markdownFile = GetMarkdownFileInfo(configs);
+
+        OpenFile(markdownFile.FullName);
+    }
+
+    public FileInfo GetMarkdownFileInfo(IConfigs configs)
+    {
+        ArgumentNullException.ThrowIfNull(FileName);
+
+        FileInfo markdownFile = new(Path.Combine(configs.EntryFilesPath, FileName));
+
+        return markdownFile;
+    }
+
+    private static void OpenFile(string filename)
+    {
+        ProcessStartInfo startInfo = new(filename)
+        {
+            UseShellExecute = true,
+        };
+
+        Process.Start(startInfo);
+    }
+
+    #endregion
+
+
     #region - ITableView -
 
     public static explicit operator Entry(EntryTableView other)
     {
-        return ((ITableView<EntryTableView, Entry>)other).CastToModel();
+        return other.CastToModel<EntryTableView, Entry>();
     }
 
     public static explicit operator EntryTopic(EntryTableView other)
     {
-        return ((ITableView<EntryTableView, EntryTopic>)other).CastToModel();
+        return other.CastToModel<EntryTableView, EntryTopic>();
     }
 
     #endregion
