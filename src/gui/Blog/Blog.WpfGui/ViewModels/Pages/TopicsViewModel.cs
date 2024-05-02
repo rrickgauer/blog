@@ -6,6 +6,8 @@ using Blog.WpfGui.Views.Pages;
 using CommunityToolkit.Mvvm.Messaging;
 using System.Collections.ObjectModel;
 using Wpf.Ui;
+using Wpf.Ui.Controls;
+using Wpf.Ui.Extensions;
 using static Blog.WpfGui.Messenger.ViewMessages;
 
 namespace Blog.WpfGui.ViewModels.Pages;
@@ -17,6 +19,7 @@ public partial class TopicsViewModel : ViewModel,
     private readonly ITopicService _topicService;
     private readonly INavigationService _navigation;
     private readonly TopicFormViewModel _topicFormViewModel;
+    private readonly ISnackbarService _snackbarService;
 
     private uint? _previouslySelectedTopicId = null;
     #endregion
@@ -40,11 +43,12 @@ public partial class TopicsViewModel : ViewModel,
 
     #region - Constructor -
 
-    public TopicsViewModel(ITopicService topicService, INavigationService navigationService, TopicFormViewModel topicFormViewModel)
+    public TopicsViewModel(ITopicService topicService, INavigationService navigationService, TopicFormViewModel topicFormViewModel, ISnackbarService snackbarService)
     {
         _topicService = topicService;
         _navigation = navigationService;
         _topicFormViewModel = topicFormViewModel;
+        _snackbarService = snackbarService;
 
         InitMessenger();
     }
@@ -94,6 +98,10 @@ public partial class TopicsViewModel : ViewModel,
         await SaveTopicFormChangesAsync(message.Value);
         
         NavigateHere();
+
+        _snackbarService.Show("Success", "Done", ControlAppearance.Success);
+
+        
     }
 
     #endregion
@@ -122,7 +130,7 @@ public partial class TopicsViewModel : ViewModel,
     }
 
     [RelayCommand(CanExecute = nameof(CanDeleteTopic))]
-    private async void DeleteTopic(TopicTableView topic)
+    private async Task DeleteTopicAsync(TopicTableView topic)
     {
         if (!ConfirmDelete(topic))
         {
@@ -185,9 +193,9 @@ public partial class TopicsViewModel : ViewModel,
 
     private static bool ConfirmDelete(TopicTableView topic)
     {
-        var result = MessageBox.Show($"Are you sure you want to permanently delete {topic.Name}?", "Confirm", MessageBoxButton.YesNoCancel);
+        var result = System.Windows.MessageBox.Show($"Are you sure you want to permanently delete {topic.Name}?", "Confirm", System.Windows.MessageBoxButton.YesNoCancel);
 
-        if (result == MessageBoxResult.Yes)
+        if (result == System.Windows.MessageBoxResult.Yes)
         {
             return true;
         }

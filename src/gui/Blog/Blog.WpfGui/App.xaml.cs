@@ -52,6 +52,8 @@ public partial class App
             // TaskBar manipulation
             services.AddSingleton<ITaskBarService, TaskBarService>();
 
+            services.AddSingleton<ISnackbarService, SnackbarService>();
+
             // Service containing navigation, same as INavigationWindow... but without window
             services.AddSingleton<INavigationService, NavigationService>();
 
@@ -63,9 +65,8 @@ public partial class App
 
             #endregion
 
-            services.AddSingleton<DataPage>();
-            services.AddSingleton<DataViewModel>();
-
+            services.AddSingleton<LandingPage>();
+            services.AddSingleton<LandingViewModel>();
 
             services.AddSingleton<SettingsPage>();
             services.AddSingleton<SettingsViewModel>();

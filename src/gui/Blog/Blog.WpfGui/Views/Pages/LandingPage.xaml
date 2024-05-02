@@ -1,0 +1,68 @@
+﻿<Page x:Class="Blog.WpfGui.Views.Pages.LandingPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Blog.WpfGui.Views.Pages"
+      xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+      xmlns:helpers="clr-namespace:Blog.WpfGui.Helpers"
+      xmlns:uc="clr-namespace:Blog.WpfGui.Views.UserControls"
+      mc:Ignorable="d"
+      d:DataContext="{d:DesignInstance local:LandingPage, IsDesignTimeCreatable=False}"
+      d:Foreground="Black"
+      d:Background="White"
+      Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+      
+      d:DesignWidth="800"
+      Title="LandingPage">
+    <Page.Resources>
+        <Style x:Key="LandingCardStyle"
+               TargetType="{x:Type ui:CardAction}"
+               BasedOn="{StaticResource {x:Type ui:CardAction}}">
+            <Setter Property="Margin" Value="0,5" />
+        </Style>
+    </Page.Resources>
+
+   <Border Style="{StaticResource PageBorderStyle}">
+       
+       
+       <Grid>
+           <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            
+           <uc:PageTitleControl Title="Blog Pilot"
+                                Grid.Row="0"/>
+           
+           
+            <Border Grid.Row="1">
+                <StackPanel>
+                    <ui:CardAction Content="Entries"
+                                   Command="{Binding ViewModel.EntriesPageCommand}"
+                                   Style="{StaticResource LandingCardStyle}"/>
+
+                    <ui:CardAction Content="Topics"
+                                   Command="{Binding ViewModel.TopicsPageCommand}"
+                                   Style="{StaticResource LandingCardStyle}" />
+
+                    <ui:CardAction Content="blog.ryanrickgauer.com"
+                                   Command="{Binding ViewModel.BlogSiteCommand}"
+                                   Style="{StaticResource LandingCardStyle}" />
+
+                    <ui:CardAction Content="Markdown Files"
+                                   Command="{Binding ViewModel.DocumentsCommand}"
+                                   Style="{StaticResource LandingCardStyle}" />
+
+                    <ui:CardAction Content="Repository"
+                                   Command="{Binding ViewModel.RepositoryCommand}"
+                                   Style="{StaticResource LandingCardStyle}" />
+
+                </StackPanel>
+                
+            </Border>           
+           
+        </Grid>
+
+    </Border>
+</Page>

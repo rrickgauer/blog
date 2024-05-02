@@ -56,7 +56,7 @@ namespace Blog.WpfGui.Services
                 _navigationWindow!.ShowWindow();
 
                 // home page
-                //_navigationWindow.Navigate(typeof(Views.Pages.DashboardPage));
+                _navigationWindow.Navigate(typeof(Views.Pages.LandingPage));
             }
 
             await Task.CompletedTask;

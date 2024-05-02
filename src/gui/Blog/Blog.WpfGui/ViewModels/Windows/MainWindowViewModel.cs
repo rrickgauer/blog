@@ -18,8 +18,15 @@ namespace Blog.WpfGui.ViewModels.Windows
         {
             new NavigationViewItem()
             {
-                Content = "Entries",
+                Content = "Home",
                 Icon = new SymbolIcon { Symbol = SymbolRegular.Home24 },
+                TargetPageType = typeof(Views.Pages.LandingPage)
+            },
+
+            new NavigationViewItem()
+            {
+                Content = "Entries",
+                Icon = new SymbolIcon { Symbol = SymbolRegular.Document24 },
                 TargetPageType = typeof(Views.Pages.EntriesPage)
             },
 
