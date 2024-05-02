@@ -27,7 +27,8 @@
         
     </Page.Resources>
 
-    <Border d:Padding="20">
+    <Border d:Padding="20"
+            Style="{StaticResource PageBorderStyle}">
         <Grid>
 
             <StackPanel>

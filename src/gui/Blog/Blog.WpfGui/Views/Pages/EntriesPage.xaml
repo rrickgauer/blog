@@ -19,7 +19,8 @@
         <helpers:BindingProxy x:Key="Proxy" Data="{Binding}" />
     </Page.Resources>
 
-    <Border d:Padding="10">
+    <Border d:Padding="10"
+            Style="{StaticResource PageBorderStyle}">
         <Grid>
 
             <Grid.RowDefinitions>
