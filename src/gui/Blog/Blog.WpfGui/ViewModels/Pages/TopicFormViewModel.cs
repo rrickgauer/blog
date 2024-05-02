@@ -1,11 +1,16 @@
 ﻿using Blog.Service.Domain.Contracts;
 using Blog.Service.Domain.TableView;
+using Wpf.Ui;
 using Wpf.Ui.Controls;
 
 namespace Blog.WpfGui.ViewModels.Pages;
 
-public partial class TopicFormViewModel : ObservableObject, INavigationAware, IModelForm<TopicTableView>
+public partial class TopicFormViewModel(INavigationService navigationService) : ObservableObject, INavigationAware, IModelForm<TopicTableView>
 {
+
+    private readonly INavigationView _navigation = navigationService.GetNavigationControl();
+
+    #region - Generated Properties -
 
     [ObservableProperty]
     private string _pageTitle = string.Empty;
@@ -20,11 +25,16 @@ public partial class TopicFormViewModel : ObservableObject, INavigationAware, IM
     [NotifyCanExecuteChangedFor(nameof(SaveFormCommand))]
     private string _nameInputText = string.Empty;
 
+    #endregion
+
+
+
     #region - IModelForm -
 
     public void EditModel(EditModelFormArgs<TopicTableView> args)
     {
         HandleNewModelFormArgs(args);
+        NameInputText = args.Model.Name ?? string.Empty;
     }
 
     public void NewModel(NewModelFormArgs args)
@@ -67,12 +77,10 @@ public partial class TopicFormViewModel : ObservableObject, INavigationAware, IM
         return true;
     }
 
-
-
     [RelayCommand]
     private void CloseForm()
     {
-
+        _navigation.GoBack();
     }
 
     #endregion
