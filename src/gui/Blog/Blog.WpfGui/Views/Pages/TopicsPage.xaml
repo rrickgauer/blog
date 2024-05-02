@@ -57,6 +57,7 @@
             
             <ui:DataGrid ItemsSource="{Binding ViewModel.Topics}"
                          d:ItemsSource="{d:SampleData ItemCount=5}"
+                         x:Name="TopicsTable"
                          AllowDrop="False"
                          CanUserReorderColumns="False"
                          CanUserAddRows="False"

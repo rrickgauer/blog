@@ -153,7 +153,7 @@ public partial class EntriesViewModel : ViewModel,
     {
         var promptResponse = NativeMessageBox.Show($"Are you sure you want to permanently delete this entry?", $"Confirm Delete", System.Windows.MessageBoxButton.YesNoCancel, MessageBoxImage.Warning);
 
-        if (promptResponse == System.Windows.MessageBoxResult.Yes)
+        if (promptResponse == MessageBoxResult.Yes)
         {
             return true;
         }

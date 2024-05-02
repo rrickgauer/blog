@@ -17,6 +17,12 @@ public partial class TopicsViewModel : ViewModel,
     private readonly ITopicService _topicService;
     private readonly INavigationService _navigation;
     private readonly TopicFormViewModel _topicFormViewModel;
+
+    private uint? _previouslySelectedTopicId = null;
+    #endregion
+
+    #region - Events -
+    public event EventHandler<TopicTableView>? ScrollToItem;
     #endregion
 
     #region - Generated Properties -
@@ -26,11 +32,6 @@ public partial class TopicsViewModel : ViewModel,
 
     [ObservableProperty]
     private TopicTableView? _selectedTopic = null;
-
-    partial void OnSelectedTopicChanged(TopicTableView? value)
-    {
-        int x = 10;
-    }
 
     [ObservableProperty]
     private bool _showWaitIndicator = false;
@@ -62,8 +63,6 @@ public partial class TopicsViewModel : ViewModel,
             SaveButtonText = "Save",
         });
 
-        _previouslySelectedTopicId = topic.TopicId;
-
         NavigateToFormPage();
     }
 
@@ -74,13 +73,16 @@ public partial class TopicsViewModel : ViewModel,
         ShowWaitIndicator = true;
 
         await RefreshTopics();
-
-        if (_previouslySelectedTopicId.HasValue)
-        {
-            SelectedTopic = Topics.FirstOrDefault(t => t.TopicId == _previouslySelectedTopicId);
-        }
+        RestorePreviouslySelectedTopic();
 
         ShowWaitIndicator = false;
+    }
+
+    public override void OnNavigatedFrom()
+    {
+        base.OnNavigatedFrom();
+
+        _previouslySelectedTopicId = SelectedTopic?.TopicId;
     }
 
     #endregion
@@ -88,7 +90,7 @@ public partial class TopicsViewModel : ViewModel,
     #region - Messenger -
 
 
-    private uint? _previouslySelectedTopicId = null;
+    
 
 
     public async void Receive(TopicFormSavedMessage message)
@@ -143,6 +145,16 @@ public partial class TopicsViewModel : ViewModel,
     private async Task SaveTopicFormChangesAsync(TopicTableView topic)
     {
         await _topicService.SaveTopicAsync((EntryTopic)topic);
+    }
+
+    private void RestorePreviouslySelectedTopic()
+    {
+        // if we have a topic that was previously selected, scroll down to it
+        if (_previouslySelectedTopicId.HasValue)
+        {
+            SelectedTopic = Topics.FirstOrDefault(t => t.TopicId == _previouslySelectedTopicId);
+            ScrollToItem?.Invoke(this, SelectedTopic!);
+        }
     }
 
     #endregion

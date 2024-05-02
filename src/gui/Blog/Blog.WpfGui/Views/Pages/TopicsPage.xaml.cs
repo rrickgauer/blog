@@ -18,6 +18,18 @@ public partial class TopicsPage : INavigableView<TopicsViewModel>
         DataContext = this;
 
         InitializeComponent();
+
+        ViewModel.ScrollToItem += OnScrollToItem;
+    }
+
+    /// <summary>
+    /// Scroll down to the given topic in the table
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void OnScrollToItem(object? sender, TopicTableView e)
+    {
+        TopicsTable.ScrollIntoView(e);
     }
 
     private void DataGridCell_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -27,4 +39,6 @@ public partial class TopicsPage : INavigableView<TopicsViewModel>
             ViewModel.OnRowSelected(topic);
         }
     }
+
+
 }
