@@ -110,9 +110,9 @@
 
                     <ui:DataGrid.Columns>
                         <DataGridTextColumn Binding="{Binding Title}" Header="Title" />
-                        <DataGridTextColumn Binding="{Binding FileName}" Header="FileName" />
-                        <DataGridTextColumn Binding="{Binding TopicName}" Header="TopicName" />
-                        <DataGridTextColumn Binding="{Binding WpfDateDisplayText}" Header="Date" />
+                        <DataGridTextColumn Binding="{Binding FileName}" Header="File" />
+                        <DataGridTextColumn Binding="{Binding TopicName}" Header="Topic" />
+                        <DataGridTextColumn Binding="{Binding WpfDateDisplayText}" Header="Created On" />
                     </ui:DataGrid.Columns>
                 </ui:DataGrid>
                 

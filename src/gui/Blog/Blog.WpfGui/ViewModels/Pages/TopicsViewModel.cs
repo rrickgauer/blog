@@ -1,4 +1,5 @@
-﻿using Blog.Service.Domain.TableView;
+﻿using Blog.Service.Domain.Model;
+using Blog.Service.Domain.TableView;
 using Blog.Service.Services.Contracts;
 using Blog.WpfGui.ViewModels.Base;
 using Blog.WpfGui.Views.Pages;
@@ -22,6 +23,14 @@ public partial class TopicsViewModel : ViewModel,
 
     [ObservableProperty]
     private ObservableCollection<TopicTableView> _topics = new();
+
+    [ObservableProperty]
+    private TopicTableView? _selectedTopic = null;
+
+    partial void OnSelectedTopicChanged(TopicTableView? value)
+    {
+        int x = 10;
+    }
 
     [ObservableProperty]
     private bool _showWaitIndicator = false;
@@ -53,6 +62,8 @@ public partial class TopicsViewModel : ViewModel,
             SaveButtonText = "Save",
         });
 
+        _previouslySelectedTopicId = topic.TopicId;
+
         NavigateToFormPage();
     }
 
@@ -64,6 +75,11 @@ public partial class TopicsViewModel : ViewModel,
 
         await RefreshTopics();
 
+        if (_previouslySelectedTopicId.HasValue)
+        {
+            SelectedTopic = Topics.FirstOrDefault(t => t.TopicId == _previouslySelectedTopicId);
+        }
+
         ShowWaitIndicator = false;
     }
 
@@ -71,9 +87,15 @@ public partial class TopicsViewModel : ViewModel,
 
     #region - Messenger -
 
-    public void Receive(TopicFormSavedMessage message)
+
+    private uint? _previouslySelectedTopicId = null;
+
+
+    public async void Receive(TopicFormSavedMessage message)
     {
-        int x = 10;
+        await SaveTopicFormChangesAsync(message.Value);
+        
+        NavigateHere();
     }
 
     #endregion
@@ -106,10 +128,21 @@ public partial class TopicsViewModel : ViewModel,
         _navigation.GetNavigationControl().Navigate(typeof(TopicFormPage));
     }
 
+    private void NavigateHere()
+    {
+        _navigation.GetNavigationControl().Navigate(typeof(TopicsPage));
+    }
+
     private async Task RefreshTopics()
     {
         var topics = await _topicService.GetAllTopicsAsync();
         Topics = new(topics);
+    }
+
+
+    private async Task SaveTopicFormChangesAsync(TopicTableView topic)
+    {
+        await _topicService.SaveTopicAsync((EntryTopic)topic);
     }
 
     #endregion

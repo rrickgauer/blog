@@ -1,4 +1,5 @@
-﻿using Blog.Service.Domain.TableView;
+﻿using Blog.Service.Domain.Model;
+using Blog.Service.Domain.TableView;
 using Blog.Service.Repository.Contracts;
 using Blog.Service.Services.Contracts;
 
@@ -25,5 +26,36 @@ public class TopicService(ITopicRepository topicRepository, ITableMapperService 
         var usedTopics = _tableMapperService.ToModels<TopicTableView>(dataTable);
 
         return usedTopics;
+    }
+
+    public async Task<TopicTableView> SaveTopicAsync(EntryTopic topic)
+    {
+        var topicId = await SaveTopicInRepoAsync(topic);
+
+        return await GetTopicAsync(topicId);
+    }
+
+
+    private async Task<uint> SaveTopicInRepoAsync(EntryTopic topic)
+    {
+        if (topic.Id.HasValue)
+        {
+            await _topicRepository.UpdateTopicAsync(topic);
+            return topic.Id.Value;
+        }
+        else
+        {
+            var insertResult = await _topicRepository.InsertTopicAsync(topic);
+            return (uint)insertResult.RowId;
+        }
+    }
+
+
+
+    private async Task<TopicTableView> GetTopicAsync(uint topicId)
+    {
+        var topics = await GetAllTopicsAsync();
+
+        return topics.First(t => t.TopicId == topicId);
     }
 }

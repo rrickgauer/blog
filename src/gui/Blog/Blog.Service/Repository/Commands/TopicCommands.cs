@@ -20,5 +20,20 @@ public sealed class TopicCommands
             View_Topics t
         ORDER BY
             t.topic_name ASC;";
+
+
+    public const string Insert = @"
+        INSERT INTO
+            Topics (id, name)
+        VALUES
+            (@id, @name);";
+
+    public const string Update = @"
+        UPDATE
+            Topics
+        SET
+            name = @name
+        WHERE
+            id = @id;";
     
 }

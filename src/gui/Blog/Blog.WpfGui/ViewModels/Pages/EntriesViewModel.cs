@@ -82,6 +82,8 @@ public partial class EntriesViewModel : ViewModel,
         {
             return;
         }
+
+
     }
 
     [RelayCommand]
@@ -91,7 +93,7 @@ public partial class EntriesViewModel : ViewModel,
     }
 
     [RelayCommand]
-    private async void ViewEntryPage(EntryTableView entry)
+    private void ViewEntryPage(EntryTableView entry)
     {
         entry.ViewPublication(_configs);
     }

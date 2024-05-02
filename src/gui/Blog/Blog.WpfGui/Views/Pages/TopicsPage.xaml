@@ -65,6 +65,7 @@
                          IsReadOnly="True"
                          SelectionUnit="FullRow"
                          ColumnWidth="*"
+                         SelectedItem="{Binding ViewModel.SelectedTopic, Mode=TwoWay}"
                          SelectionMode="Single"
                          AutoGenerateColumns="False">
                 <ui:DataGrid.Resources>
