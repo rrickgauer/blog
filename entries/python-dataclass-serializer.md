@@ -1,119 +1,103 @@
-Recently, I've found myself doing a lot of work in [Flask](https://flask.palletsprojects.com/en/2.1.x/). Because of this, I've had to devise a way to serialize/map dictionaries to dataclasses. This is what I've come up with.
 
-## Dataclass
 
-Let's start out with a basic data class.
+This is a simple wrapper/method for mapping dictionaries to data classes in python.
 
-```py
-from dataclasses import dataclass
-from datetime import datetime
-from decimal import Decimal
-from uuid import UUID
+## Mapper Module
 
-@dataclass
-class Watch:
-    id         : UUID                 = None
-    tag        : str                  = None
-    symbol     : str                  = None
-    price      : Decimal              = None
-    email      : str                  = None
-    created_on : datetime             = datetime.now()
-    closed_on  : datetime             = None
+First, we need to install the [dacite](https://github.com/konradhalas/dacite) libray:
+
+```sh
+pip install dacite
 ```
 
-## Serializer
-
-Here is the base serializer class that all future serializers should inherit from:
+Now, create a new mapper module to handle the dictionary mapping:
 
 ```py
-#------------------------------------------------------
-# Base serializer class
-#------------------------------------------------------
-class SerializerBase:
-    DomainModel: dataclass = object
+from __future__ import annotations
+import datetime
+import uuid
+from dacite.core import from_dict
+import dacite
+from typing import TypeVar, Type, Dict, List
+import enum
 
-    #------------------------------------------------------
-    # Constructor
-    #
-    # Args:
-    #   - dictionary: a dict of the data to serialize into the Domain Model
-    #   - domain_model: an instance of the class' DomainModel or None
-    #------------------------------------------------------
-    def __init__(self, dictionary: dict, domain_model = None):
-        self.dictionary = dictionary
-        
-        # if the given domain_model is not null, set the object's domain_model field to it
-        # otherwise, call the contructor of the class' DomainModel
-        self.domain_model = domain_model or self.DomainModel()
+T = TypeVar("T")
 
-    #------------------------------------------------------
-    # Serialize the object's dictionary into the sub-class' domain model
-    #------------------------------------------------------
-    def serialize(self) -> dataclass:
-        model = self.domain_model
+def _try_map_date_str(day_str: str):
+    """Try mapping a date string value"""
 
-        # get a list of all the Model's attributes
-        model_keys = list(model.__annotations__.keys())
+    try:
+        return datetime.date.fromisoformat(day_str)
+    except:
+        return datetime.datetime.fromisoformat(day_str).date()
 
-        # if the dict's key is an attribute in the model, copy over the value
-        for key, value in self.dictionary.items():
-            if not key in model_keys:
-                continue
-            elif not value:
-                setattr(model, key, None)
-            else:
-                setattr(model, key, value or None)
+MAPPER_CONFIG = dacite.Config(
+    cast = [
+        uuid.UUID, 
+        enum.Enum
+    ],
 
-        return model
+    type_hooks = {
+        datetime.datetime: datetime.datetime.fromisoformat,
+        datetime.date: _try_map_date_str,
+        datetime.time: datetime.time.fromisoformat,
+    },
+)
+
+
+
+def map_dicts(data: List[Dict], class_type: Type[T]) -> List[T]:
+    """Map the dictionaries to the specified type."""
+    return [map_dict(d, class_type) for d in data]
+
+
+def map_dict(data: Dict, class_type: Type[T]) -> T:
+    """Map the given dictionary to the specified type"""
+    return from_dict(class_type, data, MAPPER_CONFIG)
+
+
+class IMappable:
+    """Have a domain dataclass inherit this class to use ClassName.from_dict(data)."""
+    
+    @classmethod
+    def from_dicts(cls, data: List[Dict]):
+        return map_dicts(data, cls)
+
+    @classmethod
+    def from_dict(cls, data: Dict):
+        return map_dict(data, cls)
 ```
-
-
-
-Now, let's make one more class that will inherit the `BaseSerializer` class and serialize a dictionary into a `Watch` object:
-
-```py
-import models
-
-class WatchSerializer(SerializerBase):
-    DomainModel = models.Watch
-```
-
-If you want to do some additional work on the object before returning it:
-
-```py
-import models
-from datetime import datetime
-
-class WatchSerializer(SerializerBase):
-    DomainModel = models.Watch
-
-    def serialize(self) -> models.Watch:
-        model = super().serialize()
-
-        if model.closed_on == None:
-            model.closed_on = datetime.now()
-
-        return model
-```
-
 
 ## Usage
 
-Now, to use the `WatchSerializer` class:
+Let's start out with a basic User data class:
 
 ```py
-from serializers import WatchSerializer
-from models import Watch
+from __future__ import annotations
+from dataclasses import dataclass
+from typing import Optional as Opt
+from datetime import datetime
+import IMappable
 
-d = dict(
-    tag = 'tag value',
-    symbol = 'symbol',
-    price = 44.24,
-    email = 'test@example.com,
-    closed_on = None,
+
+@dataclass
+class User(IMappable):
+    user_id   : Opt[int]      = None
+    email     : Opt[str]      = None
+    created_on: Opt[datetime] = None
+```
+
+To map dictionaries to a dataclass you can do it like so:
+
+```py
+import User
+
+user_dict = dict(
+    user_id    = 1,
+    email      = 'testing@example.com',
+    created_on = None,
 )
 
-serializer = WatchSerializer(d)
-watch = serializer.serialize()
-print(watch)
+user_data_class = User.from_dict(user_dict)
+print(user_data_class)
 ```
