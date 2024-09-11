@@ -2,7 +2,7 @@
 This is the 2024 Player Team Report Cards table:
 
 
-| Team                   | Treatment of Families | Food/Cafeteria | Nutritionist/Dietician | Locker Room | Training Room | Training Staff | Weight Room | Strength Coaches | Team Travel | Head Coach | Owner |
+| Team                   | Treatment of Families | Food/Cafeteria | Nutritionist/Dietician | Locker Room | Training Room | Training Staff | Weight Room | Strength Coaches  | Team Travel | Head Coach | Owner |
 |------------------------|-----------------------|----------------|------------------------|-------------|---------------|----------------|-------------|-------------------|-------------|------------|-------|
 | Arizona Cardinals      | D+                    | D              | C                      | F           | C-            | B              | C-          | C+                | C+          | A-         | F     |
 | Atlanta Falcons        | C                     | C              | A-                     | F           | B-            | A-             | F           | F-                | C           | C+         | A-    |
