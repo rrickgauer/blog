@@ -9,13 +9,13 @@
 <body>
 
     <div class="container">
-        <h1 id="hero" class="custom-font mt-5 mb-5">Ryan Rickgauer's Blog</h1>
+        <h1 id="hero" class="custom-font my-3 my-md-5">Ryan Rickgauer's Blog</h1>
 
         <div class="d-md-flex justify-content-between">
             <!-- filters -->
             <div class="toolbar-select toolbar-filter">
                 <span class="label"><b>Topics:</b></span>
-                <div>
+                <div class="w-100 w-lg-auto">
                     <select class="form-control form-control-sm select-filter">
                         <option value="_all">All</option>
 
@@ -45,7 +45,7 @@
 
             @foreach(var entry in Model.Entries)
             {
-                <li class="list-group-item entry" data-date="@entry.Date" data-topic-id="@entry.TopicId">
+                <li class="list-group-item entry" data-date="@entry.DateSort" data-topic-id="@entry.TopicId">
                     <div class="title d-sm-flex align-items-center">
                         <a href="entries/@entry.EntryId">@entry.Title</a>
                         <div><span class="badge badge-secondary ml-sm-2">@entry.TopicName</span></div>
