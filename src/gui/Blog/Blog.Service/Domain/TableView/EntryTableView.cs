@@ -49,6 +49,8 @@ public class EntryTableView : ITableView<EntryTableView, Entry>, ITableView<Entr
         }
     }
 
+    public string DateSort => Date?.ToString("yyyyMMdd") ?? "0";
+
     #region - Methods -
 
     public void ViewPublication(IConfigs configs)
