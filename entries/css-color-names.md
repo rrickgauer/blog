@@ -1,154 +1,152 @@
-Here is a list of all the predefined CSS color names:
+Here is a list of all the CSS color codes:
 
-| Color Name          | Hex Code   |
-|---------------------|------------|
-| AliceBlue           | #F0F8FF    |
-| AntiqueWhite        | #FAEBD7    |
-| Aqua                | #00FFFF    |
-| Aquamarine          | #7FFFD4    |
-| Azure               | #F0FFFF    |
-| Beige               | #F5F5DC    |
-| Bisque              | #FFE4C4    |
-| Black               | #000000    |
-| BlanchedAlmond      | #FFEBCD    |
-| Blue                | #0000FF    |
-| BlueViolet          | #8A2BE2    |
-| Brown               | #A52A2A    |
-| BurlyWood           | #DEB887    |
-| CadetBlue           | #5F9EA0    |
-| Chartreuse          | #7FFF00    |
-| Chocolate           | #D2691E    |
-| Coral               | #FF7F50    |
-| CornflowerBlue      | #6495ED    |
-| Cornsilk            | #FFF8DC    |
-| Crimson             | #DC143C    |
-| Cyan                | #00FFFF    |
-| DarkBlue            | #00008B    |
-| DarkCyan            | #008B8B    |
-| DarkGoldenRod       | #B8860B    |
-| DarkGray            | #A9A9A9    |
-| DarkGreen           | #006400    |
-| DarkGrey            | #A9A9A9    |
-| DarkKhaki           | #BDB76B    |
-| DarkMagenta         | #8B008B    |
-| DarkOliveGreen      | #556B2F    |
-| DarkOrange          | #FF8C00    |
-| DarkOrchid          | #9932CC    |
-| DarkRed             | #8B0000    |
-| DarkSalmon          | #E9967A    |
-| DarkSeaGreen        | #8FBC8F    |
-| DarkSlateBlue       | #483D8B    |
-| DarkSlateGray       | #2F4F4F    |
-| DarkSlateGrey       | #2F4F4F    |
-| DarkTurquoise       | #00CED1    |
-| DarkViolet          | #9400D3    |
-| DeepPink            | #FF1493    |
-| DeepSkyBlue         | #00BFFF    |
-| DimGray             | #696969    |
-| DimGrey             | #696969    |
-| DodgerBlue          | #1E90FF    |
-| FireBrick           | #B22222    |
-| FloralWhite         | #FFFAF0    |
-| ForestGreen         | #228B22    |
-| Fuchsia             | #FF00FF    |
-| Gainsboro           | #DCDCDC    |
-| GhostWhite          | #F8F8FF    |
-| Gold                | #FFD700    |
-| GoldenRod           | #DAA520    |
-| Gray                | #808080    |
-| Green               | #008000    |
-| GreenYellow         | #ADFF2F    |
-| Grey                | #808080    |
-| HoneyDew            | #F0FFF0    |
-| HotPink             | #FF69B4    |
-| IndianRed           | #CD5C5C    |
-| Indigo              | #4B0082    |
-| Ivory               | #FFFFF0    |
-| Khaki               | #F0E68C    |
-| Lavender            | #E6E6FA    |
-| LavenderBlush       | #FFF0F5    |
-| LawnGreen           | #7CFC00    |
-| LemonChiffon        | #FFFACD    |
-| LightBlue           | #ADD8E6    |
-| LightCoral          | #F08080    |
-| LightCyan           | #E0FFFF    |
-| LightGoldenRodYellow| #FAFAD2    |
-| LightGray           | #D3D3D3    |
-| LightGreen          | #90EE90    |
-| LightGrey           | #D3D3D3    |
-| LightPink           | #FFB6C1    |
-| LightSalmon         | #FFA07A    |
-| LightSeaGreen       | #20B2AA    |
-| LightSkyBlue        | #87CEFA    |
-| LightSlateGray      | #778899    |
-| LightSlateGrey      | #778899    |
-| LightSteelBlue      | #B0C4DE    |
-| LightYellow         | #FFFFE0    |
-| Lime                | #00FF00    |
-| LimeGreen           | #32CD32    |
-| Linen               | #FAF0E6    |
-| Magenta             | #FF00FF    |
-| Maroon              | #800000    |
-| MediumAquaMarine    | #66CDAA    |
-| MediumBlue          | #0000CD    |
-| MediumOrchid        | #BA55D3    |
-| MediumPurple        | #9370DB    |
-| MediumSeaGreen      | #3CB371    |
-| MediumSlateBlue     | #7B68EE    |
-| MediumSpringGreen   | #00FA9A    |
-| MediumTurquoise     | #48D1CC    |
-| MediumVioletRed     | #C71585    |
-| MidnightBlue        | #191970    |
-| MintCream           | #F5FFFA    |
-| MistyRose           | #FFE4E1    |
-| Moccasin            | #FFE4B5    |
-| NavajoWhite         | #FFDEAD    |
-| Navy                | #000080    |
-| OldLace             | #FDF5E6    |
-| Olive               | #808000    |
-| OliveDrab           | #6B8E23    |
-| Orange              | #FFA500    |
-| OrangeRed           | #FF4500    |
-| Orchid              | #DA70D6    |
-| PaleGoldenRod       | #EEE8AA    |
-| PaleGreen           | #98FB98    |
-| PaleTurquoise       | #AFEEEE    |
-| PaleVioletRed       | #DB7093    |
-| PapayaWhip          | #FFEFD5    |
-| PeachPuff           | #FFDAB9    |
-| Peru                | #CD853F    |
-| Pink                | #FFC0CB    |
-| Plum                | #DDA0DD    |
-| PowderBlue          | #B0E0E6    |
-| Purple              | #800080    |
-| RebeccaPurple       | #663399    |
-| Red                 | #FF0000    |
-| RosyBrown           | #BC8F8F    |
-| RoyalBlue           | #4169E1    |
-| SaddleBrown         | #8B4513    |
-| Salmon              | #FA8072    |
-| SandyBrown          | #F4A460    |
-| SeaGreen            | #2E8B57    |
-| SeaShell            | #FFF5EE    |
-| Sienna              | #A0522D    |
-| Silver              | #C0C0C0    |
-| SkyBlue             | #87CEEB    |
-| SlateBlue           | #6A5ACD    |
-| SlateGray           | #708090    |
-| SlateGrey           | #708090    |
-| Snow                | #FFFAFA    |
-| SpringGreen         | #00FF7F    |
-| SteelBlue           | #4682B4    |
-| Tan                 | #D2B48C    |
-| Teal                | #008080    |
-| Thistle             | #D8BFD8    |
-| Tomato              | #FF6347    |
-| Turquoise           | #40E0D0    |
-| Violet              | #EE82EE    |
-| Wheat               | #F5DEB3    |
-| White               | #FFFFFF    |
-| WhiteSmoke          | #F5F5F5    |
-| Yellow              | #FFFF00    |
-| YellowGreen         | #9ACD32    |
-
-Source: https://www.w3.org/wiki/CSS/Properties/color/keywords
+| Color Name          |  Example | Hex Code   |
+|---------------------|------------| --- |
+| AliceBlue           |  <div style="background-color: #F0F8FF; width: 30px; height: 15px;"></div>  | #F0F8FF    |
+| AntiqueWhite        |  <div style="background-color: #FAEBD7; width: 30px; height: 15px;"></div>  | #FAEBD7    |
+| Aqua                |  <div style="background-color: #00FFFF; width: 30px; height: 15px;"></div>  | #00FFFF    |
+| Aquamarine          |  <div style="background-color: #7FFFD4; width: 30px; height: 15px;"></div>  | #7FFFD4    |
+| Azure               |  <div style="background-color: #F0FFFF; width: 30px; height: 15px;"></div>  | #F0FFFF    |
+| Beige               |  <div style="background-color: #F5F5DC; width: 30px; height: 15px;"></div>  | #F5F5DC    |
+| Bisque              |  <div style="background-color: #FFE4C4; width: 30px; height: 15px;"></div>  | #FFE4C4    |
+| Black               |  <div style="background-color: #000000; width: 30px; height: 15px;"></div>  | #000000    |
+| BlanchedAlmond      |  <div style="background-color: #FFEBCD; width: 30px; height: 15px;"></div>  | #FFEBCD    |
+| Blue                |  <div style="background-color: #0000FF; width: 30px; height: 15px;"></div>  | #0000FF    |
+| BlueViolet          |  <div style="background-color: #8A2BE2; width: 30px; height: 15px;"></div>  | #8A2BE2    |
+| Brown               |  <div style="background-color: #A52A2A; width: 30px; height: 15px;"></div>  | #A52A2A    |
+| BurlyWood           |  <div style="background-color: #DEB887; width: 30px; height: 15px;"></div>  | #DEB887    |
+| CadetBlue           |  <div style="background-color: #5F9EA0; width: 30px; height: 15px;"></div>  | #5F9EA0    |
+| Chartreuse          |  <div style="background-color: #7FFF00; width: 30px; height: 15px;"></div>  | #7FFF00    |
+| Chocolate           |  <div style="background-color: #D2691E; width: 30px; height: 15px;"></div>  | #D2691E    |
+| Coral               |  <div style="background-color: #FF7F50; width: 30px; height: 15px;"></div>  | #FF7F50    |
+| CornflowerBlue      |  <div style="background-color: #6495ED; width: 30px; height: 15px;"></div>  | #6495ED    |
+| Cornsilk            |  <div style="background-color: #FFF8DC; width: 30px; height: 15px;"></div>  | #FFF8DC    |
+| Crimson             |  <div style="background-color: #DC143C; width: 30px; height: 15px;"></div>  | #DC143C    |
+| Cyan                |  <div style="background-color: #00FFFF; width: 30px; height: 15px;"></div>  | #00FFFF    |
+| DarkBlue            |  <div style="background-color: #00008B; width: 30px; height: 15px;"></div>  | #00008B    |
+| DarkCyan            |  <div style="background-color: #008B8B; width: 30px; height: 15px;"></div>  | #008B8B    |
+| DarkGoldenRod       |  <div style="background-color: #B8860B; width: 30px; height: 15px;"></div>  | #B8860B    |
+| DarkGray            |  <div style="background-color: #A9A9A9; width: 30px; height: 15px;"></div>  | #A9A9A9    |
+| DarkGreen           |  <div style="background-color: #006400; width: 30px; height: 15px;"></div>  | #006400    |
+| DarkGrey            |  <div style="background-color: #A9A9A9; width: 30px; height: 15px;"></div>  | #A9A9A9    |
+| DarkKhaki           |  <div style="background-color: #BDB76B; width: 30px; height: 15px;"></div>  | #BDB76B    |
+| DarkMagenta         |  <div style="background-color: #8B008B; width: 30px; height: 15px;"></div>  | #8B008B    |
+| DarkOliveGreen      |  <div style="background-color: #556B2F; width: 30px; height: 15px;"></div>  | #556B2F    |
+| DarkOrange          |  <div style="background-color: #FF8C00; width: 30px; height: 15px;"></div>  | #FF8C00    |
+| DarkOrchid          |  <div style="background-color: #9932CC; width: 30px; height: 15px;"></div>  | #9932CC    |
+| DarkRed             |  <div style="background-color: #8B0000; width: 30px; height: 15px;"></div>  | #8B0000    |
+| DarkSalmon          |  <div style="background-color: #E9967A; width: 30px; height: 15px;"></div>  | #E9967A    |
+| DarkSeaGreen        |  <div style="background-color: #8FBC8F; width: 30px; height: 15px;"></div>  | #8FBC8F    |
+| DarkSlateBlue       |  <div style="background-color: #483D8B; width: 30px; height: 15px;"></div>  | #483D8B    |
+| DarkSlateGray       |  <div style="background-color: #2F4F4F; width: 30px; height: 15px;"></div>  | #2F4F4F    |
+| DarkSlateGrey       |  <div style="background-color: #2F4F4F; width: 30px; height: 15px;"></div>  | #2F4F4F    |
+| DarkTurquoise       |  <div style="background-color: #00CED1; width: 30px; height: 15px;"></div>  | #00CED1    |
+| DarkViolet          |  <div style="background-color: #9400D3; width: 30px; height: 15px;"></div>  | #9400D3    |
+| DeepPink            |  <div style="background-color: #FF1493; width: 30px; height: 15px;"></div>  | #FF1493    |
+| DeepSkyBlue         |  <div style="background-color: #00BFFF; width: 30px; height: 15px;"></div>  | #00BFFF    |
+| DimGray             |  <div style="background-color: #696969; width: 30px; height: 15px;"></div>  | #696969    |
+| DimGrey             |  <div style="background-color: #696969; width: 30px; height: 15px;"></div>  | #696969    |
+| DodgerBlue          |  <div style="background-color: #1E90FF; width: 30px; height: 15px;"></div>  | #1E90FF    |
+| FireBrick           |  <div style="background-color: #B22222; width: 30px; height: 15px;"></div>  | #B22222    |
+| FloralWhite         |  <div style="background-color: #FFFAF0; width: 30px; height: 15px;"></div>  | #FFFAF0    |
+| ForestGreen         |  <div style="background-color: #228B22; width: 30px; height: 15px;"></div>  | #228B22    |
+| Fuchsia             |  <div style="background-color: #FF00FF; width: 30px; height: 15px;"></div>  | #FF00FF    |
+| Gainsboro           |  <div style="background-color: #DCDCDC; width: 30px; height: 15px;"></div>  | #DCDCDC    |
+| GhostWhite          |  <div style="background-color: #F8F8FF; width: 30px; height: 15px;"></div>  | #F8F8FF    |
+| Gold                |  <div style="background-color: #FFD700; width: 30px; height: 15px;"></div>  | #FFD700    |
+| GoldenRod           |  <div style="background-color: #DAA520; width: 30px; height: 15px;"></div>  | #DAA520    |
+| Gray                |  <div style="background-color: #808080; width: 30px; height: 15px;"></div>  | #808080    |
+| Green               |  <div style="background-color: #008000; width: 30px; height: 15px;"></div>  | #008000    |
+| GreenYellow         |  <div style="background-color: #ADFF2F; width: 30px; height: 15px;"></div>  | #ADFF2F    |
+| Grey                |  <div style="background-color: #808080; width: 30px; height: 15px;"></div>  | #808080    |
+| HoneyDew            |  <div style="background-color: #F0FFF0; width: 30px; height: 15px;"></div>  | #F0FFF0    |
+| HotPink             |  <div style="background-color: #FF69B4; width: 30px; height: 15px;"></div>  | #FF69B4    |
+| IndianRed           |  <div style="background-color: #CD5C5C; width: 30px; height: 15px;"></div>  | #CD5C5C    |
+| Indigo              |  <div style="background-color: #4B0082; width: 30px; height: 15px;"></div>  | #4B0082    |
+| Ivory               |  <div style="background-color: #FFFFF0; width: 30px; height: 15px;"></div>  | #FFFFF0    |
+| Khaki               |  <div style="background-color: #F0E68C; width: 30px; height: 15px;"></div>  | #F0E68C    |
+| Lavender            |  <div style="background-color: #E6E6FA; width: 30px; height: 15px;"></div>  | #E6E6FA    |
+| LavenderBlush       |  <div style="background-color: #FFF0F5; width: 30px; height: 15px;"></div>  | #FFF0F5    |
+| LawnGreen           |  <div style="background-color: #7CFC00; width: 30px; height: 15px;"></div>  | #7CFC00    |
+| LemonChiffon        |  <div style="background-color: #FFFACD; width: 30px; height: 15px;"></div>  | #FFFACD    |
+| LightBlue           |  <div style="background-color: #ADD8E6; width: 30px; height: 15px;"></div>  | #ADD8E6    |
+| LightCoral          |  <div style="background-color: #F08080; width: 30px; height: 15px;"></div>  | #F08080    |
+| LightCyan           |  <div style="background-color: #E0FFFF; width: 30px; height: 15px;"></div>  | #E0FFFF    |
+| LightGoldenRodYellow|  <div style="background-color: #FAFAD2; width: 30px; height: 15px;"></div>  | #FAFAD2    |
+| LightGray           |  <div style="background-color: #D3D3D3; width: 30px; height: 15px;"></div>  | #D3D3D3    |
+| LightGreen          |  <div style="background-color: #90EE90; width: 30px; height: 15px;"></div>  | #90EE90    |
+| LightGrey           |  <div style="background-color: #D3D3D3; width: 30px; height: 15px;"></div>  | #D3D3D3    |
+| LightPink           |  <div style="background-color: #FFB6C1; width: 30px; height: 15px;"></div>  | #FFB6C1    |
+| LightSalmon         |  <div style="background-color: #FFA07A; width: 30px; height: 15px;"></div>  | #FFA07A    |
+| LightSeaGreen       |  <div style="background-color: #20B2AA; width: 30px; height: 15px;"></div>  | #20B2AA    |
+| LightSkyBlue        |  <div style="background-color: #87CEFA; width: 30px; height: 15px;"></div>  | #87CEFA    |
+| LightSlateGray      |  <div style="background-color: #778899; width: 30px; height: 15px;"></div>  | #778899    |
+| LightSlateGrey      |  <div style="background-color: #778899; width: 30px; height: 15px;"></div>  | #778899    |
+| LightSteelBlue      |  <div style="background-color: #B0C4DE; width: 30px; height: 15px;"></div>  | #B0C4DE    |
+| LightYellow         |  <div style="background-color: #FFFFE0; width: 30px; height: 15px;"></div>  | #FFFFE0    |
+| Lime                |  <div style="background-color: #00FF00; width: 30px; height: 15px;"></div>  | #00FF00    |
+| LimeGreen           |  <div style="background-color: #32CD32; width: 30px; height: 15px;"></div>  | #32CD32    |
+| Linen               |  <div style="background-color: #FAF0E6; width: 30px; height: 15px;"></div>  | #FAF0E6    |
+| Magenta             |  <div style="background-color: #FF00FF; width: 30px; height: 15px;"></div>  | #FF00FF    |
+| Maroon              |  <div style="background-color: #800000; width: 30px; height: 15px;"></div>  | #800000    |
+| MediumAquaMarine    |  <div style="background-color: #66CDAA; width: 30px; height: 15px;"></div>  | #66CDAA    |
+| MediumBlue          |  <div style="background-color: #0000CD; width: 30px; height: 15px;"></div>  | #0000CD    |
+| MediumOrchid        |  <div style="background-color: #BA55D3; width: 30px; height: 15px;"></div>  | #BA55D3    |
+| MediumPurple        |  <div style="background-color: #9370DB; width: 30px; height: 15px;"></div>  | #9370DB    |
+| MediumSeaGreen      |  <div style="background-color: #3CB371; width: 30px; height: 15px;"></div>  | #3CB371    |
+| MediumSlateBlue     |  <div style="background-color: #7B68EE; width: 30px; height: 15px;"></div>  | #7B68EE    |
+| MediumSpringGreen   |  <div style="background-color: #00FA9A; width: 30px; height: 15px;"></div>  | #00FA9A    |
+| MediumTurquoise     |  <div style="background-color: #48D1CC; width: 30px; height: 15px;"></div>  | #48D1CC    |
+| MediumVioletRed     |  <div style="background-color: #C71585; width: 30px; height: 15px;"></div>  | #C71585    |
+| MidnightBlue        |  <div style="background-color: #191970; width: 30px; height: 15px;"></div>  | #191970    |
+| MintCream           |  <div style="background-color: #F5FFFA; width: 30px; height: 15px;"></div>  | #F5FFFA    |
+| MistyRose           |  <div style="background-color: #FFE4E1; width: 30px; height: 15px;"></div>  | #FFE4E1    |
+| Moccasin            |  <div style="background-color: #FFE4B5; width: 30px; height: 15px;"></div>  | #FFE4B5    |
+| NavajoWhite         |  <div style="background-color: #FFDEAD; width: 30px; height: 15px;"></div>  | #FFDEAD    |
+| Navy                |  <div style="background-color: #000080; width: 30px; height: 15px;"></div>  | #000080    |
+| OldLace             |  <div style="background-color: #FDF5E6; width: 30px; height: 15px;"></div>  | #FDF5E6    |
+| Olive               |  <div style="background-color: #808000; width: 30px; height: 15px;"></div>  | #808000    |
+| OliveDrab           |  <div style="background-color: #6B8E23; width: 30px; height: 15px;"></div>  | #6B8E23    |
+| Orange              |  <div style="background-color: #FFA500; width: 30px; height: 15px;"></div>  | #FFA500    |
+| OrangeRed           |  <div style="background-color: #FF4500; width: 30px; height: 15px;"></div>  | #FF4500    |
+| Orchid              |  <div style="background-color: #DA70D6; width: 30px; height: 15px;"></div>  | #DA70D6    |
+| PaleGoldenRod       |  <div style="background-color: #EEE8AA; width: 30px; height: 15px;"></div>  | #EEE8AA    |
+| PaleGreen           |  <div style="background-color: #98FB98; width: 30px; height: 15px;"></div>  | #98FB98    |
+| PaleTurquoise       |  <div style="background-color: #AFEEEE; width: 30px; height: 15px;"></div>  | #AFEEEE    |
+| PaleVioletRed       |  <div style="background-color: #DB7093; width: 30px; height: 15px;"></div>  | #DB7093    |
+| PapayaWhip          |  <div style="background-color: #FFEFD5; width: 30px; height: 15px;"></div>  | #FFEFD5    |
+| PeachPuff           |  <div style="background-color: #FFDAB9; width: 30px; height: 15px;"></div>  | #FFDAB9    |
+| Peru                |  <div style="background-color: #CD853F; width: 30px; height: 15px;"></div>  | #CD853F    |
+| Pink                |  <div style="background-color: #FFC0CB; width: 30px; height: 15px;"></div>  | #FFC0CB    |
+| Plum                |  <div style="background-color: #DDA0DD; width: 30px; height: 15px;"></div>  | #DDA0DD    |
+| PowderBlue          |  <div style="background-color: #B0E0E6; width: 30px; height: 15px;"></div>  | #B0E0E6    |
+| Purple              |  <div style="background-color: #800080; width: 30px; height: 15px;"></div>  | #800080    |
+| RebeccaPurple       |  <div style="background-color: #663399; width: 30px; height: 15px;"></div>  | #663399    |
+| Red                 |  <div style="background-color: #FF0000; width: 30px; height: 15px;"></div>  | #FF0000    |
+| RosyBrown           |  <div style="background-color: #BC8F8F; width: 30px; height: 15px;"></div>  | #BC8F8F    |
+| RoyalBlue           |  <div style="background-color: #4169E1; width: 30px; height: 15px;"></div>  | #4169E1    |
+| SaddleBrown         |  <div style="background-color: #8B4513; width: 30px; height: 15px;"></div>  | #8B4513    |
+| Salmon              |  <div style="background-color: #FA8072; width: 30px; height: 15px;"></div>  | #FA8072    |
+| SandyBrown          |  <div style="background-color: #F4A460; width: 30px; height: 15px;"></div>  | #F4A460    |
+| SeaGreen            |  <div style="background-color: #2E8B57; width: 30px; height: 15px;"></div>  | #2E8B57    |
+| SeaShell            |  <div style="background-color: #FFF5EE; width: 30px; height: 15px;"></div>  | #FFF5EE    |
+| Sienna              |  <div style="background-color: #A0522D; width: 30px; height: 15px;"></div>  | #A0522D    |
+| Silver              |  <div style="background-color: #C0C0C0; width: 30px; height: 15px;"></div>  | #C0C0C0    |
+| SkyBlue             |  <div style="background-color: #87CEEB; width: 30px; height: 15px;"></div>  | #87CEEB    |
+| SlateBlue           |  <div style="background-color: #6A5ACD; width: 30px; height: 15px;"></div>  | #6A5ACD    |
+| SlateGray           |  <div style="background-color: #708090; width: 30px; height: 15px;"></div>  | #708090    |
+| SlateGrey           |  <div style="background-color: #708090; width: 30px; height: 15px;"></div>  | #708090    |
+| Snow                |  <div style="background-color: #FFFAFA; width: 30px; height: 15px;"></div>  | #FFFAFA    |
+| SpringGreen         |  <div style="background-color: #00FF7F; width: 30px; height: 15px;"></div>  | #00FF7F    |
+| SteelBlue           |  <div style="background-color: #4682B4; width: 30px; height: 15px;"></div>  | #4682B4    |
+| Tan                 |  <div style="background-color: #D2B48C; width: 30px; height: 15px;"></div>  | #D2B48C    |
+| Teal                |  <div style="background-color: #008080; width: 30px; height: 15px;"></div>  | #008080    |
+| Thistle             |  <div style="background-color: #D8BFD8; width: 30px; height: 15px;"></div>  | #D8BFD8    |
+| Tomato              |  <div style="background-color: #FF6347; width: 30px; height: 15px;"></div>  | #FF6347    |
+| Turquoise           |  <div style="background-color: #40E0D0; width: 30px; height: 15px;"></div>  | #40E0D0    |
+| Violet              |  <div style="background-color: #EE82EE; width: 30px; height: 15px;"></div>  | #EE82EE    |
+| Wheat               |  <div style="background-color: #F5DEB3; width: 30px; height: 15px;"></div>  | #F5DEB3    |
+| White               |  <div style="background-color: #FFFFFF; width: 30px; height: 15px;"></div>  | #FFFFFF    |
+| WhiteSmoke          |  <div style="background-color: #F5F5F5; width: 30px; height: 15px;"></div>  | #F5F5F5    |
+| Yellow              |  <div style="background-color: #FFFF00; width: 30px; height: 15px;"></div>  | #FFFF00    |
+| YellowGreen         |  <div style="background-color: #9ACD32; width: 30px; height: 15px;"></div>  | #9ACD32    |
