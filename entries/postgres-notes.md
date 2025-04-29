@@ -67,6 +67,19 @@ CREATE DOMAIN user_nanoid AS TEXT
 CHECK (VALUE ~ '^clc_.{20}$');
 ```
 
+
+
+## Identity Columns
+
+```sql
+CREATE TABLE table_name (
+    id INTEGER NOT NULL UNIQUE GENERATED {ALWAYS | BY DEFAULT} AS IDENTITY PRIMARY KEY,
+    column_name data_type,
+    -- additional columns...
+);
+```
+
+
 ## Further Reading
 
 * https://wiki.postgresql.org/wiki/Don't_Do_This
