@@ -80,6 +80,50 @@ CREATE TABLE table_name (
 ```
 
 
+## UUID
+
+To generate a new `UUID`:
+
+```sql
+SELECT gen_random_uuid();   -- 7A168FE6-E9A0-4B18-9CDC-FADFD50B9C49
+```
+
+
+## Row Types
+
+https://www.postgresql.org/docs/current/plpgsql-declarations.html#PLPGSQL-DECLARATION-ROWTYPES
+
+
+In procedures or functions, you can declare variables to be of a specific table `ROWTYPE`. 
+
+For example, to access a single row in a procedure:
+
+```sql
+DECLARE event_row events%ROWTYPE;
+
+SELECT * 
+INTO event_row
+FROM events
+WHERE events.id = 3
+LIMIT 1;
+
+RAISE NOTICE 'selected event # %', event_row.id;
+```
+
+
+You can also use these types in a for loop:
+
+```sql
+DECLARE user_row users%ROWTYPE;
+
+FOR user_row in 
+    SELECT * FROM users
+LOOP
+    RAISE NOTICE 'current user id: %', user_row.id;
+END LOOP;
+```
+
+
 ## Further Reading
 
 * https://wiki.postgresql.org/wiki/Don't_Do_This
