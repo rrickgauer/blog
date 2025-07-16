@@ -71,7 +71,7 @@ Source | Description
 
 Source | Description
 :--- | :---
-[Boxicons](https://boxicons.com/) | High Quality web friendly icons
+[Boxicons](https://v2.boxicons.com/) | High Quality web friendly icons
 [Devicon](https://konpa.github.io/devicon/) | Set of icons representing programming languages, designing & development tools
 [Ion Icons](https://ionicons.com/) | The premium icon font for Ionic Framework and web apps everywhere
 [Favicon](https://favicon.io/favicon-generator/) | Create a favicon in few simple clicks.
