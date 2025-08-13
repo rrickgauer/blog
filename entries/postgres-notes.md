@@ -124,6 +124,26 @@ END LOOP;
 ```
 
 
+## Adding Non-Unique Index
+
+While UNIQUE ensures an index you might consider explicitly adding an index-only (non-unique) for faster queries:
+
+```sql
+CREATE INDEX idx_workspaces_public_id ON table_name(column_name);
+```
+
+## Timestamps
+
+Don't use the `timestamp` type to store timestamps, use `timestamptz` (also known as timestamp with time zone) instead:
+
+```sql
+created_on timestamptz NOT NULL DEFAULT NOW();
+```
+
+https://wiki.postgresql.org/wiki/Don%27t_Do_This#Don.27t_use_timestamp_.28without_time_zone.29
+
+
+
 ## Further Reading
 
 * https://wiki.postgresql.org/wiki/Don't_Do_This
