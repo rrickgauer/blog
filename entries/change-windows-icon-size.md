@@ -1,0 +1,1 @@
+To increase/decrease the icon sizes on your Windows 10 Desktop, `ctrl + Mouse Wheel`
