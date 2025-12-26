@@ -4,7 +4,7 @@ using Blog.Service.Domain.Other;
 using Blog.Service.Repository.Commands;
 using Blog.Service.Repository.Contracts;
 using Blog.Service.Repository.Other;
-using MySql.Data.MySqlClient;
+using Microsoft.Data.Sqlite;
 
 namespace Blog.Service.Repository.Implementations;
 
@@ -14,7 +14,7 @@ public class TopicRepository(DatabaseConnection connection) : ITopicRepository
 
     public async Task<DataTable> SelectAllUsedAsync()
     {
-        MySqlCommand command = new(TopicCommands.SelectAllUsed);
+        SqliteCommand command = new(TopicCommands.SelectAllUsed);
 
         var table = await _connection.FetchAllAsync(command);
 
@@ -23,7 +23,7 @@ public class TopicRepository(DatabaseConnection connection) : ITopicRepository
 
     public async Task<DataTable> SelectAllAsync()
     {
-        MySqlCommand command = new(TopicCommands.SelectAll);
+        SqliteCommand command = new(TopicCommands.SelectAll);
 
         var table = await _connection.FetchAllAsync(command);
 
@@ -32,7 +32,7 @@ public class TopicRepository(DatabaseConnection connection) : ITopicRepository
 
     public async Task<int> UpdateTopicAsync(EntryTopic topic)
     {
-        MySqlCommand command = new(TopicCommands.Update);
+        SqliteCommand command = new(TopicCommands.Update);
 
         AddModifyParms(topic, command);
 
@@ -41,22 +41,22 @@ public class TopicRepository(DatabaseConnection connection) : ITopicRepository
 
     public async Task<InsertAutoRowResult> InsertTopicAsync(EntryTopic topic)
     {
-        MySqlCommand command = new(TopicCommands.Insert);
+        SqliteCommand command = new(TopicCommands.Insert);
 
         AddModifyParms(topic, command);
 
         return await _connection.InsertAsync(command);
     }
 
-    private void AddModifyParms(EntryTopic topic, MySqlCommand command)
+    private void AddModifyParms(EntryTopic topic, SqliteCommand command)
     {
         command.Parameters.AddWithValue("@id", topic.Id);
         command.Parameters.AddWithValue("@name", topic.Name);
     }
 
-    public async Task<int> DeleteTopicAsync(uint topicId)
+    public async Task<int> DeleteTopicAsync(long topicId)
     {
-        MySqlCommand command = new(TopicCommands.Delete);
+        SqliteCommand command = new(TopicCommands.Delete);
 
         command.Parameters.AddWithValue("@id", topicId);
 

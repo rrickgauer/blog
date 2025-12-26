@@ -2,9 +2,9 @@
 
 public class Entry
 {
-    public int? Id { get; set; }
+    public long? Id { get; set; }
     public DateTime? Date { get; set; } = DateTime.Now;
     public string? Title { get; set; }
     public string? FileName { get; set; }
-    public uint? TopicId { get; set; }
+    public long? TopicId { get; set; }
 }

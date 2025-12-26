@@ -11,7 +11,7 @@ public class EntryTableView : ITableView<EntryTableView, Entry>, ITableView<Entr
 
     [SqlColumn("id")]
     [CopyToProperty<Entry>(nameof(Entry.Id))]
-    public int? EntryId { get; set; }
+    public long? EntryId { get; set; }
 
     [SqlColumn("date")]
     [CopyToProperty<Entry>(nameof(Entry.Date))]
@@ -28,7 +28,7 @@ public class EntryTableView : ITableView<EntryTableView, Entry>, ITableView<Entr
     [SqlColumn("topic_id")]
     [CopyToProperty<Entry>(nameof(Entry.TopicId))]
     [CopyToProperty<EntryTopic>(nameof(EntryTopic.Id))]
-    public uint? TopicId { get; set; }
+    public long? TopicId { get; set; }
 
     [SqlColumn("topic_name")]
     [CopyToProperty<EntryTopic>(nameof(EntryTopic.Name))]

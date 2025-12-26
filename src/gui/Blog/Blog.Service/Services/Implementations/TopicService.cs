@@ -36,7 +36,7 @@ public class TopicService(ITopicRepository topicRepository, ITableMapperService 
     }
 
 
-    private async Task<uint> SaveTopicInRepoAsync(EntryTopic topic)
+    private async Task<long> SaveTopicInRepoAsync(EntryTopic topic)
     {
         if (topic.Id.HasValue)
         {
@@ -52,7 +52,7 @@ public class TopicService(ITopicRepository topicRepository, ITableMapperService 
 
 
 
-    private async Task<TopicTableView> GetTopicAsync(uint topicId)
+    private async Task<TopicTableView> GetTopicAsync(long topicId)
     {
         var topics = await GetAllTopicsAsync();
 
@@ -60,7 +60,7 @@ public class TopicService(ITopicRepository topicRepository, ITableMapperService 
     }
 
 
-    public async Task<bool> DeleteTopicAsync(uint topicId)
+    public async Task<bool> DeleteTopicAsync(long topicId)
     {
         var canDelete = await CanDeleteTopicAsync(topicId);
 
@@ -72,7 +72,7 @@ public class TopicService(ITopicRepository topicRepository, ITableMapperService 
         return canDelete;
     }
 
-    private async Task<bool> CanDeleteTopicAsync(uint topicId)
+    private async Task<bool> CanDeleteTopicAsync(long topicId)
     {
         var topic = await GetTopicAsync(topicId);
 

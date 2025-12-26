@@ -4,7 +4,7 @@ using Blog.Service.Domain.Other;
 using Blog.Service.Repository.Commands;
 using Blog.Service.Repository.Contracts;
 using Blog.Service.Repository.Other;
-using MySql.Data.MySqlClient;
+using Microsoft.Data.Sqlite;
 
 
 namespace Blog.Service.Repository.Implementations;
@@ -15,7 +15,7 @@ public class EntryRepository(DatabaseConnection connection) : IEntryRepository
 
     public async Task<DataTable> SelectAllAsync()
     {
-        MySqlCommand command = new(EntryCommands.SelectAll);
+        SqliteCommand command = new(EntryCommands.SelectAll);
 
         var table = await _connection.FetchAllAsync(command);
 
@@ -24,7 +24,7 @@ public class EntryRepository(DatabaseConnection connection) : IEntryRepository
 
     public async Task<int> UpdateEntryAsync(Entry entry)
     {
-        MySqlCommand command = new(EntryCommands.Update);
+        SqliteCommand command = new(EntryCommands.Update);
 
         AddEntryParmsToCommand(command, entry);
 
@@ -33,14 +33,14 @@ public class EntryRepository(DatabaseConnection connection) : IEntryRepository
 
     public async Task<InsertAutoRowResult> InsertEntryAsync(Entry entry)
     {
-        MySqlCommand command = new(EntryCommands.Insert);
+        SqliteCommand command = new(EntryCommands.Insert);
 
         AddEntryParmsToCommand(command, entry);
 
         return await _connection.InsertAsync(command);
     }
 
-    private static void AddEntryParmsToCommand(MySqlCommand command, Entry entry)
+    private static void AddEntryParmsToCommand(SqliteCommand command, Entry entry)
     {
         command.Parameters.AddWithValue("@id", entry.Id);
         command.Parameters.AddWithValue("@date", entry.Date);
@@ -49,9 +49,9 @@ public class EntryRepository(DatabaseConnection connection) : IEntryRepository
         command.Parameters.AddWithValue("@topic_id", entry.TopicId);
     }
 
-    public async Task<int> DeleteEntryAsync(int entryId)
+    public async Task<int> DeleteEntryAsync(long entryId)
     {
-        MySqlCommand command = new(EntryCommands.Delete);
+        SqliteCommand command = new(EntryCommands.Delete);
 
         command.Parameters.AddWithValue("@id", entryId);
 

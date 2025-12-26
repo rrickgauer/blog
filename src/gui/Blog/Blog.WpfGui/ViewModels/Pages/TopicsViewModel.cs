@@ -21,7 +21,7 @@ public partial class TopicsViewModel : ViewModel,
     private readonly TopicFormViewModel _topicFormViewModel;
     private readonly ISnackbarService _snackbarService;
 
-    private uint? _previouslySelectedTopicId = null;
+    private long? _previouslySelectedTopicId = null;
     #endregion
 
     #region - Events -
@@ -137,7 +137,7 @@ public partial class TopicsViewModel : ViewModel,
             return;
         }
         
-        if (topic.TopicId is uint topicId)
+        if (topic.TopicId is long topicId)
         {
             await DeleteTopicAsync(topicId);
         }
@@ -203,7 +203,7 @@ public partial class TopicsViewModel : ViewModel,
         return false;
     }
 
-    private async Task DeleteTopicAsync(uint topicId)
+    private async Task DeleteTopicAsync(long topicId)
     {
         ShowWaitIndicator = true;
 

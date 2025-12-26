@@ -9,7 +9,7 @@ public class TopicTableViewMapper : TableMapper<TopicTableView>
     {
         TopicTableView result = new()
         {
-            TopicId = row.Field<uint?>(GetColumnName(nameof(TopicTableView.TopicId))),
+            TopicId = row.Field<long?>(GetColumnName(nameof(TopicTableView.TopicId))),
             Name    = row.Field<string?>(GetColumnName(nameof(TopicTableView.Name))),
             Count   = row.Field<long?>(GetColumnName(nameof(TopicTableView.Count))),
         };

@@ -19,12 +19,7 @@ public class EntryService(IEntryRepository entryRepository, ITableMapperService 
         return entries;
     }
 
-    public async Task<EntryTableView?> GetEntryAsync(uint entryId)
-    {
-        return await GetEntryAsync((int)entryId);
-    }
-
-    public async Task<EntryTableView?> GetEntryAsync(int entryId)
+    public async Task<EntryTableView?> GetEntryAsync(long entryId)
     {
         var entries = await GetAllEntriesAsync();
 
@@ -35,7 +30,7 @@ public class EntryService(IEntryRepository entryRepository, ITableMapperService 
 
     public async Task<EntryTableView?> SaveEntryAsync(Entry entry)
     {
-        int entryId = await SaveEntryToRepoAsync(entry);
+        var entryId = await SaveEntryToRepoAsync(entry);
 
         return await GetEntryAsync(entryId);
     }
@@ -45,9 +40,9 @@ public class EntryService(IEntryRepository entryRepository, ITableMapperService 
     /// </summary>
     /// <param name="entry"></param>
     /// <returns>The entry id</returns>
-    private async Task<int> SaveEntryToRepoAsync(Entry entry)
+    private async Task<long> SaveEntryToRepoAsync(Entry entry)
     {
-        int entryId = 0;
+        long entryId = 0;
 
         if (entry.Id.HasValue)
         {
@@ -64,12 +59,9 @@ public class EntryService(IEntryRepository entryRepository, ITableMapperService 
     }
 
     
-    public async Task<int> DeleteEntryAsync(uint entryId)
-    { 
-        return await DeleteEntryAsync((int)entryId);
-    }
+
     
-    public async Task<int> DeleteEntryAsync(int entryId)
+    public async Task<int> DeleteEntryAsync(long entryId)
     { 
         return await _entryRepository.DeleteEntryAsync(entryId);
     }
