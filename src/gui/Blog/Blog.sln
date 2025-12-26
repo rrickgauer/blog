@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.Service", "Blog.Servic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.WpfGui", "Blog.WpfGui\Blog.WpfGui.csproj", "{D8467B14-270C-4F3E-B7B3-D2EAC499358E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Resources", "Blog.Resources\Blog.Resources.csproj", "{F0DC0EB6-1100-4BE9-B7E2-350E4E9BFA41}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D8467B14-270C-4F3E-B7B3-D2EAC499358E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8467B14-270C-4F3E-B7B3-D2EAC499358E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8467B14-270C-4F3E-B7B3-D2EAC499358E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0DC0EB6-1100-4BE9-B7E2-350E4E9BFA41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0DC0EB6-1100-4BE9-B7E2-350E4E9BFA41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0DC0EB6-1100-4BE9-B7E2-350E4E9BFA41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0DC0EB6-1100-4BE9-B7E2-350E4E9BFA41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

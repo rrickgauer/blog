@@ -10,5 +10,5 @@ public interface ITopicRepository
     public Task<DataTable> SelectAllAsync();
     public Task<int> UpdateTopicAsync(EntryTopic topic);
     public Task<InsertAutoRowResult> InsertTopicAsync(EntryTopic topic);
-    public Task<int> DeleteTopicAsync(uint topicId);
+    public Task<int> DeleteTopicAsync(long topicId);
 }

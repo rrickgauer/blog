@@ -8,7 +8,7 @@ public class TopicTableView : ITableView<TopicTableView, EntryTopic>
 {
     [SqlColumn("topic_id")]
     [CopyToProperty<EntryTopic>(nameof(EntryTopic.Id))]
-    public uint? TopicId { get; set; }
+    public long? TopicId { get; set; }
 
     [SqlColumn("topic_name")]
     [CopyToProperty<EntryTopic>(nameof(EntryTopic.Name))]

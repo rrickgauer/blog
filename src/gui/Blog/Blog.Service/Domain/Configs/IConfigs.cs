@@ -16,4 +16,6 @@ public interface IConfigs
     public string StaticFilesPath { get; }  
 
     public Uri GuiHttpAddress { get; }
+
+    public string DatabaseFile { get; }
 }

@@ -9,10 +9,10 @@ public class EntryTableViewMapper : TableMapper<EntryTableView>
     {
         EntryTableView result = new()
         {
-            EntryId   = Convert.ToInt32(row.Field<object?>(GetColumnName(nameof(EntryTableView.EntryId)))),
-            Date      = row.Field<DateTime?>(GetColumnName(nameof(EntryTableView.Date))),
+            EntryId   = row.Field<long?>(GetColumnName(nameof(EntryTableView.EntryId))),
+            Date      = DateTime.Parse(row.Field<string?>(GetColumnName(nameof(EntryTableView.Date)))!),
             Title     = row.Field<string?>(GetColumnName(nameof(EntryTableView.Title))),
-            TopicId   = row.Field<uint?>(GetColumnName(nameof(EntryTableView.TopicId))),
+            TopicId = row.Field<long?>(GetColumnName(nameof(EntryTableView.TopicId))),
             TopicName = row.Field<string?>(GetColumnName(nameof(EntryTableView.TopicName))),
             FileName  = row.Field<string?>(GetColumnName(nameof(EntryTableView.FileName))),
         };

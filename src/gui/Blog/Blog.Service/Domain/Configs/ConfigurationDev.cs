@@ -10,4 +10,6 @@ public class ConfigurationDev : ConfigurationProduction, IConfigs
     public override string EntryFilesPath => @"C:\xampp\htdocs\files\blog\entries";
 
     public override string StaticFilesPath => @"C:\xampp\htdocs\files\blog\src\gui\Blog\Blog.Gui\wwwroot";
+
+    public override string DatabaseFile => @"C:\xampp\htdocs\files\blog\src\gui\Blog\Blog.Resources\sql\data.db";
 }

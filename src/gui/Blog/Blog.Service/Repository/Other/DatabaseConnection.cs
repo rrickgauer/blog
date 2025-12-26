@@ -1,32 +1,26 @@
 ﻿using Blog.Service.Domain.Configs;
 using Blog.Service.Domain.Other;
+using Microsoft.Data.Sqlite;
 using MySql.Data.MySqlClient;
 using System.Data;
+using System.Text;
 
 namespace Blog.Service.Repository.Other;
 
-public class DatabaseConnection
+public class DatabaseConnection(IConfigs configs)
 {
-    private readonly IConfigs _configs;
+    private readonly IConfigs _configs = configs;
 
     public string ConnectionString => $"server={_configs.DbServer};user={_configs.DbUser};database={_configs.DbDataBase};password={_configs.DbPassword}";
 
-    /// <summary>
-    /// Constructor
-    /// </summary>
-    /// <param name="configs"></param>
-    public DatabaseConnection(IConfigs configs)
-    {
-        _configs = configs;
-    }
-
+    private static SqliteConnectionPragma[] ConnectionPragmas => Enum.GetValues<SqliteConnectionPragma>();
 
     /// <summary>
     /// Fetch the first row from a data table (one result).
     /// </summary>
     /// <param name="command"></param>
     /// <returns></returns>
-    public async Task<DataRow?> FetchAsync(MySqlCommand command)
+    public async Task<DataRow?> FetchAsync(SqliteCommand command)
     {
         var dataTable = await FetchAllAsync(command);
 
@@ -46,10 +40,10 @@ public class DatabaseConnection
     /// </summary>
     /// <param name="command"></param>
     /// <returns></returns>
-    public async Task<DataTable> FetchAllAsync(MySqlCommand command)
+    public async Task<DataTable> FetchAllAsync(SqliteCommand command)
     {
         // setup a new database connection object
-        using MySqlConnection connection = GetNewConnection();
+        await using SqliteConnection connection = await GetNewConnection();
 
         await connection.OpenAsync();
 
@@ -66,18 +60,18 @@ public class DatabaseConnection
 
 
 
-    public async Task<bool> ModifyWithTransactionAsync(params MySqlCommand[] commands)
+    public async Task<bool> ModifyWithTransactionAsync(params SqliteCommand[] commands)
     {
         // setup a new database connection object
-        using MySqlConnection connection = GetNewConnection();
+        await using SqliteConnection connection = await GetNewConnection();
         await connection.OpenAsync();
 
         // start up a transaction
-        using MySqlTransaction transaction = await connection.BeginTransactionAsync();
+        using SqliteTransaction transaction = (SqliteTransaction)await connection.BeginTransactionAsync();
 
         try
         {
-            foreach (MySqlCommand command in commands)
+            foreach (SqliteCommand command in commands)
             {
                 command.Connection = connection;
                 await command.ExecuteNonQueryAsync();
@@ -105,10 +99,10 @@ public class DatabaseConnection
     /// </summary>
     /// <param name="command"></param>
     /// <returns></returns>
-    public async Task<int> ModifyAsync(MySqlCommand command)
+    public async Task<int> ModifyAsync(SqliteCommand command)
     {
         // setup a new database connection object
-        using MySqlConnection conn = GetNewConnection();
+        await using SqliteConnection conn = await GetNewConnection();
         await conn.OpenAsync();
         command.Connection = conn;
 
@@ -121,17 +115,20 @@ public class DatabaseConnection
         return numRowsAffected;
     }
 
-    public async Task<InsertAutoRowResult> InsertAsync(MySqlCommand command)
+    public async Task<InsertAutoRowResult> InsertAsync(SqliteCommand command)
     {
+        throw new NotImplementedException();
+
         // setup a new database connection object
-        using MySqlConnection conn = GetNewConnection();
+        await using SqliteConnection conn = await GetNewConnection();
+
         await conn.OpenAsync();
         command.Connection = conn;
 
         // execute the non query command
         int numRowsAffected = await command.ExecuteNonQueryAsync();
 
-        int rowInsertId = Convert.ToInt32(command.LastInsertedId);
+        int rowInsertId = 0;
 
         // close the connection
         await CloseConnectionAsync(conn);
@@ -143,22 +140,52 @@ public class DatabaseConnection
         };
         
     }
-
-    /// <summary>
-    /// Get a new connection using the connection string
-    /// </summary>
-    /// <returns></returns>
-    private MySqlConnection GetNewConnection()
+    private async Task<SqliteConnection> GetNewConnection()
     {
-        return new MySqlConnection(ConnectionString);
+        SqliteConnection connection = new();
+
+        SqliteConnectionStringBuilder sb = new()
+        {
+            DataSource = _configs.DatabaseFile,
+            ForeignKeys = true,
+            RecursiveTriggers = true,
+            Mode = SqliteOpenMode.ReadWrite,
+        };
+
+        connection.ConnectionString = sb.ToString();
+
+        await connection.OpenAsync();
+
+        var pragmaCommand = GetPragmaCommand();
+        pragmaCommand.Connection = connection;
+        await pragmaCommand.ExecuteNonQueryAsync();
+
+        return connection;
     }
 
-    private static async Task CloseConnectionAsync(MySqlConnection connection)
+    private static SqliteCommand GetPragmaCommand()
+    {
+        StringBuilder sb = new();
+
+        foreach (var pragma in ConnectionPragmas)
+        {
+            sb.AppendLine(pragma.GetSqlText());
+        }
+
+        return new()
+        {
+            CommandText = sb.ToString(),
+        };
+    }
+
+    private static async Task CloseConnectionAsync(SqliteConnection connection)
     {
         // close the connection
         await connection.CloseAsync();
         await connection.DisposeAsync();
     }
 }
+
+
 
 

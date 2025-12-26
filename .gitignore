@@ -459,3 +459,5 @@ db-info*
 ConfigsProduction.cs
 
 ConfigurationProduction.cs
+*.db-shm
+*.db-wal

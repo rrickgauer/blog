@@ -83,7 +83,7 @@ public partial class EntriesViewModel : ViewModel,
             return;
         }
 
-        if (entry.EntryId is int entryId)
+        if (entry.EntryId is long entryId)
         {
             await _entryService.DeleteEntryAsync(entryId);
             await RefreshEntriesAsync();

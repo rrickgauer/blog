@@ -97,7 +97,7 @@ public partial class EntryFormViewModel : ViewModel, IModelForm<EntryTableView>
 
         Topics = new(topics);
 
-        if (EntryTableView?.TopicId is uint topicId)
+        if (EntryTableView?.TopicId is long topicId)
         {
             SelectedTopic = Topics.Where(t => t.TopicId == topicId).FirstOrDefault();
         }
