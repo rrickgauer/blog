@@ -39,6 +39,10 @@ echo 'Starting up gui server...'
 echo "------------------------------------------------"
 printf "\n\n\n"
 
+
+cd /var/www/blog/src/gui/Blog/Blog.Resources
+chown -R www-data:www-data sql
+
 cd /etc/systemd/system
 systemctl daemon-reload
 systemctl reload-or-restart blog.gui.service
