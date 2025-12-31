@@ -35,7 +35,10 @@ public class EntryRepository(DatabaseConnection connection) : IEntryRepository
     {
         SqliteCommand command = new(EntryCommands.Insert);
 
-        AddEntryParmsToCommand(command, entry);
+        command.Parameters.AddWithValue("@date", entry.Date);
+        command.Parameters.AddWithValue("@title", entry.Title);
+        command.Parameters.AddWithValue("@file_name", entry.FileName);
+        command.Parameters.AddWithValue("@topic_id", entry.TopicId);
 
         return await _connection.InsertAsync(command);
     }

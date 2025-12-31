@@ -3,5 +3,5 @@
 public class InsertAutoRowResult
 {
     public required int NumRows { get; set; }
-    public required int RowId { get; set; }
+    public required long RowId { get; set; }
 }

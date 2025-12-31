@@ -117,8 +117,6 @@ public class DatabaseConnection(IConfigs configs)
 
     public async Task<InsertAutoRowResult> InsertAsync(SqliteCommand command)
     {
-        throw new NotImplementedException();
-
         // setup a new database connection object
         await using SqliteConnection conn = await GetNewConnection();
 
@@ -128,14 +126,16 @@ public class DatabaseConnection(IConfigs configs)
         // execute the non query command
         int numRowsAffected = await command.ExecuteNonQueryAsync();
 
-        int rowInsertId = 0;
+        // get the row id
+        command.CommandText = "SELECT last_insert_rowid();";
+        var lastId = await command.ExecuteScalarAsync();
 
         // close the connection
         await CloseConnectionAsync(conn);
 
         return new()
         {
-            RowId = rowInsertId,
+            RowId = (long)lastId!,
             NumRows = numRowsAffected,
         };
         
@@ -181,6 +181,16 @@ public class DatabaseConnection(IConfigs configs)
     private static async Task CloseConnectionAsync(SqliteConnection connection)
     {
         // close the connection
+
+        string sql = @"
+            PRAGMA wal_checkpoint(FULL);
+            PRAGMA journal_mode = DELETE;";
+
+        using SqliteCommand command = new(sql);
+
+        command.Connection = connection;
+        await command.ExecuteNonQueryAsync();
+
         await connection.CloseAsync();
         await connection.DisposeAsync();
     }
