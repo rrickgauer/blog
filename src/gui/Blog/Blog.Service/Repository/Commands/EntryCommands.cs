@@ -30,9 +30,9 @@ public sealed class EntryCommands
 
     public const string Insert = @"
         INSERT INTO
-            Entries (id, date, title, file_name, topic_id)
+            Entries (date, title, file_name, topic_id)
         VALUES
-            (@id, @date, @title, @file_name, @topic_id);";
+            (@date, @title, @file_name, @topic_id);";
 
     public const string Delete = @"
         DELETE FROM
