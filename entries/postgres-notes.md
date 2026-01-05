@@ -110,7 +110,6 @@ LIMIT 1;
 RAISE NOTICE 'selected event # %', event_row.id;
 ```
 
-
 You can also use these types in a for loop:
 
 ```sql
@@ -123,6 +122,15 @@ LOOP
 END LOOP;
 ```
 
+## Record Types
+
+https://www.postgresql.org/docs/current/plpgsql-declarations.html#PLPGSQL-DECLARATION-RECORDS
+
+Similar to row types, you can declare dynamic row types by using `RECORD` types. They are similar to JavaScript objects.
+
+```sql
+DECLARE rec RECORD;
+```
 
 ## Adding Non-Unique Index
 
