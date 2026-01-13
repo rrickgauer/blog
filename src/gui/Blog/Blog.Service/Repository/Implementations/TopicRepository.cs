@@ -43,7 +43,7 @@ public class TopicRepository(DatabaseConnection connection) : ITopicRepository
     {
         SqliteCommand command = new(TopicCommands.Insert);
 
-        AddModifyParms(topic, command);
+        command.Parameters.AddWithValue("@name", topic.Name);
 
         return await _connection.InsertAsync(command);
     }

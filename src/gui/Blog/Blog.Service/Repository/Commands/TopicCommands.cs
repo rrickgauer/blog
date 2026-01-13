@@ -10,7 +10,7 @@ public sealed class TopicCommands
         WHERE 
             v.count_entries > 0
         ORDER BY
-            v.topic_name ASC;";
+            v.topic_name COLLATE NOCASE ASC;";
 
 
     public const string SelectAll = @"
@@ -19,14 +19,14 @@ public sealed class TopicCommands
         FROM
             View_Topics t
         ORDER BY
-            t.topic_name ASC;";
+            t.topic_name COLLATE NOCASE ASC;";
 
 
     public const string Insert = @"
         INSERT INTO
-            Topics (id, name)
+            Topics (name)
         VALUES
-            (@id, @name);";
+            (@name);";
 
     public const string Update = @"
         UPDATE
