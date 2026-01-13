@@ -1,5 +1,14 @@
 #!/bin/bash
 
+printf "\n\n\n"
+echo "------------------------------------------------"
+echo 'Restoring SQLite database changes'
+echo "------------------------------------------------"
+printf "\n\n\n"
+
+cd /var/www/blog
+git restore src/gui/Blog/Blog.Resources/sql/data.db
+
 cd /var/www/blog/scripts/vps
 
 printf "\n\n\n"
