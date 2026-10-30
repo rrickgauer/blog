@@ -1,9 +1,5 @@
 
-C# just recently added [extension properties](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-14?utm_source=chatgpt.com#extension-members). 
-
-This new feature allows you to add new static 
-
-They behave similarly to the pre-existing extension methods.
+C# just recently added [extension properties](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-14?utm_source=chatgpt.com#extension-members). This new feature allows you to add new properties to exisisting types/classes. Even ones that you do not have control over. They behave similarly to the pre-existing extension methods feature.
 
 ## Example
 
@@ -47,7 +43,7 @@ Console.WriteLine(p1.FullName);             // Ryan Rickgauer
 Console.WriteLine(p1.CanPurchaseAlcohol);   // true
 ```
 
-## Second Example
+## Real World Example
 
 The previous example shows how you can add these new properties to a class you created. However, that doesn't really help us out too much since we just could have added those 2 new properties to our `Person` class ourselves.
 
